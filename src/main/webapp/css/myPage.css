@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+}
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #ffffff;
+}
+
+#logo {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    height: 20px;
+}
+
+.headerBtn {
+    font-size: 10pt;
+    float: right;
+    margin-top: 9px;
+    margin-right: 20px;
+    background: #0000FF;
+    color: #ffffff;
+    padding: 5px;
+    border: 1px solid blue;
+    box-shadow: 0px 3px 5px gray;
+}
+
+#profileDiv {
+    height: 400px;
+    background-color: #EEECE2;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#profileDiv span {
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+#profileDiv p {
+    font-weight: bold;
+    font-size: 35pt;
+}
+
+#profileDiv img {
+    width: 400px;
+    height: 300px;
+}
+
+#profileContent {
+    margin-left: 250px;
+    margin-right: 150px;
+    width: 500px;
+}
+
+#profileContent img {
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+#missionList {
+    position: relative;
+    top: -50px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 450px;
+}
+
+#grade {
+    margin-left: 40px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 15pt;
+    display: flex;
+    align-items: center;
+}
+
+#grade_img {
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+}
+
+#carousel {
+    margin-top: 20px;
+}
+
+.item {
+    padding-left: 11px;
+}
+
+.card img {
+    height: 170px;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 50px;
+}

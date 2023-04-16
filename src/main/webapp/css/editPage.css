@@ -1,0 +1,143 @@
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Pretendard-Regular';
+	font-size: 11pt;
+}
+
+#modalWrap {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modalContent {
+	background: #ffffff;
+	width: 35%;
+	margin: 100px auto;
+}
+
+#closeBtn {
+	padding-top: 15px;
+	padding-right: 15px;
+	text-align: right;
+}
+
+#close {
+	width: 20px;
+	height: 20px;
+}
+
+center {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+.essential {
+	color: #0000ff;
+}
+
+table {
+	width: 100%;
+	background: #ffffff;
+	padding: 30px;
+	border-spacing: 0 20px;
+	border-collapse: separate;
+}
+
+
+input[type="text"],
+input[type="password"] {
+	box-sizing: border-box;
+	width: 100%;
+	font-family: 'Pretendard-Regular';
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+}
+
+input[type="button"] {
+	font-family: 'Pretendard-Regular';
+	color: #fff;
+	padding: 10px;
+	border: none;
+	background: #0000ff;
+	cursor: pointer;
+	box-shadow: 0px 3px 5px gray;
+}
+
+input[type="reset"] {
+	font-family: 'Pretendard-Regular';
+	color: #fff;
+	padding: 10px;
+	border: none;
+	background: #000000;
+	cursor: pointer;
+	box-shadow: 0px 3px 5px gray;
+}
+
+button[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover {
+	opacity: 70%;
+	transition: all 0.3s ease;
+}
+
+#pwd {
+	margin-bottom: 2px;
+}
+
+#email1,
+#email2 {
+	width: 30%;
+}
+
+#emailTd select {
+	font-family: 'Pretendard-Regular';
+	color: #000000;
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+	width: 30%;
+}
+
+#tel1,
+#tel2,
+#tel3 {
+	width: 30%;
+}
+
+
+#zipcode {
+	width: 30%;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+#addr1 {
+	margin-bottom: 2px;
+}
+
+#btn {
+	padding-top: 20px;
+	text-align: center;
+}
+
+.checkDdiv {
+	color: red;
+	font-size: 10pt;
+}
+
+.spacing{
+	margin-bottom: 10px;
+}
