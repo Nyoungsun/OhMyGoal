@@ -189,7 +189,7 @@
 			<hr
 				style="width: 100%; margin-left: auto; margin-right: auto; height: 3px; border: 0; background: black;">
 			<div class="option_ann1">
-				<label>👉 문의 제목 <em style="color: red;">*</em></label> <input
+				<label>✍ 문의 제목 <em style="color: red;">*</em></label> <input
 					type="text" name="mm" id="mm" placeholder="제목을 입력해주세요.">&nbsp;
 				<span id="mm-error" style="color: red;"></span>
 			</div>
@@ -209,7 +209,7 @@
 			</div>
 
 			<div class="option_ann">
-				<label>👉 문의 내용 <em style="color: red;">*</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label>✍ 문의 내용 <em style="color: red;">*</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</label><br>
 				<textarea style="resize: none;"
 					placeholder="문의 유형을 선택 후 문의내용을 자세하게 작성해주세요."></textarea>
@@ -231,13 +231,13 @@
 			</div>
 
 		<div class="option_ann">
-				<label>👉 담당자 이름 <em style="color: red">*</em></label> <input
+				<label>✍ 담당자 이름 <em style="color: red">*</em></label> <input
 					type="text" placeholder="담당자이름을 입력해주세요">&nbsp; <span
 					id="name-error" style="color: red;"></span>
 			</div>
 
 			<div class="option_ann">
-				<label>👉 이메일 <em style="color: red">*</em> <input type="email"
+				<label>✍ 이메일 <em style="color: red">*</em> <input type="email"
 					placeholder="ex)example@naver.com" id="email_id" name="email_id">&nbsp;&nbsp;
 				</label> <span id="email_id-error" style="color: red;"></span>
 			</div>
