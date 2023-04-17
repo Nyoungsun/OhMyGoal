@@ -1,112 +1,128 @@
 @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
 }
 
 body {
-    font-family: 'Pretendard-Regular';
+	font-family: 'Pretendard-Regular';
 }
 
-header{
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background: #ffffff;
+header {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
 }
 
 #logo {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 20px;
-    height: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 20px;
+	height: 20px;
 }
 
-.headerBtn {
-    font-size: 10pt;
-    float: right;
-    margin-top: 9px;
-    margin-right: 20px;
-    background: #0000FF;
-    color: #ffffff;
-    padding: 5px;
-    border: 1px solid blue;
-    box-shadow: 0px 3px 5px gray;
+#editBtn {
+	font-size: 9pt;
+	float: right;
+	margin-top: 9px;
+	margin-right: 20px;
+	background: #0000FF;
+	color: #ffffff;
+	padding: 5px;
+	border: 1px solid blue;
+	box-shadow: 0px 3px 5px gray;
+}
+
+#logoutBtn {
+	font-size: 9pt;
+	float: right;
+	margin-top: 9px;
+	margin-right: 20px;
+	color: #ffffff;
+	padding: 5px;
+	box-shadow: 0px 3px 5px gray;
+	border: 1px solid black;
+	background: #000000;
 }
 
 #profileDiv {
-    height: 400px;
-    background-color: #EEECE2;
-    display: flex;
-    align-items: center;
-    position: relative;
+	height: 400px;
+	background-color: #EEECE2;
+}
+
+#String {
+	display:inline-block;
+	padding-top: 100px;
 }
 
 #profileDiv span {
-    font-weight: bold;
-    font-size: 20pt;
+	font-weight: bold;
+	font-size: 25pt;
 }
 
-#profileDiv p {
-    font-weight: bold;
-    font-size: 35pt;
+#profileDiv span:nth-child(1) {
+	padding-top: 50px;
 }
 
-#profileDiv img {
-    width: 400px;
-    height: 300px;
+#profileDiv span:nth-child(3) {
+	font-weight: bold;
+	font-size: 40pt;
 }
 
 #profileContent {
-    margin-left: 250px;
-    margin-right: 150px;
-    width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 65%;
+	height: 100%;
 }
 
-#profileContent img {
-    margin-left: 5px;
-    width: 20px;
-    height: 20px;
+#banner {
+	float: right; 
+	width : 500px;
+	height: 350px;
 }
 
 #missionList {
-    position: relative;
-    top: -50px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 450px;
+	position: relative;
+	top: -50px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 450px;
 }
 
 #grade {
-    margin-left: 40px;
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 15pt;
-    display: flex;
-    align-items: center;
+	margin-left: 40px;
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 15pt;
+	display: flex;
+	align-items: center;
 }
 
 #grade_img {
-    margin-right: 10px;
-    width: 35px;
-    height: 35px;
+	margin-right: 10px;
+	width: 35px;
+	height: 35px;
 }
 
 #carousel {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 .item {
-    padding-left: 11px;
+	padding-left: 11px;
 }
 
 .card img {
-    height: 170px;
+	height: 170px;
 }
 
 footer {
-    text-align: center;
-    padding-bottom: 50px;
+	text-align: center;
+	padding-bottom: 50px;
 }
