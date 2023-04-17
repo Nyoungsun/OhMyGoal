@@ -50,11 +50,9 @@
 						<h1>Welcome to</h1>
 						<img src="img/logo/logo_no_bg2.png" style="width: 200px;"> <br>
 						<br>
-						<p>Our goal is to provide fun and challenging activities that
-							you can complete within the target period.</p>
-						<p>Each mission is designed to be accessible to people of
-							interest, so don't worry if you're not an expert on the topic.</p>
-						<a href="#" class="btn btn-primary">Join Today's Mission</a>
+						<p>목표 기간 내에 완료할 수 있는 재미있고 도전적인 활동을 제공하는 것이 우리의 목표입니다.</p>
+						<p>각 미션은 관심 있는 사람들이 접근할 수 있도록 설계되었으므로, 당신이 관심 있는 사람이 아니더라도 걱정하지 마세요.</p>
+						👉 <a href="#" class="btn btn-primary"> 오늘의 미션에 참여하기</a>
 					</div>
 					<div class="col-md-6 col-sm-12">
 						<img src="img/challenge.png" alt="Mission" class="img-fluid">
@@ -65,17 +63,15 @@
 	</main>
 	<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
 		<div class="jumbotron">
-			<h1>Hello ~ OMG</h1>
-			<p>Explore our services and discover how we can help you achieve
-				your goals.</p>
+			<h1><img src="img/logo/logo_no_bg.png" style="width:100px;"><br></h1>
+			<p><h4> OMG 서비스를 살펴보고 귀사의 목표 달성을 지원하는 방법을 알아보십시오.</h4></p>
 			<a href="#" class="btn btn-primary">Get Started</a>
 		</div>
 	</div>
 	<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
-		<h2>Featured Mission</h2>
-		<h3>Complete the OhMyGoal Scavenger Hunt</h3>
-		<p>Are you up for a challenge? Complete the OhMyGoal Scavenger
-			Hunt and win a prize!</p>
+		<h2> 특집 미션 </h2>
+		<h3>💐✌✍👌✋👅🐟🐠🌴🍺🍸🥄🍛🎁✨🐶</h3>
+		<p>자세한 내용은 특집 미션 페이지에서 확인하실 수 있습니다. 많은 참여 부탁드립니다!</p>
 		<a href="#" class="btn btn-primary">Learn More</a>
 	</div>
 	<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
