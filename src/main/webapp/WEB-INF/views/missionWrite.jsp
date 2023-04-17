@@ -142,7 +142,7 @@
         <footer class="footer" align="center">
           <div class="footerDiv" style="">
             <p><strong>OhMyGoal! 2023</strong></p>
-            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.&&</p>
             <p>ohmygoal.help@gmail.com</p>
           </div>
         </footer>
