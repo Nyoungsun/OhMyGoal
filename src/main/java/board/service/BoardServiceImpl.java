@@ -1,0 +1,41 @@
+package board.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import board.bean.BoardDTO;
+import board.dao.BoardDAO;
+import member.bean.MemberDTO;
+
+@Service
+public class BoardServiceImpl implements BoardService {
+	@Autowired
+	BoardDAO boardDAO;
+	
+	@Override
+	public List<BoardDTO> list(Map<Object, Object> map) {
+		
+		return boardDAO.list(map);
+	}
+	
+	@Override
+	public MemberDTO login(Map<Object, Object> map) {
+		
+		return boardDAO.login(map);
+	}
+	
+	@Override
+	public MemberDTO checkId(String id) {
+		
+		return boardDAO.checkId(id);
+	}
+	
+	@Override
+	public void sign_up(MemberDTO memberDTO) {
+		
+		boardDAO.sign_up(memberDTO);
+	}
+}

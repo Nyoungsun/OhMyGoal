@@ -1,0 +1,18 @@
+package board.service;
+
+import java.util.List;
+import java.util.Map;
+
+import board.bean.BoardDTO;
+import member.bean.MemberDTO;
+
+public interface BoardService {
+
+	public List<BoardDTO> list(Map<Object, Object> map);
+	
+	public MemberDTO login(Map<Object, Object> map);
+
+	public MemberDTO checkId(String id);
+
+	public void sign_up(MemberDTO memberDTO);
+}
