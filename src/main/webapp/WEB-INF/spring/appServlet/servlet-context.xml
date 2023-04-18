@@ -11,15 +11,18 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
-
+	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/js/**" location="/js/" />
 	<resources mapping="/img/**" location="/img/" />
+	
+	<resources location="/WEB-INF/image/" mapping="/image/**"/>
+	<resources location="/WEB-INF/js/" mapping="/js/**"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="prefix" value="/WEB-INF/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
@@ -27,4 +30,6 @@
 	<context:component-scan base-package="mission.controller" />
 	<context:component-scan base-package="admin.controller" />
 	<context:component-scan base-package="board.controller" />
+	<context:component-scan base-package="email.controller" />
+	<context:component-scan base-package="com.project.OhMyGoal" /> <!-- 가장 첫화면 -->
 </beans:beans>

@@ -1,0 +1,12 @@
+ohmygoal_high = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g706a2ddbae67d6_ohmygoal_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+ohmygoal_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g706a2ddbae67d6_ohmygoal_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+ohmygoal_medium = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g706a2ddbae67d6_ohmygoal_medium.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+ohmygoal_tp = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g706a2ddbae67d6_ohmygoal_tp.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+ohmygoal_tpurgent = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=g706a2ddbae67d6_ohmygoal_tpurgent.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+
