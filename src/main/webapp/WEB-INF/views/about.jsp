@@ -15,9 +15,18 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+	new WOW().init(); // wow 활성화
+</script>
 <script type="text/javascript">
 </script>
 </head>
+
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -64,23 +73,27 @@
 			</div>
 		</div>
 	</main>
-	<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
-		<div class="jumbotron">
-			<h1>
-				<img src="img/logo/logo_no_bg.png" style="width: 100px;"><br>
-			</h1>
-			<p>
-			<h4>OMG 서비스를 살펴보고 귀사의 목표 달성을 지원하는 방법을 알아보십시오.</h4>
-			</p>
-			<a href="#" class="btn btn-primary">Get Started</a>
+	<section class="bg_bl wow slideInRight" data-wow-duration="4s">
+		<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
+			<div class="jumbotron">
+				<h1>
+					<img src="img/logo/logo_no_bg.png" style="width: 100px;"><br>
+				</h1>
+				<p>
+				<h4>OMG 서비스를 살펴보고 귀사의 목표 달성을 지원하는 방법을 알아보십시오.</h4>
+				</p>
+				<a href="#" class="btn btn-primary">Get Started</a>
+			</div>
 		</div>
-	</div>
-	<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
-		<h2>✨ Mission</h2>
-		<h4>자세한 내용은 미션 페이지에서 확인하실 수 있습니다. 많은 참여 부탁드립니다!</h4>
-		<p></p>
-		<a href="#" class="btn btn-primary">Learn More</a>
-	</div>
+	</section>
+	<section class="bg_pu wow slideInLeft" data-wow-duration="4s">
+		<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
+			<h2>✨ Mission</h2>
+			<h4>자세한 내용은 미션 페이지에서 확인하실 수 있습니다. 많은 참여 부탁드립니다!</h4>
+			<p></p>
+			<a href="#" class="btn btn-primary">Learn More</a>
+		</div>
+	</section>
 	<!-- 	 <div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
 		<h2 class="card-title">💪Exercise Mission</h2>
 		<p class="card-text">Let's take a walk and exercise together

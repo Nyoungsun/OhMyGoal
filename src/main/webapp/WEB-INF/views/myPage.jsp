@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyPage</title>
+<title>MyPage🐟</title>
 <!--Carousel-->
 <link rel="stylesheet" href="css/owlCarousel/owl.theme.default.css">
 <link rel="stylesheet" href="css/owlCarousel/owl.carousel.css">
@@ -18,14 +18,36 @@
 
 <link rel="stylesheet" href="css/editPage.css">
 <link rel="stylesheet" href="css/myPage.css">
+<!-- 음... -->
+
 </head>
 <meta charset="UTF-8">
+
 <body>
 	<header>
-		<a href="#"><img id="logo" src="img/logo/logo2.png"></a>
-		<button type="button" id="editBtn" class="headerBtn"
-			data-bs-toggle="modal" data-bs-target="#Modal">EDIT</button>
-		<button type="button" id="logoutBtn" class="headerBtn">로그아웃</button>
+		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+			<div class="container">
+				<a class="OMGlogo" href="#"><img src="img/logo/logo_no_bg2.png"
+					alt="OhMyGoal!"></a>
+			</div>
+			<!-- 햄버거 -->
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- 햄버거 -->
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="#"
+						style="text-decoration: none; margin-right:20px;">마이페이지</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"
+						style="text-decoration: none;">로그아웃</a></li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 	<div id="profileDiv">
 		<div id="profileContent">
