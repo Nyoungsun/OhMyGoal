@@ -9,44 +9,50 @@
 
 body {
 	font-family: 'Pretendard-Regular';
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333;
+	background-color: #f7f7f7;
+	margin: 0;
 }
-
+/* Header */
 header {
+	width: 100%;
 	position: sticky;
 	top: 0;
 	z-index: 1;
 	background: #ffffff;
 }
 
-#logo {
+#navbarNav a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none
+}
+
+.navbar {
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 8px;
+}
+
+#navbarNav a:hover {
+	color: #6c757d;
+}
+
+.nav-link {
+	color: #333;
+	font-weight: 500;
+	margin-right: 12px;
+}
+
+
+.OMGlogo img {
+	height: 20px;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	margin-left: 20px;
-	height: 20px;
-}
-
-#editBtn {
-	font-size: 9pt;
-	float: right;
-	margin-top: 9px;
-	margin-right: 20px;
-	background: #0000FF;
-	color: #ffffff;
-	padding: 5px;
-	border: 1px solid blue;
-	box-shadow: 0px 3px 5px gray;
-}
-
-#logoutBtn {
-	font-size: 9pt;
-	float: right;
-	margin-top: 9px;
-	margin-right: 20px;
-	color: #ffffff;
-	padding: 5px;
-	box-shadow: 0px 3px 5px gray;
-	border: 1px solid black;
-	background: #000000;
+	margin-left: 12px;
 }
 
 #profileDiv {
@@ -122,7 +128,23 @@ header {
 	height: 170px;
 }
 
+/* Footer */
+footer {
+	background-color: #fbfafa;
+	color: #000000;
+	padding: 50px 0;
+}
+
+footer p {
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+footer p strong {
+	font-weight: 700;
+}
+
 footer {
 	text-align: center;
-	padding-bottom: 50px;
 }

@@ -23,8 +23,12 @@
 	crossorigin="anonymous"></script>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-3.6.4.min.js">
-    </script>
-
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+	new WOW().init(); // wow 활성화
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -184,7 +188,7 @@
 				</div>
 			</div>
 		</main>
-
+	<section class="bg_re wow zoomIn" data-wow-duraion="3s">
 		<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box"
 			style="height: auto; width: 50%; max-width: 100%">
 			<h3 style="text-align: center">👌1:1 문의하기</h3>
@@ -232,7 +236,7 @@
 				</div>
 			</div>
 
-		<div class="option_ann">
+			<div class="option_ann">
 				<label for="name">✍ 이름 <em style="color: red">*</em></label>
 				 <input 
 					id="name" name="name"
@@ -259,6 +263,7 @@
 				<input type="submit" id="upBtn" value="문의 접수">
 			</div>
 		</div>
+	</section>	
 	</form>
 	<iframe id="iframe1" name="iframe1" style="display:none"></iframe>
 	<footer>
