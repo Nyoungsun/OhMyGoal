@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="boardSQL">  <!-- 매퍼가 중복될수있으니 namespace 로 이름을 정해주어야함. -->
+ 
+ 	<!-- 목록 -->
+ 	 <select id ="getUserList" parameterType="java.util.Map" resultType="board.bean.BoardDTO">
+ 	 	<![CDATA[
+ 	 		SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE img like '%'||#{word}||'%' ORDER BY
+ 	 		CASE #{tag}
+		        WHEN '1' THEN seq
+		        WHEN '2' THEN views
+		        WHEN '3' THEN likes
+		        ELSE seq
+ 	 		END DESC) TT)WHERE RN >= #{startNum} AND RN <= #{endNum} 
+		]]>
+		
+ 	 	<!-- <choose>
+ 	 		<when test="tag == '1'">
+ 	 			<![CDATA[
+ 	 			SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE img like '%'||#{word}||'%' ORDER BY seq desc) TT)WHERE RN >= #{startNum} AND RN <= #{endNum} 
+				]]>
+ 	 		</when>
+ 	 		<when test="tag == '2'">
+ 	 			<![CDATA[
+ 	 			SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE img like '%'||#{word}||'%' ORDER BY views desc) TT)WHERE RN >= #{startNum} AND RN <= #{endNum} 
+				]]>
+ 	 		</when>
+ 	 		<when test="tag == '3'">
+ 	 			<![CDATA[
+ 	 			SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE img like '%'||#{word}||'%' ORDER BY likes desc) TT)WHERE RN >= #{startNum} AND RN <= #{endNum} 
+				]]>
+ 	 		</when>
+ 	 		<otherwise>
+ 	 			<![CDATA[
+ 	 			SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE img like '%'||#{word}||'%' ORDER BY seq desc) TT)WHERE RN >= #{startNum} AND RN <= #{endNum}
+				]]>
+ 	 		</otherwise>
+ 	 	</choose> -->
+ 	</select>
+ 	
+ 	<!-- 로그인 -->
+	<select id="memberLogin" parameterType="java.util.Map" resultType="member.bean.MemberDTO">
+		select * from member where id=#{id} and pwd=#{pwd}
+	</select>
+	
+	<!-- 중복 아이디 체크 -->
+	<select id="getUser" parameterType="String" resultType="member.bean.MemberDTO">
+		select * from member where id=#{id}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="signUp" parameterType="member.bean.MemberDTO">
+		insert into member values(seq_ohmygoal.NEXTVAL
+								, #{name}
+								, #{id}
+								, #{pwd}
+								, #{email1}
+								, #{email2}
+								, #{tel1}
+								, #{tel2}
+								, #{tel3}
+								, #{zipcode}
+								, #{addr1}
+								, #{addr2})
+	</insert>
+ 	
+ 	
+ </mapper>

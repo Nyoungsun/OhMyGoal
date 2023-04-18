@@ -1,0 +1,150 @@
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Pretendard-Regular';
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333;
+	background-color: #f7f7f7;
+	margin: 0;
+}
+/* Header */
+header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
+}
+
+#navbarNav a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none
+}
+
+.navbar {
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 8px;
+}
+
+#navbarNav a:hover {
+	color: #6c757d;
+}
+
+.nav-link {
+	color: #333;
+	font-weight: 500;
+	margin-right: 12px;
+}
+
+
+.OMGlogo img {
+	height: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 12px;
+}
+
+#profileDiv {
+	height: 400px;
+	background-color: #EEECE2;
+}
+
+#String {
+	display:inline-block;
+	padding-top: 100px;
+}
+
+#profileDiv span {
+	font-weight: bold;
+	font-size: 25pt;
+}
+
+#profileDiv span:nth-child(1) {
+	padding-top: 50px;
+}
+
+#profileDiv span:nth-child(3) {
+	font-weight: bold;
+	font-size: 40pt;
+}
+
+#profileContent {
+	margin-left: auto;
+	margin-right: auto;
+	width: 65%;
+	height: 100%;
+}
+
+#banner {
+	float: right; 
+	width : 500px;
+	height: 350px;
+}
+
+#missionList {
+	position: relative;
+	top: -50px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 450px;
+}
+
+#grade {
+	margin-left: 40px;
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 15pt;
+	display: flex;
+	align-items: center;
+}
+
+#grade_img {
+	margin-right: 10px;
+	width: 35px;
+	height: 35px;
+}
+
+#carousel {
+	margin-top: 20px;
+}
+
+.item {
+	padding-left: 11px;
+}
+
+.card img {
+	height: 170px;
+}
+
+/* Footer */
+footer {
+	background-color: #fbfafa;
+	color: #000000;
+	padding: 50px 0;
+}
+
+footer p {
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+footer p strong {
+	font-weight: 700;
+}
+
+footer {
+	text-align: center;
+}

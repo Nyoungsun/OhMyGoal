@@ -1,0 +1,217 @@
+/* 전체 페이지 스타일 */
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+* {
+	font-family: 'Pretendard-Regular';
+}
+
+body {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333;
+	background-color: #f7f7f7;
+	margin: 0;
+}
+
+/* 헤더 스타일 */
+header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
+}
+
+#navbarNav a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none
+}
+
+.navbar {
+	background-color: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+#navbarNav a:hover {
+	color: #6c757d;
+}
+
+.nav-link {
+	color: #333;
+	font-weight: 500;
+	margin-right: 20px;
+}
+
+.OMGlogo img {
+	height: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 20px;
+}
+
+#OMG_btn a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none;
+}
+
+#OMG_logout:hover, #OMG_page:hover {
+	color: #6c757d;
+}
+
+/* 본문 스타일 */
+#box {
+	margin: 50px auto;
+	background-color: #ffffff;
+	padding: 30px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 28px;
+	margin-bottom: 30px;
+}
+
+hr {
+	margin-top: 30px;
+}
+
+.option_ann1 {
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+.option_ann {
+	margin-top: 10px;
+	margin-bottom: 40px;
+}
+
+.selectbox {
+	width: 300px;
+	height: 40px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: none;
+	padding: 10px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	background-color: #f5f5f5;
+}
+
+textarea {
+	width: 100%;
+	height: 200px;
+	border-radius: 5px;
+	border: none;
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	background-color: #f5f5f5;
+}
+
+/* label 스타일 조정 */
+.button {
+	display: flex;
+	justify-content: left;
+}
+
+label {
+	margin-top: 20px;
+	cursor: pointer;
+	font-size: 1em;
+}
+
+/* 못생긴 기존 input 숨기기 */
+#chooseFile {
+	visibility: hidden;
+}
+
+input[type="text"] {
+	width: 100%;
+	height: 40px;
+	border-radius: 5px;
+	border: none;
+	padding: 5px;
+	margin-top: 10px;
+	margin-bottom: 1px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	background-color: #f5f5f5;
+}
+
+input[type="email"] {
+	width: 100%;
+	height: 40px;
+	border-radius: 5px;
+	border: none;
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 1px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	background-color: #f5f5f5;
+}
+
+input[type="checkbox"] {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#upBtn {
+	width: 100%;
+	height: 60px;
+	background-color: #0040FF;
+	border-color: #0040FF;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+/* Footer */
+footer {
+	background-color: #fbfafa;
+	color: #000000;
+	padding: 50px 0;
+}
+
+footer p {
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+footer p strong {
+	font-weight: 700;
+}
+
+footer {
+	text-align: center;
+}
+
+#file-Btn {
+	width: 100%;
+	height: 50px;
+	background-color: black;
+	border-color: black;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
