@@ -12,6 +12,7 @@
 	font-family: 'Pretendard-Regular';
 }
 
+
 body {
 	font-weight: 400;
 	font-size: 16px;
@@ -72,12 +73,7 @@ header {
 }
 
 /* 본문 스타일 */
-#box {
-	margin: 50px auto;
-	background-color: #ffffff;
-	padding: 30px;
-	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-}
+
 
 h3 {
 	font-weight: bold;
@@ -89,10 +85,7 @@ hr {
 	margin-top: 30px;
 }
 
-.option_ann1 {
-	margin-top: 20px;
-	margin-bottom: 0;
-}
+
 
 .option_ann {
 	margin-top: 10px;
@@ -214,4 +207,15 @@ footer {
 	font-weight: bold;
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out;
+	
+}
+#box {
+	margin: 50px auto;
+	background-color: #ffffff;
+	padding: 30px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+.option_ann1 {
+	margin-top: 20px;
+	margin-bottom: 0;
 }
