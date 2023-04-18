@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+//미션만들기(글쓰기), 미션글내용
 @Controller
 public class MissionController {
 	
@@ -16,5 +17,4 @@ public class MissionController {
 	public String missionBoard() {
 		return "missionBoard";
 	}
-
 }

@@ -1,16 +1,15 @@
-package member.controller;
+package com.project.OhMyGoal;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-//마이페이지 
+// 관리자 페이지
 @Controller
-public class MemberController {
+public class MainController {
 	
-	@RequestMapping(value = "myPage", method = RequestMethod.GET)
-	public String myPage() {
-		return "myPage";
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String main() {
+		return "main";
 	}
-	
 }
