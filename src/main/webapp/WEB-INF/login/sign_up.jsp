@@ -142,9 +142,9 @@ fieldset div {
 				<tr>
 				 <th>捞皋老</th>
 				 <td>
-				  <input type="text" name="email1" id="email1" style="width: 120px;">
+				  <input type="text" name="email1" id="email1" style="width: 100px;">
 				@
-				<input type="text" name="email2" id="email2" style="width: 120px;">
+				<input type="text" name="email2" id="email2" style="width: 100px;">
 				&nbsp;
 				<select name="email3" id="email3" style="width: 120px;" onchange="select()">
 					<option value="">流立涝仿</option>
@@ -182,9 +182,9 @@ fieldset div {
 				  <input type="text" name="zipcode" id="zipcode" size="10" placeholder="快祈锅龋" readonly>
 				  <input type="button" value="快祈锅龋八祸" onclick="execDaumPostcode()">
 				<br>
-				<input type="text" name="addr1" id="addr1" style="width: 400px;" placeholder="林家" readonly/>
+				<input type="text" name="addr1" id="addr1" style="width: 350px;" placeholder="林家" readonly/>
 				<br>
-				<input type="text" name="addr2" id="addr2" style="width: 400px;" placeholder="惑技林家" />
+				<input type="text" name="addr2" id="addr2" style="width: 350px;" placeholder="惑技林家" />
 				 </td>
 				</tr>
 				

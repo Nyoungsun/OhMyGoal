@@ -13,4 +13,9 @@ public class MemberController {
 		return "member/myPage";
 	}
 	
+	@RequestMapping(value = "edit", method = RequestMethod.GET)
+	public String edit() {
+		return "member/edit";
+	}
+	
 }

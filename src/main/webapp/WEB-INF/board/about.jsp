@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABOUT</title>
-<link rel="stylesheet" href="css/about.css">
+<title>ABOUT✨</title>
+ <link rel="shortcut icon" href="../img/icon/check.ico">
+<link rel="stylesheet" href="../css/board/about.css">
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
@@ -15,30 +18,50 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+	new WOW().init(); // wow 활성화
+</script>
+<script type="text/javascript">
+</script>
 </head>
+
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 			<div class="container">
-				<a class="OMGlogo" href="#"><img src="img/logo/logo_no_bg2.png"
+				<a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png"
 					alt="OhMyGoal!"></a>
-				<!-- 햄버거 -->
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarNav"
-					aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<!-- 햄버거 -->
-				<div class="collapse navbar-collapse justify-content-end"
-					id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="#"
-							style="text-decoration: none;">마이페이지</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"
-							style="text-decoration: none;">로그아웃</a></li>
-					</ul>
-				</div>
+			</div>
+			<!-- 햄버거 -->
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- 햄버거 -->
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				<ul class="navbar-nav">
+					<c:if test="${empty memName}">
+						<li class="nav-item">
+							<a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
+						</li>
+					</c:if>
+					
+					<c:if test="${not empty memName}">
+						<li class="nav-item">
+							<a class="nav-link" href="../member/myPage" style="text-decoration: none;">${memName}님 환영합니다.&nbsp;&nbsp;&nbsp;마이페이지</a>
+						</li>
+						<li class="nav-item">
+							<a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
+						</li>
+					</c:if>
+				</ul>
 			</div>
 		</nav>
 	</header>
@@ -47,43 +70,49 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-sm-12">
-						<h1>Welcome to</h1>
-						<img src="img/logo/logo_no_bg2.png" style="width: 200px;"> <br>
+						<h1>Welecom to</h1>
+						<img src="../img/logo/logo_no_bg2.png" style="width: 200px;"> <br>
 						<br>
-						<p>Our goal is to provide fun and challenging activities that
-							you can complete within the target period.</p>
-						<p>Each mission is designed to be accessible to people of
-							interest, so don't worry if you're not an expert on the topic.</p>
-						<a href="#" class="btn btn-primary">Join Today's Mission</a>
+						<p>목표 기간 내에 완료할 수 있는 재미있고 도전적인 활동을 제공하는 것이 우리의 목표입니다.</p>
+						<p>각 미션은 관심 있는 사람들이 접근할 수 있도록 설계되었으므로, 당신이 관심 있는 사람이 아니더라도
+							걱정하지 마세요.</p>
+						👉 <a href="#" class="btn btn-primary"> 오늘의 미션에 참여하기</a>
 					</div>
 					<div class="col-md-6 col-sm-12">
-						<img src="img/challenge.png" alt="Mission" class="img-fluid">
+						<img src="../img/challenge.png" alt="Mission" class="img-fluid">
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
-	<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
-		<div class="jumbotron">
-			<h1>Hello ~ OMG</h1>
-			<p>Explore our services and discover how we can help you achieve
-				your goals.</p>
-			<a href="#" class="btn btn-primary">Get Started</a>
+	<section class="bg_bl wow slideInRight" data-wow-duration="4s">
+		<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
+			<div class="jumbotron">
+				<h1>
+					<img src="../img/logo/logo_no_bg.png" style="width: 100px;"><br>
+				</h1>
+				<p>
+				<h4>OMG 서비스를 살펴보고 귀사의 목표 달성을 지원하는 방법을 알아보십시오.</h4>
+				</p>
+				<a href="#" class="btn btn-primary">Get Started</a>
+			</div>
 		</div>
-	</div>
-	<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
-		<h2>Featured Mission</h2>
-		<h3>Complete the OhMyGoal Scavenger Hunt</h3>
-		<p>Are you up for a challenge? Complete the OhMyGoal Scavenger
-			Hunt and win a prize!</p>
-		<a href="#" class="btn btn-primary">Learn More</a>
-	</div>
-	<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
-		<h2 class="card-title">Walking with My Pet!</h2>
+	</section>
+	<section class="bg_pu wow slideInLeft" data-wow-duration="4s">
+		<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
+			<h2>✨ Mission</h2>
+			<h4>자세한 내용은 미션 페이지에서 확인하실 수 있습니다. 많은 참여 부탁드립니다!</h4>
+			<p></p>
+			<a href="#" class="btn btn-primary">Learn More</a>
+		</div>
+	</section>
+	<!-- 	 <div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">
+		<h2 class="card-title">💪Exercise Mission</h2>
 		<p class="card-text">Let's take a walk and exercise together
 			today.</p>
 		<a href="#" class="btn btn-primary">Learn More</a>
-	</div>
+	</div> -->
+
 	<footer>
 		<div class="container">
 			<div class="row">
@@ -101,5 +130,21 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
 		integrity="sha384-ywuORbMAMokt+o/XtX9f1nnmQ2c43+18zvhVe1KyO08Tpzts0lVu02tWxGtLZ9/z"
 		crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://code.jQuery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript">
+$('#logoutBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/logout',
+		success: function(){
+			alert("로그아웃이 완료되었습니다.");
+			location.href = '/OhMyGoal/';
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+</script>
 </body>
 </html>

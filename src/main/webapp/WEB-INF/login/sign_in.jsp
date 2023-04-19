@@ -219,7 +219,7 @@ $(document).ready(function() {
 $('#loginBtn').click(function(){
 	$.ajax({
 		type: 'post', //'get' or 'post'
-		url: '/total_function/board/login',
+		url: '/OhMyGoal/board/login',
 		data: 'id='+$('#login_id').val()+'&pwd='+$('#login_pwd').val(), //서버로 보낼 데이터(id, pwd)
 		dataType: 'text', //서버로부터 받는 자료형, text, xml, html, json
 		success: function(data){
@@ -227,7 +227,7 @@ $('#loginBtn').click(function(){
 			
 			if(data == 'true'){
 				alert("로그인에 성공하였습니다.")
-				location.href = '/total_function/';
+				location.href = './';
 			}else{
 				alert("아이디 또는 비밀번호가 맞지 않습니다.")
 			}

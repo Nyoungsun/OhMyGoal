@@ -34,10 +34,10 @@ public class BoardController {
 		map.put("tag", tag);
 		map.put("word", word);
 		map.put("startNum", "1");
-		map.put("endNum", "6");
+		map.put("endNum", "9");
 
 		session.setAttribute("startNum", "1");
-		session.setAttribute("endNum", "6");
+		session.setAttribute("endNum", "9");
 
 		return boardService.list(map);
 	}
@@ -48,8 +48,8 @@ public class BoardController {
 			@RequestParam(value = "word", required = false, defaultValue = "") String word,
 			@RequestParam("startNum") String startNum, @RequestParam("endNum") String endNum, HttpSession session) {
 
-		int new_startNum = Integer.parseInt((String) session.getAttribute("startNum")) + 6;
-		int new_endNum = Integer.parseInt((String) session.getAttribute("endNum")) + 6;
+		int new_startNum = Integer.parseInt((String) session.getAttribute("startNum")) + 9;
+		int new_endNum = Integer.parseInt((String) session.getAttribute("endNum")) + 9;
 
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("tag", tag);

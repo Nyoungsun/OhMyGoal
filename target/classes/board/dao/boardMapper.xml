@@ -42,17 +42,17 @@
  	
  	<!-- 로그인 -->
 	<select id="memberLogin" parameterType="java.util.Map" resultType="member.bean.MemberDTO">
-		select * from member where id=#{id} and pwd=#{pwd}
+		select * from ohmygoal_member where id=#{id} and pwd=#{pwd}
 	</select>
 	
 	<!-- 중복 아이디 체크 -->
 	<select id="getUser" parameterType="String" resultType="member.bean.MemberDTO">
-		select * from member where id=#{id}
+		select * from ohmygoal_member where id=#{id}
 	</select>
 	
 	<!-- 회원가입 -->
 	<insert id="signUp" parameterType="member.bean.MemberDTO">
-		insert into member values(seq_ohmygoal.NEXTVAL
+		insert into ohmygoal_member values(seq_member.NEXTVAL
 								, #{name}
 								, #{id}
 								, #{pwd}
@@ -63,7 +63,9 @@
 								, #{tel3}
 								, #{zipcode}
 								, #{addr1}
-								, #{addr2})
+								, #{addr2}
+								, 0
+								, sysdate)
 	</insert>
  	
  	

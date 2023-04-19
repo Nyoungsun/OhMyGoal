@@ -7,28 +7,69 @@
             font-weight: 400;
             font-style: normal;
         }
-
-        .rootAppHeader {
-            position: sticky;
-		    top: 0;
-		    z-index: 1;
-		    background: #ffffff;
-		    font-family: 'Pretendard-Regular', sans-serif;
-
-        }
-
-        a{
-            text-decoration: none;
-        }
         
-      	#logo{
-      		margin-top: 15px;
-		    margin-bottom: 15px;
-		    margin-left: 20px;
-		    height: 20px;
-	     }
+        * {
+			font-family: 'Pretendard-Regular';
+		}
+
+      body {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.6;
+		color: #333;
+		background-color: #fbfafa ;
+		margin: 0;
+	  }
+
+
+      Header { 	 
+	 	 
+	     width: 100%;
+		 position: sticky;
+		 top: 0;
+		 z-index: 1;
+		 background: #ffffff;
+		 height: 50px;
+		 box-sizing: border-box;
+      }
+
+      a{
+        text-decoration: none;
+      }
+      
+      #logo{
+      	margin-top: 15px;
+	    margin-bottom: 15px;
+	    margin-left: 20px;
+	    height: 20px;
+      }
+
+      #navbarNav a {
+		font-weight: bold;
+		font-size: 16px;
+		color: #212529;
+		text-decoration: none
+		}
+		
+	 .navbar {
+		background-color: white;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		padding: 20px;
+	 }
+	
+	 #navbarNav a:hover {
+		color: #6c757d;
+	 }
+	 
+	 .OMGlogo img {
+		height: 20px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		margin-left: 20px;
+	}
+	
 	     
-	     .headerBtn {
+	.headerBtn {
 		    font-size: 10pt;
 		    float: right;
 		    margin-top: 9px;
@@ -38,64 +79,126 @@
 		    padding: 5px;
 		    border: 1px solid blue;
 		    box-shadow: 0px 3px 5px gray;
-		}
+	}
 	     
 
-        .mainContainer {
-            margin-top: 70px;
-            font-family: 'Pretendard-Regular', sans-serif;
-            width: 50%;
+      #box {
+		margin: 50px auto; 
+		background-color: #ffffff;
+		padding: 30px;
+		padding-bottom:10px;
+		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+	}
+	
+		input[type="text"] {
+			width: 70%;
+			height: 40px;
+			border-radius: 5px;
+			border: none;
+			padding: 5px;
+			margin-top: 10px;
+			margin-bottom: 1px;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+			background-color: #f5f5f5;
+		}
+		
+		.form-select  {
+			width: 70%;
+			height: 40px;
+			border-radius: 5px;
+			border: none;
+			padding: 5px;
+			margin-top: 10px;
+			margin-bottom: 1px;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+			background-color: #f5f5f5;
+			font-size: 12pt;
+		}
+		
+		.mainThumbnail{
+			margin-bottom:23px;
+		}
 
-        }
 
-        .mainContainer div{
+        #box div{
             margin-top: 10px;
             /* margin-bottom: 10px; */
             padding-top: 10	px;
             /*padding-bottom: 10px;*/
         }
 
-
-        .mainContainer .subject{
+        #box .subject{
             padding-bottom: 0px;
-            padding-top:50px;
+            padding-top:20px;
+            margin-left: 14px;
+            margin-right: 46%; 
+            
         }
 
-        .mainContainer .subject h1{
+        #box .subject h1{
             font-size: 25pt;
             font-weight: bold;
         }
+        
+        #memberNum{
+        
+        	display: flex;
+            justify-content: center;
+            /* border: 2px solid green; */
+            /* margin-top: 20px; */
+            
+          /*  border: 2px solid green; */
+        }
+        
+        #memListBtn{	
+        	
+        	
+        }
+        
+        #memberNumText{
+        	display: flex;
+            
+            /*line-height: 1.5;*/
+            
+            font-size: 13pt;
+        	
+        	background-color: #B7D3FF;
+        	color: #282828;
+        	margin: 0px;
+        	border-radius: 12px;
 
-        .mainContainer .label{
-
+            padding: 10px;
         }
 
-        .mainContainer .label h4{
+
+        #box .label h4{
             font-size: 22px;
         }
 
-        .mainContainer .label h4 .innerLabel{
+        #box .label h4 .innerLabel{
             background-color: #d6ebff;
             color: black;
         }
 
-        .mainContainer .userInfo .userInfo2 {
+        #box .userInfo .userInfo2 {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-right: 5px;
             margin-left: 5px;
             margin-top: 25px;
-            margin-bottom: 15px;
+            margin-bottom: 23px;
             font-size: 13pt;
+            
+       
         }
 
-        .mainContainer .userInfo .userInfo2 .userInfo3 {
+        #box .userInfo .userInfo2 .userInfo3 {
             margin: 0px;
             padding: 0px;
         }
 
-        .mainContainer .userInfo .userInfo2 .dateDiv {
+        #box .userInfo .userInfo2 .dateDiv {
             margin: 0px;
             padding: 2px;
             display: flex;
@@ -103,47 +206,62 @@
             font-size: 14pt;
         }
 
-        .mainContainer .userInfo .userInfo2 .likeDiv {
+        #box .userInfo .userInfo2 .likeDiv {
             margin: 0px;
             padding: 1px;
             display: flex;
             justify-content: center;
         }
+       
 
-        .mainContainer .contentContainer {
-            margin-top: 50px;
+       #box .contentContainer {
+            margin-top: 40px;
             height: auto;
             font-size: 15pt;
             text-align: left;
         }
 
-        .contentContainer .missionBtn {
-            margin-top: 20px;
-            padding: 0px;
-            display: flex;
-            align-items: center;
-        }
+        #box .missionBtn {
+	        margin-top: 15px;
+	        padding: 0px;
+	        display: flex;
+	        align-items: center;
+	     
+	      }
 
-        .contentContainer .missionBtn .msBtn{
-            font-weight: normal;
-            align-items: center;
-            height: 50px;
-            width: 640px;
-            background: #0000FF;
-   		    color: #ffffff;
-    	    padding: 5px;
-    	    border: 1px solid blue;
-    	    box-shadow: 0px 3px 5px gray;
-            margin-top: 30px;
-            font-family: 'Pretendard-Regular', sans-serif;
-        }
+         #box .missionBtn #msBtn{
+	          font-weight: normal;
+	          font-size: 18px;
+	          align-items: center;
+	          height: 70%;
+	          width: 100%;
+	          background-color: #0040FF;
+			  border-color: #0040FF;
+			  color: #ffffff;
+	    	  padding: 10px;
+			  
+			  border-radius:5px;
+			  	
+	    	  box-shadow: 0px 3px 5px gray;
+	          margin-top: 30px;
+      	}
 
-        .footer {
-            margin-top: 180px;
-            margin-bottom: 60px;
-        }
-        .footer .footerDiv p {
-            margin: 5px;
-            font-size: 10pt;
-            font-family: 'Pretendard-Regular', sans-serif;
-        }
+       footer {
+			background-color: #f7f7f7; 
+			color: #000000;
+			padding: 50px 0;
+		}
+
+      footer p {
+			font-size: 14px;
+			font-weight: 400;
+			margin-bottom: 10px;
+		}
+		
+		footer p strong {
+			font-weight: 700;
+		}
+		
+		footer {
+			text-align: center;
+		}
