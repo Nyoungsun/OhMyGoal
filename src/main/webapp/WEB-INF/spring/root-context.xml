@@ -11,7 +11,8 @@
 	<context:component-scan base-package="board.bean" />
 	
 	<context:component-scan base-package="member.bean" />
-
+	<context:component-scan base-package="admin.service" />
+	<context:component-scan base-package="admin.dao" />
 	<context:component-scan base-package="spring.conf" />
 
 </beans>

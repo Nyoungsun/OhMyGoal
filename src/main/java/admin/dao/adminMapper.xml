@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="adminSQL">
+ 	<!-- 미션 목록 불러오기 -->
+ 	<select id="getBoardList" parameterType="java.util.Map" resultType="board.bean.BoardDTO">
+ 		select category, subject, id, members, start_date, end_date from ohmygoal_board
+ 		
+ 		<![CDATA[
+		SELECT * FROM 
+		(SELECT ROWNUM RN, TT.* FROM
+		(SELECT * FROM ohmygoal_board ORDER BY SEQ DESC) TT 
+		)WHERE RN >= #{startNum} AND RN <= #{endNum}
+		]]>
+ 	</select>
+ 
+ 
+ 
+ </mapper>
