@@ -1,5 +1,7 @@
 package member.bean;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -16,4 +18,7 @@ public class MemberDTO {
 	private String zipcode;
 	private String addr1;
 	private String addr2;
+	private int grade;
+	private String boards;
+	private Date logtime;
 }
