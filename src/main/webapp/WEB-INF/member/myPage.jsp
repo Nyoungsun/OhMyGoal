@@ -23,31 +23,13 @@
 </head>
 <meta charset="UTF-8">
 <body>
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-white">
-			<div class="container">
-				<a class="OMGlogo" href="#"><img src="../img/logo/logo_no_bg2.png"
-					alt="OhMyGoal!"></a>
-			</div>
-			<!-- 햄버거 -->
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<!-- 햄버거 -->
-			<div class="collapse navbar-collapse justify-content-end"
-				id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="#"
-						style="text-decoration: none; margin-right:20px;">개인정보수정</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"
-						style="text-decoration: none;">로그아웃</a></li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+	   <header>
+      <a href="/OhMyGoal/"><img id="logo" src="../img/logo/logo2.png"></a>
+      <button type="button" id="editBtn" class="headerBtn"
+         data-bs-toggle="modal" data-bs-target="#Modal">EDIT</button>
+      <button type="button" id="logoutBtn" class="headerBtn">로그아웃</button>
+   </header>
+
 	<div id="profileDiv">
 		<div id="profileContent">
 			<div id="String">
@@ -152,6 +134,20 @@
 	<script src="../js/member/owlCarousel/owl.navigation.js"></script>
 	<script src="../js/member/owlCarousel/owl.mousewheel.js"></script>
 	<script>
+	$('#logoutBtn').click(function(){
+		$.ajax({
+			type: 'post',
+			url: '/OhMyGoal/board/logout',
+			success: function(){
+				alert("로그아웃이 완료되었습니다.");
+				location.href = '/OhMyGoal/';
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	});
+	
 		var owl = $('.owl-carousel');
 		owl.owlCarousel({
 			items : 5,

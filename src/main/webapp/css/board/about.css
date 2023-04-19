@@ -12,6 +12,8 @@
 	font-family: 'Pretendard-Regular';
 }
 
+
+
 body {
 	font-weight: 400;
 	font-size: 16px;
@@ -22,6 +24,15 @@ body {
 }
 
 /* Header */
+
+header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
+}
+
 #navbarNav a {
 	font-weight: bold;
 	font-size: 16px;
@@ -45,13 +56,6 @@ body {
 	margin-right: 20px;
 }
 
-header {
-	position: sticky;
-	top: 0;
-	z-index: 1;
-	background: #ffffff;
-	width: 100%;
-}
 
 .OMGlogo img {
 	height: 20px;

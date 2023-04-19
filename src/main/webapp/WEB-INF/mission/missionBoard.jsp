@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,48 +8,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- bootstrap -->
     <title>Check out the Mission Here</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/missionBoard.css">
+    <link rel="stylesheet" href="../css/mission/missionBoard.css">
 
 </head>
 <body>
 
 <div class="total">
 
-<header class="rootAppHeader" style="">
-    <nav class="navbar navbar-expand-lg bg-white">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img id="logo" alt="logo" src="img/logo/logo2.png" >
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-1">
-            <li class="nav-item">
-              <a href="#"class="nav-link active" aria-current="page" style="margin-right: 10px; margin-top: 5px; font-weight: bold">그룹미션
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/" class="nav-link " aria-current="page" style="margin-top:5px; font-weight: bold">소개
-              </a>
-            </li>
-          </ul>
-          
-         
-         <button type="button" class="headerBtn" >로그아웃</button>
-        </div>
-      </div>
-    </nav>
-</header>
+<header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container" style=""> 
+                <a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png"
+					 alt="OhMyGoal!"></a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item" ><a class="nav-link" href="../mission/missionWrite" style="color:black;"
+							>그룹미션 만들기 </a></li>
+                        <li class="nav-item"><a class="nav-link" href="../board/about"
+							>소개 </a></li>
 
-<div class="mainContainer container-fluid" >
-    <div class="mainThumnail" align="center">
-        <img src="img/thumbnail/thumb1.jpg" alt="썸네일" style="width: 600px; height: 250px; border-radius: 15px;">
+                    </ul>
+                </div>
+                
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+					<ul class="navbar-nav">
+						<c:if test="${empty memName}">
+							<li class="nav-item">
+								<a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
+							</li>
+						</c:if>
+						
+						<c:if test="${not empty memName}">
+							<li class="nav-item">
+								<a class="nav-link" href="../member/myPage" style="text-decoration: none;">${memName}님 환영합니다.&nbsp;&nbsp;&nbsp;마이페이지</a>
+							</li>
+							<li class="nav-item">
+								<a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
+							</li>
+						</c:if>
+					</ul>
+				</div>
+            </div>
+        </nav>
+    </header>
+
+<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box"
+			style="height: 100%; width: 50%;">
+    <div class="mainThumbnail" align="center" >
+        <img src="../img/thumbnail/thumb1.jpg" alt="썸네일" style="width: 85%; height: 45%; border-radius: 15px;">
     </div>
-    <div class="subject" style="">
-        <h1 >갓생! 미라클 모닝 ☀️</h1>
-    </div>
+    
+    
+    <div id="topConent" style="display: flex; ">
+	    <div class="subject" >
+	        <h1 >갓생! 미라클 모닝 ☀️</h1>
+	    </div>
+	    
+	    <div id="memberNum" >
+	    	<!-- Button trigger modal -->
+			<button type="button" id="memListBtn" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+			  <div id="memberNumText" style="">	    	
+	    		<h4 style="font-size: 16pt;"><span>🔥 
+	    		<span style="font-weight:bold;">6</span>명 참여 중 🔥</span></h4>
+	    	</div>
+			</button>
+			
+			<!-- Modal -->
+			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-scrollable">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h1 class="modal-title fs-5" id="staticBackdropLabel">현재 참여자 🏃</h1>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			      	<h4>
+			      		choi1475<br>
+			      		<hr>
+				      	youngsun11 <br>
+				      	sunghwan22 <br>
+				      	geonryul33 <br>
+				      	seojung44 <br>
+				      	hyunju55 <br>
+			      	</h4>
+			        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			        
+			        
+			      </div>
+			      <div class="modal-footer">
+			        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button> -->
+			        <button type="button" class="btn btn-primary d-grid gap-2"  data-bs-dismiss="modal">확인</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+	    
+	    </div>
+	 </div> 
+	 
     <div class="label container-fluid">
         <h4>
             <span class="innerLabel badge rounded-pill " style="margin-right: 13px;">기타</span>
@@ -85,20 +147,20 @@
         </div>
 
     </div>
+    
+    
 
-    <div class="contentContainer" >
+    <div class="contentContainer">
         <pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">
             💪 갓반인 도전! 💪 어저구저쩌구<br><br><br><br><br><br><br>
         </pre>
 
-        <div class="missionBtn d-grid gap-2" style="" align="center">
-            <a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss269 MuiButton-containedSecondary" tabindex="0" aria-disabled="false" href="#" target="_blank">
-                <butoon class="msBtn d-grid gap-2 btn btn-primary " type="button">그룹미션 참여하기</butoon>
-            </a>
+        <div class="missionBtn d-grid gap-2 " style="" align="center">
+ 				<input type="submit" id="msBtn"  value="그룹미션 참여하기">
         </div>
     </div>
-
-    <footer class="footer" align="center">
+</div>
+ <footer class="footer" align="center">
         <div class="footerDiv" style="">
             <p><strong>OhMyGoal! 2023</strong></p>
             <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
@@ -106,7 +168,22 @@
         </div>
     </footer>
 </div>
-</div>
+<script type="text/javascript" src="http://code.jQuery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$('#logoutBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/logout',
+		success: function(){
+			alert("로그아웃이 완료되었습니다.");
+			location.href = '/OhMyGoal/';
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+</script>
 </body>
 </html>

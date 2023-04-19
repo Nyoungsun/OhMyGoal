@@ -26,6 +26,7 @@
 <link rel="stylesheet" charset="UTF-8"
 	href="../cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/35dbfa967d.js" crossorigin="anonymous"></script>
 <title>OhMyGoal! - 모두의 달성과제</title>
 <style type="text/css">
@@ -34,6 +35,7 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
+    font-family: 'Pretendard-Regular';
 }
 
 body { //html
@@ -79,6 +81,43 @@ div#grayLayer {
     font-family: 'Montserrat','Nanum Gothic',sans-serif;
     color: #353535;
     line-height: 20px;
+}
+/* Header */
+header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
+}
+
+#navbarNav a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none
+}
+
+.navbar {
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+#navbarNav a:hover {
+	color: #6c757d;
+}
+
+.nav-link {
+	color: #333;
+	font-weight: 500;
+	margin-right: 20px;
+}
+.OMGlogo img {
+	height: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 20px;
 }
 </style>
 <script type="application/ld+json">
@@ -3091,17 +3130,19 @@ div#grayLayer {
 		        <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;"> Next</button>
 		         -->
 			</div>
+			
+			<!--
 			<header
 				class="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky MuiAppBar-colorInherit MuiPaper-elevation0">
 				<div class="MuiToolbar-root MuiToolbar-regular jss2 MuiToolbar-gutters">
-					<a class="jss3" href="/">
+					<a class="jss3" href="./">
 						<img alt="logo" src="./image/logo.png">
 					</a>
-					<a href="/">
+					<a href="./">
 						<span class="MuiTypography-root jss4 MuiTypography-colorTextPrimary">프로젝트</span>
 					</a>
-					<a href="/magazine">
-						<span class="MuiTypography-root MuiTypography-colorTextSecondary">매거진</span>
+					<a href="./board/qna">
+						<span class="MuiTypography-root MuiTypography-colorTextSecondary">QnA</span>
 					</a>
 					<div style="margin-left: auto;">
 						<dl class="topnav">
@@ -3123,6 +3164,45 @@ div#grayLayer {
 					</div>
 				</div>
 			</header>
+			-->
+			
+			<header>
+				<nav class="navbar navbar-expand-lg navbar-light bg-white">
+					<div class="container">
+						<a class="OMGlogo" href="./">
+							<img src="./img/logo/logo_no_bg2.png" alt="OhMyGoal!">
+						</a>
+					</div>
+					
+	                <div class="collapse navbar-collapse" id="navbarNav">
+	                    <ul class="navbar-nav ">
+	                        <li class="nav-item">
+	                        	<a class="nav-link" href="../board/about"></a>
+	                        </li>
+	                    </ul>
+	                </div>
+					
+					<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+						<ul class="navbar-nav">
+							<c:if test="${empty memName}">
+								<li class="nav-item">
+									<a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
+								</li>
+							</c:if>
+							
+							<c:if test="${not empty memName}">
+								<li class="nav-item">
+									<a class="nav-link" href="./member/myPage" style="text-decoration: none;">${memName}님 환영합니다.&nbsp;&nbsp;&nbsp;마이페이지</a>
+								</li>
+								<li class="nav-item">
+									<a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
+								</li>
+							</c:if>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			
 			<div class="MuiContainer-root MuiContainer-maxWidthLg">
 				<div class="MuiGrid-root MuiGrid-container">
 					<div class="MuiGrid-root jss7 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6">
@@ -3131,13 +3211,11 @@ div#grayLayer {
 						<div class="jss8">개발자 토이프로젝트 모아보기 서비스</div>
 						<p class="jss12">선배・동료 개발자들의 토이프로젝트를 한눈에 모아보고, 좋은 프로젝트는 더 많은 사람들과 공유해보세요.</p><a
 							class="MuiButtonBase-root MuiButton-root MuiButton-contained jss11 MuiButton-containedPrimary"
-							tabindex="0" aria-disabled="false" href="https://page.stibee.com/subscriptions/129317"
-							target="_blank"><span class="MuiButton-label">뉴스레터 구독하기</span><span
+							tabindex="0" aria-disabled="false" href="./mission/missionBoard"><span class="MuiButton-label">그룹 미션 참가</span><span
 								class="MuiTouchRipple-root"></span></a><a
 							class="MuiButtonBase-root MuiButton-root MuiButton-contained jss11 MuiButton-containedSecondary"
 							tabindex="0" aria-disabled="false"
-							href="https://docs.google.com/forms/d/e/1FAIpQLSdXQaXRohcJHLI1rh4lNQsCPGTMMplppgg7bCGS6WOlxVCi2Q/viewform"
-							target="_blank"><span class="MuiButton-label">프로젝트 공유하기</span><span
+							href="./mission/missionWrite"><span class="MuiButton-label">그룹 미션 만들기</span><span
 								class="MuiTouchRipple-root"></span></a>
 					</div>
 					<div class="MuiGrid-root jss10 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><img class="jss9"
@@ -3657,9 +3735,10 @@ div#grayLayer {
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
+	$('#tag').val("1");
 	$.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
 		type: 'post',
-		url: '/total_function/board/list1',
+		url: '/OhMyGoal/board/list1',
 		//data: 'subject=' + $('#subject').val() + '&content=' + $('#content').val(),//서버로 보낼 데이터
 		//data: $('#mainForm').serialize(), //서버로 보내는 데이터
 		dataType: 'json', //서버로부터 받은 데이터형, "text", "html", "xml", "json"
@@ -3676,7 +3755,7 @@ $(document).ready(function() {
 	});
 });
 
-$('a.modal').click(function(){
+$('#topnav_loginBtn').click(function(){
 	$('#grayLayer').fadeIn(300);
 	$('#login-wrap').fadeIn(300);
 	
@@ -3693,10 +3772,10 @@ $('#grayLayer').click(function(){
 $('#logoutBtn').click(function(){
 	$.ajax({
 		type: 'post',
-		url: '/total_function/board/logout',
+		url: '/OhMyGoal/board/logout',
 		success: function(){
 			alert("로그아웃이 완료되었습니다.");
-			location.href = '/total_function/';
+			location.href = '/OhMyGoal/';
 		},
 		error: function(err){
 			console.log(err);
@@ -3712,7 +3791,7 @@ $('#menuBar1').click(function() {
     
     $.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
 		type: 'post',
-		url: '/total_function/board/list1',
+		url: '/OhMyGoal/board/list1',
 		data: {
 			tag: $('#tag').val(),
 			word: $('#tags-outlined').val()
@@ -3740,7 +3819,7 @@ $('#menuBar2').click(function() {
     
     $.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
 		type: 'post',
-		url: '/total_function/board/list1',
+		url: '/OhMyGoal/board/list1',
 		data: {
 			tag: $('#tag').val(),
 			word: $('#tags-outlined').val()
@@ -3768,7 +3847,7 @@ $('#menuBar3').click(function() {
     
     $.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
 		type: 'post',
-		url: '/total_function/board/list1',
+		url: '/OhMyGoal/board/list1',
 		data: {
 			tag: $('#tag').val(),
 			word: $('#tags-outlined').val()
@@ -3794,7 +3873,7 @@ $(window).scroll(function() {
         // 게시물을 추가로 불러오는 Ajax 코드 작성
     	$.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
     		type: 'post',
-    		url: '/total_function/board/list2',
+    		url: '/OhMyGoal/board/list2',
     		data: {
                 // session에 저장된 값 전달
                 tag: $('#tag').val(),
@@ -3823,7 +3902,7 @@ $('#tags-outlined').keyup(function() {
     
     $.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
 		type: 'post',
-		url: '/total_function/board/list1',
+		url: '/OhMyGoal/board/list1',
 		data: {
 			tag: $('#tag').val(),
 			word: $('#tags-outlined').val()

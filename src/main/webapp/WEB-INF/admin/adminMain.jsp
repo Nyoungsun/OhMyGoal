@@ -21,7 +21,7 @@
 
   <body>
     <header id="admin_header">
-    	<a href="#"><img id="logo" src="..img/logo/logo2.png"></a>
+    	<a href="#"><img id="logo" src="../img/logo/logo2.png"></a>
         <button type="button" class="sec_btn" onclick="location.href = '#' ">대시보드</button>
               <button type="button" class="sec_btn" onclick="location.href = '#' ">회원관리</button>
               <button type="button" class="sec_btn" onclick="location.href = '#' ">미션관리</button>
