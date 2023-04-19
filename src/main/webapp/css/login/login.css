@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Pretendard-Regular';
+}
+
+body { //html
+    font-family: 'Futura PT Medium' !important;
+    letter-spacing: 0.5px !important;
+    min-width: 1200px;
+    max-width: 100%;
+    margin: auto;
+}
+body, code {
+    font: 0.75em 'Nanum Gothic',Verdana,Dotum,AppleGothic,sans-serif;
+    font-family: 'Montserrat','Nanum Gothic',sans-serif;
+    color: #353535;
+    background: #fff;
+    line-height: 20px;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+div#grayLayer {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: black;
+	/* filter: alpha(opacity=60); */
+	opacity: 0.60;  /* 0.0 ~ 1.0, 값이 작을수록 더 투명하게 만든다. */
+}
