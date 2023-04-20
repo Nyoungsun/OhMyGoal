@@ -75,7 +75,7 @@
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
 		<div class="list">
-            <div class="sec-option" >
+            <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
 			  <select name="condition">
 			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
@@ -87,7 +87,7 @@
         </div>
 	</form>
 
-	<input type = "text" id ="pg" value ="${pg }">
+	<input type = "hidden" id ="pg" value ="${pg }">
 	<div class="member_list">
         <table id = "userListTable" class="admin_board_wrap">
           <tr class="admin_boardList">

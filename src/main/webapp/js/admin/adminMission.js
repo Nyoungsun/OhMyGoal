@@ -6,7 +6,7 @@ $(function(){
     dataType: 'json',
     success: function(data){
       console.log(JSON.stringify(data));
-      $.each(data.list, function(index, items){
+      $.each(data.boardList, function(index, items){
         var logtime = new Date(items.logtime).toLocaleString();
         $('<tr/>').append($('<td>', {
           align: 'center',

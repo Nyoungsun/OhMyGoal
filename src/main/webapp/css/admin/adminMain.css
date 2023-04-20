@@ -135,8 +135,22 @@ td {
 .mem_box_inner {
   margin-top: 10px;
 }
+.list{
+	display:flex;
+	align-items:center;		
+}
+.sec-option {
+  display: flex;
+  align-items: center;
+}
 
+.search-input {
+  flex: 1;
+}
 
+.search_onclick_submit {
+  margin-left: 10px;
+}
 .search-container>input {
   border: 1px solid gray;
   position: relative;
