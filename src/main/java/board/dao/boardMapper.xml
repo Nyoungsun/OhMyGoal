@@ -65,6 +65,7 @@
 								, #{addr1}
 								, #{addr2}
 								, 0
+								, ''
 								, sysdate)
 	</insert>
  	

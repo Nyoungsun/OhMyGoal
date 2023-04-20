@@ -7,11 +7,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- bootstrap -->
     <title>Check out the Mission Here</title>
+    <style type="text/css">
+    div#grayLayer {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: black;
+	/* filter: alpha(opacity=60); */
+	opacity: 0.60;  /* 0.0 ~ 1.0, 값이 작을수록 더 투명하게 만든다. */
+	}
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/mission/missionBoard.css">
-
 </head>
 <body>
+<div id='grayLayer'></div>
+
+<jsp:include page="../login/sign_in.jsp" />
+<jsp:include page="../login/sign_up.jsp" />
 
 <div class="total">
 
@@ -26,11 +42,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ">
-                        <li class="nav-item" ><a class="nav-link" href="../mission/missionWrite" style="color:black;"
-							>그룹미션 만들기 </a></li>
-                        <li class="nav-item"><a class="nav-link" href="../board/about"
-							>소개 </a></li>
-
+                    	<c:if test="${not empty memName}">
+                    		<li class="nav-item" >
+	                        	<a class="nav-link" href="../mission/missionWrite" style="color:black;">그룹미션 만들기 </a>
+	                        </li>
+						</c:if>
+                        <li class="nav-item">
+                        	<a class="nav-link" href="../board/about">소개</a>
+                        </li>
                     </ul>
                 </div>
                 
@@ -123,12 +142,10 @@
             <div class="userInfo3" style="">
                 <a href="https://github.com/DirtyBoyz" target="_blank" rel="noreferrer">
                     <span class="userInfo4" style="">
-                        <span class="userImg" style="border: 2px solid yellowgreen">
-                            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="height:30px; width:30px">
-
-                                <!-- 깃헙 이미지, 이미지 클릭 시 해당 깃허브로 감-->
-                                <!--                    <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path>-->
-                            </svg>
+                        <span class="userImg">
+                        	<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+                        		<path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path>
+                        	</svg>
                         </span>
                         <span class="userId">choi1475</span>
                     </span>
@@ -171,6 +188,33 @@
 <script type="text/javascript" src="http://code.jQuery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
+$('#topnav_loginBtn').click(function(){
+	$('#grayLayer').fadeIn(300);
+	$('#login-wrap').fadeIn(300);
+	
+	//$('#overLayer').html('<img src="' + $(this).attr('href') + '" />');
+	return false;
+});
+
+$('#grayLayer').click(function(){
+	$(this).fadeOut(300);
+	$('#login-wrap').fadeOut(300);
+	$('#signup-wrap').fadeOut(300);
+});
+
+$('#logoutBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/logout',
+		success: function(){
+			alert("로그아웃이 완료되었습니다.");
+			location.href = '/OhMyGoal/';
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
 $('#logoutBtn').click(function(){
 	$.ajax({
 		type: 'post',
