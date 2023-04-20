@@ -39,7 +39,18 @@ public class BoardDAOMyBatis implements BoardDAO {
 	
 	@Override
 	public void sign_up(MemberDTO memberDTO) {
-		
 		sqlSession.insert("boardSQL.signUp", memberDTO);
+	}
+	
+	@Override
+	public BoardDTO view(String seq) {
+		
+		return sqlSession.selectOne("boardSQL.getBoard", seq);
+	}
+	
+	@Override
+	public String getUser(String seq) {
+		
+		return sqlSession.selectOne("boardSQL.getUserNum", seq);
 	}
 }

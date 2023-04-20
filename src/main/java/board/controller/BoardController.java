@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -125,6 +126,13 @@ public class BoardController {
 
 		boardService.sign_up(memberDTO);
 	}
+	
+	@PostMapping(value = "view")
+	@ResponseBody
+	public BoardDTO view(@RequestParam String seq) {
+		System.out.println(seq);
+		return boardService.view(seq);
+	}
 
 	@RequestMapping(value = "about", method = RequestMethod.GET)
 	public String about() {
@@ -135,5 +143,11 @@ public class BoardController {
 	public String qna() {
 		return "board/qna";
 	}
-
+	
+	@PostMapping(value="getUser")
+	@ResponseBody
+	public String getUser(@RequestParam("seq") String seq) {
+		
+		return boardService.getUser(seq);
+	}
 }

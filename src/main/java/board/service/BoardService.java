@@ -15,4 +15,8 @@ public interface BoardService {
 	public MemberDTO checkId(String id);
 
 	public void sign_up(MemberDTO memberDTO);
+
+	public BoardDTO view(String seq);
+
+	public String getUser(String seq);
 }
