@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+	font-family: 'Pretendard-Regular';
+}
+
+/* 헤더 스타일 */
+header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
+}
+
+#navbarNav a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none
+}
+
+.navbar {
+	background-color: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+#navbarNav a:hover {
+	color: #6c757d;
+}
+
+.nav-link {
+	color: #6c757d;
+	font-weight: 500;
+	margin-right: 20px;
+}
+
+.OMGlogo img {
+	height: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 20px;
+}
+#OMG_btn a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none;
+}
+
+#OMG_logout:hover, #OMG_page:hover {
+	color: #6c757d;
+}
+
+.list {
+  float: right;
+  margin-right: 20px;
+}
+
+.sec {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sec_btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.sec_btn:hover {
+  color: #0080ff;
+}
+
+.sec_btn:active {
+  color: #ffffff;
+}
+
+*:focus {
+  outline: none;
+}
+
+
+body {
+    font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333;
+	background-color: #f7f7f7;
+	margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h2 {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+h3 {
+  padding-left: 221px;
+  margin: 0 auto;
+  padding-top: 14px;
+  margin-bottom: 10px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+p {
+  padding: 0 0 10px 5px;
+  width: 500px;
+  margin: 0;
+  font-size: 13px;
+}
+
+th,
+td {
+  border-radius: 0;
+}
+
+.mem_box_inner {
+  margin-top: 10px;
+}
+
+
+.search-container>input {
+  border: 1px solid gray;
+  position: relative;
+  height: 26px;
+}
+
+.search-option {
+
+  width: 70px;
+  border-radius: 5px;
+  padding: 1.5px 0;
+}
+
+.search_onclick_submit {
+  margin-left: -2px;
+}
+.search-input{
+  border-radius: 5px;
+}
+.search_onclick_submit{
+	
+    box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:blue;
+	background-color: blue;
+	border-radius:5px;
+	border:1px solid white;
+	display:inline-block;
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:8px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528009;
+}
+
+.search_keyword {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  right: 87px;
+  top: 50px;
+}
+
+
+.admin_board_head,
+.admin_board_content_nm {
+  font-size: 18px;
+}
+
+.admin_boardList,
+.admin_replyList,
+.admin_boardMList {
+  border-bottom: 1px solid #ccc;
+  background-color: #c0c0c0;
+}

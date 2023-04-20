@@ -5,7 +5,6 @@
  <mapper namespace="adminSQL">
  	<!-- 미션 목록 불러오기 -->
  	<select id="getBoardList" parameterType="java.util.Map" resultType="board.bean.BoardDTO">
- 		select category, subject, id, members, start_date, end_date from ohmygoal_board
  		
  		<![CDATA[
 		SELECT * FROM 

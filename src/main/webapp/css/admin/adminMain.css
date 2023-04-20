@@ -1,3 +1,4 @@
+/* 대시 보드 css */
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -5,30 +6,57 @@
     font-style: normal;
 }
 
+* {
+	font-family: 'Pretendard-Regular';
+}
+
+/* 헤더 스타일 */
 header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background: #ffffff;
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
 }
 
-#logo {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 20px;
-  height: 20px;
+#navbarNav a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none
 }
 
-.headerBtn {
-  font-size: 10pt;
-  float: right;
-  margin-top: 9px;
-  margin-right: 20px;
-  background: #0000FF;
-  color: #ffffff;
-  padding: 5px;
-  border: 1px solid blue;
-  box-shadow: 0px 3px 5px gray;
+.navbar {
+	background-color: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+#navbarNav a:hover {
+	color: #6c757d;
+}
+
+.nav-link {
+	color: #6c757d;
+	font-weight: 500;
+	margin-right: 20px;
+}
+
+.OMGlogo img {
+	height: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 20px;
+}
+#OMG_btn a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none;
+}
+
+#OMG_logout:hover, #OMG_page:hover {
+	color: #6c757d;
 }
 
 .list {
@@ -63,8 +91,12 @@ header {
 
 
 body {
-  margin: 80px;
-  height: 100%
+    font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333;
+	background-color: #f7f7f7;
+	margin: 0;
 }
 
 a {
@@ -316,7 +348,7 @@ tr:nth-child(even) {
   font: 14px bold;
 }
 
-/* �럹�씠吏� */
+
 #paging,
 #pagingM {
   width: 580px;
@@ -513,14 +545,10 @@ tr:nth-child(even) {
   margin: 27px 101px;
 }
 
-.sec .sec_btn {
-  color: gray;
-  border: 2px solid gray;
-  background-color: white;
-}
+
 
 .sec_btn:hover {
-  border: gray 3px solid;
+  color:#808080;;
 }
 .sec-option{
   width: 300px;
@@ -530,16 +558,31 @@ tr:nth-child(even) {
 
 .chart_zone{
   width: 1200px;
-  height: 600px;
+  height: 400px;
   position: absolute;
   top: 400px;
   left: 240px;
   
 }
-
+#file-Btn {
+	width: 100%;
+	height: 50px;
+	background-color: black;
+	border-color: black;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+/* Footer */
 #footer {
     text-align: center;
     margin-top:180px;
-    margin-left:350px;
+    margin-left:550px;
     padding-bottom: 50px;
 }
+
+
