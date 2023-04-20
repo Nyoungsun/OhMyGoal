@@ -23,50 +23,64 @@
 
 
       Header { 	 
-	 	 
+/* 	 	 border: 2px solid red; */
+	    
 	     width: 100%;
 		 position: sticky;
 		 top: 0;
 		 z-index: 1;
 		 background: #ffffff;
-		 height: 50px;
-		 box-sizing: border-box;
+		 
       }
+      
 
       a{
         text-decoration: none;
       }
       
-      #logo{
-      	margin-top: 15px;
-	    margin-bottom: 15px;
-	    margin-left: 20px;
-	    height: 20px;
-      }
-
-      #navbarNav a {
-		font-weight: bold;
-		font-size: 16px;
-		color: #212529;
-		text-decoration: none
+		#navbarNavStart{
+		
+			margin-left: -19%;
 		}
 		
-	 .navbar {
-		background-color: white;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		padding: 20px;
-	 }
-	
-	 #navbarNav a:hover {
-		color: #6c757d;
-	 }
-	 
-	 .OMGlogo img {
-		height: 20px;
-		margin-top: 15px;
-		margin-bottom: 15px;
-		margin-left: 20px;
-	}
+		#navbarNavEnd{
+		
+			margin-right: -20%;
+		}
+		
+		
+		
+		.navbar-nav a {
+			font-weight: bold;
+			font-size: 16px;
+			color: #212529;
+			text-decoration: none
+		}
+		
+		.navbar {
+			background-color: #fff;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			padding: 8px;
+		}
+		
+		.navbar-nav a:hover {
+			color: #6c757d;
+		}
+		
+		.nav-link {
+			color: #333;
+			font-weight: 500;
+			margin-right: 12px;
+		}
+		
+		
+		.OMGlogo img {
+			height: 21px;
+			margin-top: 10px;
+			margin-bottom: 15px;
+			margin-right: 10px;
+			
+		}
 	
 	     
 	.headerBtn {
@@ -151,6 +165,8 @@
         }
         
         #memListBtn{	
+        	background-color: transparent;
+  			border: none;
         	
         	
         }
@@ -192,17 +208,23 @@
             
        
         }
+        
+        .input-group{
+        	padding: 0px;
+        
+        }
 
         #box .userInfo .userInfo2 .userInfo3 {
             margin: 0px;
             padding: 0px;
         }
 
-        #box .userInfo .userInfo2 .dateDiv {
-            margin: 0px;
-            padding: 2px;
+        .dateDiv {
+            margin: 0px;  
+            padding: 0px;
             display: flex;
-            flex-direction: column;
+            margin-bottom: 0px;
+            width: 50%;
             font-size: 14pt;
         }
 
@@ -221,7 +243,7 @@
             text-align: left;
         }
 
-        #box .missionBtn {
+        #box #missionBtn {
 	        margin-top: 15px;
 	        padding: 0px;
 	        display: flex;
@@ -229,7 +251,7 @@
 	     
 	      }
 
-         #box .missionBtn #msBtn{
+         #box #missionBtn #msBtn{
 	          font-weight: normal;
 	          font-size: 18px;
 	          align-items: center;
