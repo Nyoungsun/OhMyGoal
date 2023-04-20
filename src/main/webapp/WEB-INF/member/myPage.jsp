@@ -3,13 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyPage🐟</title>
-<style>
-.checkDiv {
-	color: #ff0000;
-	font-size: 10pt;
-}
-</style>
+<title>MyPage</title>
 
 <!--BootStrap-->
 <link rel="stylesheet"
@@ -35,19 +29,16 @@
 		<div id="profileContent">
 			<div id="String">
 				<span>"<span class="memberName"></span>" 님 안녕하세요.
-				</span><br> <span>오늘의 미션을 달성하세요!</span>
+				</span><br> <span>오늘의 미션을 달성하세요!✨</span>
 			</div>
 			<img id="banner" src="../img/people.png">
 		</div>
 	</div>
-	<div id="missionDiv">
-		<div id="missionList">
-			<div id="grade">
-				<img id="grade_img" src="../img/grade/seed.png"> <span><span
-					class="memberName"></span>님의 미션</span>
-			</div>
-		</div>
+	<div id="gradeDiv">
+		<span class="shadow p-3 mb-5 bg-body rounded"><span id="grade">Lv.1</span>&nbsp;<span
+			class="memberName"></span>님의 미션😎</span>
 	</div>
+	<div id="missionDiv"></div>
 	<footer>
 		<p>
 			<strong>OhMyGoal! 2023</strong>
@@ -74,7 +65,23 @@
 	<!--jquery-->
 
 	<!--slider-->
-	<script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script
+		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script>
+	/* Demo purposes only */
+	var snippet = [].slice.call(document.querySelectorAll('.hover'));
+	if (snippet.length) {
+	  snippet.forEach(function (snippet) {
+	    snippet.addEventListener('mouseout', function (event) {
+	      if (event.target.parentNode.tagName === 'figure') {
+	        event.target.parentNode.classList.remove('hover')
+	      } else {
+	        event.target.parentNode.classList.remove('hover')
+	      }
+	    });
+	  });
+	}
+	</script>
 	<script>
 	$.ajax({
 		type: 'post',
@@ -82,23 +89,31 @@
 		async: false,
 		success: function (data) {
 			$.each(data, function (index, items) {
-				console.log('getMyPage');
+				console.log('getMyMission');
 				$('<div/>').append($('<div/>', {
-					class:'item'
-				}).append($('<div/>', {
-					class: 'card',
-					'width': '19rem'
-				}).append($('<img/>', {
-					src: items.url,
-					class: 'card-img-top',
-					alt: '미션이미지'
-				})).append($('<div/>', {
-					class:'card-body'
-				}).append($('<p/>', {
-					class: 'card-text',
+					class: 'missionList shadow p-3 mb-5 bg-body rounded'
+				}).append($('<table/>',{
+					class: 'table table-borderless table align-middle'
+				}).append($('<tr/>', {
+				}).append($('<th/>', {
+					rowspan: '2',
+					id: 'seq',
+					scope: 'row',
+					text: items.seq
+				})).append($('<td/>', {
+					rowspan: '2',
+					id: 'img'
+				}).append($('<img>', {
+					src: items.img,
+					alt: '미션 썸네일'
+				}))).append($('<td/>', {
+					id: 'subject',
+					text: items.subject
+				}))).append($('<tr/>').append($('<td/>', {
+					id: 'content',
 					text: items.content
-				}))))).appendTo('#slider-div');
-			})
+				}))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
+			}) //each
 		},
 		error: function (err) {
 			console.log(err);
@@ -155,7 +170,8 @@
 		});
 	</script>
 
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		$('#search').click(function() {
 			new daum.Postcode({
