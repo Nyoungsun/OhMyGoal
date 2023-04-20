@@ -38,4 +38,16 @@ public class BoardServiceImpl implements BoardService {
 		
 		boardDAO.sign_up(memberDTO);
 	}
+	
+	@Override
+	public BoardDTO view(String seq) {
+		
+		return boardDAO.view(seq);
+	}
+	
+	@Override
+	public String getUser(String seq) {
+		
+		return boardDAO.getUser(seq);
+	}
 }

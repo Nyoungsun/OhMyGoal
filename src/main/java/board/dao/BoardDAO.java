@@ -16,4 +16,7 @@ public interface BoardDAO {
 
 	public void sign_up(MemberDTO memberDTO);
 
+	public BoardDTO view(String seq);
+
+	public String getUser(String seq);
 }

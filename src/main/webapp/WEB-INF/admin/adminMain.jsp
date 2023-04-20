@@ -23,7 +23,7 @@
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 			<div class="container">
-				<a class="OMGlogo" href="http://localhost:8080/OhMyGoal/"><img src="../img/logo/logo2.png" alt="OhMyGoal!"></a>					
+				<a class="OMGlogo" href="/OhMyGoal/admin/adminMain"><img src="../img/logo/logo2.png" alt="OhMyGoal!"></a>					
 					<button type="button" class="sec_btn" >
 					<a href="/OhMyGoal/admin/adminMain">대시보드</a></button>
 					<div class ="console1" id ="dash"></div>

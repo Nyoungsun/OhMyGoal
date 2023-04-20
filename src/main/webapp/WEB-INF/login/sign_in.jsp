@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://kit.fontawesome.com/35dbfa967d.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 <style type="text/css">
 #login-wrap {
@@ -181,15 +182,17 @@ legend {
 	                fw-msg="" autocomplete="off" placeholder="PASSWORD" value="" type="password" />
 	        </label>
 	        <a href="#none" id="loginBtn"><img
-	                src="./image/btn_login.gif" alt="로그인" /></a>
+	                src="/OhMyGoal/image/btn_login.gif" alt="로그인" /></a>
 	        <ul style="margin-top:15px">
-	            <li><a href="id/find_id.html"><i class="fas fa-check"
-	                        style="color:#979797; margin-right:5px; font-size:10px"></i>아이디찾기</a>
+	            <li style="list-style-type: none;">
+	            	<a href="id/find_id.html">
+	            		<i class="fas fa-check" style="color:#979797; margin-right:5px; font-size:10px"></i>아이디찾기
+	            	</a>
 	            </li>
-	            <li style="margin-left:10px"><a href="passwd/find_passwd_info.html"><i class="fas fa-check"
+	            <li style="margin-left:10px; list-style-type: none;"><a href="passwd/find_passwd_info.html"><i class="fas fa-check"
 	                        style="color:#979797; margin-right:5px; font-size:10px"></i>비밀번호찾기</a>
 	            </li>
-	            <li style="float:right">
+	            <li style="float:right; list-style-type: none;">
 	                <p class="security">
 	                    <i class="fas fa-lock" style="color:#979797; font-size:10px"></i>
 	                    <!-- <img src="https://img.echosting.cafe24.com/design/skin/default/member/ico_access.gif" alt="보안접속" /> -->
@@ -210,12 +213,11 @@ legend {
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#sign_up').click(function() {
-		$('#login-wrap').fadeOut(300);
-    	$('#signup-wrap').fadeIn(300);
-	});
+$('#sign_up').click(function() {
+	$('#login-wrap').fadeOut(300);
+	$('#signup-wrap').fadeIn(300);
 });
+
 $('#loginBtn').click(function(){
 	$.ajax({
 		type: 'post', //'get' or 'post'
@@ -225,9 +227,12 @@ $('#loginBtn').click(function(){
 		success: function(data){
 			data = data.trim();
 			
-			if(data == 'true'){
+			if(data == 'admin'){
 				alert("로그인에 성공하였습니다.")
-				location.href = './';
+				location.href = '/OhMyGoal/admin/adminMain';
+			}else if(data == 'true'){
+				alert("로그인에 성공하였습니다.")
+				location.href = '/OhMyGoal/';
 			}else{
 				alert("아이디 또는 비밀번호가 맞지 않습니다.")
 			}

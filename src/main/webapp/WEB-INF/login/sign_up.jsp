@@ -98,6 +98,7 @@ fieldset div {
 </head>
 <body>
 
+<form id="writeForm">
 <div id="signup-wrap" class="xans-element- xans-member xans-member-login memberloginbox-popup ">
 	<div class="login">
 	    <div id="logintitle">
@@ -146,7 +147,7 @@ fieldset div {
 				@
 				<input type="text" name="email2" id="email2" style="width: 100px;">
 				&nbsp;
-				<select name="email3" id="email3" style="width: 120px;" onchange="select()">
+				<select name="email3" id="email3" style="width: 100px;" onchange="select()">
 					<option value="">직접입력</option>
 					<option value="naver.com">naver.com</option>
 					<option value="gmail.com">gmail.com</option>
@@ -198,6 +199,7 @@ fieldset div {
 		</fieldset>
 	</div>
 </div>
+</form>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -211,7 +213,7 @@ $('#id').focusout(function(){ //중복 아이디 체크
 		//서버 요청
 		$.ajax({
 			type: 'post',
-			url: '/total_function/board/checkId',
+			url: '/OhMyGoal/board/checkId',
 			data: 'id='+$('#id').val(), //서버로 보내는 데이터
 			dataType: "text", //서버로부터 받은 데이터형, "text", "html", "xml", "json"
 			success: function(data){
@@ -245,7 +247,7 @@ $('#checkBtn').click(function(){
 		
 		$.ajax({
 			type: 'post',
-			url: '/total_function/email/send',
+			url: '/OhMyGoal/email/send',
 			data: 'email1='+$('#email1').val()+'&email2='+$('#email2').val(), //서버로 보낼 데이터
 			dataType: 'text', //서버로부터 받는 자료형, text, xml, html, json
 			success: function(data){
@@ -300,12 +302,12 @@ $('#writeBtn').click(function(){ //checkWrite() 함수를 jQuery형식으로 구현
 	else{
 		$.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
 			type: 'post',
-			url: '/total_function/board/sign_up',
+			url: '/OhMyGoal/board/sign_up',
 			data: $('#writeForm').serialize(),
 			dataType: 'text',
 			success: function(data){
 				alert('회원가입을 축하합니다');
-				location.href = '/total_function/';
+				location.href = '/OhMyGoal/';
 			},
 			error: function(err){
 				console.log(err);
