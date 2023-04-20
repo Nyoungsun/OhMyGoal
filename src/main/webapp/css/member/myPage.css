@@ -9,78 +9,44 @@
 
 body {
 	font-family: 'Pretendard-Regular';
-	font-size: 16px;
-	line-height: 1.6;
-	color: #333;
-	background-color: #f7f7f7;
-	margin: 0;
 }
+
 header {
-   position: sticky;
-   top: 0;
-   z-index: 1;
-   background: #ffffff;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
 }
 
 #logo {
-   margin-top: 15px;
-   margin-bottom: 15px;
-   margin-left: 20px;
-   height: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 20px;
+	height: 20px;
 }
+
 #editBtn {
-   font-size: 9pt;
-   float: right;
-   margin-top: 9px;
-   margin-right: 20px;
-   background: #0000FF;
-   color: #ffffff;
-   padding: 5px;
-   border: 1px solid blue;
-   box-shadow: 0px 3px 5px gray;
+	font-size: 9pt;
+	float: right;
+	margin-top: 9px;
+	margin-right: 20px;
+	background: #0000FF;
+	color: #ffffff;
+	padding: 5px;
+	border: 1px solid blue;
+	box-shadow: 0px 3px 5px gray;
 }
 
 #logoutBtn {
-   font-size: 9pt;
-   float: right;
-   margin-top: 9px;
-   margin-right: 20px;
-   color: #ffffff;
-   padding: 5px;
-   box-shadow: 0px 3px 5px gray;
-   border: 1px solid black;
-   background: #000000;
-}
-
-#navbarNav a {
-	font-weight: bold;
-	font-size: 16px;
-	color: #212529;
-	text-decoration: none
-}
-
-.navbar {
-	background-color: #fff;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	padding: 8px;
-}
-
-#navbarNav a:hover {
-	color: #6c757d;
-}
-
-.nav-link {
-	color: #333;
-	font-weight: 500;
-	margin-right: 12px;
-}
-
-
-.OMGlogo img {
-	height: 20px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	margin-left: 12px;
+	font-size: 9pt;
+	float: right;
+	margin-top: 9px;
+	margin-right: 20px;
+	color: #ffffff;
+	padding: 5px;
+	box-shadow: 0px 3px 5px gray;
+	border: 1px solid black;
+	background: #000000;
 }
 
 #profileDiv {
@@ -89,7 +55,7 @@ header {
 }
 
 #String {
-	display:inline-block;
+	display: inline-block;
 	padding-top: 100px;
 }
 
@@ -115,27 +81,26 @@ header {
 }
 
 #banner {
-	float: right; 
-	width : 500px;
+	float: right;
+	width: 500px;
 	height: 350px;
 }
 
-#missionList {
+#gradeDiv {
 	position: relative;
-	top: -50px;
-	width: 90%;
+	top: -20px;
+	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	height: 450px;
+	font-size: 15pt;
+	font-weight: bold;
+	margin-bottom: 50px;
 }
 
-#grade {
-	margin-left: 40px;
-	margin-top: 10px;
-	font-weight: bold;
-	font-size: 15pt;
-	display: flex;
-	align-items: center;
+#missionDiv {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #grade_img {
@@ -156,23 +121,112 @@ header {
 	height: 170px;
 }
 
-/* Footer */
-footer {
-	background-color: #fbfafa;
-	color: #000000;
-	padding: 50px 0;
-}
-
-footer p {
-	font-size: 14px;
-	font-weight: 400;
-	margin-bottom: 10px;
-}
-
-footer p strong {
-	font-weight: 700;
-}
-
 footer {
 	text-align: center;
+}
+
+.checkDiv {
+	color: #ff0000;
+	font-size: 10pt;
+}
+
+#subject {
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+#img {
+	text-align: center;
+	vertical-align: middle;
+}
+
+td img {
+	width: 180px;
+	height: 180px;
+	border-radius: 15px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+.missionList:hover {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	width: 100%;
+	color: #ffffff;
+}
+
+.missionList:hover * {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+
+.missionList:hover:before {
+	border-radius: 5px;
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	top: 100%;
+	content: '';
+	background-color: rgba(51, 51, 51, 0.5);
+	-webkit-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+	-webkit-transition-delay: 0.25s;
+	transition-delay: 0.25s;
+}
+
+.missionList img {
+	vertical-align: top;
+	max-width: 100%;
+	backface-visibility: hidden;
+}
+
+.missionList figcaption {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+.missionList a {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.missionList:hover:before, .missionList.hover:before {
+	top: 10px;
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.missionList:hover h3, .missionList.hover h3, .missionList:hover h5,
+	.missionList.hover h5 {
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.missionList:hover h3, .missionList.hover h3 {
+	-webkit-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+
+.missionList:hover h5, .missionList.hover h5 {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
 }
