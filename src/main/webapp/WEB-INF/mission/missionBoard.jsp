@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,43 +14,38 @@
 
 <div class="total">
 
-<header>
+	<header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container" style=""> 
-                <a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png"
-					 alt="OhMyGoal!"></a>
                 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse" class="navbarNav" id="navbarNavStart">
                     <ul class="navbar-nav ">
-                        <li class="nav-item" ><a class="nav-link" href="../mission/missionWrite" style="color:black;"
+                    
+	                    <a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png"
+						 alt="OhMyGoal!"></a>
+	                
+	                	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	                    <span class="navbar-toggler-icon"></span>
+	                	</button>
+	                	
+	                	<li class="nav-item"><a class="nav-link" href="../mission/missionWrite" style="margin-right:0px;"
 							>그룹미션 만들기 </a></li>
+	                	
                         <li class="nav-item"><a class="nav-link" href="../board/about"
 							>소개 </a></li>
 
                     </ul>
                 </div>
                 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-					<ul class="navbar-nav">
-						<c:if test="${empty memName}">
-							<li class="nav-item">
-								<a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
-							</li>
-						</c:if>
-						
-						<c:if test="${not empty memName}">
-							<li class="nav-item">
-								<a class="nav-link" href="../member/myPage" style="text-decoration: none;">${memName}님 환영합니다.&nbsp;&nbsp;&nbsp;마이페이지</a>
-							</li>
-							<li class="nav-item">
-								<a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
-							</li>
-						</c:if>
-					</ul>
-				</div>
+                <div class="collapse navbar-collapse justify-content-end"
+						id="navbarNavEnd" class="navbarNav" >
+						<ul class="navbar-nav">
+							<li class="nav-item"><a class="nav-link" href="../member/myPage"
+								>마이페이지</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								>로그아웃</a></li>
+						</ul>
+					</div>
             </div>
         </nav>
     </header>
@@ -70,23 +64,22 @@
 	    
 	    <div id="memberNum" >
 	    	<!-- Button trigger modal -->
-			<button type="button" id="memListBtn" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+			<button type="button" id="memListBtn" class="btn1 d-grid gap-2 " data-bs-target="#modal1" data-bs-toggle="modal" style="">
 			  <div id="memberNumText" style="">	    	
 	    		<h4 style="font-size: 16pt;"><span>🔥 
 	    		<span style="font-weight:bold;">6</span>명 참여 중 🔥</span></h4>
 	    	</div>
 			</button>
 			
-			<!-- Modal -->
-			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal fade" id="modal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			  <div class="modal-dialog modal-dialog-scrollable">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <h1 class="modal-title fs-5" id="staticBackdropLabel">현재 참여자 🏃</h1>
+			        <h5 class="modal-title fs-5"" id="staticBackdropLabel"">현재 참여자 🏃</h5>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
 			      <div class="modal-body">
-			      	<h4>
+			        <h4>
 			      		choi1475<br>
 			      		<hr>
 				      	youngsun11 <br>
@@ -98,16 +91,14 @@
 			        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			        
-			        
 			      </div>
 			      <div class="modal-footer">
-			        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button> -->
-			        <button type="button" class="btn btn-primary d-grid gap-2"  data-bs-dismiss="modal">확인</button>
+			        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 			      </div>
 			    </div>
 			  </div>
 			</div>
-	    
+		
 	    </div>
 	 </div> 
 	 
@@ -148,42 +139,45 @@
 
     </div>
     
-    
-
     <div class="contentContainer">
         <pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">
             💪 갓반인 도전! 💪 어저구저쩌구<br><br><br><br><br><br><br>
         </pre>
 
-        <div class="missionBtn d-grid gap-2 " style="" align="center">
- 				<input type="submit" id="msBtn"  value="그룹미션 참여하기">
+        <div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center">
+ 			<input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기">
         </div>
-    </div>
+        
+	    <div class="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <!-- <h5 class="modal-title fs-5" id="modal2Label">미션참가 모달</h5>  -->
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+			        <h4 style="text-align: center; font-weight:bold;">미션에 참여하시겠습니까?</h4>
+			      </div>
+			      <div class="modal-footer" style="display: flex; justify-content: center;">
+		        	<button type="button" class="btn btn-primary" style="width: 40%">미션 참여</button>
+			      </div>
+			    </div>
+			  </div>
+		</div>
+		
+	</div>
 </div>
  <footer class="footer" align="center">
         <div class="footerDiv" style="">
             <p><strong>OhMyGoal! 2023</strong></p>
             <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
-            <p>ohmygoal.help@gmail.com</p>
+            <p>ohmygoal.help@gmail.com</p>s
         </div>
     </footer>
 </div>
-<script type="text/javascript" src="http://code.jQuery.com/jquery-3.6.4.min.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script type="text/javascript">
-$('#logoutBtn').click(function(){
-	$.ajax({
-		type: 'post',
-		url: '/OhMyGoal/board/logout',
-		success: function(){
-			alert("로그아웃이 완료되었습니다.");
-			location.href = '/OhMyGoal/';
-		},
-		error: function(err){
-			console.log(err);
-		}
-	});
-});
-</script>
+
 </body>
 </html>
