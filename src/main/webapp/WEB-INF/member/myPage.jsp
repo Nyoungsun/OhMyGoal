@@ -20,6 +20,7 @@
 
 <link rel="stylesheet" href="../css/member/edit.css">
 <link rel="stylesheet" href="../css/member/myPage.css">
+<link rel="shortcut icon" href="../img/icon/check.ico">
 
 </head>
 <meta charset="UTF-8">
