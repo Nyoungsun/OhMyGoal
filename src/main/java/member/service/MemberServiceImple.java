@@ -1,10 +1,12 @@
 package member.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import board.bean.BoardDTO;
 import member.bean.MemberDTO;
 import member.dao.MemberDAO;
 
@@ -33,6 +35,21 @@ public class MemberServiceImple implements MemberService{
 		String pwd = memberDAO.checkPwd(id);
 		
 		return pwd;
+	}
+
+	@Override
+	public String getBoards(String id) {
+		String boards = memberDAO.getBoards(id);
+		
+		return boards;
+	}
+	
+
+	@Override
+	public List<BoardDTO> getMyMission(List<String> boardSeq) {
+		List<BoardDTO> boardList = memberDAO.getMyMission(boardSeq);
+		
+		return boardList;
 	}
 
 }

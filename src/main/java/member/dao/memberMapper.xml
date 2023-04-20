@@ -9,7 +9,7 @@
 		select * from ohmygoal_member where id=#{id} and pwd=#{pwd}
 	</select>
 
-	<!-- 정보수정 -->
+	<!-- 정보수정하기 -->
 	<update id="update" parameterType="member.bean.MemberDTO">
 		update ohmygoal_member set name=#{name}, 
 							   <!-- id는 고정이므로 update에서 뺐음 -->
@@ -26,8 +26,21 @@
 							   where id=#{id}  
 	</update>
 	
-	<!-- 비밀번호 확인 -->
+	<!-- 비밀번호 체크하기 -->
 	<select id="checkPwd" parameterType="String" resultType="String">
 		select pwd from ohmygoal_member where id=#{value} <!-- 파라미터가 단일 String인 경우 -->
+	</select>
+	
+	<!-- 멤버테이블에서 미션목록(boards) 가져오기 -->
+	<select id="getBoards" parameterType="String" resultType="String">
+		select boards from ohmygoal_member where id=#{value}
+	</select>
+	
+	<!-- 보드테이블 가져오기 -->
+	<select id="getMyMission" parameterType="java.util.List" resultType="board.bean.BoardDTO">
+		select * from ohmygoal_board where seq in 
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
 	</select>
 </mapper>
