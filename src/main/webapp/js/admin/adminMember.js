@@ -1,7 +1,7 @@
 $(function(){
   $.ajax({
     type: 'post',
-    url: '/OhMyGoal/admin/getBoardList',
+    url: '/OhMyGoal/admin/getMemberList',
     data: 'pg=' + $('#pg').val(),
     dataType: 'json',
     success: function(data){
@@ -13,22 +13,25 @@ $(function(){
           text: items.seq
         })).append($('<td>', {
           align: 'center',
+          text: items.name
+        })).append($('<td>', {
+          align: 'center',
           text: items.id
         })).append($('<td>', {
           align: 'center',
-          text: items.subject
+          text: items.pwd
         })).append($('<td>', {
           align: 'center',
-          text: items.category
+          text: items.grade
         })).append($('<td>', {
           align: 'center',
-          text: items.members
+          text: items.boards
         })).append($('<td>', {
           align: 'center',
           text: logtime
         })).appendTo($('#userListTable'));
       });
-      $('#boardPagingDiv').html(data.boardPaging.pagingHTML);
+      $('#memberPagingDiv').html(data.memberPaging.pagingHTML);
     },
     error: function(err){
       console.log(err.responseText);
