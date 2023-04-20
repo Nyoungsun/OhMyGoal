@@ -210,12 +210,11 @@ legend {
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#sign_up').click(function() {
-		$('#login-wrap').fadeOut(300);
-    	$('#signup-wrap').fadeIn(300);
-	});
+$('#sign_up').click(function() {
+	$('#login-wrap').fadeOut(300);
+	$('#signup-wrap').fadeIn(300);
 });
+
 $('#loginBtn').click(function(){
 	$.ajax({
 		type: 'post', //'get' or 'post'
@@ -225,9 +224,12 @@ $('#loginBtn').click(function(){
 		success: function(data){
 			data = data.trim();
 			
-			if(data == 'true'){
+			if(data == 'admin'){
 				alert("로그인에 성공하였습니다.")
-				location.href = './';
+				location.href = '/OhMyGoal/admin/adminMain';
+			}else if(data == 'true'){
+				alert("로그인에 성공하였습니다.")
+				location.href = '/OhMyGoal/';
 			}else{
 				alert("아이디 또는 비밀번호가 맞지 않습니다.")
 			}

@@ -76,7 +76,14 @@ public class BoardController {
 
 		MemberDTO memberDTO = boardService.login(map);
 
-		if (memberDTO != null) {
+		if (memberDTO != null && memberDTO.getId().equals("admin")) {
+			session.setAttribute("memName", memberDTO.getName());
+			session.setAttribute("memId", id);
+			session.setAttribute("memPwd", pwd);
+			session.setAttribute("memEmail", memberDTO.getEmail1() + "@" + memberDTO.getEmail2());
+
+			return "admin";
+		} else if(memberDTO != null) {
 			session.setAttribute("memName", memberDTO.getName());
 			session.setAttribute("memId", id);
 			session.setAttribute("memPwd", pwd);

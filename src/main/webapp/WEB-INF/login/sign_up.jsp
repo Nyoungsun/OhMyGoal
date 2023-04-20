@@ -146,7 +146,7 @@ fieldset div {
 				@
 				<input type="text" name="email2" id="email2" style="width: 100px;">
 				&nbsp;
-				<select name="email3" id="email3" style="width: 120px;" onchange="select()">
+				<select name="email3" id="email3" style="width: 100px;" onchange="select()">
 					<option value="">직접입력</option>
 					<option value="naver.com">naver.com</option>
 					<option value="gmail.com">gmail.com</option>
