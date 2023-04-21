@@ -19,7 +19,7 @@ public class MemberServiceImple implements MemberService{
 	@Override
 	public MemberDTO getMember(Map<String, String> map) {
 		MemberDTO memberDTO = memberDAO.getMember(map);
-		
+		  
 		return memberDTO;
 	}
 
@@ -50,6 +50,13 @@ public class MemberServiceImple implements MemberService{
 		List<BoardDTO> boardList = memberDAO.getMyMission(boardSeq);
 		
 		return boardList;
+	}
+
+	@Override
+	public int changePwd(Map<String, String> map) {
+		int count = memberDAO.changePwd(map);
+		
+		return count;
 	}
 
 }

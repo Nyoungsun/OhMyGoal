@@ -11,7 +11,7 @@ String seq = request.getParameter("seq");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- bootstrap -->
-    <title>Check out the Mission Here</title>
+    <title>Check out the Mission Here🎁</title>
     <style type="text/css">
     div#grayLayer {
 	display: none;
@@ -94,10 +94,13 @@ String seq = request.getParameter("seq");
 	    	<!-- <h1 >갓생! 미라클 모닝 ☀️</h1> -->
 	    </div>
 	    
-	    <div id="memberNum">
+	   
+	    <div class="label container-fluid"></div>
+	    
+	    <div id="memberNum" style="border: 2px solid green; display: flex; justify-content: flex-end; margin-top: -8.5%; margin-right:0.8%;" data-toggle="tooltip" data-placement="top" data-container="" title="미션 참여자를 확인해 보세요!" >
 	    	<!-- Button trigger modal -->
 			<button type="button" id="memListBtn" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-				<div id="memberNumText" style=""></div>
+				<div id="memberNumText" ></div>
 			</button>
 			
 			<!-- Modal -->
@@ -108,7 +111,7 @@ String seq = request.getParameter("seq");
 			        <h1 class="modal-title fs-5" id="staticBackdropLabel">현재 참여자 🏃</h1>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
-			      <div class="modal-body" id="join_members"></div>
+			      <div class="modal-body" id="join_members"></div>	
 			      <div class="modal-footer">
 			        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button> -->
 			        <button type="button" class="btn btn-primary d-grid gap-2"  data-bs-dismiss="modal">확인</button>
@@ -117,14 +120,15 @@ String seq = request.getParameter("seq");
 			  </div>
 			</div>
 	    
-	    </div>
+	   
+	    
 	 </div> 
 	 
-    <div class="label container-fluid"></div>
+    <!-- <div class="label container-fluid"></div> -->
 
     <div class="userInfo" style="">
-        <div class="userInfo2" style=""  >
-            <div class="userInfo3" style="">
+        <div class="userInfo2" style="">
+            <div class="userInfo3" style="margin-bottom: 1.3%;">
                 <a href="#" target="_blank" rel="noreferrer">
                     <span class="userInfo4" style="white-space: nowrap;">
                         <span class="userImg"></span>
@@ -133,8 +137,8 @@ String seq = request.getParameter("seq");
 
             </div>
             &nbsp;
-            <div class="dateDiv" style="">
-                <span class="date"></span>
+            <div class="dateDiv" style=" margin-bottom: 1.5%; ">
+                <span class="date" style="margin-left: 18%; font-weight: bold;"></span>
             </div>
             &nbsp;
             <div class="likeDiv" style="">
@@ -147,10 +151,12 @@ String seq = request.getParameter("seq");
 
     </div>
     
-    
 
-    <div class="contentContainer"></div>
+	    <div class="contentContainer"></div>
+	</div>
+
 </div>
+
  <footer class="footer" align="center" style="display: block;">
         <div class="footerDiv" style="">
             <p><strong>OhMyGoal! 2023</strong></p>
@@ -159,6 +165,8 @@ String seq = request.getParameter("seq");
         </div>
     </footer>
 </div>
+
+
 <script type="text/javascript" src="http://code.jQuery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -166,7 +174,7 @@ let arr=[];
 
 $(document).ready(function() {
 	$.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
-		type: 'post',
+		type: 'post',  
 		url: '/OhMyGoal/board/view',
 		data: 'seq=' + <%= seq %>,//서버로 보낼 데이터
 		dataType: 'json', //서버로부터 받은 데이터형, "text", "html", "xml", "json"
@@ -174,7 +182,7 @@ $(document).ready(function() {
 			arr = data.members.split(" ");
 			$('.mainThumbnail').append('<img src="' + data.img + '" alt="썸네일" style="width: 85%; height: 45%; border-radius: 15px;">');
 			$('.subject').append('<h1 >' + data.subject + '</h1>');
-			$('#memberNumText').append('<h4 style="font-size: 16pt;"><span>🔥<span style="font-weight:bold;">' + arr.length + '</span>명 참여 중 🔥</span></h4>');
+			$('#memberNumText').append('<h4 style="font-size: 16pt;"><span>🔥 <span style="font-weight:bold;">' + arr.length + '</span>명 참여 중 🔥</span></h4>');
 			$('.label.container-fluid').append('<h4><span class="innerLabel badge rounded-pill " style="margin-right: 13px;">' + data.category + '</span><span class="innerLabel badge rounded-pill ">' + data.maxmember + '명</span></h4>');
 			$('.userImg').append('<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg>&nbsp;'+data.id);
 			$('.date').append(new Date(data.start_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}) + ' ~ ' + new Date(data.end_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}));
@@ -241,5 +249,22 @@ function missionJoin() {
 	}
 }
 </script>
+
+
+
+<!-- 툴팁 js -->
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $('[data-toggle="tooltip"]').tooltip(); 
+	});
+</script>
+
 </body>
 </html>
+
+
+
+
+
+
+

@@ -1,3 +1,4 @@
+
 package board.bean;
 
 import org.springframework.stereotype.Component;
@@ -25,9 +26,9 @@ public class BoardPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage != 1)
-			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (startPage-1) + ")'>이전</span>");
+			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (startPage-1) + ")'> ◀ PREV </span>");
 		
-		for(int i=startPage; i<=endPage; i++) {
+		for(int i=startPage; i<=endPage; i++) {   
 			if(i==currentPage)
 				pagingHTML.append("<span id='currentPaging' onclick='boardPaging(" + i + ")'>" + i + "</span>");
 			else
@@ -35,7 +36,7 @@ public class BoardPaging {
 		}
 		
 		if(endPage < totalP)
-			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (endPage+1) + ")'>다음</span>");
+			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (endPage+1) + ")'> NEXT ▶ </span>");
 		
 		
 	}

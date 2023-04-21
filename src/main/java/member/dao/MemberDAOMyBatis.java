@@ -42,4 +42,9 @@ public class MemberDAOMyBatis implements MemberDAO{
 		return sqlSession.selectList("memberSQL.getMyMission", boardSeq);
 	}
 
+	@Override
+	public int changePwd(Map<String, String> map) {
+		return sqlSession.update("memberSQL.changePwd", map);
+	}
+
 }
