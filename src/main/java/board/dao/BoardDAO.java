@@ -19,4 +19,6 @@ public interface BoardDAO {
 	public BoardDTO view(String seq);
 
 	public void missionJoin(Map<Object, Object> map);
+	
+	public void boardDel(String seq);
 }

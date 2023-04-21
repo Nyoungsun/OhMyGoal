@@ -83,4 +83,13 @@
 	<update id="missionJoin2" parameterType="java.util.Map">
 		update ohmygoal_member set boards=#{boards} where id=#{id}
 	</update>
+	
+	<update id="member_boardDel" parameterType="java.util.Map">
+		update ohmygoal_member set boards=#{boards} where id=#{id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="boardDel" parameterType="String">
+		delete ohmygoal_board where seq=#{seq}
+	</delete>
  </mapper>

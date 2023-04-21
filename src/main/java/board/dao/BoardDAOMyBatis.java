@@ -1,5 +1,6 @@
 package board.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -59,5 +60,23 @@ public class BoardDAOMyBatis implements BoardDAO {
 		else {map.put("boards", tmp2.getBoards()+" "+map.get("seq"));}
 		sqlSession.update("boardSQL.missionJoin1", map);
 		sqlSession.update("boardSQL.missionJoin2", map);
+	}
+	
+	@Override
+	public void boardDel(String seq) {
+		String arr[];
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		
+		BoardDTO tmp = sqlSession.selectOne("boardSQL.getBoard", seq);
+		MemberDTO tmp2;
+		arr = tmp.getMembers().split(" "); //보드를 참여하던 사람들
+		
+		for (String member : arr) {
+			tmp2 = sqlSession.selectOne("boardSQL.getUser", member);
+			map.put("id", member);
+			map.put("boards", tmp2.getBoards().replace(" "+seq, "").replace(seq, ""));
+			sqlSession.update("boardSQL.member_boardDel", map);
+		}
+		sqlSession.delete("boardSQL.boardDel", seq);
 	}
 }
