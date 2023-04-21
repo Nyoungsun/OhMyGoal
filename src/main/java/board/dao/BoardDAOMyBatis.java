@@ -44,13 +44,20 @@ public class BoardDAOMyBatis implements BoardDAO {
 	
 	@Override
 	public BoardDTO view(String seq) {
-		
+		sqlSession.update("boardSQL.views", seq);
 		return sqlSession.selectOne("boardSQL.getBoard", seq);
 	}
 	
 	@Override
-	public String getUser(String seq) {
+	public void missionJoin(Map<Object, Object> map) {
 		
-		return sqlSession.selectOne("boardSQL.getUserNum", seq);
+		BoardDTO tmp = sqlSession.selectOne("boardSQL.getBoard", map.get("seq"));
+		MemberDTO tmp2 = sqlSession.selectOne("boardSQL.getUser", map.get("id"));
+		if(tmp.getMembers() == null) {map.put("members", map.get("id"));}
+		else {map.put("members", tmp.getMembers()+" "+map.get("id"));}
+		if(tmp2.getBoards() == null) {map.put("boards", map.get("seq"));}
+		else {map.put("boards", tmp2.getBoards()+" "+map.get("seq"));}
+		sqlSession.update("boardSQL.missionJoin1", map);
+		sqlSession.update("boardSQL.missionJoin2", map);
 	}
 }

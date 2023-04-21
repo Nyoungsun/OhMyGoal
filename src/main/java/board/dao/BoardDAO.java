@@ -18,5 +18,5 @@ public interface BoardDAO {
 
 	public BoardDTO view(String seq);
 
-	public String getUser(String seq);
+	public void missionJoin(Map<Object, Object> map);
 }

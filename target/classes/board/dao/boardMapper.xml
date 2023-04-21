@@ -45,18 +45,17 @@
 		select * from ohmygoal_member where id=#{id} and pwd=#{pwd}
 	</select>
 	
-	<!-- 중복 아이디 체크 -->
 	<select id="getUser" parameterType="String" resultType="member.bean.MemberDTO">
 		select * from ohmygoal_member where id=#{id}
-	</select>
-	
-	<select id="getUserNum" parameterType="String" resultType="String">
-		select id from ohmygoal_member where seq=#{seq}
 	</select>
 	
 	<select id="getBoard" parameterType="String" resultType="board.bean.BoardDTO">
 		select * from ohmygoal_board where seq=#{seq}
 	</select>
+	
+	<update id="views" parameterType="String">
+		update ohmygoal_board set views=views+1 where seq=#{seq}
+	</update>
 	
 	<!-- 회원가입 -->
 	<insert id="signUp" parameterType="member.bean.MemberDTO">
@@ -76,4 +75,12 @@
 								, ''
 								, sysdate)
 	</insert>
+	
+	<update id="missionJoin1" parameterType="java.util.Map">
+		update ohmygoal_board set members=#{members} where seq=#{seq}
+	</update>
+	
+	<update id="missionJoin2" parameterType="java.util.Map">
+		update ohmygoal_member set boards=#{boards} where id=#{id}
+	</update>
  </mapper>

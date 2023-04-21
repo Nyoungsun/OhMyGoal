@@ -46,8 +46,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public String getUser(String seq) {
+	public void missionJoin(Map<Object, Object> map) {
 		
-		return boardDAO.getUser(seq);
+		boardDAO.missionJoin(map);
 	}
 }
