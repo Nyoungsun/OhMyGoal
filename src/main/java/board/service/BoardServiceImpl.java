@@ -50,4 +50,10 @@ public class BoardServiceImpl implements BoardService {
 		
 		boardDAO.missionJoin(map);
 	}
+	
+	@Override
+	public void boardDel(String seq) {
+		
+		boardDAO.boardDel(seq);
+	}
 }

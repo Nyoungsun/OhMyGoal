@@ -154,4 +154,11 @@ public class BoardController {
 		
 		boardService.missionJoin(map);
 	}
+	
+	@PostMapping(value="boardDel")
+	@ResponseBody
+	public void boardDel(@RequestParam("seq") String seq) {
+		
+		boardService.boardDel(seq);
+	}
 }
