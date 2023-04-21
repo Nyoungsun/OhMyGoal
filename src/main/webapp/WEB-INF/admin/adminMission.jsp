@@ -16,7 +16,24 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <link rel="stylesheet" href="../css/admin/adminMain.css">
-<title>AdminMission🍺</title>
+<title>AdminMission</title>
+<style type="text/css">
+#currentPaging{
+	text-align:center;
+	color:red;
+	text-decoration:underline;
+	cursor: pointer;
+}
+
+#paging{
+	text-align:center;
+	color:black;
+	text-decoration:none;
+	cursor: pointer;
+	
+}
+</style>
+<title>AdminMission</title>
 
 </head>
 
@@ -61,7 +78,7 @@
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
 		<div class="list">
-            <div class="sec-option" >
+            <div class="sec-option" style="display:flex;align-items:center;justify-content:center" >
 			  <select name="condition">
 			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
@@ -77,17 +94,16 @@
         <table id = "userListTable" class="admin_board_wrap">
           <tr class="admin_boardList">
           	<th class="admin_board_head">#</th>
-            <th class="admin_board_head">카테고리</th>
-            <th class="admin_board_head">제목</th>
             <th class="admin_board_head">아이디</th>
+            <th class="admin_board_head">제목</th>
+            <th class="admin_board_head">카테고리</th>
             <th class="admin_board_head">참가멤버</th>
-            <th class="admin_board_head">시작날짜</th>
-            <th class="admin_board_head">마지막날짜</th>
+            <th class="admin_board_head">기한</th>
             
           </tr>
           <!-- 동적 처리 -->
         </table>
-        <div id ="userPagingDiv" style="margin-top:10px; width:450px; text-align:center;"></div>
+        <div id ="boardPagingDiv" style="margin-top:10px; width:450px; text-align:center;"></div>
      </div>
      
  <!-- <footer>
@@ -130,7 +146,7 @@
 	});
 //페이징 처리
 	function boardPaging(pg){
-		location.href="/MiniProject_OMG/admin/adminMission?pg="+pg;
+		location.href="/OhMyGoal/admin/adminMission?pg="+pg;
 	}
 </script>
 </body>

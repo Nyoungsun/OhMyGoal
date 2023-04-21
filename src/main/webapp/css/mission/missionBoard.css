@@ -60,7 +60,6 @@
 		.navbar {
 			background-color: #fff;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			padding: 8px;
 		}
 		
 		.navbar-nav a:hover {
@@ -104,17 +103,7 @@
 		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 	}
 	
-		input[type="text"] {
-			width: 70%;
-			height: 40px;
-			border-radius: 5px;
-			border: none;
-			padding: 5px;
-			margin-top: 10px;
-			margin-bottom: 1px;
-			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-			background-color: #f5f5f5;
-		}
+		
 		
 		.form-select  {
 			width: 70%;
