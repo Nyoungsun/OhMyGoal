@@ -28,7 +28,7 @@ public class BoardPaging {
 		if(startPage != 1)
 			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (startPage-1) + ")'> ◀ PREV </span>");
 		
-		for(int i=startPage; i<=endPage; i++) {
+		for(int i=startPage; i<=endPage; i++) {   
 			if(i==currentPage)
 				pagingHTML.append("<span id='currentPaging' onclick='boardPaging(" + i + ")'>" + i + "</span>");
 			else

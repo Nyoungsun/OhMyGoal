@@ -24,8 +24,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Map<String, Object> getBoardList(String pg) {
-        int endNum = Integer.parseInt(pg) * 3;
-        int startNum = endNum - 2;
+        int endNum = Integer.parseInt(pg) * 5;
+        int startNum = endNum - 4;
 
         Map<String, Integer> map = new HashMap<String, Integer>();
         map.put("startNum", startNum);
@@ -34,8 +34,8 @@ public class AdminServiceImpl implements AdminService {
         List<BoardDTO> boardList = adminDAO.getBoardList(map);
         int totalA = adminDAO.getTotalA();
         boardPaging.setCurrentPage(Integer.parseInt(pg));
-        boardPaging.setPageBlock(3);
-        boardPaging.setPageSize(3);
+        boardPaging.setPageBlock(5);
+        boardPaging.setPageSize(5);
         boardPaging.setTotalA(totalA);
         boardPaging.makePaginHTML();
 
@@ -47,8 +47,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Map<String, Object> getMemberList(String pg) {
-        int endNum = Integer.parseInt(pg) * 3;
-        int startNum = endNum - 2;
+        int endNum = Integer.parseInt(pg) * 5;
+        int startNum = endNum - 4;
 
         Map<String, Integer> map = new HashMap<String, Integer>();
         map.put("startNum", startNum);
@@ -57,8 +57,8 @@ public class AdminServiceImpl implements AdminService {
         List<MemberDTO> memberList = adminDAO.getMemberList(map);
         int totalB = adminDAO.getTotalB();
         memberPaging.setCurrentPage(Integer.parseInt(pg));
-        memberPaging.setPageBlock(3);
-        memberPaging.setPageSize(3);
+        memberPaging.setPageBlock(5);
+        memberPaging.setPageSize(5);
         memberPaging.setTotalA(totalB);
         memberPaging.makePaginHTML();
 
