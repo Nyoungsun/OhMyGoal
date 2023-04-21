@@ -5,18 +5,29 @@
  
  
  <mapper namespace="missionSQL">
- 
- 	<insert id="write" parameterType="mission.bean.MissionDTO">
- 		insert into mission values(seq_ohmygoal.NEXTVAL, 
- 									, #{url}
- 									, #{img}
- 									, #{subject}
- 									, #{category}
- 									, #{id}
- 									, #{startDate}
- 									, #{endDate}
- 									, #{membernum}
- 									, #{content}
- 									, #{members})
+ 	
+ 	<!-- 미션 작성 -->
+ 	<insert id="write" parameterType="board.bean.BoardDTO" >
+ 		insert into ohmygoal_board (seq, img, subject, content, category, id, members, maxmember, start_date, end_date, logtime) values
+ 									(seq_ohmygoal.NEXTVAL, 
+	 									, ''
+	 																	<!-- , #{img} -->
+	 									, #{subject}
+	 									, ''
+	 						  											<!-- , #{content} -->
+	 									, #{category}
+	 									, #{id}
+	 									, #{id}							<!-- 현재 참여 멤버 -->
+	 									, #{maxmember}
+	 									, #{start_date}
+	 									, #{end_date}
+	 									, sysdate)
  	</insert>
+ 	
+ 	<!-- 각 미션 고유 번호 꺼내기 -->
+ 	<select id="getSeq" parameterType="String" resultType="String">
+ 		select seq from ohmygoal_board where id=#{id}
+ 	</select>
+ 	
+ 	
  </mapper>
