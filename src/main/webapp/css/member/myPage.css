@@ -89,7 +89,7 @@ header {
 #gradeDiv {
 	position: relative;
 	top: -20px;
-	width: 75%;
+	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 15pt;
@@ -98,7 +98,7 @@ header {
 }
 
 #missionDiv {
-	width: 75%;
+	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -146,87 +146,34 @@ td img {
 	border-radius: 15px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Raleway);
-
-.missionList:hover {
-	position: relative;
-	display: inline-block;
-	overflow: hidden;
-	width: 100%;
-	color: #ffffff;
+input[value='보러가기'] {
+	font-family: 'Pretendard-Regular';
+	color: #fff;
+	padding: 10px;
+	border: none;
+	background: #000000;
+	cursor: pointer;
+	box-shadow: 0px 3px 5px gray;
+	margin-right: 10px;
 }
 
-.missionList:hover * {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition: all 0.25s ease;
-	transition: all 0.25s ease;
+input[value='인증하기'] {
+	font-family: 'Pretendard-Regular';
+	color: #fff;
+	padding: 10px;
+	border: none;
+	background: #0000ff;
+	cursor: pointer;
+	box-shadow: 0px 3px 5px gray;
+	margin-right: 10px;
 }
 
-.missionList:hover:before {
-	border-radius: 5px;
-	position: absolute;
-	top: 10px;
-	bottom: 10px;
-	left: 10px;
-	right: 10px;
-	top: 100%;
-	content: '';
-	background-color: rgba(51, 51, 51, 0.5);
-	-webkit-transition: all 0.25s ease;
-	transition: all 0.25s ease;
-	-webkit-transition-delay: 0.25s;
-	transition-delay: 0.25s;
-}
-
-.missionList img {
-	vertical-align: top;
-	max-width: 100%;
-	backface-visibility: hidden;
-}
-
-.missionList figcaption {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 1;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-
-.missionList a {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 1;
-}
-
-.missionList:hover:before, .missionList.hover:before {
-	top: 10px;
-	-webkit-transition-delay: 0s;
-	transition-delay: 0s;
-}
-
-.missionList:hover h3, .missionList.hover h3, .missionList:hover h5,
-	.missionList.hover h5 {
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
-	opacity: 1;
-}
-
-.missionList:hover h3, .missionList.hover h3 {
-	-webkit-transition-delay: 0.3s;
-	transition-delay: 0.3s;
-}
-
-.missionList:hover h5, .missionList.hover h5 {
-	-webkit-transition-delay: 0.2s;
-	transition-delay: 0.2s;
+input[value='도망가기'] {
+	font-family: 'Pretendard-Regular';
+	color: #fff;
+	padding: 10px;
+	border: none;
+	background: #c54245;
+	cursor: pointer;
+	box-shadow: 0px 3px 5px gray;
 }
