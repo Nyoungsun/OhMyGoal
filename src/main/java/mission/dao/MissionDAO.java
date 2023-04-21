@@ -1,9 +1,9 @@
 package mission.dao;
 
-import mission.bean.MissionDTO;
+import board.bean.BoardDTO;
 
 public interface MissionDAO {
 
-	void write(MissionDTO missionDTO);
+	public String write(BoardDTO boardDTO);
 
 }

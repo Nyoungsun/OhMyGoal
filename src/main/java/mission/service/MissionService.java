@@ -1,9 +1,9 @@
 package mission.service;
 
-import mission.bean.MissionDTO;
+import board.bean.BoardDTO;
 
 public interface MissionService {
 
-	void write(MissionDTO missionDTO);
+	public void write(BoardDTO boardDTO);
 
 }

@@ -41,13 +41,14 @@
 		#navbarNavStart{
 		
 			margin-left: -19%;
+			display: flex;
+          	align-items: center;
 		}
 		
 		#navbarNavEnd{
 		
-			margin-right: -20%;
+			/* margin-right: -20%; */
 		}
-		
 		
 		
 		.navbar-nav a {
@@ -76,14 +77,13 @@
 		
 		.OMGlogo img {
 			height: 21px;
-			margin-top: 10px;
-			margin-bottom: 15px;
-			margin-right: 10px;
-			
+			margin-top: 1.2%;
+			margin-left: -12%;
+		
 		}
 	
 	     
-	.headerBtn {
+		.headerBtn {
 		    font-size: 10pt;
 		    float: right;
 		    margin-top: 9px;
@@ -93,7 +93,7 @@
 		    padding: 5px;
 		    border: 1px solid blue;
 		    box-shadow: 0px 3px 5px gray;
-	}
+		}
 	     
 
       #box {
@@ -185,6 +185,17 @@
 
             padding: 10px;
         }
+        
+        
+        .tooltip-inner {
+			  max-width: 500px;
+			  width: 100%;
+			  font-size: 13pt;
+			  margin-top: -9%; 
+			  display: flex; 
+			  justify-content: flex-end;
+			  margin-right:0.8%;
+		}
 
 
         #box .label h4{
@@ -266,6 +277,10 @@
 			  	
 	    	  box-shadow: 0px 3px 5px gray;
 	          margin-top: 30px;
+      	}
+      	
+      	.modal-body{
+      		border:none;
       	}
 
        footer {
