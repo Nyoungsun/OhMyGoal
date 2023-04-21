@@ -27,9 +27,15 @@
 <link rel="stylesheet" charset="UTF-8"
 	href="../cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<link rel="stylesheet" href="./css/header/header.css">
 <title>OhMyGoal! - 모두의 달성과제</title>
 <style type="text/css">
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
 * {
     margin: 0;
     padding: 0;
@@ -101,7 +107,6 @@ header {
 .navbar {
 	background-color: #fff;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	padding: 20px;
 }
 
 #navbarNav a:hover {
@@ -3167,40 +3172,43 @@ header {
 			-->
 			
 			<header>
-				<nav class="navbar navbar-expand-lg navbar-light bg-white">
-					<div class="container">
-						<a class="OMGlogo" href="./">
-							<img src="./img/logo/logo_no_bg2.png" alt="OhMyGoal!">
-						</a>
-					</div>
-					
-	                <div class="collapse navbar-collapse" id="navbarNav">
-	                    <ul class="navbar-nav ">
-	                        <li class="nav-item">
-	                        	<a class="nav-link" href="../board/about"></a>
-	                        </li>
-	                    </ul>
-	                </div>
-					
-					<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-						<ul class="navbar-nav">
-							<c:if test="${empty memName}">
-								<li class="nav-item">
-									<a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
-								</li>
-							</c:if>
-							
-							<c:if test="${not empty memName}">
-								<li class="nav-item">
-									<a class="nav-link" href="./member/myPage" style="text-decoration: none;">${memName}님 환영합니다.&nbsp;&nbsp;&nbsp;마이페이지</a>
-								</li>
-								<li class="nav-item">
-									<a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
-								</li>
-							</c:if>
-						</ul>
-					</div>
-				</nav>
+			    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+			        <div class="container" style="">
+			            <a class="OMGlogo" href="./"><img src="./img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+			
+			            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+			                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			                <span class="navbar-toggler-icon"></span>
+			            </button>
+			            <div class="collapse navbar-collapse" id="navbarNav">
+			                <ul class="navbar-nav " style="margin-left: 20px;">
+			                    <li class="nav-item">
+			                        <a class="nav-link" href="./board/about">소개</a>
+			                    </li>
+			                </ul>
+			            </div>
+			
+			            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			                <ul class="navbar-nav">
+			                    <c:if test="${empty memName}">
+			                        <li class="nav-item">
+			                            <a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
+			                        </li>
+			                    </c:if>
+			
+			                    <c:if test="${not empty memName}">
+			                        <li class="nav-item">
+			                            <a class="nav-link" href="./member/myPage" style="text-decoration: none;">${memName}님
+			                                환영합니다.&nbsp;&nbsp;&nbsp;마이페이지</a>
+			                        </li>
+			                        <li class="nav-item">
+			                            <a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
+			                        </li>
+			                    </c:if>
+			                </ul>
+			            </div>
+			        </div>
+			    </nav>
 			</header>
 			
 			<div class="MuiContainer-root MuiContainer-maxWidthLg">
