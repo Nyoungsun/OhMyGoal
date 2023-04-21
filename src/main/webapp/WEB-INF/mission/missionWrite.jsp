@@ -330,7 +330,7 @@ $(document).ready(function() {
             	   },
             	   error: function(e){
             		   console.log(e);
-            		   alert("에러났다!!");
+            		   alert("에러났다!!");  
             	   }
                });
       

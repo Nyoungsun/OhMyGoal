@@ -14,6 +14,10 @@
 	<context:component-scan base-package="member.dao" />
 	<context:component-scan base-package="member.service" />
 	
+	<context:component-scan base-package="mission.bean" />
+	<context:component-scan base-package="mission.dao" />
+	<context:component-scan base-package="mission.service" />
+	
 	<context:component-scan base-package="admin.service" />
 	<context:component-scan base-package="admin.dao" />
 	

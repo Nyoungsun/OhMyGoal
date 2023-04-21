@@ -19,7 +19,7 @@ public class MemberServiceImple implements MemberService{
 	@Override
 	public MemberDTO getMember(Map<String, String> map) {
 		MemberDTO memberDTO = memberDAO.getMember(map);
-		
+		  
 		return memberDTO;
 	}
 

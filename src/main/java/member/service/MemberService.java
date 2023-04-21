@@ -16,6 +16,6 @@ public interface MemberService {
 
 	public String getBoards(String id);
 
-	public List<BoardDTO> getMyMission(List<String> boardSeq);
+	public List<BoardDTO> getMyMission(List<String> boardSeq);  
 
 }

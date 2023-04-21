@@ -18,7 +18,6 @@ public class MissionDTO {
     private Date logtime;
 	
     
-    
     public int getRn() {
 		return rn;
 	}

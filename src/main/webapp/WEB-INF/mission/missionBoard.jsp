@@ -170,7 +170,7 @@ String seq = request.getParameter("seq");
 <script type="text/javascript">
 $(document).ready(function() {
 	$.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
-		type: 'post',
+		type: 'post',  
 		url: '/OhMyGoal/board/view',
 		data: 'seq=' + <%= seq %>,//서버로 보낼 데이터
 		dataType: 'json', //서버로부터 받은 데이터형, "text", "html", "xml", "json"

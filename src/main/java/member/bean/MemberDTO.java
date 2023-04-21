@@ -20,5 +20,5 @@ public class MemberDTO {
 	private String addr2;
 	private int grade;
 	private String boards;
-	private Date logtime;
+	private Date logtime;   
 }

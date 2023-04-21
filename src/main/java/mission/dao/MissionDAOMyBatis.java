@@ -18,7 +18,7 @@
 			sqlSession.insert("missionSQL.wirte", boardDTO);
 			
 			return sqlSession.selectOne("missionSQL.getSeq", boardDTO.getSeq());
-			
+			   
 		}
 	
 	}
