@@ -19,12 +19,8 @@
 						</tr>
 						<tr>
 							<td>
-								<div class="spacing">
-									비밀번호<span class="essential"> *</span>
-								</div> <input type="password" name="pwd" id="pwd" placeholder="비밀번호">
-								<div class="checkDiv" id="checkPwd"></div> <input
-								type="password" id="rePwd" placeholder="비밀번호 확인">
-								<div class="checkDiv" id="checkRePwd"></div>
+								<div class="spacing">비밀번호</div> 
+								<input type="button" id="changePwd" value="비밀번호 변경">
 							</td>
 						</tr>
 						<tr>
@@ -78,9 +74,10 @@
 							</td>
 						</tr>
 						<tr>
-							<td id="btn"><input type="button" id="save" value="저장">
-								<input type="reset" id="cancel" data-bs-dismiss="modal"
-								value="취소"></td>
+							<td id="btn">
+								<input type="button" id="save" value="저장">
+								<input type="button" id="cancel" data-bs-dismiss="modal" value="취소">
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -92,17 +89,17 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
 	$('#save').click(function() {
-		$('#checkPwd').empty();
+		$('#checkRePwd').empty();
 		$('#checkName').empty();
 		$('#checkEmail').empty();
-		$('#checkTel').empty();
+		$('#checkTel').empty();   
 		$('#checkAddr').empty();
 
-		if ($('#pwd').val() == '') {
-			$('#checkPwd').text('비밀번호를 입력하세요');
-			$('#pwd').focus();
-		} else if ($('#rePwd').val() == '') {
-			$('#checkPwd').text('비밀번호 재확인을 입력하세요');
+		if ($('#pwd').val() != '' && $('#rePwd').val() == '') {
+			$('#checkPwd').text('새 비밀번호 확인을 입력하세요');
+			$('#rePwd').focus();
+		} else if ($('#pwd').val() != $('#rePwd').val()) {
+			$('#rePwd').text('새 비밀번호 확인이 다릅니다.');
 			$('#rePwd').focus();
 		} else if ($('#name').val() == '') {
 			$('#checkName').text('아이디를 입력하세요');
@@ -131,11 +128,12 @@
 		} else {
 			$.ajax({
 				type : 'post',
-				url : '/OhMyGoal/member/update',
+				url : 'update',
 				data : $('#editForm').serialize(),
 				success : function(data) {
-					if (date != 0) {
+					if (data != 0) {
 						alert("수정되었습니다.");
+						location.reload();
 					} else {
 						alert("다시 시도해주세요.");
 					}
@@ -146,4 +144,11 @@
 			})
 		}
 	});
+	
+</script>
+<script>
+$('#changePwd').click(function() {
+	$('#ModalEdit').modal('hide'); 
+	$('#ModalchangePwd').modal('show'); 
+});
 </script>

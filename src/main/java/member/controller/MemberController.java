@@ -54,7 +54,7 @@ public class MemberController {
 	@PostMapping(value = "update")
 	@ResponseBody
 	public int update(@ModelAttribute MemberDTO memberDTO) {
-		int count = memberService.update(memberDTO); // 에러 방지를 위해 count를 받아온다.
+		int count = memberService.update(memberDTO); 
 
 		return count;
 	}
@@ -73,9 +73,9 @@ public class MemberController {
 		}
 	}
 
-	@PostMapping(value = "getMyPage")
+	@PostMapping(value = "getMyMission")
 	@ResponseBody
-	public List<BoardDTO> getMyPage(HttpSession httpSession) {
+	public List<BoardDTO> getMyMission(HttpSession httpSession) {
 		String id = (String) httpSession.getAttribute("memId");
 
 		String boards = memberService.getBoards(id); // 멤버테이블에 boards 가져오기
@@ -85,5 +85,18 @@ public class MemberController {
 		List<BoardDTO> boardList = memberService.getMyMission(boardSeq); // boardSeq 가지고 가서 보드테이블 가져오기
 		
 		return boardList;
+	}
+	
+	@PostMapping(value = "changePwd")
+	@ResponseBody
+	public int changePwd(@RequestParam("pwd") String pwd, HttpSession httpSession) {
+		String id = (String) httpSession.getAttribute("memId");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pwd", pwd);
+		
+		int count = memberService.changePwd(map); 
+		return count;
 	}
 }

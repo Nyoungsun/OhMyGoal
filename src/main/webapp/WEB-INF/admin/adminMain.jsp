@@ -9,13 +9,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<link rel="shortcut icon" href="../img/icon/check.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <!-- 구글 차트 Api -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <link rel="stylesheet" href="../css/admin/adminMain.css">
-<title>AdminPage</title>
+<title>AdminPage👅</title>
 
 </head>
 
@@ -45,7 +46,7 @@
 					<!-- 햄버거 -->
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNav">						
 						<ul class="navbar-nav">
-							<li class="nav-item"><a class="nav-link" id="headerBtn" href="#"
+							<li class="nav-item"><a class="nav-link" id="logoutBtn" href="#"
 								style="text-decoration: none;">로그아웃</a></li>
 						</ul>
 					</div>
@@ -400,15 +401,19 @@ $(function () {
 });
 
 // 로그아웃
-      $('#headerBtn').click(function() {
-        // confirm 창 띄우기
-        if (confirm("정말 로그아웃 하시겠습니까?")) {
-          // 로그아웃 기능 실행 코드 작성
-          alert("로그아웃 되었습니다."); // 로그아웃 후 메시지를 알림으로써 사용자에게 알리기
-          location.href = "http://localhost:8080/OhMyGoal/"; // 로그아웃 후 이동할 페이지 경로 입력
-          
-        }
-      });
+      $('#logoutBtn').click(function() {
+    	  $.ajax({
+    			type: 'post',
+    			url: '/OhMyGoal/board/logout',
+    			success: function(){
+    				alert("로그아웃이 완료되었습니다.");
+    				location.href = '/OhMyGoal/';
+    			},
+    			error: function(err){
+    				console.log(err);
+    			}
+    		});
+    	});
 
       
 //검색

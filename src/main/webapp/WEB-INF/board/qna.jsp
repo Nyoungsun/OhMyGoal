@@ -142,7 +142,7 @@
 </head>
 
 <body>
-	<form name="myForm" method="post" data-email="sssuperkoreann@gmail.com" target="iframe1"
+	<form name="myForm" method="post" data-email="sssuperkoreann@gmail.com" target="iframe1" id="formf"
 			action="https://script.google.com/macros/s/AKfycbz-n2LdvDP-TdZ5thK9FZLILqHuujM4jYT-LCCIaE4xWv0NDXME-WFF62Y3rpuGuD-tYg/exec">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -273,6 +273,7 @@
 			<br>
 			<div>
 				<input type="submit" id="upBtn" value="문의 접수">
+				
 			</div>
 		</div>
 	</section>	
@@ -300,6 +301,9 @@ $('#logoutBtn').click(function(){
 		}
 	});
 });
+
+$("#formf")[0].reset()
+
 </script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 @font-face {
 	font-family: 'Pretendard-Regular';
-	src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -57,9 +59,7 @@ table {
 	border-collapse: separate;
 }
 
-
-input[type="text"],
-input[type="password"] {
+input[type="text"], input[type="password"] {
 	box-sizing: border-box;
 	width: 100%;
 	font-family: 'Pretendard-Regular';
@@ -77,7 +77,7 @@ input[type="button"] {
 	box-shadow: 0px 3px 5px gray;
 }
 
-input[type="reset"] {
+#cancel, input[type="reset"] {
 	font-family: 'Pretendard-Regular';
 	color: #fff;
 	padding: 10px;
@@ -87,9 +87,8 @@ input[type="reset"] {
 	box-shadow: 0px 3px 5px gray;
 }
 
-button[type="submit"]:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover {
+button[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover
+	{
 	opacity: 70%;
 	transition: all 0.3s ease;
 }
@@ -98,8 +97,7 @@ input[type="reset"]:hover {
 	margin-bottom: 2px;
 }
 
-#email1,
-#email2 {
+#email1, #email2 {
 	width: 30%;
 }
 
@@ -111,12 +109,9 @@ input[type="reset"]:hover {
 	width: 30%;
 }
 
-#tel1,
-#tel2,
-#tel3 {
+#tel1, #tel2, #tel3 {
 	width: 30%;
 }
-
 
 #zipcode {
 	width: 30%;
@@ -138,6 +133,6 @@ input[type="reset"]:hover {
 	font-size: 10pt;
 }
 
-.spacing{
+.spacing {
 	margin-bottom: 10px;
 }
