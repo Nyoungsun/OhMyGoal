@@ -91,28 +91,6 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-	$(function() {
-		$.ajax({
-			type : 'post',
-			url : '/OhMyGoal/member/getMember',
-			success : function(data) {
-				$('#id').val(data.id);
-				$('#name').val(data.name);
-				$('#email1').val(data.email1);
-				$('#email2').val(data.email2);
-				$('#tel1').val(data.tel1);
-				$('#tel2').val(data.tel2);
-				$('#tel3').val(data.tel3);
-				$('#zipcode').val(data.zipcode);
-				$('#addr1').val(data.addr1);
-				$('#addr2').val(data.addr2);
-			},
-			error : function(err) {
-				console.log(err);
-			}
-		});
-	});
-
 	$('#save').click(function() {
 		$('#checkPwd').empty();
 		$('#checkName').empty();

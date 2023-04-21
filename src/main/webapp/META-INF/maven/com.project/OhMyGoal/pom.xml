@@ -52,8 +52,6 @@
 			<version>1.6.2</version>
 		</dependency>
 
-
-
 		<!--Connection Pool -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>

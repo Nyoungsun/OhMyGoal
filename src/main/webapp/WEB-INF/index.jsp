@@ -19,6 +19,7 @@
 <meta property="og:image" content="image/logo.png">
 <!-- 	<link rel="icon" href="favicon.ico" />
 <link rel="manifest" href="manifest.json" /> -->
+<link rel="shortcut icon" href="./img/icon/check.ico">
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700%7CMontserrat:500,700&amp;display=swap" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap" />

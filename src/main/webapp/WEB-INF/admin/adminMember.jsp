@@ -16,7 +16,22 @@
 
 <link rel="stylesheet" href="../css/admin/adminMain.css">
 <title>AdminMember</title>
+<style type="text/css">
+#currentPaging{
+	text-align:center;
+	color:red;
+	text-decoration:underline;
+	cursor: pointer;
+}
 
+#paging{
+	text-align:center;
+	color:black;
+	text-decoration:none;
+	cursor: pointer;
+	
+}
+</style>
 </head>
 
 <body>
@@ -55,12 +70,12 @@
 <div id = "changeDiv">
 	<div class="member">
       <div class="member_title">
-        <h2><pre><strong>대시 보드</strong></pre></h2>
+        <h2><pre><strong>회원 관리</strong></pre></h2>
       </div><br>      
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
 		<div class="list">
-            <div class="sec-option" >
+            <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
 			  <select name="condition">
 			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
@@ -72,93 +87,66 @@
         </div>
 	</form>
 
+	<input type = "hidden" id ="pg" value ="${pg }">
 	<div class="member_list">
-        <table class="admin_board_wrap">
-          <tbody class="admin_boardList">
-            <th class="admin_board_head">이름</th>
-            <th class="admin_board_head">아이디</th>
-            <th class="admin_board_head">가입일</th>
-            <th class="admin_board_head">게시글수</th>
-            <th class="admin_board_head">댓글수</th>
-          </tbody>
+        <table id = "userListTable" class="admin_board_wrap">
+          <tr class="admin_boardList">
+          	<th class="admin_member_head">#</th>
+            <th class="admin_member_head">이름</th>
+            <th class="admin_member_head">아이디</th>
+            <th class="admin_member_head">비밀번호</th>
+            <th class="admin_member_head">랭킹</th>
+            <th class="admin_member_head">참가한 미션들</th>
+            <th class="admin_member_head">가입날짜</th>
+            
+          </tr>
+          <!-- 동적 처리 -->
         </table>
+        <div id ="memberPagingDiv" style="margin-top:10px; width:450px; text-align:center;"></div>
      </div>
      
- <footer>
+ <!-- <footer>
  <div id="footer">
         <p><strong>OhMyGoal! 2023</strong></p>
         <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
         <p>OhMyGoal.help@gmail.com</p>
   </div>
-</footer>
+</footer> -->
 
+<script type="text/javascript" src="Http://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type= "text/javascript" src="../js/admin/adminMember.js"></script>
 
-    
-
-    <script>
-
-// 모달 스크립트 
-$(function () {
-  $('.modal_boardList_admin').click(function () {
-    $('.modal_list').fadeIn();
-    $('header').css('position', 'static');
-  });
-  $('.modal_reply_admin').click(function () {
-    $('.modal_reply').fadeIn();
-    $('header').css('position', 'static');
-  });
-  $('.modal_list_end_btn').click(function () {
-    $('.modal_list').fadeOut();
-    $('header').css('position', 'sticky');
-  });
-  $('.modal_reply_end_btn').click(function () {
-    $('.modal_reply').fadeOut();
-    $('header').css('position', 'sticky');
-  });
-  $('.mypageModal').click(function () {
-    $('.mypage_modal').fadeIn();
-    $('header').css('position', 'static');
-  });
-  $('.close').click(function () {
-    $('.mypage_modal').fadeOut();
-    $('header').css('position', 'sticky');
-  });
-
-// 스크롤 이벤트 추가
-  $(window).scroll(function () {
-    var scrollTop = $(this).scrollTop();
-    if (scrollTop === 0) {
-      $('header').css('position', 'sticky');
-    }
-  });
-});
-
+<script>
 // 로그아웃
-      $('#headerBtn').click(function() {
-        // confirm 창 띄우기
-        if (confirm("정말 로그아웃 하시겠습니까?")) {
-          // 로그아웃 기능 실행 코드 작성
-          alert("로그아웃 되었습니다."); // 로그아웃 후 메시지를 알림으로써 사용자에게 알리기
-          location.href = "http://localhost:8080/OhMyGoal/"; // 로그아웃 후 이동할 페이지 경로 입력
-          
-        }
-      });
+	$('#headerBtn').click(function() {
+	  // confirm 창 띄우기
+	  if (confirm("정말 로그아웃 하시겠습니까?")) {
+	    // 로그아웃 기능 실행 코드 작성
+	    alert("로그아웃 되었습니다."); // 로그아웃 후 메시지를 알림으로써 사용자에게 알리기
+	    location.href = "http://localhost:8080/OhMyGoal/"; // 로그아웃 후 이동할 페이지 경로 입력
+	    
+	  }
+	});
 
       
 //검색
-      $('.search_onclick_submit').click(
-        function () {
-          alert('검색할 항목을 선택하여 주세요')
-          location.href = "" + "검색어 이름" + "" + "검색어 아이디";
-        }
-      );
-      // 엔터키누를시 검색버튼 눌리기
-      $('.search-input').keypress(function (e) {
-        if (e.keyCode == 13) {
-          //실행할 function작성
-          alert("엔터");
-        }
-      });
-    </script>
+	$('.search_onclick_submit').click(
+	  function () {
+	    alert('검색할 항목을 선택하여 주세요')
+	    location.href = "" + "검색어 이름" + "" + "검색어 아이디";
+	  }
+	);
+	// 엔터키누를시 검색버튼 눌리기
+	$('.search-input').keypress(function (e) {
+	  if (e.keyCode == 13) {
+	    //실행할 function작성
+	    alert("엔터");
+	  }
+	});
+//페이징 처리
+	function memberPaging(pg){
+		location.href="/OhMyGoal/admin/adminMember?pg="+pg;
+	}
+</script>
 </body>
 </html>
