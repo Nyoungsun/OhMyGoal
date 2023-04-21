@@ -27,6 +27,7 @@ String seq = request.getParameter("seq");
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/mission/missionBoard.css">
+    <link rel="shortcut icon" href="../img/icon/check.ico">
 </head>
 <body>
 <div id='grayLayer'></div>
@@ -159,6 +160,8 @@ String seq = request.getParameter("seq");
 <script type="text/javascript" src="http://code.jQuery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
+let arr=[];
+
 $(document).ready(function() {
 	$.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
 		type: 'post',
@@ -166,7 +169,7 @@ $(document).ready(function() {
 		data: 'seq=' + <%= seq %>,//서버로 보낼 데이터
 		dataType: 'json', //서버로부터 받은 데이터형, "text", "html", "xml", "json"
 		success: function (data) {
-			let arr = data.members.split(" ");
+			arr = data.members.split(" ");
 			$('.mainThumbnail').append('<img src="' + data.img + '" alt="썸네일" style="width: 85%; height: 45%; border-radius: 15px;">');
 			$('.subject').append('<h1 >' + data.subject + '</h1>');
 			$('#memberNumText').append('<h4 style="font-size: 16pt;"><span>🔥<span style="font-weight:bold;">' + arr.length + '</span>명 참여 중 🔥</span></h4>');
@@ -174,17 +177,9 @@ $(document).ready(function() {
 			$('.userImg').append('<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg>&nbsp;'+data.id);
 			$('.date').append(new Date(data.start_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}) + ' ~ ' + new Date(data.end_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}));
 			$('.likeName').append('&nbsp;'+data.likes);
-			$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'+ data.content +'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기"></div><div class="modal fade"id="modal2"data-bs-backdrop="static"data-bs-keyboard="false"tabindex="-1"aria-labelledby="staticBackdropLabel"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--<h5 class="modal-title fs-5"id="modal2Label">미션참가모달</h5>--><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><h4 style="text-align: center; font-weight:bold;">미션에참여하시겠습니까?</h4></div><div class="modal-footer"style="display: flex; justify-content: center;"><button type="button"class="btn btn-primary"style="width: 40%">미션참여</button></div></div></div></div>');
+			$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'+ data.content +'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기"></div><div class="modal fade"id="modal2"data-bs-backdrop="static"data-bs-keyboard="false"tabindex="-1"aria-labelledby="staticBackdropLabel"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--<h5 class="modal-title fs-5"id="modal2Label">미션참가모달</h5>--><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><h4 style="text-align: center; font-weight:bold;">미션에참여하시겠습니까?</h4></div><div class="modal-footer"style="display: flex; justify-content: center;"><button type="button" class="btn btn-primary" style="width: 40%" onclick="missionJoin();">미션참여</button></div></div></div></div>');
 			$('#join_members').append('<h4>' + data.id + '<br><hr>');
-			for (let item of arr) {
-				$.ajax({
-					type: 'post',
-					url: '/OhMyGoal/board/getUser',
-					data: 'seq=' + item,
-					success: function(data2){$('#join_members').append(data2+'<br>');},
-					error: function(err){console.log(err);}
-				});
-			}
+			for (let item of arr) {$('#join_members').append(item+'<br>');}
 			$('#join_members').append('</h4>');
 		},
 		error: function (err) {
@@ -220,19 +215,29 @@ $('#logoutBtn').click(function(){
 		}
 	});
 });
-$('#logoutBtn').click(function(){
-	$.ajax({
-		type: 'post',
-		url: '/OhMyGoal/board/logout',
-		success: function(){
-			alert("로그아웃이 완료되었습니다.");
-			location.href = '/OhMyGoal/';
-		},
-		error: function(err){
-			console.log(err);
-		}
-	});
-});
+
+function missionJoin() {
+	console.log(arr);
+	if ('${memId}' === '') {alert("먼저 로그인을 진행해주십쇼")}
+	else if(arr.indexOf('${memId}') !== -1){alert("이미 해당 그룹미션에 참가중입니다.");}
+	else{
+		$.ajax({
+			type: 'post',
+			url: '/OhMyGoal/board/missionJoin',
+			data: {
+				seq: <%= seq %>,
+				id: '${memId}'
+			},
+			success: function(){
+				alert("그룹미션 참가가 완료되었습니다.");
+				location.href = '/OhMyGoal/';
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	}
+}
 </script>
 </body>
 </html>
