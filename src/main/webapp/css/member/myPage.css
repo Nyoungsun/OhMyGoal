@@ -24,7 +24,10 @@ header {
 	margin-left: 20px;
 	height: 20px;
 }
-
+#editBtn:hover {
+	cursor: pointer;
+}
+/* 
 #editBtn {
 	font-size: 9pt;
 	float: right;
@@ -48,7 +51,7 @@ header {
 	border: 1px solid black;
 	background: #000000;
 }
-
+ */
 #profileDiv {
 	height: 400px;
 	background-color: #EEECE2;

@@ -1,10 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>MyPage</title>
+<style type="text/css">
+header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: #ffffff;
+}
 
+#navbarNav a {
+	font-weight: bold;
+	font-size: 16px;
+	color: #212529;
+	text-decoration: none
+}
+
+.navbar {
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#navbarNav a:hover {
+	color: #6c757d;
+}
+
+.nav-link {
+	color: #333;
+	font-weight: 500;
+	margin-right: 20px;
+}
+.OMGlogo img {
+	height: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 20px;
+}
+</style>
 <!--BootStrap-->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -19,11 +57,61 @@
 </head>
 <meta charset="UTF-8">
 <body>
-	<header>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container" style="">
+            <a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav " style="margin-left: 20px;">
+                	<c:if test="${not empty memName}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../mission/missionWrite" style="color:black;">그룹미션 만들기 </a>
+                        </li>
+                    </c:if>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../board/about">소개</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../board/qna">Q&A</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <c:if test="${empty memName}">
+                        <li class="nav-item">
+                            <a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
+                        </li>
+                    </c:if>
+
+                    <c:if test="${not empty memName}">
+                        <li class="nav-item">
+                            <a id="editBtn" class="nav-link headerBtn" style="text-decoration: none;">${memName}님
+                                환영합니다.&nbsp;&nbsp;&nbsp;EDIT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
+                        </li>
+                    </c:if>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+	<!-- <header>
 		<a href="/OhMyGoal/"><img id="logo" src="../img/logo/logo2.png"></a>
 		<button type="button" id="editBtn" class="headerBtn">EDIT</button>
 		<button type="button" id="logoutBtn" class="headerBtn">로그아웃</button>
-	</header>
+	</header> -->
 
 	<div id="profileDiv">
 		<div id="profileContent">

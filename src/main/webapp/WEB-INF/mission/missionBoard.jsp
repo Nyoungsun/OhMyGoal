@@ -46,9 +46,10 @@ String seq = request.getParameter("seq");
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ">
-                    <c:if test="${not empty memName}">
+                <ul class="navbar-nav " style="margin-left: 20px;">
+                	<c:if test="${not empty memName}">
                         <li class="nav-item">
                             <a class="nav-link" href="../mission/missionWrite" style="color:black;">그룹미션 만들기 </a>
                         </li>

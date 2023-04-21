@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,38 +36,54 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-white">
-			<div class="container">
-				<a class="OMGlogo" href="http://localhost:8080/OhMyGoal/"><img src="../img/logo/logo2.png" alt="OhMyGoal!"></a>					
-					<button type="button" class="sec_btn" >
-					<a href="/OhMyGoal/admin/adminMain">대시보드</a></button>
-					<div class ="console1" id ="dash"></div>
-					<button type="button" class="sec_btn" id="member_manage" >
-					<a href="/OhMyGoal/admin/adminMember">회원관리</a></button>
-					
-					<div class ="console2" id ="memberlist"></div>
-					<button type="button" class="sec_btn" >
-					<a href="/OhMyGoal/admin/adminMission">미션관리</button>
-					<div class ="console3" id ="mission"></div>
-					
-					<!-- 햄버거 -->
-					<button class="navbar-toggler" type="button"
-						data-bs-toggle="collapse" data-bs-target="#navbarNav"
-						aria-controls="navbarNav" aria-expanded="false"
-						aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-					</button>
-					<!-- 햄버거 -->
-					<div class="collapse navbar-collapse justify-content-end" id="navbarNav">						
-						<ul class="navbar-nav">
-							<li class="nav-item"><a class="nav-link" id="headerBtn" href="#"
-								style="text-decoration: none;">로그아웃</a></li>
-						</ul>
-					</div>
-			</div>
-		</nav>
-	</header>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container" style="">
+            <a class="OMGlogo" href="../admin/adminMain"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav " style="margin-left: 20px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admin/adminMain">대시보드</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admin/adminMember">회원관리</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admin/adminMission">미션관리</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <c:if test="${empty memName}">
+                        <li class="nav-item">
+                            <a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
+                        </li>
+                    </c:if>
+
+                    <c:if test="${not empty memName}">
+                        <li class="nav-item">
+                            <a class="nav-link" style="text-decoration: none;">${memName}님
+                                환영합니다.&nbsp;&nbsp;&nbsp;</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
+                        </li>
+                    </c:if>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
 <div id = "changeDiv">
 	<div class="member">
       <div class="member_title">
@@ -118,15 +135,19 @@
 
 <script>
 // 로그아웃
-	$('#headerBtn').click(function() {
-	  // confirm 창 띄우기
-	  if (confirm("정말 로그아웃 하시겠습니까?")) {
-	    // 로그아웃 기능 실행 코드 작성
-	    alert("로그아웃 되었습니다."); // 로그아웃 후 메시지를 알림으로써 사용자에게 알리기
-	    location.href = "http://localhost:8080/OhMyGoal/"; // 로그아웃 후 이동할 페이지 경로 입력
-	    
-	  }
+$('#logoutBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/logout',
+		success: function(){
+			alert("로그아웃이 완료되었습니다.");
+			location.href = '/OhMyGoal/';
+		},
+		error: function(err){
+			console.log(err);
+		}
 	});
+});
 
       
 //검색
