@@ -144,10 +144,21 @@ public class BoardController {
 		return "board/qna";
 	}
 	
-	@PostMapping(value="getUser")
+	@PostMapping(value="missionJoin")
 	@ResponseBody
-	public String getUser(@RequestParam("seq") String seq) {
+	public void missionJoin(@RequestParam("seq") String seq, @RequestParam("id") String id) {
 		
-		return boardService.getUser(seq);
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("seq", seq);
+		map.put("id", id);
+		
+		boardService.missionJoin(map);
+	}
+	
+	@PostMapping(value="boardDel")
+	@ResponseBody
+	public void boardDel(@RequestParam("seq") String seq) {
+		
+		boardService.boardDel(seq);
 	}
 }

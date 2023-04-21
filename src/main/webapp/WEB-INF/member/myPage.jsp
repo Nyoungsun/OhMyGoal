@@ -3,13 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyPage🐟</title>
-<style>
-.checkDiv {
-	color: #ff0000;
-	font-size: 10pt;
-}
-</style>
+<title>MyPage</title>
 
 <!--BootStrap-->
 <link rel="stylesheet"
@@ -20,6 +14,7 @@
 
 <link rel="stylesheet" href="../css/member/edit.css">
 <link rel="stylesheet" href="../css/member/myPage.css">
+<link rel="stylesheet" href="../css/member/checkPwd.css">
 <link rel="shortcut icon" href="../img/icon/check.ico">
 
 </head>
@@ -35,19 +30,16 @@
 		<div id="profileContent">
 			<div id="String">
 				<span>"<span class="memberName"></span>" 님 안녕하세요.
-				</span><br> <span>오늘의 미션을 달성하세요!</span>
+				</span><br> <span>오늘의 미션을 달성하세요!✨</span>
 			</div>
 			<img id="banner" src="../img/people.png">
 		</div>
 	</div>
-	<div id="missionDiv">
-		<div id="missionList">
-			<div id="grade">
-				<img id="grade_img" src="../img/grade/seed.png"> <span><span
-					class="memberName"></span>님의 미션</span>
-			</div>
-		</div>
+	<div id="gradeDiv">
+		<span class="shadow p-3 mb-5 bg-body rounded"><span id="grade">Lv.1</span>&nbsp;<span
+			class="memberName"></span>님의 미션😎</span>
 	</div>
+	<div id="missionDiv"></div>
 	<footer>
 		<p>
 			<strong>OhMyGoal! 2023</strong>
@@ -59,13 +51,13 @@
 	<!-- edit_modal -->
 	<jsp:include page='checkPwd.jsp'></jsp:include>
 	<jsp:include page='edit.jsp'></jsp:include>
+	<jsp:include page='changePwd.jsp'></jsp:include>
 
 	<!--BootStrap-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 		crossorigin="anonymous">
-		
 	</script>
 	<!--BootStrap-->
 
@@ -73,37 +65,23 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<!--jquery-->
 
-	<!--slider-->
-	<script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script>
-	$.ajax({
-		type: 'post',
-		url: 'getMyPage',
-		async: false,
-		success: function (data) {
-			$.each(data, function (index, items) {
-				console.log('getMyPage');
-				$('<div/>').append($('<div/>', {
-					class:'item'
-				}).append($('<div/>', {
-					class: 'card',
-					'width': '19rem'
-				}).append($('<img/>', {
-					src: items.url,
-					class: 'card-img-top',
-					alt: '미션이미지'
-				})).append($('<div/>', {
-					class:'card-body'
-				}).append($('<p/>', {
-					class: 'card-text',
-					text: items.content
-				}))))).appendTo('#slider-div');
-			})
-		},
-		error: function (err) {
-			console.log(err);
-		}
-	});
+	/* Demo purposes only */
+	var snippet = [].slice.call(document.querySelectorAll('.hover'));
+	if (snippet.length) {
+	  snippet.forEach(function (snippet) {
+	    snippet.addEventListener('mouseout', function (event) {
+	      if (event.target.parentNode.tagName === 'figure') {
+	        event.target.parentNode.classList.remove('hover')
+	      } else {
+	        event.target.parentNode.classList.remove('hover')
+	      }
+	    });
+	  });
+	}
+	</script>
+	<script>
+	
 </script>
 	<script>
 		$(function() {
@@ -112,9 +90,8 @@
 				url : 'getMember',
 				async : false,
 				success : function(data) {
-					console.log("getMember");
 					$('#id').val(data.id);
-					$('#name').val(data.name);
+					$('.memberName').text(data.name); // OOO님 안녕하세요, OOO님의 미션
 					$('#email1').val(data.email1);
 					$('#email2').val(data.email2);
 					$('#tel1').val(data.tel1);
@@ -123,16 +100,68 @@
 					$('#zipcode').val(data.zipcode);
 					$('#addr1').val(data.addr1);
 					$('#addr2').val(data.addr2);
-
-					$('.memberName').text(data.name); // OOO님 안녕하세요, OOO님의 미션
 				},
 				error : function(err) {
 					console.log(err);
 				}
 			});
+			
+			$.ajax({
+				type: 'post',
+				url: 'getMyMission',
+				async: false,
+				success: function (data) {
+					var i = 0;
+					$.each(data, function (index, items) {
+						i++;
+						$('<div/>').append($('<div/>', {
+							class: 'missionList shadow p-3 mb-5 bg-body rounded'
+						}).append($('<table/>',{
+							class: 'table table-borderless'
+						}).append($('<tr/>', {
+						}).append($('<th/>', {
+							rowspan: '3',
+							id: 'seq',
+							scope: 'row',
+							text: items.seq
+						})).append($('<td/>', {
+							rowspan: '3',
+							id: 'img'
+						}).append($('<img>', {
+							src: items.img,
+							alt: '미션 썸네일'
+						}))).append($('<td/>', {
+							id: 'subject',
+							text: items.subject
+						}))).append($('<tr/>').append($('<td/>', {
+							rowspan: '3',
+							id: 'content',
+							text: items.content
+						}))).append($('<tr/>').append($('<td/>', {
+							colspan:'3',
+							id:'btn'
+						}).append($('<input/>', {
+							type: 'button',
+							id: 'move' + i,
+							value: '보러가기',
+							onclick: "location.href='." + items.url + "?seq=" + items.seq + "'"
+						})).append($('<input>', {
+							type: 'button',
+							id: 'certify' + i,
+							value: '인증하기'
+						})).append($('<input>', {
+							type: 'button',
+							id: 'out' + i,
+							value: '도망가기'
+						})))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
+					}) //each
+				},
+				error: function (err) {
+					console.log(err);
+				}
+			});
 		});
 	</script>
-
 	<script>
 		$('#logoutBtn').click(function() {
 			$.ajax({
@@ -155,7 +184,8 @@
 		});
 	</script>
 
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		$('#search').click(function() {
 			new daum.Postcode({

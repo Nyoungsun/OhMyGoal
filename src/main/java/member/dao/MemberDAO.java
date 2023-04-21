@@ -18,4 +18,6 @@ public interface MemberDAO {
 
 	public List<BoardDTO> getMyMission(List<String> boardSeq);
 
+	public int changePwd(Map<String, String> map);
+
 }

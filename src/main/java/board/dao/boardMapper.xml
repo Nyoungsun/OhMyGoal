@@ -7,7 +7,7 @@
  	<!-- 목록 -->
  	 <select id ="getUserList" parameterType="java.util.Map" resultType="board.bean.BoardDTO">
  	 	<![CDATA[
- 	 		SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE img like '%'||#{word}||'%' ORDER BY
+ 	 		SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE subject like '%'||#{word}||'%' ORDER BY
  	 		CASE #{tag}
 		        WHEN '1' THEN seq
 		        WHEN '2' THEN views
@@ -45,18 +45,17 @@
 		select * from ohmygoal_member where id=#{id} and pwd=#{pwd}
 	</select>
 	
-	<!-- 중복 아이디 체크 -->
 	<select id="getUser" parameterType="String" resultType="member.bean.MemberDTO">
 		select * from ohmygoal_member where id=#{id}
-	</select>
-	
-	<select id="getUserNum" parameterType="String" resultType="String">
-		select id from ohmygoal_member where seq=#{seq}
 	</select>
 	
 	<select id="getBoard" parameterType="String" resultType="board.bean.BoardDTO">
 		select * from ohmygoal_board where seq=#{seq}
 	</select>
+	
+	<update id="views" parameterType="String">
+		update ohmygoal_board set views=views+1 where seq=#{seq}
+	</update>
 	
 	<!-- 회원가입 -->
 	<insert id="signUp" parameterType="member.bean.MemberDTO">
@@ -76,4 +75,21 @@
 								, ''
 								, sysdate)
 	</insert>
+	
+	<update id="missionJoin1" parameterType="java.util.Map">
+		update ohmygoal_board set members=#{members} where seq=#{seq}
+	</update>
+	
+	<update id="missionJoin2" parameterType="java.util.Map">
+		update ohmygoal_member set boards=#{boards} where id=#{id}
+	</update>
+	
+	<update id="member_boardDel" parameterType="java.util.Map">
+		update ohmygoal_member set boards=#{boards} where id=#{id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="boardDel" parameterType="String">
+		delete ohmygoal_board where seq=#{seq}
+	</delete>
  </mapper>
