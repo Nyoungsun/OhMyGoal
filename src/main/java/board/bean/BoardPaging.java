@@ -1,3 +1,4 @@
+
 package board.bean;
 
 import org.springframework.stereotype.Component;
