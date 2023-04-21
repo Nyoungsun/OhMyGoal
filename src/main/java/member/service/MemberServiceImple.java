@@ -52,4 +52,11 @@ public class MemberServiceImple implements MemberService{
 		return boardList;
 	}
 
+	@Override
+	public int changePwd(Map<String, String> map) {
+		int count = memberDAO.changePwd(map);
+		
+		return count;
+	}
+
 }

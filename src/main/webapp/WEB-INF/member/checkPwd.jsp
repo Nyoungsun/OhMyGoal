@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
 <div class="modal fade" tabindex="-1" id="ModalCheckPwd">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -11,11 +10,12 @@
 					aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-
-				<input type="password" id="editCheckPwd" placeholder="비밀번호를 입력하세요.">
+				<input type="password" id="editCheckPwd" placeholder="비밀번호">
 				<div class="checkDiv" id="editCheckPwdDiv"></div>
-
-				<button type="button" id="okBtn">확인</button>
+				<div id="btnDiv">
+					<input type="button" id="okBtn" value="확인">
+					<input type="reset" id="cancelBtn" data-bs-dismiss="modal" value="취소">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -23,39 +23,43 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-	$('#okBtn').click(function() {
-		$('#editCheckPwdDiv').empty();
+$('#cancelBtn').click(function(){
+	$('#editCheckPwd').val('');
+});
 
-		if ($('#editCheckPwd').val() == '') {
-			$('#editCheckPwdDiv').text('비밀번호를 입력하세요');
-			$('#editCheckPwd').focus();
-		} else {
-			$.ajax({
-				type : 'post',
-				url : 'checkPwd',
-				data : 'editCheckPwd=' + $('#editCheckPwd').val(),
-				success : function(data) {
-					if (data != 'match') {
-						$('#editCheckPwdDiv').text('비밀번호를 다시 입력하세요');
-						$('#editCheckPwd').focus();
+$('#okBtn').click(function() { 
+	$('#editCheckPwdDiv').empty();
 
-						$('#ModalCheckPwd').on('hidden.bs.modal', function() {
-							$('#editCheckPwd').val('');
-							$('#editCheckPwdDiv').empty();
-						});
-					} else {
-						$('#editCheckPwdDiv').empty();
+	if ($('#editCheckPwd').val() == '') {
+		$('#editCheckPwdDiv').text('비밀번호를 입력하세요.');
+		$('#editCheckPwd').focus();
+	} else {
+		$.ajax({
+			type : 'post',
+			url : 'checkPwd',
+			data : 'editCheckPwd=' + $('#editCheckPwd').val(),
+			success : function(data) {
+				if (data != 'match') {
+					$('#editCheckPwdDiv').text('비밀번호가 다릅니다.');
+					$('#editCheckPwd').focus();
+
+					$('#ModalCheckPwd').on('hidden.bs.modal', function() {
 						$('#editCheckPwd').val('');
-						$('#ModalCheckPwd').modal('hide');
-						$('#ModalEdit').modal('show');
-					}
-				},
-				error : function(err) {
-					console.log(err);
+						$('#editCheckPwdDiv').empty();
+					});
+				} else {
+					$('#editCheckPwdDiv').empty();
+					$('#editCheckPwd').val('');
+					$('#ModalCheckPwd').modal('hide');
+					$('#ModalEdit').modal('show');
 				}
-			})
-		}
-	});
+			},
+			error : function(err) {
+				console.log(err);
+			}
+		})
+	}
+});
 </script>
 
 

@@ -9,20 +9,18 @@
 		select * from ohmygoal_member where id=#{id} and pwd=#{pwd}
 	</select>
 
-	<!-- 정보수정하기 -->
+	<!-- 정보수정하기(비번빼고) -->
 	<update id="update" parameterType="member.bean.MemberDTO">
 		update ohmygoal_member set name=#{name}, 
-							   <!-- id는 고정이므로 update에서 뺐음 -->
-							   pwd=#{pwd},
 							   email1=#{email1},
 							   email2=#{email2},
-							   <!-- tel1은 010으로 고정이므로 update에서 뺐음 -->
+							   tel1=#{tel1},
 							   tel2=#{tel2},
 							   tel3=#{tel3},
 							   zipcode=#{zipcode},
 							   addr1=#{addr1},
 							   addr2=#{addr2},
-							   logtime=sysdate,
+							   logtime=sysdate
 							   where id=#{id}  
 	</update>
 	
@@ -33,7 +31,7 @@
 	
 	<!-- 멤버테이블에서 미션목록(boards) 가져오기 -->
 	<select id="getBoards" parameterType="String" resultType="String">
-		select boards from ohmygoal_member where id=#{value}
+		select boards from ohmygoal_member where id=#{value} order by seq desc
 	</select>
 	
 	<!-- 보드테이블 가져오기 -->
@@ -43,4 +41,9 @@
 			#{item}
 		</foreach>
 	</select>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePwd" parameterType="java.util.Map">
+		update ohmygoal_member set pwd=#{pwd} where id=#{id}
+	</update>
 </mapper>
