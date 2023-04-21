@@ -15,30 +15,114 @@
 <!-- 구글 차트 Api -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+<link rel="stylesheet" href="../css/admin/adminMission.css">
 <link rel="stylesheet" href="../css/admin/adminMain.css">
+
 <title>AdminMission</title>
 <style type="text/css">
+.wrapper {position:relative; min-height:100%;}
+.wrapper .header {height:90px;}
+.wrapper .contents {padding-bottom:150px;}
+.wrapper .footer {position:absolute; width:100%; height:200px; bottom:0;}
 #currentPaging{
 	text-align:center;
-	color:red;
+	font-size: 15px;
+	font-weight: bold;
+	color:blue;
 	text-decoration:underline;
 	cursor: pointer;
+	margin-right: 10px;
+    margin-left: 10px;
 }
-
 #paging{
 	text-align:center;
-	color:black;
+	font-size: 15px;
+    color: gray;
 	text-decoration:none;
 	cursor: pointer;
 	
 }
-</style>
-<title>AdminMission</title>
+.member {
+    margin-top: 100px;
+}
 
+
+#memberPagingDiv {
+     margin-top: 10px;
+     width: 450px;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: center;
+  }
+  
+body { 
+  font-size: 140%; 
+}
+#changeDiv {
+  position: relative;
+  top: -60px;
+}
+
+h2 {
+  text-align: center;
+  width:150px;
+}
+.text-center{
+	margin-left: 50px;
+  	margin-top: 20px;
+  	margin-bottom: 20px;
+}
+#userListTable {
+  top:30px;
+  border-collapse: separate;
+  border-spacing: 2px 2px;
+  margin: 0 auto;
+  margin-top: 60px;
+  text-align: center;
+  width:1200px;
+}
+
+th,
+td {
+  padding: 2.55rem;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+  border-left: none;
+  border-right: none;
+}
+
+th:first-child,
+td:first-child {
+  border-left: none;
+}
+
+th:last-child,
+td:last-child {
+  border-right: none;
+}
+
+th {
+  font-weight: bold;
+  background-color: #e9ecef;
+  border-bottom: 2px solid #dee2e6;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa;
+}
+
+/* 마지막 행 배경 색상 */
+tbody tr:last-of-type {
+  background-color: #e9ecef;
+}
+</style>
 </head>
 
 <body>
-	<header>
+<div class ="wrapper">
+	<div class="header">
+	<header >
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 			<div class="container">
 				<a class="OMGlogo" href="http://localhost:8080/OhMyGoal/"><img src="../img/logo/logo2.png" alt="OhMyGoal!"></a>					
@@ -50,7 +134,7 @@
 					
 					<div class ="console2" id ="memberlist"></div>
 					<button type="button" class="sec_btn" >
-					<a href="/OhMyGoal/admin/adminMission">미션관리</button>
+					<a href="/OhMyGoal/admin/adminMission">미션관리</a></button>
 					<div class ="console3" id ="mission"></div>
 					
 					<!-- 햄버거 -->
@@ -70,15 +154,17 @@
 			</div>
 		</nav>
 	</header>
+</div>
+
 <div id = "changeDiv">
 	<div class="member">
       <div class="member_title">
-        <h2><pre><strong>미션 관리</strong></pre></h2>
+        <h2><strong>미션 관리</strong></h2><br/><br/>
       </div><br>      
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
 		<div class="list">
-            <div class="sec-option" style="display:flex;align-items:center;justify-content:center" >
+            <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
 			  <select name="condition">
 			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
@@ -89,9 +175,14 @@
 			</div>
         </div>
 	</form>
-	<input type = "hidden" id ="pg" value ="${pg }">
-	<div class="member_list">
-        <table id = "userListTable" class="admin_board_wrap">
+	&nbsp;&nbsp;
+                     
+
+<input type = "hidden" id ="pg" value ="${pg }">
+ <div class="container">
+  <div class="contents">		
+      <table id="userListTable" class="table table-bordered" border="1">
+        <thead>
           <tr class="admin_boardList">
           	<th class="admin_board_head">#</th>
             <th class="admin_board_head">아이디</th>
@@ -99,34 +190,55 @@
             <th class="admin_board_head">카테고리</th>
             <th class="admin_board_head">참가멤버</th>
             <th class="admin_board_head">기한</th>
-            
+            <th class="admin_board_head">삭제</th>
           </tr>
+        </thead>
+        <tbody>
           <!-- 동적 처리 -->
-        </table>
-        <div id ="boardPagingDiv" style="margin-top:10px; width:450px; text-align:center;"></div>
-     </div>
-     
- <!-- <footer>
- <div id="footer">
-        <p><strong>OhMyGoal! 2023</strong></p>
-        <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
-        <p>OhMyGoal.help@gmail.com</p>
-  </div>
-</footer> -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="8" class="text-center">OhMyGoal Mission</td>
+          </tr>
+        </tfoot>
+     </table>
+     &nbsp;&nbsp;
+      <div class="pagination" id ="boardPagingDiv"  style="margin-top:10px;display: inline-block; margin-left:360px;width:450px; text-align:center;"></div>
+    </div>
+</div>
+</div> 
+</div>
+<div class="footer">    
+<footer class="footer" style="width:100%; text-align:center;">
+        <div class="footerDiv">&nbsp;&nbsp;
+            <p><strong>OhMyGoal! 2023</strong></p>
+            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+            <p>ohmygoal.help@gmail.com</p>
+        </div>
+</footer>
+</div>
+
+
+</div>
+
 
 <script type="text/javascript" src="Http://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMission.js"></script>
 
 <script>
-// 로그아웃
-	$('#headerBtn').click(function() {
-	  // confirm 창 띄우기
-	  if (confirm("정말 로그아웃 하시겠습니까?")) {
-	    // 로그아웃 기능 실행 코드 작성
-	    alert("로그아웃 되었습니다."); // 로그아웃 후 메시지를 알림으로써 사용자에게 알리기
-	    location.href = "http://localhost:8080/OhMyGoal/"; // 로그아웃 후 이동할 페이지 경로 입력
-	    
-	  }
+//로그아웃
+$('#logoutBtn').click(function() {
+	  $.ajax({
+			type: 'post',
+			url: '/OhMyGoal/board/logout',
+			success: function(){
+				alert("로그아웃이 완료되었습니다.");
+				location.href = '/OhMyGoal/';
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
 	});
 
       
@@ -144,7 +256,7 @@
 	    alert("엔터");
 	  }
 	});
-//페이징 처리
+	//페이징 처리
 	function boardPaging(pg){
 		location.href="/OhMyGoal/admin/adminMission?pg="+pg;
 	}

@@ -25,7 +25,7 @@ public class MemberPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage != 1)
-			pagingHTML.append("<span id='paging' onclick='memberPaging(" + (startPage-1) + ")'>이전</span>");
+			pagingHTML.append("<span id='paging' onclick='memberPaging(" + (startPage-1) + ")'> ◀ PREV </span>");
 		
 		for(int i=startPage; i<=endPage; i++) {
 			if(i==currentPage)
@@ -35,7 +35,7 @@ public class MemberPaging {
 		}
 		
 		if(endPage < totalP)
-			pagingHTML.append("<span id='paging' onclick='memberPaging(" + (endPage+1) + ")'>다음</span>");
+			pagingHTML.append("<span id='paging' onclick='memberPaging(" + (endPage+1) + ")'> NEXT ▶ </span>");
 		
 		
 	}

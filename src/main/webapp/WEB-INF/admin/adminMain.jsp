@@ -46,7 +46,7 @@
 					<!-- 햄버거 -->
 					<div class="collapse navbar-collapse justify-content-end" id="navbarNav">						
 						<ul class="navbar-nav">
-							<li class="nav-item"><a class="nav-link" id="headerBtn" href="#"
+							<li class="nav-item"><a class="nav-link" id="logoutBtn" href="#"
 								style="text-decoration: none;">로그아웃</a></li>
 						</ul>
 					</div>
@@ -401,15 +401,19 @@ $(function () {
 });
 
 // 로그아웃
-      $('#headerBtn').click(function() {
-        // confirm 창 띄우기
-        if (confirm("정말 로그아웃 하시겠습니까?")) {
-          // 로그아웃 기능 실행 코드 작성
-          alert("로그아웃 되었습니다."); // 로그아웃 후 메시지를 알림으로써 사용자에게 알리기
-          location.href = "http://localhost:8080/OhMyGoal/"; // 로그아웃 후 이동할 페이지 경로 입력
-          
-        }
-      });
+      $('#logoutBtn').click(function() {
+    	  $.ajax({
+    			type: 'post',
+    			url: '/OhMyGoal/board/logout',
+    			success: function(){
+    				alert("로그아웃이 완료되었습니다.");
+    				location.href = '/OhMyGoal/';
+    			},
+    			error: function(err){
+    				console.log(err);
+    			}
+    		});
+    	});
 
       
 //검색
