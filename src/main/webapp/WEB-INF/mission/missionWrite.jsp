@@ -28,46 +28,47 @@
 
 <body>
 <div class="total">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
-            <div class="container" style="">
-            
-            <div id="navbarNavStart" >
-                <a style="" class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png"
-                                                   alt="OhMyGoal!"></a>
-                                                   
-                <div class="collapse navbar-collapse" class="navbarNav">
-                    <ul class="navbar-nav " style=""> 
-                        <li class="nav-item"><a class="nav-link" href="../board/about"
-                        >소개 </a></li>
 
-                    </ul>
-                </div>
-			</div>
-			
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavEnd" class="navbarNav">
-					<ul class="navbar-nav">
-						<c:if test="${empty memName}">
-							<li class="nav-item">
-								<a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
-							</li>
-						</c:if>
-						
-						<c:if test="${not empty memName}">
-							<li class="nav-item">
-								<a class="nav-link" href="../member/myPage" style="text-decoration: none;">${memName}님 환영합니다.&nbsp;&nbsp;&nbsp;&ensp;마이페이지</a>
-							</li>
-							<li class="nav-item">
-								<a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
-							</li>
-						</c:if>
-					</ul>
-				</div>
-				
-				
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container" style="">
+            <a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav " style="margin-left: 20px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../board/about">소개</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <c:if test="${empty memName}">
+                        <li class="nav-item">
+                            <a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
+                        </li>
+                    </c:if>
+
+                    <c:if test="${not empty memName}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../member/myPage" style="text-decoration: none;">${memName}님
+                                환영합니다.&nbsp;&nbsp;&nbsp;마이페이지</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
+                        </li>
+                    </c:if>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
     <form name="missionWrite" id="missionWrite" role="form" method="get">
     
