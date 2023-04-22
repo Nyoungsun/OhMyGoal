@@ -99,4 +99,17 @@ public class MemberController {
 		int count = memberService.changePwd(map); 
 		return count;
 	}
+	
+	@PostMapping(value = "withdrawl")
+	@ResponseBody
+	public int withdrawl(HttpSession httpSession) {
+		String id = (String) httpSession.getAttribute("memId");
+		
+		memberService.outMembers(id); // 탈퇴한 회원 board 테이블의 members에서 빼기
+		int count = memberService.withdrawl(id); // 탈퇴
+		
+		httpSession.invalidate();
+		
+		return count;
+	}
 }

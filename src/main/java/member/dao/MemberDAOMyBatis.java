@@ -47,4 +47,15 @@ public class MemberDAOMyBatis implements MemberDAO{
 		return sqlSession.update("memberSQL.changePwd", map);
 	}
 
+	@Override
+	public int withdrawl(String id) {
+		return sqlSession.delete("memberSQL.withdrawl", id);
+	}
+
+	@Override
+	public void outMembers(String id) {
+		sqlSession.update("memberSQL.outMembers", id);
+		
+	}
+
 }

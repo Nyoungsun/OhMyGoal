@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+#withdrawlBtn{
+	text-align: right;
+}
+
+
+#NoWithdrawl{
+	background: #000000;
+}

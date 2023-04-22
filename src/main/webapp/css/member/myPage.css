@@ -146,18 +146,7 @@ td img {
 	border-radius: 15px;
 }
 
-input[value='보러가기'] {
-	font-family: 'Pretendard-Regular';
-	color: #fff;
-	padding: 10px;
-	border: none;
-	background: #000000;
-	cursor: pointer;
-	box-shadow: 0px 3px 5px gray;
-	margin-right: 10px;
-}
-
-input[value='인증하기'] {
+input[value='미션 보러가기'] {
 	font-family: 'Pretendard-Regular';
 	color: #fff;
 	padding: 10px;
