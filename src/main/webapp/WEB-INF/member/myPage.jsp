@@ -136,10 +136,11 @@ header {
 		<p>OhMyGoal.help@gmail.com</p>
 	</footer>
 
-	<!-- edit_modal -->
+	<!-- modal -->
 	<jsp:include page='checkPwd.jsp'></jsp:include>
 	<jsp:include page='edit.jsp'></jsp:include>
 	<jsp:include page='changePwd.jsp'></jsp:include>
+	<jsp:include page='withdrawl.jsp'></jsp:include>
 
 	<!--BootStrap-->
 	<script
@@ -231,12 +232,8 @@ header {
 						}).append($('<input/>', {
 							type: 'button',
 							id: 'move' + i,
-							value: '보러가기',
+							value: '미션 보러가기',
 							onclick: "location.href='." + items.url + "?seq=" + items.seq + "'"
-						})).append($('<input>', {
-							type: 'button',
-							id: 'certify' + i,
-							value: '인증하기'
 						})).append($('<input>', {
 							type: 'button',
 							id: 'out' + i,

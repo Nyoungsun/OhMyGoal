@@ -2,12 +2,14 @@
 	pageEncoding="UTF-8"%>
 
 <form id="editForm">
-	<div class="modal fade" tabindex="-1" id="ModalEdit" aria-labelledby="ModalLabel2">
+	<div class="modal fade" tabindex="-1" id="ModalEdit"
+		aria-labelledby="ModalLabel2">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5">개인정보수정</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" faria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						faria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<table>
@@ -19,8 +21,8 @@
 						</tr>
 						<tr>
 							<td>
-								<div class="spacing">비밀번호</div> 
-								<input type="button" id="changePwd" value="비밀번호 변경">
+								<div class="spacing">비밀번호</div> <input type="button"
+								id="changePwd" value="비밀번호 변경">
 							</td>
 						</tr>
 						<tr>
@@ -74,10 +76,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td id="btn">
-								<input type="button" id="save" value="저장">
-								<input type="button" id="cancel" data-bs-dismiss="modal" value="취소">
-							</td>
+							<td id="btn"><input type="button" id="save" value="저장">
+								<input type="button" id="cancel" data-bs-dismiss="modal"
+								value="취소"></td>
+						</tr>
+						<tr>
+							<td id="withdrawl">회원탈퇴</td>
 						</tr>
 					</table>
 				</div>
@@ -150,5 +154,10 @@
 $('#changePwd').click(function() {
 	$('#ModalEdit').modal('hide'); 
 	$('#ModalchangePwd').modal('show'); 
+});
+
+$('#withdrawl').click(function(){
+	$('#ModalEdit').modal('hide');
+	$('#Modalwithdrawl').modal('show'); 
 });
 </script>

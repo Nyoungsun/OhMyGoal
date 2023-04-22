@@ -46,4 +46,14 @@
 	<update id="changePwd" parameterType="java.util.Map">
 		update ohmygoal_member set pwd=#{pwd} where id=#{id}
 	</update>
+	
+	<!-- 회원탈퇴 -->
+	<update id="withdrawl" parameterType="String">
+		delete from ohmygoal_member where id=#{value}
+	</update>
+	
+	<!-- 탈퇴한 회원 board 테이블의 members에서 빼기 -->
+	<update id="outMembers" parameterType="String">
+		update ohmygoal_board set members = replace(members, #{value}, '')
+	</update>
 </mapper>
