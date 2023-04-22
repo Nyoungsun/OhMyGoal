@@ -8,10 +8,8 @@
  	
  	<!-- 미션 작성 -->
  	<insert id="write" parameterType="board.bean.BoardDTO" >
- 		insert into ohmygoal_board (seq, img, subject, content, category, id, members, maxmember, start_date, end_date, logtime) values
+ 		insert into ohmygoal_board (seq, subject, content, category, id, members, maxmember, start_date, end_date, logtime) values
  									(seq_ohmygoal.NEXTVAL, 
-	 									, ''
-	 																	<!-- , #{img} -->
 	 									, #{subject}
 	 									, ''
 	 						  											<!-- , #{content} -->
@@ -30,4 +28,21 @@
  	</select>
  	
  	
+ 	<!-- 이미지 데이터 업로드 -->
+ 	<insert id="upload" parameterType="mission.bean.MissionDTO">
+ 		insert into ohmygoal_board img values #{image1}
+ 	</insert>
+ 	
  </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <title>Make your own Mission🐶</title>
+    <title>Make your own Mission 🐶</title>
     
 	<link rel="shortcut icon" href="../img/icon/check.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -156,7 +156,7 @@
 						<h7 style="height: 150px;">
 						
 							<img id="img" name="img" src="../img/thumbnail/defaultThumb.png" alt="미리보기" style=" display: block; max-width:100%; max-height:100%; align:center;  cursor:pointer;" onclick="openModal()" data-toggle="tooltip" data-placement="right" title="이미지를 클릭하여 크게 볼 수 있어요." >	
-							<p id="thumbNail" ></p>
+							
 						</h7>
 					</div>
 					
@@ -247,7 +247,7 @@ $(document).ready(function() {
             var date1 = $('#start_date').val(); 						// 시작 날짜
             var date2 = $('#end_date').val(); 							// 종료 날짜
             var maxmember = $('#maxmember option:selected').val();		// 참여 인원
-
+            var img = document.getElementById('img');							// thumbnail img
       		var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
       		
       	
@@ -263,6 +263,8 @@ $(document).ready(function() {
             
             console.log("데이터!!!!: " + editorData);
        		*/
+       		
+       		console.log("썸네일!: " + img);
     
             var is_valid = true; // 유효성 검사 통과 여부
             
@@ -391,14 +393,18 @@ $(document).ready(function(){
 	function loadPreview(event) {
 	    var img = document.getElementById('img');
 	    var file = event.target.files[0];
+	    
+	    const files = event.currentTarget.files;
+	    console.log(typeof files, files);
+	      
 	    if (file) {
 	      var reader = new FileReader();
 	      reader.onload = function() {
 	        img.style.display = 'block';
 	        img.src = reader.result;
 	        
-	        console.log("이미지: "+ reader.result); // 이미지 데이터 값 콘솔로그에 출력
-	        
+	        console.log("이미지1: "+ reader.result); // 이미지 링크 값 콘솔로그에 출력
+	        console.log("img2:" + file);
 	      }
 	      reader.readAsDataURL(file);
 	    } else {
@@ -407,6 +413,11 @@ $(document).ready(function(){
 	     
 	    }
   	}
+	
+	function getImageFiles(e) {
+	      const files = e.currentTarget.files;
+	      console.log(typeof files, files);
+	    }
 	
 	// 모달 버튼 클릭 시 모달 열기
 	function openModal() {

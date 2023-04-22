@@ -6,6 +6,7 @@
 	import org.springframework.transaction.annotation.Transactional;
 	
 	import board.bean.BoardDTO;
+import mission.bean.MissionImageDTO;
 	
 	@Repository
 	@Transactional		// commit, close 대신 해줌
@@ -19,6 +20,12 @@
 			
 			return sqlSession.selectOne("missionSQL.getSeq", boardDTO.getSeq());
 			   
+		}
+
+		@Override
+		public void upload(MissionImageDTO missionImageDTO, String fileName) {
+			missionImageDTO.setImage1(fileName);
+			sqlSession.selectOne("missionSQL.upload", missionImageDTO);
 		}
 	
 	}
