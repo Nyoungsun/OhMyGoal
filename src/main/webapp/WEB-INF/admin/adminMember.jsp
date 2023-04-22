@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="../css/admin/adminMember.css">
 
-<title>AdminMember</title>
+<title>AdminMember👅</title>
 <style type="text/css">
 .wrapper {position:relative; min-height:100%;}
 .wrapper .header {height:90px;}
