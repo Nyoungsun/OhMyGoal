@@ -11,7 +11,7 @@ String seq = request.getParameter("seq");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- bootstrap -->
-    <title>Check out the Mission Here🎁</title>
+    <title>Check out the Mission Here 🎁</title>
     <style type="text/css">
     div#grayLayer {
 	display: none;
