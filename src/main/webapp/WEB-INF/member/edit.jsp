@@ -38,10 +38,9 @@
 							<td id="emailTd">
 								<div class="spacing">
 									이메일<span class="essential"> *</span>
-								</div> <input type="text" name="email1" id="email1" readonly>
-								@ <input type="text" name="email2" id="email2" readonly>
-								&nbsp; <select name="selectEmail" id="selectEmail"
-								onChange="select()">
+								</div> <input type="text" name="email1" id="email1">
+								@ <input type="text" name="email2" id="email2">
+								&nbsp; <select name="selectEmail" id="selectEmail">
 									<option value="" selected>직접입력</option>
 									<option value="naver.com">naver.com</option>
 									<option value="gmail.com">gmail.com</option>
@@ -91,6 +90,18 @@
 </form>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$('#selectEmail').change(function() {
+	if($('#selectEmail').val() == ''){
+		$('#email2').attr('readonly', false);
+		$('#email2').val('');
+		$('#email2').focus();
+	} else {
+		$('#email2').attr('readonly', true);
+		$('#email2').val($('#selectEmail').val());
+	}
+});
+</script>
 <script>
 	$('#save').click(function() {
 		$('#checkRePwd').empty();

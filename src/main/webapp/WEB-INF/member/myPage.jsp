@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -36,6 +36,7 @@ header {
 	font-weight: 500;
 	margin-right: 20px;
 }
+
 .OMGlogo img {
 	height: 20px;
 	margin-top: 15px;
@@ -54,59 +55,61 @@ header {
 <link rel="stylesheet" href="../css/member/myPage.css">
 <link rel="stylesheet" href="../css/member/checkPwd.css">
 <link rel="shortcut icon" href="../img/icon/check.ico">
-
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+	rel="stylesheet">
 </head>
 <meta charset="UTF-8">
 <body>
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container" style="">
-            <a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+			<div class="container" style="">
+				<a class="OMGlogo" href="../"><img
+					src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav " style="margin-left: 20px;">
-                	<c:if test="${not empty memName}">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../mission/missionWrite" style="color:black;">그룹미션 만들기 </a>
-                        </li>
-                    </c:if>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../board/about">소개</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../board/qna">Q&A</a>
-                    </li>
-                </ul>
-            </div>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="#navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <c:if test="${empty memName}">
-                        <li class="nav-item">
-                            <a id="topnav_loginBtn" class="nav-link" href="#" style="text-decoration: none;">로그인</a>
-                        </li>
-                    </c:if>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav " style="margin-left: 20px;">
+						<c:if test="${not empty memName}">
+							<li class="nav-item"><a class="nav-link"
+								href="../mission/missionWrite" style="color: black;">그룹미션
+									만들기 </a></li>
+						</c:if>
+						<li class="nav-item"><a class="nav-link"
+							href="../board/about">소개</a></li>
+						<li class="nav-item"><a class="nav-link" href="../board/qna">Q&A</a>
+						</li>
+					</ul>
+				</div>
 
-                    <c:if test="${not empty memName}">
-                        <li class="nav-item">
-                            <a id="editBtn" class="nav-link headerBtn" style="text-decoration: none;">${memName}님
-                                환영합니다.&nbsp;&nbsp;&nbsp;EDIT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="logoutBtn" class="nav-link" href="#" style="text-decoration: none;">로그아웃</a>
-                        </li>
-                    </c:if>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+				<div class="collapse navbar-collapse justify-content-end"
+					id="navbarNav">
+					<ul class="navbar-nav">
+						<c:if test="${empty memName}">
+							<li class="nav-item"><a id="topnav_loginBtn"
+								class="nav-link" href="#" style="text-decoration: none;">로그인</a>
+							</li>
+						</c:if>
+
+						<c:if test="${not empty memName}">
+							<li class="nav-item"><a id="editBtn"
+								class="nav-link headerBtn" style="text-decoration: none;">${memName}님
+									환영합니다.&nbsp;&nbsp;&nbsp;개인정보수정</a></li>
+							<li class="nav-item"><a id="logoutBtn" class="nav-link"
+								href="#" style="text-decoration: none;">로그아웃</a></li>
+						</c:if>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
 
 	<!-- <header>
 		<a href="/OhMyGoal/"><img id="logo" src="../img/logo/logo2.png"></a>
@@ -124,10 +127,12 @@ header {
 		</div>
 	</div>
 	<div id="gradeDiv">
-		<span class="shadow p-3 mb-5 bg-body rounded"><span id="grade">Lv.1</span>&nbsp;<span
-			class="memberName"></span>님의 미션😎</span>
+		<span class="shadow p-3 mb-5 bg-body rounded"><span id="grade"></span>&nbsp;<span
+			class="memberName"></span>님의 미션</span>
 	</div>
-	<div id="missionDiv"></div>
+	<div id="missionDiv">
+		<!-- 동적 처리 -->
+	</div>
 	<footer>
 		<p>
 			<strong>OhMyGoal! 2023</strong>
@@ -153,6 +158,11 @@ header {
 	<!--jquery-->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<!--jquery-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+	<script>
+		new WOW().init(); // wow 활성화
+	</script>
 
 	<script>
 	/* Demo purposes only */
@@ -169,9 +179,6 @@ header {
 	  });
 	}
 	</script>
-	<script>
-	
-</script>
 	<script>
 		$(function() {
 			$.ajax({
@@ -196,6 +203,19 @@ header {
 			});
 			
 			$.ajax({
+				type : 'post',
+				url : 'getLevel',
+				async : false,
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				success : function(data) {
+					$('#grade').text(data);
+				},
+				error : function(err) {
+					console.log(err);
+				}
+			});
+			
+			$.ajax({
 				type: 'post',
 				url: 'getMyMission',
 				async: false,
@@ -204,31 +224,33 @@ header {
 					$.each(data, function (index, items) {
 						i++;
 						$('<div/>').append($('<div/>', {
-							class: 'missionList shadow p-3 mb-5 bg-body rounded'
+							class: 'missionList shadow p-3 mb-5 bg-body rounded wow bounce'
 						}).append($('<table/>',{
 							class: 'table table-borderless'
 						}).append($('<tr/>', {
 						}).append($('<th/>', {
 							rowspan: '3',
-							id: 'seq',
+							id: 'seq' + i,
 							scope: 'row',
 							text: items.seq
 						})).append($('<td/>', {
 							rowspan: '3',
-							id: 'img'
+							class: 'img'
 						}).append($('<img>', {
 							src: items.img,
 							alt: '미션 썸네일'
 						}))).append($('<td/>', {
-							id: 'subject',
+							id: 'subject' + i,
+							class: 'subject',
 							text: items.subject
 						}))).append($('<tr/>').append($('<td/>', {
 							rowspan: '3',
-							id: 'content',
+							id: 'content' + i,
 							text: items.content
 						}))).append($('<tr/>').append($('<td/>', {
 							colspan:'3',
-							id:'btn'
+							id:'btn' + i,
+							align: 'right'
 						}).append($('<input/>', {
 							type: 'button',
 							id: 'move' + i,
@@ -237,7 +259,8 @@ header {
 						})).append($('<input>', {
 							type: 'button',
 							id: 'out' + i,
-							value: '도망가기'
+							value: '도망가기',
+							onclick: 'escape(' + items.seq + ')'
 						})))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
 					}) //each
 				},
@@ -248,12 +271,28 @@ header {
 		});
 	</script>
 	<script>
+		function escape(seq){
+			$.ajax({
+				type : 'post',
+				url : '/OhMyGoal/member/escape',
+				data: 'seq=' + seq,
+				success : function() {
+					alert("도망가기 완료");
+					location.reload();
+				},
+				error : function(err) {
+					console.log(err);
+				}
+			});
+		}
+	</script>
+	<script>
 		$('#logoutBtn').click(function() {
 			$.ajax({
 				type : 'post',
 				url : '/OhMyGoal/board/logout',
 				success : function() {
-					alert("로그아웃이 완료되었습니다.");
+					alert("로그아웃 되었습니다.");
 					location.href = '/OhMyGoal/';
 				},
 				error : function(err) {

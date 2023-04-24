@@ -5,55 +5,82 @@
 <mapper namespace="memberSQL">
 
 	<!-- 개인정보수정 멤버정보 가져오기 -->
-	<select id="getMember" parameterType="java.util.Map" resultType="member.bean.MemberDTO">
+	<select id="getMember" parameterType="java.util.Map"
+		resultType="member.bean.MemberDTO">
 		select * from ohmygoal_member where id=#{id} and pwd=#{pwd}
 	</select>
 
 	<!-- 정보수정하기(비번빼고) -->
 	<update id="update" parameterType="member.bean.MemberDTO">
-		update ohmygoal_member set name=#{name}, 
-							   email1=#{email1},
-							   email2=#{email2},
-							   tel1=#{tel1},
-							   tel2=#{tel2},
-							   tel3=#{tel3},
-							   zipcode=#{zipcode},
-							   addr1=#{addr1},
-							   addr2=#{addr2},
-							   logtime=sysdate
-							   where id=#{id}  
+		update ohmygoal_member set
+		name=#{name},
+		email1=#{email1},
+		email2=#{email2},
+		tel1=#{tel1},
+		tel2=#{tel2},
+		tel3=#{tel3},
+		zipcode=#{zipcode},
+		addr1=#{addr1},
+		addr2=#{addr2},
+		logtime=sysdate
+		where id=#{id}
 	</update>
-	
+
 	<!-- 비밀번호 체크하기 -->
 	<select id="checkPwd" parameterType="String" resultType="String">
-		select pwd from ohmygoal_member where id=#{value} <!-- 파라미터가 단일 String인 경우 -->
+		select pwd from ohmygoal_member where id=#{value} <!-- 파라미터가 단일 String인 
+			경우 -->
 	</select>
-	
+
 	<!-- 멤버테이블에서 미션목록(boards) 가져오기 -->
-	<select id="getBoards" parameterType="String" resultType="String">
-		select boards from ohmygoal_member where id=#{value} order by seq desc
+	<select id="getBoards" parameterType="String"
+		resultType="String">
+		select boards from ohmygoal_member where id=#{value} order
+		by seq desc
 	</select>
-	
+
 	<!-- 보드테이블 가져오기 -->
-	<select id="getMyMission" parameterType="java.util.List" resultType="board.bean.BoardDTO">
-		select * from ohmygoal_board where seq in 
-		<foreach collection="list" item="item" open="(" close=")" separator=",">
+	<select id="getMyMission" parameterType="java.util.List"
+		resultType="board.bean.BoardDTO">
+		select * from ohmygoal_board where seq in
+		<foreach collection="list" item="item" open="(" close=")"
+			separator=",">
 			#{item}
 		</foreach>
+		order by seq desc
 	</select>
-	
+
 	<!-- 비밀번호 변경 -->
 	<update id="changePwd" parameterType="java.util.Map">
-		update ohmygoal_member set pwd=#{pwd} where id=#{id}
+		update ohmygoal_member set
+		pwd=#{pwd} where id=#{id}
 	</update>
-	
+
 	<!-- 회원탈퇴 -->
 	<update id="withdrawl" parameterType="String">
-		delete from ohmygoal_member where id=#{value}
+		delete from ohmygoal_member
+		where id=#{value}
+	</update>
+
+	<!-- 탈퇴한 회원 board 테이블의 members에서 빼기 -->
+	<!-- 도망가기 누른 회원 board 테이블의 members에서 빼기 -->
+	<update id="outMembers" parameterType="String">
+		update ohmygoal_board set
+		members = replace(members, #{value}, '')
+	</update>
+
+	<!-- 도망가기 누른 회원 member테이블의 boards에서 해당 미션 seq 제거 -->
+	<update id="escape" parameterType="String">
+		UPDATE ohmygoal_member
+		SET boards = REGEXP_REPLACE(boards, '(^|\D)${value}(\D|$)', ' ', 1, 0, 'i')
+		WHERE REGEXP_LIKE(boards, '(^|\D)${value}(\D|$)', 'i')
 	</update>
 	
-	<!-- 탈퇴한 회원 board 테이블의 members에서 빼기 -->
-	<update id="outMembers" parameterType="String">
-		update ohmygoal_board set members = replace(members, #{value}, '')
+	<update id="membersTrim"> <!-- 가운데를 제외한 양 옆 공백 제거 -->
+		update ohmygoal_board set members = trim(members)
+	</update>
+
+	<update id="boardsTtrim"> <!-- 가운데를 제외한 양 옆 공백 제거 -->
+		update ohmygoal_member set boards = trim(boards)
 	</update>
 </mapper>
