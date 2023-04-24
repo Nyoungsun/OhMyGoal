@@ -92,4 +92,29 @@
 	<delete id="boardDel" parameterType="String">
 		delete ohmygoal_board where seq=#{seq}
 	</delete>
+	
+	<!-- 회원가입 -->
+	<insert id="uploadBoard" parameterType="java.util.Map">
+		insert into ohmygoal_board values(seq_board.NEXTVAL
+								, './mission/missionBoard'
+								,
+								CASE WHEN #{img} IS NULL OR #{img} = '' THEN '/OhMyGoal/img/thumbnail/defaultThumb.png'
+								ELSE '/OhMyGoal/image/'||#{img} END
+								, #{subject}
+								, #{content}
+								, #{category}
+								, ''
+								, #{id}
+								, #{id}
+								, #{maxmember}
+								, 0
+								, 0
+								, #{start_date}
+								, #{end_date}
+								, sysdate)
+	</insert>
+	
+	<select id="uploadBoardNum" resultType="String">
+		SELECT seq FROM (SELECT * FROM ohmygoal_board ORDER BY seq desc) WHERE ROWNUM = 1
+	</select>
  </mapper>
