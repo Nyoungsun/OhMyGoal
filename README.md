@@ -30,7 +30,6 @@
 <li>HTML</li>
 <li>CSS</li>
 <li>JQuery</li>
-<li>Oracle Cloud</li>
 </ul>
 
 <h4>Open API(plugin, Source)💻</h4>
