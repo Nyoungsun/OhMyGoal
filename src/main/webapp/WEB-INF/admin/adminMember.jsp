@@ -218,7 +218,7 @@ tbody tr:last-of-type {
             <td colspan="8" class="text-center">OhMyGoal Member</td>
           </tr>
         </tfoot>
-     </table>
+     </table>  
      &nbsp;&nbsp;
       <div id="memberPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
     </div>

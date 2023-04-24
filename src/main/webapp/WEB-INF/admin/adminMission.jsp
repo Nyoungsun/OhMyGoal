@@ -228,7 +228,7 @@ tbody tr:last-of-type {
 					<p>
 						<strong>OhMyGoal! 2023</strong>
 					</p>
-					<p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+					<p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>  
 					<p>OhMyGoal.help@gmail.com</p>
 				</div>
 			</div>
