@@ -151,6 +151,7 @@
             /* margin-top: 20px; */
             
           /*  border: 2px solid green; */
+            
         }
         
         #memListBtn{	
@@ -268,9 +269,7 @@
 	          margin-top: 30px;
       	}
       	
-      	.modal-body{
-      		border:none;
-      	}
+      	
 
        footer {
 			background-color: #f7f7f7; 
