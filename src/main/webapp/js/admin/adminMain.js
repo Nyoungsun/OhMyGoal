@@ -1,42 +1,34 @@
 $(function(){
   $.ajax({
     type: 'post',
-    url: '/OhMyGoal/admin/getMemberList',
+    url: '/OhMyGoal/admin/getBoardList',
     data: 'pg=' + $('#pg').val(),
     dataType: 'json',
     success: function(data){
       console.log(JSON.stringify(data));
-      $.each(data.memberList, function(index, items){
+      $.each(data.boardList, function(index, items){
         var logtime = new Date(items.logtime).toLocaleString();
         $('<tr/>').append($('<td>', {
           align: 'center',
           text: items.seq
         })).append($('<td>', {
           align: 'center',
-          text: items.name
-        })).append($('<td>', {
-          align: 'center',
           text: items.id
         })).append($('<td>', {  
           align: 'center',
-          text: items.pwd
+          text: items.subject
         })).append($('<td>', {
           align: 'center',
-          text: items.grade
+          text: items.category
         })).append($('<td>', {
           align: 'center',
-          text: items.boards
+          text: items.members
         })).append($('<td>', {
           align: 'center',
           text: logtime
-        })).append($('<td>').append($('<a>', {
-          class: 'btn btn-outline-primary',
-          href: '#',
-          role: 'button',
-          text: '삭제'
-        }))).appendTo($('#userListTable'));
+        })).appendTo($('#userListTable'));
       });
-      $('#memberPagingDiv').html(data.memberPaging.pagingHTML);
+      $('#boardPagingDiv').html(data.boardPaging.pagingHTML);
     },
     error: function(err){
       console.log(err.responseText);

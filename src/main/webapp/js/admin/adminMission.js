@@ -21,7 +21,7 @@ $(function(){
           align: 'center',
           text: items.category
         })).append($('<td>', {
-          align: 'center',
+          align: 'center',  
           text: items.members
         })).append($('<td>', {
           align: 'center',
