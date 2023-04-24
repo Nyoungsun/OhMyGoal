@@ -37,18 +37,9 @@
 						<tr>
 							<td id="emailTd">
 								<div class="spacing">
-									이메일<span class="essential"> *</span>
-								</div> <input type="text" name="email1" id="email1">
-								@ <input type="text" name="email2" id="email2">
-								&nbsp; <select name="selectEmail" id="selectEmail">
-									<option value="" selected>직접입력</option>
-									<option value="naver.com">naver.com</option>
-									<option value="gmail.com">gmail.com</option>
-									<option value="nate.com">nate.com</option>
-									<option value="daum.net">daum.net</option>
-									<option value="hanmail.net">hanmail.net</option>
-									<option value="kakao.com">kakao.com</option>
-							</select>
+									이메일<span class="essential"></span>
+								</div> <input type="text" name="email1" id="email1" readonly>
+								@ <input type="text" name="email2" id="email2" readonly>
 								<div class="checkDiv" id="checkEmail"></div>
 							</td>
 						</tr>
@@ -91,23 +82,23 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-$('#selectEmail').change(function() {
-	if($('#selectEmail').val() == ''){
-		$('#email2').attr('readonly', false);
-		$('#email2').val('');
-		$('#email2').focus();
-	} else {
-		$('#email2').attr('readonly', true);
-		$('#email2').val($('#selectEmail').val());
-	}
-});
+	$('#selectEmail').change(function() {
+		if ($('#selectEmail').val() == '') {
+			$('#email2').attr('readonly', false);
+			$('#email2').val('');
+			$('#email2').focus();
+		} else {
+			$('#email2').attr('readonly', true);
+			$('#email2').val($('#selectEmail').val());
+		}
+	});
 </script>
 <script>
 	$('#save').click(function() {
 		$('#checkRePwd').empty();
 		$('#checkName').empty();
 		$('#checkEmail').empty();
-		$('#checkTel').empty();   
+		$('#checkTel').empty();
 		$('#checkAddr').empty();
 
 		if ($('#pwd').val() != '' && $('#rePwd').val() == '') {
@@ -119,25 +110,19 @@ $('#selectEmail').change(function() {
 		} else if ($('#name').val() == '') {
 			$('#checkName').text('아이디를 입력하세요');
 			$('#name').focus();
-		} else if ($('#email1').val() == '') {
-			$('#checkEmail').text('이메일을 입력하세요');
-			$('#email1').focus();
-		} else if ($('#email2').val() == '') {
-			$('#checkEmail').text('이메일을 입력하세요');
-			$('#email2').focus();
-		}else if ($('#tel2').val() == '') {
+		} else if ($('#tel2').val() == '') {
 			$('#checkTel').text('전화번호를 입력하세요');
 			$('#tel2').focus();
-		}else if ($('#tel3').val() == '') {
+		} else if ($('#tel3').val() == '') {
 			$('#checkTel').text('전화번호를 입력하세요');
 			$('#tel3').focus();
-		}else if ($('#zipcode').val() == '') {
+		} else if ($('#zipcode').val() == '') {
 			$('#checkAddr').text('우편번호를 입력하세요');
 			$('#zipcode').focus();
-		}else if ($('#addr1').val() == '') {
+		} else if ($('#addr1').val() == '') {
 			$('#checkAddr').text('주소를 입력하세요');
 			$('#addr1').focus();
-		}else if ($('#addr2').val() == '') {
+		} else if ($('#addr2').val() == '') {
 			$('#checkAddr').text('상세주소를 입력하세요');
 			$('#addr2').focus();
 		} else {
@@ -159,16 +144,15 @@ $('#selectEmail').change(function() {
 			})
 		}
 	});
-	
 </script>
 <script>
-$('#changePwd').click(function() {
-	$('#ModalEdit').modal('hide'); 
-	$('#ModalchangePwd').modal('show'); 
-});
+	$('#changePwd').click(function() {
+		$('#ModalEdit').modal('hide');
+		$('#ModalchangePwd').modal('show');
+	});
 
-$('#withdrawl').click(function(){
-	$('#ModalEdit').modal('hide');
-	$('#Modalwithdrawl').modal('show'); 
-});
+	$('#withdrawl').click(function() {
+		$('#ModalEdit').modal('hide');
+		$('#Modalwithdrawl').modal('show');
+	});
 </script>
