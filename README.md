@@ -32,7 +32,7 @@
 <li>JQuery</li>
 </ul>
 
-<h4>Open API(plugin, Source)💻</h4>
+<h4>Open API(plugin, ource)💻</h4>
 <ul>
 <li>Daum PostCode Service</li>
 </ul>
