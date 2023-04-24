@@ -1,4 +1,4 @@
-<h1>OhMyGoal! - 1일 1미션 사이트</h1>
+<h1>🌍OhMyGoal! - 1일 1미션 사이트</h1>
 <h2>Team👪</h2>
 <table>
   <tbody>
