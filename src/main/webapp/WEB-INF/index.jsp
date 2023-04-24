@@ -3739,9 +3739,9 @@ header {
 			<header
 				class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorInherit jss20 MuiPaper-elevation0">
 				<div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters">
-					<p><strong>DevFoliOh! 2021</strong></p>
-					<p>모든 컨텐츠의 저작권은 GitHub Respository 소유자에게 있습니다.</p>
-					<p>devfolio.help@gmail.com</p>
+					<p><strong>OhMyGoal! 2023</strong></p>
+					<p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+					<p>OhMyGoal.help@gmail.com</p>
 				</div>
 			</header>
 		</div><!-- /app -->

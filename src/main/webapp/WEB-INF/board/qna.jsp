@@ -137,6 +137,7 @@
 
         document.getElementById('fileName').textContent = null;    //기존 파일 이름 지우기
     }
+    
     </script>
 
 </head>
@@ -199,11 +200,9 @@
 						<div class="col-md-6 col-sm-12">
 							<img src="../img/logo/logo_no_bg2.png" style="width: 200px;">
 							<br> <br>
-							<h1>If you have any questions, please contact our customer
-								service.</h1>
+							<h1>궁금한 점이 있으시면 저희에게 <br>문의해 주시기 바랍니다.</h1>
 
-							<a href="#" class="btn btn-primary">We are going to reply to
-								your inquiry within 24 hours.</a>
+							<a href="#" class="btn btn-primary">24시간이내 답을 드리겠습니다.</a>
 						</div>
 						<div class="col-md-4 col-sm-8">
 							<img src="../img/QnA.png" alt="Mission" class="img-fluid">
@@ -215,7 +214,7 @@
 	<section class="bg_re wow zoomIn" data-wow-duraion="3s">
 		<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box"
 			style="height: auto; width: 50%; max-width: 100%">
-			<h3 style="text-align: center">👌1:1 문의하기</h3>
+			<h3 style="text-align: center" id="title">👌1:1 문의하기</h3>
 			<hr
 				style="width: 100%; margin-left: auto; margin-right: auto; height: 3px; border: 0; background: black;">
 			<div class="option_ann1">
@@ -255,8 +254,8 @@
 			</form>
 			<div class="fileContainer">
 				<div class="fileInput">
-					<p>FILE NAME:</p>
-					<p id="fileName"></p>
+					<span>FILE NAME:</span>
+					<span id="fileName"></span>
 				</div>
 			</div>
 
@@ -282,10 +281,9 @@
 					for="agreement">개인정보, 수집, 이용 동의 <em style="color: red;">*</em></label>
 				<span id="agreement-error" style="color: red;"></span>
 			</div>
-			<br>
+			
 			<div>
 				<input type="submit" id="upBtn" value="문의 접수">
-				
 			</div>
 		</div>
 	</section>	
