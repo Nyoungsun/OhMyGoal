@@ -187,6 +187,7 @@ header {
 				async : false,
 				success : function(data) {
 					$('#id').val(data.id);
+					$('#name').val(data.name);
 					$('.memberName').text(data.name); // OOO님 안녕하세요, OOO님의 미션
 					$('#email1').val(data.email1);
 					$('#email2').val(data.email2);
