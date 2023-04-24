@@ -19,4 +19,8 @@ public interface MemberService {
 	public List<BoardDTO> getMyMission(List<String> boardSeq);  
 
 	public int changePwd(Map<String, String> map);
+
+	public int withdrawl(String id);
+
+	public void outMembers(String id);
 }

@@ -128,6 +128,16 @@ button[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hov
 	text-align: center;
 }
 
+#withdrawl {
+	text-align: right;
+	text-decoration: underline;
+	color: #cccccc;
+}
+
+#withdrawl:hover {
+	cursor: pointer;
+}
+
 .checkDdiv {
 	color: red;
 	font-size: 10pt;
