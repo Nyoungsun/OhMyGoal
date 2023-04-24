@@ -24,6 +24,110 @@
   margin-top: 50px;
 }
 
+.dashboard-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.dashboard-block {
+  background-color: #ffffff;
+  border: 0.5px solid #dddddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+  margin-right: -10px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.block-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.block-data {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.block-data i {
+  margin-left: 5px;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#recent-mission {
+  border: none;
+  position: absolute;
+  top: calc(50% + 50px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+/*table */
+#userListTable {
+  top:10px;
+  border-collapse: separate;
+  border-spacing: 2px 2px;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: center;
+  width:1100px;
+}
+
+th,
+td {
+  padding: 2.55rem;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+  border-left: none;
+  border-right: none;
+}
+
+th:first-child,
+td:first-child {
+  border-left: none;
+}
+
+th:last-child,
+td:last-child {
+  border-right: none;
+}
+
+th {
+  font-weight: bold;
+  background-color: #e9ecef;
+  border-bottom: 2px solid #dee2e6;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa;
+}
+
+/* 마지막 행 배경 색상 */
+tbody tr:last-of-type {
+  background-color: #e9ecef;
+}
+
+
+
 </style>
 
 </head>
@@ -76,97 +180,86 @@
         </div>
     </nav>
 </header>
+<section>
+	<div class="dashboard">
+  		<div class="dashboard-row">
+    		<div class="dashboard-block">
+      			<h2 class="block-title">사용자 수</h2>
+      			<i class="fas fa-smile"></i><p class="block-data">4 </p>
+    		</div>
+    		<div class="dashboard-block">
+	      		<h2 class="block-title">전체 글 수</h2>
+	      		<i class="far fa-list-alt"></i><p class="block-data">16 </p>
+    		</div>
+    		<div class="dashboard-block">
+      			<h2 class="block-title">방문자 수</h2>
+      			<i class="fas fa-users"></i><p class="block-data">10 </p>
+    		</div>
+ 		 </div>
+  		<br><br><br>
+  		<p>
+		<div class="dashboard-row2">
+	    	<div class="dashboard-block" id="recent-mission" style="margin-top: 180px;">
+	     		<h2 class="block-title">Recent Mission</h2>
+	      		<select id="dateRangeSelect" class="form-select shadow-none row border-top" style="display: inline-block; margin-right:-1030px;margin-bottom:10px; float: right; width:150px;">
+				   <option>이번 주</option>
+				   <option>이번 달</option>
+				   <option>전체</option>
+				</select>
 
-<div id = "changeDiv">
-	<div class="member">
-      <div class="member_title">
-        <!-- <h2><strong>대시 보드</strong></h2> -->
-      </div>      
-	
-
- <div class="container-fluid">
-
-                <!-- ============================================================== -->
-                <!-- Three charts -->
-                <!-- ============================================================== -->
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title" style="margin-right: -150px; text-align:left;">오늘 방문자 수</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                                <li>
-                                    <div id="sparklinedash"><canvas width="67" height="30"
-                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                    </div>
-                                </li>
-                                <li style="position: relative;">
-								  <i class="far fa-smile" style="font-size: 1.5em; position: absolute; right: -120px;"></i>
-								</li>
-                                <li class="ms-auto" ><span class="counter text-success">659</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-					  <div class="white-box analytics-info">
-					    <h3 class="box-title" style="margin-right: -150px; text-align:left;">전체 회원 수</h3>
-					    <ul class="list-inline two-part d-flex align-items-center mb-0">
-						  
-					      <li>
-					        <div id="sparklinedash2">
-					          <canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-					        </div>
-					      </li>
-					      <li style="position: relative;">
-								<i class="fas fa-users" style="font-size: 1.5em; position: absolute; right: -120px;"></i>
-							</li>
-					      <li class="ms-auto">
-					        <span class="counter text-purple">869</span>
-					      </li>
-					    </ul>
-					  </div>
-					</div>
-
-                    <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title" style="margin-right: -150px; text-align:left;">전체 게시판 수</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                                <li>
-                                    <div id="sparklinedash3"><canvas width="67" height="30"
-                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                    </div>
-                                </li>
-                                <li style="position: relative;">
-								  <i class="far fa-list-alt" style="font-size: 1.5em; position: absolute; right: -120px;"></i>
-								</li>
-
-                                <li class="ms-auto"><span class="counter text-info">911</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+	      		<input type = "hidden" id ="pg" value ="${pg }">
+				 <div class="container">
+				  <div class="contents">		
+				      <table id="userListTable" class="table table-bordered" border="1">
+				        <thead>
+				          <tr class="admin_boardList">
+				          	<th class="admin_board_head">#</th>
+				            <th class="admin_board_head">아이디</th>
+				            <th class="admin_board_head">제목</th>
+				            <th class="admin_board_head">카테고리</th>
+				            <th class="admin_board_head">참여자</th>
+				            <th class="admin_board_head">등록날짜</th>
+				          </tr>
+				        </thead>
+				        <tbody>
+				          <!-- 동적 처리 -->
+				        </tbody>
+				        <tfoot>
+				          <tr>
+				            <td colspan="8" class="text-center">OhMyGoal Mission</td>
+				          </tr>
+				        </tfoot>
+				     </table>
+				     &nbsp;&nbsp;
+				      <div class="pagination" id ="boardPagingDiv"  style="margin-top:10px;display: inline-block; margin-left:40px;width:450px; text-align:center;"></div>
+				    </div>
+				</div>
+				</div> 
+				</div>
+	    	</div>
+	 	</div>
+		</p>
+	</div>
 
 
-	
-     <!-- 구글 차트  -->
-      <div class="chart_zone">
+	 
+     
+     <!--  <div class="chart_zone" style="margin-top:180px;margin-left:120px;text-align:center;" >
         <div class="chart_box"></div>
        <div id="columnchart_material" class="googlechart" style="width: 800px; height: 500px;"></div>
       </div>
-    </div> <!-- class member -->
-   
-   
-<!-- <div class="footer">    
-<footer class="footer" style="width:100%;text-align:center">
-        <div class="footerDiv">&nbsp;&nbsp;
+    </div> -->
+    
+</section>   
+<!-- <div class="footer" style="width:100%;text-align:center">  
+        &nbsp;&nbsp;&nbsp;&nbsp;
             <p><strong>OhMyGoal! 2023</strong></p>
             <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
             <p>ohmygoal.help@gmail.com</p>
-        </div>
-</footer>
 </div> -->
 
 
+<script type= "text/javascript" src="../js/admin/adminMain.js"></script>
     <!-- 구글차트 스크립트 -->
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
@@ -200,6 +293,7 @@
 
 
 // 로그아웃
+/ 로그아웃
 $('#logoutBtn').click(function(){
 	$.ajax({
 		type: 'post',
@@ -214,6 +308,6 @@ $('#logoutBtn').click(function(){
 	});
 });
 
-    </script>
+</script>
 </body>
 </html>

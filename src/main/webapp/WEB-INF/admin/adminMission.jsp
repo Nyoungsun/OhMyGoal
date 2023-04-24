@@ -221,16 +221,20 @@ tbody tr:last-of-type {
 </div>
 </div> 
 </div>
-<div class="footer">    
-<footer class="footer" style="width:100%; text-align:center;">
-        <div class="footerDiv">&nbsp;&nbsp;
-            <p><strong>OhMyGoal! 2023</strong></p>
-            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
-            <p>ohmygoal.help@gmail.com</p>
-        </div>
-</footer>
-</div>
-
+<!-- <footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p>
+						<strong>OhMyGoal! 2023</strong>
+					</p>
+					<p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+					<p>OhMyGoal.help@gmail.com</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+ -->
 
 </div>
 

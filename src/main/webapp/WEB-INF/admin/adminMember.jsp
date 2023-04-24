@@ -225,7 +225,7 @@ tbody tr:last-of-type {
 </div>
 </div> 
 </div>
-<div class="footer">    
+<!-- <div class="footer">    
 <footer class="footer" style="width:100%; text-align:center">
         <div class="footerDiv">&nbsp;&nbsp;
             <p><strong>OhMyGoal! 2023</strong></p>
@@ -233,7 +233,7 @@ tbody tr:last-of-type {
             <p>ohmygoal.help@gmail.com</p>
         </div>
 </footer>
-</div>
+</div> -->
 
 
 </div>
