@@ -79,4 +79,11 @@ public class BoardDAOMyBatis implements BoardDAO {
 		}
 		sqlSession.delete("boardSQL.boardDel", seq);
 	}
+	
+	@Override
+	public String upload(Map<Object, Object> map) {
+		
+		sqlSession.insert("boardSQL.uploadBoard", map);
+		return sqlSession.selectOne("boardSQL.uploadBoardNum");
+	}
 }

@@ -1,5 +1,8 @@
 package board.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,11 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import board.bean.BoardDTO;
 import board.service.BoardService;
@@ -158,7 +161,41 @@ public class BoardController {
 	@PostMapping(value="boardDel")
 	@ResponseBody
 	public void boardDel(@RequestParam("seq") String seq) {
+		System.out.println("정상");
+		//boardService.boardDel(seq);
+	}
+	
+	@PostMapping(value="upload", produces = "text/html; charset=UTF-8")
+	@ResponseBody
+	public String upload(@RequestParam MultipartFile img,
+			@RequestParam("id") String id, @RequestParam("subject") String subject, @RequestParam("category") String category, @RequestParam("start_date") Date start_date, @RequestParam("end_date") Date end_date, @RequestParam("maxmember") String maxmember, @RequestParam("content") String content,
+						 HttpSession session) {
 		
-		boardService.boardDel(seq);
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/image");
+		System.out.println("실제 폴더 = " + filePath);
+		
+		String fileName = img.getOriginalFilename();
+		System.out.println("파일명 = " + fileName);
+		
+		File file = new File(filePath, fileName); //파일 생성
+		
+		try {
+			img.transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("id", id);
+		map.put("subject", subject);
+		map.put("category", category);
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
+		map.put("maxmember", maxmember);
+		map.put("img", fileName);
+		map.put("content", content);
+		System.out.println(map);
+		
+		return boardService.upload(map);
 	}
 }

@@ -235,25 +235,29 @@ tbody tr:last-of-type {
 </div>
 
 
-<script type="text/javascript" src="Http://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMission.js"></script>
-
-<script>
-// 로그아웃
-$('#logoutBtn').click(function(){
-	$.ajax({
-		type: 'post',
-		url: '/OhMyGoal/board/logout',
-		success: function(){
-			alert("로그아웃이 완료되었습니다.");
-			location.href = '/OhMyGoal/';
-		},
-		error: function(err){
-			console.log(err);
-		}
+<script type="text/javascript">
+$(document).ready(function() {
+	//로그아웃
+	$('#logoutBtn').click(function(){
+		$.ajax({
+			type: 'post',
+			url: '/OhMyGoal/board/logout',
+			success: function(){
+				alert("로그아웃이 완료되었습니다.");
+				location.href = '/OhMyGoal/';
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	});
+	
+	$('.btn-outline-primary').click(function(){
+		console.log("버튼눌림");
 	});
 });
-
       
 //검색
 	$('.search_onclick_submit').click(
