@@ -181,20 +181,21 @@ tbody tr:last-of-type {
 	<form>
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
-			  <select name="condition">
-			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
-			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
-			    <option value="idName" <%= "idName".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디 + 이름</option>
+			  <select name="condition" id="condition">
+			    <option value="subject" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>제목</option>
+			    <option value="content" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>내용</option>
 			  </select>
-			  <input type="text" class="search-input" placeholder="검색" name="search" size="10">
-			  <button type="submit" class="search_onclick_submit">검색</button>
+			  <input type="text" id="search-input" placeholder="검색" name="search" size="10">
+			  <button type="button" id="search_onclick_submit">검색</button>
 			</div>
         </div>
 	</form>
 	&nbsp;&nbsp;
                      
 
-<input type = "hidden" id ="pg" value ="${pg }">
+<input type = "hidden" id ="pg" value ="${pg}">
+<input type = "hidden" id ="tag" value ="${tag}">
+<input type = "hidden" id ="word" value ="${word}">
  <div class="container">
   <div class="contents">		
       <table id="userListTable" class="table table-bordered" border="1">
@@ -261,23 +262,14 @@ $(document).ready(function() {
 });
       
 //검색
-	$('.search_onclick_submit').click(
-	  function () {
-	    alert('검색할 항목을 선택하여 주세요')
-	    location.href = "" + "검색어 이름" + "" + "검색어 아이디";
-	  }
-	);
-	// 엔터키누를시 검색버튼 눌리기
-	$('.search-input').keypress(function (e) {
-	  if (e.keyCode == 13) {
-	    //실행할 function작성
-	    alert("엔터");
-	  }
-	});
-	//페이징 처리
-	function boardPaging(pg){
-		location.href="/OhMyGoal/admin/adminMission?pg="+pg;
-	}
+$('#search_onclick_submit').click(function () {
+	location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();
+});
+
+//페이징 처리
+function boardPaging(pg, tag, word){
+	location.href="/OhMyGoal/admin/adminMission?pg="+pg+"&tag="+tag+"&word="+word;
+}
 </script>
 </body>
 </html>

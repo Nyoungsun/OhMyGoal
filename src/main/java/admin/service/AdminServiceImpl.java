@@ -23,46 +23,48 @@ public class AdminServiceImpl implements AdminService {
     private MemberPaging memberPaging;
 
     @Override
-    public Map<String, Object> getBoardList(String pg) {
-        int endNum = Integer.parseInt(pg) * 5;
+    public Map<Object, Object> getBoardList(Map<Object, Object> map) {
+        int endNum = Integer.parseInt((String) map.get("pg")) * 5;
         int startNum = endNum - 4;
-
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        
         map.put("startNum", startNum);
         map.put("endNum", endNum);
 
         List<BoardDTO> boardList = adminDAO.getBoardList(map);
-        int totalA = adminDAO.getTotalA();
-        boardPaging.setCurrentPage(Integer.parseInt(pg));
+        int totalA = adminDAO.getTotalA(map);
+        boardPaging.setCurrentPage(Integer.parseInt((String) map.get("pg")));
+        boardPaging.setTag((String) map.get("tag"));
+        boardPaging.setWord((String) map.get("word"));
         boardPaging.setPageBlock(5);
         boardPaging.setPageSize(5);
         boardPaging.setTotalA(totalA);
         boardPaging.makePaginHTML();
 
-        Map<String, Object> map2 = new HashMap<String, Object>();
+        Map<Object, Object> map2 = new HashMap<Object, Object>();
         map2.put("boardList", boardList);
         map2.put("boardPaging", boardPaging);
         return map2;
     }
 
     @Override
-    public Map<String, Object> getMemberList(String pg) {
-        int endNum = Integer.parseInt(pg) * 5;
+    public Map<Object, Object> getMemberList(Map<Object, Object> map) {
+        int endNum = Integer.parseInt((String) map.get("pg")) * 5;
         int startNum = endNum - 4;
 
-        Map<String, Integer> map = new HashMap<String, Integer>();
         map.put("startNum", startNum);
         map.put("endNum", endNum);
 
         List<MemberDTO> memberList = adminDAO.getMemberList(map);
-        int totalB = adminDAO.getTotalB();
-        memberPaging.setCurrentPage(Integer.parseInt(pg));
+        int totalB = adminDAO.getTotalB(map);
+        memberPaging.setCurrentPage(Integer.parseInt((String) map.get("pg")));
+        memberPaging.setTag((String) map.get("tag"));
+        memberPaging.setWord((String) map.get("word"));
         memberPaging.setPageBlock(5);
         memberPaging.setPageSize(5);
         memberPaging.setTotalA(totalB);
         memberPaging.makePaginHTML();
 
-        Map<String, Object> map2 = new HashMap<String, Object>();
+        Map<Object, Object> map2 = new HashMap<Object, Object>();
         map2.put("memberList", memberList);
         map2.put("memberPaging", memberPaging);
         return map2;

@@ -14,6 +14,8 @@ public class BoardPaging {
 	private int pageBlock;//[이전][1][2][3][다음]
 	private int pageSize;//1페이지당 5개씩
 	private int totalA;//총글수
+	private String tag;
+	private String word;
 	private StringBuffer pagingHTML;
 	
 	public void makePaginHTML() {
@@ -26,17 +28,16 @@ public class BoardPaging {
 		if(endPage > totalP) endPage = totalP;
 		
 		if(startPage != 1)
-			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (startPage-1) + ")'> ◀ PREV </span>");
-		
+			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (startPage-1) + ",\"" + tag + "\",\"" + word + "\")'> ◀ PREV </span>");
 		for(int i=startPage; i<=endPage; i++) {   
 			if(i==currentPage)
-				pagingHTML.append("<span id='currentPaging' onclick='boardPaging(" + i + ")'>" + i + "</span>");
+				pagingHTML.append("<span id='currentPaging' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</span>");
 			else
-				pagingHTML.append("<span id='paging' onclick='boardPaging(" + i + ")'>" + i + "</span>");
+				pagingHTML.append("<span id='paging' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</span>");
 		}
 		
 		if(endPage < totalP)
-			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (endPage+1) + ")'> NEXT ▶ </span>");
+			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (endPage+1) + ",\"" + tag + "\",\"" + word + "\")'> NEXT ▶ </span>");
 		
 		
 	}
