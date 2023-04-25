@@ -66,7 +66,12 @@ public class AdminController {
 	}
 	@RequestMapping("adminMain")
 	public String dashboard(Model model) {
-	    Map<String, Object> map = adminService.getBoardList("1");
+		Map<Object, Object> map2 = new HashMap<Object, Object>();
+		map2.put("pg", "1");
+		map2.put("tag", "id");
+		map2.put("word", "");
+		
+	    Map<Object, Object> map = adminService.getBoardList(map2);
 	    model.addAttribute("dashboard", map);
 	    System.out.println(map);
 	    return "admin/adminMain";
