@@ -1,5 +1,8 @@
 package board.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import board.bean.BoardDTO;
 import board.service.BoardService;
@@ -143,7 +147,10 @@ public class BoardController {
 	public String qna() {
 		return "board/qna";
 	}
-	
+	@RequestMapping(value = "faq", method = RequestMethod.GET)
+	public String faq() {
+		return "board/faq";
+	}
 	@PostMapping(value="missionJoin")
 	@ResponseBody
 	public void missionJoin(@RequestParam("seq") String seq, @RequestParam("id") String id) {
@@ -155,10 +162,44 @@ public class BoardController {
 		boardService.missionJoin(map);
 	}
 	
-	@PostMapping(value="boardDel")
-	@ResponseBody
-	public void boardDel(@RequestParam("seq") String seq) {
+	@GetMapping(value="boardDel")
+	public String boardDel(@RequestParam("seq") String seq) {
 		
 		boardService.boardDel(seq);
+		
+		return "/admin/adminMission";
+	}
+	
+	@PostMapping(value="upload", produces = "text/html; charset=UTF-8")
+	@ResponseBody
+	public String upload(@RequestParam MultipartFile img,
+			@RequestParam("id") String id, @RequestParam("subject") String subject, @RequestParam("category") String category, @RequestParam("start_date") Date start_date, @RequestParam("end_date") Date end_date, @RequestParam("maxmember") String maxmember, @RequestParam("content") String content,
+						 HttpSession session) {
+		
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/image");
+		System.out.println("실제 폴더 = " + filePath);
+		
+		String fileName = img.getOriginalFilename();
+		System.out.println("파일명 = " + fileName);
+		
+		File file = new File(filePath, fileName); //파일 생성
+		
+		try {
+			img.transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("id", id);
+		map.put("subject", subject);
+		map.put("category", category);
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
+		map.put("maxmember", maxmember);
+		map.put("img", fileName);
+		map.put("content", content);
+		
+		return boardService.upload(map);
 	}
 }

@@ -55,7 +55,14 @@ public class MemberDAOMyBatis implements MemberDAO{
 	@Override
 	public void outMembers(String id) {
 		sqlSession.update("memberSQL.outMembers", id);
+		sqlSession.update("memberSQL.membersTrim");
 		
+	}
+
+	@Override
+	public void escape(String seq) {
+		sqlSession.update("memberSQL.escape", seq);
+		sqlSession.update("memberSQL.boardsTtrim");
 	}
 
 }

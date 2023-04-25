@@ -117,6 +117,9 @@ tbody tr:nth-of-type(even) {
 tbody tr:last-of-type {
   background-color: #e9ecef;
 }
+.delBtn:hover {
+	cursor: pointer;
+}
 </style>
 </head>
 
@@ -178,20 +181,21 @@ tbody tr:last-of-type {
 	<form>
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
-			  <select name="condition">
-			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
-			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
-			    <option value="idName" <%= "idName".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디 + 이름</option>
+			  <select name="condition" id="condition">
+			    <option value="subject" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>제목</option>
+			    <option value="content" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>내용</option>
 			  </select>
-			  <input type="text" class="search-input" placeholder="검색" name="search" size="10">
-			  <button type="submit" class="search_onclick_submit">검색</button>
+			  <input type="text" id="search-input" placeholder="검색" name="search" size="10">
+			  <button type="button" id="search_onclick_submit">검색</button>
 			</div>
         </div>
 	</form>
 	&nbsp;&nbsp;
                      
 
-<input type = "hidden" id ="pg" value ="${pg }">
+<input type = "hidden" id ="pg" value ="${pg}">
+<input type = "hidden" id ="tag" value ="${tag}">
+<input type = "hidden" id ="word" value ="${word}">
  <div class="container">
   <div class="contents">		
       <table id="userListTable" class="table table-bordered" border="1">
@@ -221,62 +225,51 @@ tbody tr:last-of-type {
 </div>
 </div> 
 </div>
-<!-- <footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p>
-						<strong>OhMyGoal! 2023</strong>
-					</p>
-					<p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>  
-					<p>OhMyGoal.help@gmail.com</p>
-				</div>
-			</div>
-		</div>
-	</footer>
- -->
-
+<div class="footer">    
+<footer class="footer" style="width:100%; text-align:center;">
+        <div class="footerDiv">&nbsp;&nbsp;
+            <p><strong>OhMyGoal! 2023</strong></p>
+            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+            <p>ohmygoal.help@gmail.com</p>
+        </div>
+</footer>
 </div>
 
-
-<script type="text/javascript" src="Http://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMission.js"></script>
-
-<script>
-// 로그아웃
-$('#logoutBtn').click(function(){
-	$.ajax({
-		type: 'post',
-		url: '/OhMyGoal/board/logout',
-		success: function(){
-			alert("로그아웃이 완료되었습니다.");
-			location.href = '/OhMyGoal/';
-		},
-		error: function(err){
-			console.log(err);
-		}
+<script type="text/javascript">
+$(document).ready(function() {
+	//로그아웃
+	$('#logoutBtn').click(function(){
+		$.ajax({
+			type: 'post',
+			url: '/OhMyGoal/board/logout',
+			success: function(){
+				alert("로그아웃이 완료되었습니다.");
+				location.href = '/OhMyGoal/';
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
 	});
+	
+	$(document).on('click', '.delBtn', function(){
+		if (!confirm('정말로 삭제를 진행하시겠습니까?')) {
+			event.preventDefault(); // 기본 동작 중지
+		}
+    });
 });
-
       
 //검색
-	$('.search_onclick_submit').click(
-	  function () {
-	    alert('검색할 항목을 선택하여 주세요')
-	    location.href = "" + "검색어 이름" + "" + "검색어 아이디";
-	  }
-	);
-	// 엔터키누를시 검색버튼 눌리기
-	$('.search-input').keypress(function (e) {
-	  if (e.keyCode == 13) {
-	    //실행할 function작성
-	    alert("엔터");
-	  }
-	});
-	//페이징 처리
-	function boardPaging(pg){
-		location.href="/OhMyGoal/admin/adminMission?pg="+pg;
-	}
+$('#search_onclick_submit').click(function () {
+	location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();
+});
+
+//페이징 처리
+function boardPaging(pg, tag, word){
+	location.href="/OhMyGoal/admin/adminMission?pg="+pg+"&tag="+tag+"&word="+word;
+}
 </script>
 </body>
 </html>

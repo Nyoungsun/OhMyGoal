@@ -2,10 +2,14 @@ $(function(){
   $.ajax({
     type: 'post',
     url: '/OhMyGoal/admin/getMemberList',
-    data: 'pg=' + $('#pg').val(),
+    data: {
+    	pg: $('#pg').val(),
+    	tag: $('#tag').val(),
+    	word: $('#word').val()
+    },
     dataType: 'json',
     success: function(data){
-      console.log(JSON.stringify(data));
+      //console.log(JSON.stringify(data));
       $.each(data.memberList, function(index, items){
         var logtime = new Date(items.logtime).toLocaleString();
         $('<tr/>').append($('<td>', {

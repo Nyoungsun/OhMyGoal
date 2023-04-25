@@ -23,4 +23,6 @@ public interface MemberService {
 	public int withdrawl(String id);
 
 	public void outMembers(String id);
+
+	public void escape(String seq);
 }

@@ -7,31 +7,49 @@
  	<select id="getBoardList" parameterType="java.util.Map" resultType="board.bean.BoardDTO">
  		
  		<![CDATA[
-		SELECT * FROM 
-		(SELECT ROWNUM RN, TT.* FROM
-		(SELECT * FROM ohmygoal_board ORDER BY SEQ DESC) TT 
-		)WHERE RN >= #{startNum} AND RN <= #{endNum}
+ 		SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE
+ 			CASE #{tag}
+ 				WHEN 'subject' THEN subject
+		        WHEN 'content' THEN content
+		        ELSE subject
+ 	 		END like '%'||#{word}||'%' ORDER BY seq DESC) TT)WHERE RN >= #{startNum} AND RN <= #{endNum}
 		]]>
  	</select>
  	
  	<select id="getMemberList" parameterType="java.util.Map" resultType="member.bean.MemberDTO">
  		
  		<![CDATA[
-		SELECT * FROM 
-		(SELECT ROWNUM RN, TT.* FROM
-		(SELECT * FROM ohmygoal_member ORDER BY SEQ DESC) TT 
-		)WHERE RN >= #{startNum} AND RN <= #{endNum}
+ 		SELECT * FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_member WHERE
+ 			CASE #{tag}
+ 				WHEN 'id' THEN id
+		        WHEN 'name' THEN name
+		        ELSE id
+ 	 		END like '%'||#{word}||'%' ORDER BY seq DESC) TT)WHERE RN >= #{startNum} AND RN <= #{endNum}
 		]]>
  	</select>
  	
  	<!-- 미션 총글수 -->
- 	<select id ="getTotalA" resultType="int">
- 		select count(*) from ohmygoal_board
+ 	<select id ="getTotalA" parameterType="java.util.Map" resultType="int">
+ 		<![CDATA[
+ 		SELECT count(*) FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE
+ 			CASE #{tag}
+ 				WHEN 'subject' THEN subject
+		        WHEN 'content' THEN content
+		        ELSE subject
+ 	 		END like '%'||#{word}||'%' ORDER BY seq DESC) TT)
+		]]>
  	</select>
  	
  	<!-- 멤버 총수 -->
- 	<select id ="getTotalB" resultType="int">
- 		select count(*) from ohmygoal_member
+ 	<select id ="getTotalB" parameterType="java.util.Map" resultType="int">
+ 		<![CDATA[
+ 		SELECT count(*) FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_member WHERE
+ 			CASE #{tag}
+ 				WHEN 'id' THEN id
+		        WHEN 'name' THEN name
+		        ELSE id
+ 	 		END like '%'||#{word}||'%' ORDER BY seq DESC) TT)
+		]]>
  	</select>
  	
  	<!-- 항목별 카테고리 총수 -->

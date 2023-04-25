@@ -22,7 +22,7 @@ public class BoardDAOMyBatis implements BoardDAO {
 	public List<BoardDTO> list(Map<Object, Object> map) {
 		System.out.println(map);
 		List<BoardDTO> list22 = sqlSession.selectList("boardSQL.getUserList", map);
-		System.out.println(list22);
+		
 		return list22;
 	}
 	
@@ -69,6 +69,7 @@ public class BoardDAOMyBatis implements BoardDAO {
 		
 		BoardDTO tmp = sqlSession.selectOne("boardSQL.getBoard", seq);
 		MemberDTO tmp2;
+		
 		arr = tmp.getMembers().split(" "); //보드를 참여하던 사람들
 		
 		for (String member : arr) {
@@ -78,5 +79,20 @@ public class BoardDAOMyBatis implements BoardDAO {
 			sqlSession.update("boardSQL.member_boardDel", map);
 		}
 		sqlSession.delete("boardSQL.boardDel", seq);
+	}
+	
+	@Override
+	public String upload(Map<Object, Object> map) {
+		
+		sqlSession.insert("boardSQL.uploadBoard", map);
+		String seq = sqlSession.selectOne("boardSQL.uploadBoardNum");
+		
+		MemberDTO tmp = sqlSession.selectOne("boardSQL.getUser", map.get("id"));
+		if(tmp.getBoards() == null) {map.put("boards", seq);}
+		else {map.put("boards", tmp.getBoards()+" "+seq);}
+		
+		sqlSession.update("boardSQL.missionJoin2", map);
+		
+		return seq;
 	}
 }

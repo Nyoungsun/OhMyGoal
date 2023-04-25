@@ -56,4 +56,10 @@ public class BoardServiceImpl implements BoardService {
 		
 		boardDAO.boardDel(seq);
 	}
+	
+	@Override
+	public String upload(Map<Object, Object> map) {
+		
+		return boardDAO.upload(map);
+	}
 }

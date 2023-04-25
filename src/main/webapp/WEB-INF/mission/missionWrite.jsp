@@ -216,7 +216,7 @@
 
 
 <!-- jQuery Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
   <!-- Bootstrap 5 JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
   <!-- Datepicker CSS -->
@@ -230,118 +230,127 @@
 <!-- 유효성 검사 -->
 
 <script type="text/javascript">
-$(document).ready(function() {
-        $('#msBtn').on('click', function(event) {
-            event.preventDefault(); 		// submit 버튼의 기본 동작인 form 전송을 막음
-            
-            $('#subjectSpan').empty();	
-            $('#categorySpan').empty();
-            $('#date1Span').empty();
-            $('#date2Span').empty();
-            $('#peopleSpan').empty();
-            $('#thumbNail').empty();
-            $('#contentSpan').empty();
-            
+$('#msBtn').on('click', function(event) {
+	event.preventDefault(); 		// submit 버튼의 기본 동작인 form 전송을 막음
     
-            var subject = $('#subject').val(); 							// 미션 제목
-            var category = $('#category option:selected').val(); 		// 카테고리
-            var date1 = $('#start_date').val(); 						// 시작 날짜
-            var date2 = $('#end_date').val(); 							// 종료 날짜
-            var maxmember = $('#maxmember option:selected').val();		// 참여 인원
-            var img = document.getElementById('img');							// thumbnail img
-      		var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
-      		
-      	
-      	  	
-            /*
-            console.log("제목: " + subject);
-            console.log("카테고리: " + category);
-      		
-            console.log("시작날짜: " + date1);
-            console.log("종료날짜: " + date2);
-            
-            console.log("참여인원: " + people);
-            
-            console.log("데이터!!!!: " + editorData);
-       		*/
-       		
-       		console.log("썸네일!: " + img);
+    $('#subjectSpan').empty();	
+    $('#categorySpan').empty();
+    $('#date1Span').empty();
+    $('#date2Span').empty();
+    $('#peopleSpan').empty();
+    $('#thumbNail').empty();
+    $('#contentSpan').empty();
     
-            var is_valid = true; // 유효성 검사 통과 여부
-            
-            // 미션 제목 유효성 검사
-            if (subject == '') {
-                $('#subjectSpan').text('* 미션 제목을 입력해주세요.').show();
-                $('#subject').focus();
-                is_valid = false;
-            } 
+    var subject = $('#subject').val(); 							// 미션 제목
+    var category = $('#category option:selected').val(); 		// 카테고리
+    var date1 = $('#start_date').val(); 						// 시작 날짜
+    var date2 = $('#end_date').val(); 							// 종료 날짜
+    var maxmember = $('#maxmember option:selected').val();		// 참여 인원
+    var img = document.getElementById('img');							// thumbnail img
+	var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
+
+
+ 	
+    /*
+    console.log("제목: " + subject);
+    console.log("카테고리: " + category);
+
+    console.log("시작날짜: " + date1);
+    console.log("종료날짜: " + date2);
     
-            // 미션 카테고리 유효성 검사
-            else if (category == '') {
-                $('#categorySpan').text('* 미션 카테고리를 선택해주세요.').show();
-                $('#category').focus();
-                is_valid = false;
-            } 
+    console.log("참여인원: " + people);
     
-            // 시작 날짜 유효성 검사
-            else if (date1 == '') {
-                $('#date1Span').text('* 시작 날짜를 입력하세요.').show();
-                $('#start_date').focus();
-                is_valid = false;
-            } 
+    console.log("데이터!!!!: " + editorData);
+	*/
+	
+	console.log("썸네일!: " + img);
     
-            // 종료 날짜 유효성 검사
-           else if (date2 == '') {
-                $('#date2Span').text('* 종료 날짜를 입력하세요.').show();
-                $('#end_date').focus();
-                is_valid = false;
-            } 
+    var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
+
+
+    var is_valid = true; // 유효성 검사 통과 여부
     
-            // 참여인원 유효성 검사
-            else if (maxmember == '') {
-                $('#maxmemberSpan').text('* 최대 참여 인원 수를 입력하세요.').show();
-                $('#maxmember').focus();
-                is_valid = false;
-            } 
-    
-            // 썸네일 사진 유효성 검사
-            /* else if (thumb_img == '') {
-                $('#thumbSpan').text('썸네일 이미지를 첨부해 주세요').show();
-                $('#thumbNail').focus();
-                is_valid = false;
-            }  */
-    
-      
-         	// 미션 내용 유효성 검사
-         	else if (editorData == '') {
-                $('#contentSpan').text('* 미션 내용을 작성해 주세요.').show();
-                $('.content').focus();
-                is_valid = false;
-            } 
-         	
-         	// 유효성 검사 통과 시 데이터 전송 / 저장
-         	else {
-               $.ajax({
-            	   type: 'get',
-            	   url: '/OhMyGoal/mission/write',
-            	   data: $('#missionWrite').serialize(),
-            	   //dataType: 'json',
-            	   success: function(data){
-            		   alert("미션이 등록 되었어요! \n 미션을 확인해 보세요.");
-            		   location.href='/OhMyGoal/mission/missionBoard?seq='+data;	   
-            		   console.log(data);
-            	   },
-            	   error: function(e){
-            		   console.log(e);
-            		   alert("에러났다!!");  
-            	   }
-               });
-      
-            }
-              
-        });		// click func()
-    });		// whole func()
-    
+    // 미션 제목 유효성 검사
+    if (subject == '') {
+        $('#subjectSpan').text('* 미션 제목을 입력해주세요.').show();
+        $('#subject').focus();
+        is_valid = false;
+    } 
+
+    // 미션 카테고리 유효성 검사
+    else if (category == '') {
+        $('#categorySpan').text('* 미션 카테고리를 선택해주세요.').show();
+        $('#category').focus();
+        is_valid = false;
+    } 
+
+    // 시작 날짜 유효성 검사
+    else if (date1 == '') {
+        $('#date1Span').text('* 시작 날짜를 입력하세요.').show();
+        $('#start_date').focus();
+        is_valid = false;
+    } 
+
+    // 종료 날짜 유효성 검사
+   else if (date2 == '') {
+        $('#date2Span').text('* 종료 날짜를 입력하세요.').show();
+        $('#end_date').focus();
+        is_valid = false;
+    } 
+
+    // 참여인원 유효성 검사
+    else if (maxmember == '') {
+        $('#maxmemberSpan').text('* 최대 참여 인원 수를 입력하세요.').show();
+        $('#maxmember').focus();
+        is_valid = false;
+    } 
+
+    // 썸네일 사진 유효성 검사
+    /* else if (thumb_img == '') {
+        $('#thumbSpan').text('썸네일 이미지를 첨부해 주세요').show();
+        $('#thumbNail').focus();
+        is_valid = false;
+    }  */
+
+
+ 	// 미션 내용 유효성 검사
+ 	else if (editorData == '') {
+        $('#contentSpan').text('* 미션 내용을 작성해 주세요.').show();
+        $('.content').focus();
+        is_valid = false;
+    } 
+ 	
+ 	// 유효성 검사 통과 시 데이터 전송 / 저장
+ 	else {
+ 		CKEDITOR.replace('content', {language: 'ko'});
+ 		var editorData = CKEDITOR.instances.content.getData();
+ 		
+ 		var formData = new FormData();
+	 	formData.append("img", $("input[name=chooseFile]")[0].files[0]);
+	 	formData.append("id", '${memId}');
+	 	formData.append("subject", $("#subject").val());
+	 	formData.append("category", $("#category").val());
+	 	formData.append("start_date", $("#start_date").val());
+	 	formData.append("end_date", $("#end_date").val());
+	 	formData.append("maxmember", $("#maxmember").val());
+	 	formData.append("content", editorData);
+	 	
+	 	$.ajax({
+	 		type: 'post',
+ 			url: '/OhMyGoal/board/upload',
+	 	    enctype: 'multipart/form-data',
+	 	    processData: false,
+	 	    contentType: false,
+	 	    data: formData,
+	 	    success: function(data){
+				location.href='/OhMyGoal/mission/missionBoard?seq='+data;
+			},
+			error: function(err){
+				console.log(err);
+			}
+	 	});
+    }    
+});		// click func()
  </script>   
  
  
@@ -356,15 +365,15 @@ $(document).ready(function(){
 	    format: 'yyyy-mm-dd',
 	    autoclose: true,
 	    todayHighlight: true,
-	    startDate: new Date(),
-	    endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
+	    //startDate: new Date(),
+	    //endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
 	  });
 	  // 종료날짜 데이트피커 초기화
 	  $("#end_date").datepicker({
 	    format: 'yyyy-mm-dd',
 	    autoclose: true,
 	    todayHighlight: true,
-	    startDate: new Date(),
+	    //startDate: new Date(),
 	    endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
 	    beforeShowDay: function(date) {
 	      var startDate = $('#start_date').datepicker('getDate'); // 시작날짜
@@ -454,7 +463,6 @@ $(document).ready(function(){
 	  
 	  var editorData = CKEDITOR.instances.content.getData();
 	  console.log(editorData);
-
 </script>
 
 

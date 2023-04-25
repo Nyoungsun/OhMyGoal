@@ -21,4 +21,6 @@ public interface BoardDAO {
 	public void missionJoin(Map<Object, Object> map);
 	
 	public void boardDel(String seq);
+	
+	public String upload(Map<Object, Object> map);
 }

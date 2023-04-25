@@ -24,4 +24,6 @@ public interface MemberDAO {
 
 	public void outMembers(String id);
 
+	public void escape(String seq);
+
 }

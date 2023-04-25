@@ -17,23 +17,26 @@ public class AdminDAOMyBatis implements AdminDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	@Override
-	public List<BoardDTO> getBoardList(Map<String, Integer> map) {
+	public List<BoardDTO> getBoardList(Map<Object, Object> map) {
+		
 		return sqlSession.selectList("adminSQL.getBoardList",map);
 		
 	}
 	
 	@Override
-	public int getTotalA() {
-		return sqlSession.selectOne("adminSQL.getTotalA");
-	}
-	@Override
-	public List<MemberDTO> getMemberList(Map<String, Integer> map) {
+	public List<MemberDTO> getMemberList(Map<Object, Object> map) {
 		return sqlSession.selectList("adminSQL.getMemberList",map);
 	}
-
+	
 	@Override
-	public int getTotalB() {
-		return sqlSession.selectOne("adminSQL.getTotalB");
+	public int getTotalA(Map<Object, Object> map) {
+		
+		return sqlSession.selectOne("adminSQL.getTotalA", map);
+	}
+
+	public int getTotalB(Map<Object, Object> map) {
+		
+		return sqlSession.selectOne("adminSQL.getTotalB", map);
 	}
 
 	@Override
@@ -55,7 +58,4 @@ public class AdminDAOMyBatis implements AdminDAO{
 	public int getEtc() {
 		return sqlSession.selectOne("adminSQL.getEtc");
 	}
-
-	
-
 }

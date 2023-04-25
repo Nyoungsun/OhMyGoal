@@ -151,6 +151,7 @@
             /* margin-top: 20px; */
             
           /*  border: 2px solid green; */
+            
         }
         
         #memListBtn{	
@@ -217,6 +218,7 @@
         #box .userInfo .userInfo2 .userInfo3 {
             margin: 0px;
             padding: 0px;
+ 
         }
 
         .dateDiv {
@@ -268,9 +270,7 @@
 	          margin-top: 30px;
       	}
       	
-      	.modal-body{
-      		border:none;
-      	}
+      	
 
        footer {
 			background-color: #f7f7f7; 
