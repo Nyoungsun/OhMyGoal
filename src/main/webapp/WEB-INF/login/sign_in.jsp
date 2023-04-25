@@ -8,6 +8,17 @@
 <script src="https://kit.fontawesome.com/35dbfa967d.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 <style type="text/css">
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+*{
+font-family: 'Pretendard-Regular';
+}
 #login-wrap {
   display: none;
   position: fixed;
@@ -185,12 +196,12 @@ legend {
 	                src="/OhMyGoal/image/btn_login.gif" alt="로그인" /></a>
 	        <ul style="margin-top:15px">
 	            <li style="list-style-type: none;">
-	            	<a href="id/find_id.html">
-	            		<i class="fas fa-check" style="color:#979797; margin-right:5px; font-size:10px"></i>아이디찾기
+	            	<a href="member/findId">
+	            		<i id="findId" class="fas fa-check" style="color:#979797; margin-right:5px; font-size:10px"></i>아이디찾기
 	            	</a>
 	            </li>
-	            <li style="margin-left:10px; list-style-type: none;"><a href="passwd/find_passwd_info.html"><i class="fas fa-check"
-	                        style="color:#979797; margin-right:5px; font-size:10px"></i>비밀번호찾기</a>
+	            <li style="margin-left:10px; list-style-type: none;"><a href="passwd/find_passwd_info.html">
+	            <i class="fas fa-check"  style="color:#979797; margin-right:5px; font-size:10px"></i>비밀번호찾기</a>
 	            </li>
 	            <li style="float:right; list-style-type: none;">
 	                <p class="security">

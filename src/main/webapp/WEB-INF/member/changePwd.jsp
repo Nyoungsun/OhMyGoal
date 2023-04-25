@@ -62,12 +62,11 @@
 				data : 'pwd=' + $('#pwd').val(),
 				success : function(data) {
 					if (data != 0) {
-						alert("수정되었습니다.");
+						alert("수정되었습니다. 다시 로그인하세요.");
 						$('#changePwdForm').each(function() {
 							this.reset();
 						});
-						$('#ModalEdit').modal('show');
-						$('#ModalchangePwd').modal('hide');
+						location.href = '/OhMyGoal/';
 					} else {
 						alert("다시 시도해주세요.");
 					}
