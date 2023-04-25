@@ -39,10 +39,10 @@ public class AdminServiceImpl implements AdminService {
         boardPaging.setPageSize(5);
         boardPaging.setTotalA(totalA);
         boardPaging.makePaginHTML();
-         
-        int totalB = adminDAO.getTotalB();//전체 사용자 수
+           
+        int totalB = adminDAO.getTotalB(map);//전체 사용자 수
         int job = adminDAO.getJob();//해당 카테고리의 수
-        int lang = adminDAO.getLang();//해당 카테고리의 수
+        int lang = adminDAO.getLang();//해당 카테고리의 수  
         int health = adminDAO.getHealth();//해당 카테고리의 수
         int etc = adminDAO.getEtc();//해당 카테고리의 수
 
