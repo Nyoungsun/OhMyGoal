@@ -39,10 +39,23 @@ public class AdminServiceImpl implements AdminService {
         boardPaging.setPageSize(5);
         boardPaging.setTotalA(totalA);
         boardPaging.makePaginHTML();
+         
+        int totalB = adminDAO.getTotalB();//전체 사용자 수
+        int job = adminDAO.getJob();//해당 카테고리의 수
+        int lang = adminDAO.getLang();//해당 카테고리의 수
+        int health = adminDAO.getHealth();//해당 카테고리의 수
+        int etc = adminDAO.getEtc();//해당 카테고리의 수
 
         Map<Object, Object> map2 = new HashMap<Object, Object>();
         map2.put("boardList", boardList);
         map2.put("boardPaging", boardPaging);
+        map2.put("totalA", totalA);
+        map2.put("totalB", totalB);
+        
+        map2.put("job", job);
+        map2.put("lang", lang);
+        map2.put("health", health);
+        map2.put("etc", etc);
         return map2;
     }
 

@@ -15,5 +15,12 @@ public interface AdminDAO {
 	public int getTotalA(Map<Object, Object> map);
 
 	public int getTotalB(Map<Object, Object> map);
+	
+	public int getJob();
 
+	public int getLang();
+
+	public int getHealth();
+
+	public int getEtc();
 }

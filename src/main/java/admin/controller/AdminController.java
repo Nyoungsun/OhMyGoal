@@ -20,10 +20,10 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	@RequestMapping(value = "adminMain", method = RequestMethod.GET)
-	public String adminMain() {
-		return "admin/adminMain";
-	}
+	/*
+	 * @RequestMapping(value = "adminMain", method = RequestMethod.GET) public
+	 * String adminMain() { return "admin/adminMain"; }
+	 */
 	
 	@RequestMapping(value = "adminMember", method = RequestMethod.GET)
 	public String adminMember(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg, @RequestParam(value = "tag", required = false, defaultValue = "id") String tag, @RequestParam(value = "word", required = false, defaultValue = "") String word, Model model) {
@@ -63,7 +63,15 @@ public class AdminController {
 		map.put("word", word);
 		return adminService.getMemberList(map);
 		
-		
 	}
+	@RequestMapping("adminMain")
+	public String dashboard(Model model) {
+	    Map<String, Object> map = adminService.getBoardList("1");
+	    model.addAttribute("dashboard", map);
+	    System.out.println(map);
+	    return "admin/adminMain";
+	}
+
+
 
 }

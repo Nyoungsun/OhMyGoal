@@ -51,4 +51,33 @@
  	 		END like '%'||#{word}||'%' ORDER BY seq DESC) TT)
 		]]>
  	</select>
+ 	
+ 	<!-- 항목별 카테고리 총수 -->
+ 	<!-- <select id ="getCategory" resultType="int">
+ 		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE #{category}
+ 	</select> -->
+ 	
+ 	<select id ="getJob" resultType="int">
+ 		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE 'job'
+ 	</select>
+ 	
+ 	<select id ="getLang" resultType="int">
+ 		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE 'lang'
+ 	</select>
+ 	
+ 	<select id ="getHealth" resultType="int">
+ 		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE 'health'
+ 	</select>
+ 	
+ 	<select id ="getEtc" resultType="int">
+ 		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE 'etc'
+ 	</select>
  </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
