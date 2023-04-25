@@ -97,9 +97,9 @@ String seq = request.getParameter("seq");
 	   
 	    <div class="label container-fluid"></div>
 	    
-	    <div id="memberNum" style="display: flex; justify-content: flex-end; margin-top: -8.5%; margin-right:0.8%;" data-toggle="tooltip" data-placement="top" data-offset="100,150" data-container="" title="미션 참여자를 확인해 보세요!" >
+	    <div id="memberNum" style="display: flex; justify-content: flex-end; margin-top: -8.5%; margin-right:0.8%;" >
 	    	<!-- Button trigger modal -->
-			<button type="button" id="memListBtn" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+			<button type="button" id="memListBtn" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-toggle="tooltip" data-placement="top" data-offset="100,150" data-container="" title="미션 참여자를 확인해 보세요!">
 				<div id="memberNumText" ></div>
 			</button>
 			
@@ -126,30 +126,30 @@ String seq = request.getParameter("seq");
 	 
     <!-- <div class="label container-fluid"></div> -->
 
-    <div class="userInfo" style="">
-        <div class="userInfo2" style="">
-            <div class="userInfo3" style="margin-bottom: 1.3%;">
+    <!--  <div class="userInfo" style="">
+        <div class="userInfo2" style="display: flex;"> -->
+            <div class="userInfo3" style=" margin-top: 3% ;margin-bottom: 1.5%; margin-left:0.8%;">
                 <a href="#" target="_blank" rel="noreferrer">
                     <span class="userInfo4" style="white-space: nowrap;">
-                        <span class="userImg"></span>
+                        <span class="userImg" ></span>
                     </span>
                 </a>
 
             </div>
             &nbsp;
-            <div class="dateDiv" style=" margin-bottom: 1.5%; ">
-                <span class="date" style="margin-left: 18%; font-weight: bold;"></span>
+            <div class="dateDiv" style=" display: flex; justify-content: center; margin-top: -7%; margin-right:0.8%;  width:100%;">
+                <span class="date" style=" font-weight: bold;"></span>
             </div>
             &nbsp;
-            <div class="likeDiv" style="">
+            <div class="likeDiv" style="display: flex; justify-content: end; margin-top: -6%; margin-right:0.8%; ">
                 <svg class="MuiSvgIcon-root MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 24 24" aria-hidden="true" title="프로젝트 응원하기" style="border: 1.5px solid palevioletred; border-radius: 100px; padding: 4px; cursor: pointer; height:30px; width:30px; margin-top:-3px;">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
                 </svg>
                 <span class="likeName"></span>
             </div>
-        </div>
+  <!--     </div>
 
-    </div>
+        </div> -->
     
 
 	    <div class="contentContainer"></div>
@@ -173,24 +173,104 @@ String seq = request.getParameter("seq");
 let arr=[];
 
 $(document).ready(function() {
+	/*
+	var today = new Date();
+	var dd = today.getDate().toString().padStart(2, '0');
+	var mm = (today.getMonth() + 1).toString().padStart(2, '0'); // January is 0!
+	var yyyy = today.getFullYear().toString().substr(-2);
+	var currentDate = dd + '-' + mm + '-' + yyyy;
+
+	console.log(currentDate); // 예시: "25-04-23"
+	
+	
+	var today = new Date();
+	var currentDate = today.toLocaleDateString();
+
+	console.log(currentDate); // 예시: "2023-04-25"
+	*/
+	
+	var today = new Date();
+	
+	/*
+	console.log(today);
+	var yyyy = today.getFullYear().toString().padStart(4, '0');
+	var mm = (today.getMonth() + 1).toString()
+	var dd = today.getDate().toString().padStart(2, '0');
+	var currentDate = yyyy + '년 ' + mm + '월 ' + dd + '일';
+
+	console.log("current: " + currentDate); // 예시: "2023년 04월 25일"
+	*/
+	
 	$.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
 		type: 'post',  
 		url: '/OhMyGoal/board/view',
 		data: 'seq=' + <%= seq %>,//서버로 보낼 데이터
 		dataType: 'json', //서버로부터 받은 데이터형, "text", "html", "xml", "json"
 		success: function (data) {
-			arr = data.members.split(" ");
-			$('.mainThumbnail').append('<img src="' + data.img + '" alt="썸네일" style="width: 85%; height: 45%; border-radius: 15px;">');
-			$('.subject').append('<h1 >' + data.subject + '</h1>');
-			$('#memberNumText').append('<h4 style="font-size: 16pt;"><span>🔥 <span style="font-weight:bold;">' + arr.length + '</span>명 참여 중 🔥</span></h4>');
-			$('.label.container-fluid').append('<h4><span class="innerLabel badge rounded-pill " style="margin-right: 13px;">' + data.category + '</span><span class="innerLabel badge rounded-pill ">' + data.maxmember + '명</span></h4>');
-			$('.userImg').append('<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg>&nbsp;'+data.id);
-			$('.date').append(new Date(data.start_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}) + ' ~ ' + new Date(data.end_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}));
-			$('.likeName').append('&nbsp;'+data.likes);
-			$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'+ data.content +'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기"></div><div class="modal fade"id="modal2"data-bs-backdrop="static"data-bs-keyboard="false"tabindex="-1"aria-labelledby="staticBackdropLabel"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--<h5 class="modal-title fs-5"id="modal2Label">미션참가모달</h5>--><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><h4 style="text-align: center; font-weight:bold;">미션에참여하시겠습니까?</h4></div><div class="modal-footer"style="display: flex; justify-content: center;"><button type="button" class="btn btn-primary" style="width: 40%" onclick="missionJoin();">미션참여</button></div></div></div></div>');
-			$('#join_members').append('<h4>' + data.id + '<br><hr>');
-			for (let item of arr) {$('#join_members').append(item+'<br>');}
-			$('#join_members').append('</h4>');
+			var end_date =  new Date(data.end_date)
+			
+			console.log('end date: ' + end_date);
+		
+			//var end_date = new Date('2023년 4월 10일');
+			
+			// 미션 기간 지났을 때
+			if(end_date < today) {
+				
+				console.log('끝나는 날짜가 현재 날짜보다 빠릅니다.');
+			    
+				
+				arr = data.members.split(" ");
+				$('.mainThumbnail').append('<img src="' + data.img + '" alt="썸네일" style=" width: 85%; height: 45%; border-radius: 15px;">');
+				$('.subject').append('<h1 >' + data.subject + '</h1>');
+				$('#memberNumText').append('<h4 style="font-size: 16pt; "><span>👏 <span style="font-weight:bold;">' + arr.length + '</span>명 참여 완료 👏</span></h4>')/*.css('background-color', 'lightgrey')*/;
+				$('.label.container-fluid').append('<h4><span class="innerLabel badge rounded-pill " style="margin-right: 13px;">' + data.category + '</span><span class="innerLabel badge rounded-pill ">' + data.maxmember + '명</span></h4>');
+				$('.userImg').append('<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg>&nbsp;'+data.id);
+				//$('.date').append('<h4 align="center" style:"font-weight:bold;">종료된 미션입니다.<h4>');
+				$('.date').append(new Date(data.start_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}) + ' ~ ' + new Date(data.end_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'})).css('color', 'grey');
+				$('.likeName').append('&nbsp;'+data.likes);
+				$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" >'+ data.content +'</pre> <div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 "data-toggle="tooltip" align="center" style="border-color:grey;"><input type="submit" id="msBtn"  class="btn1 " data-toggle="tooltip" data-placement="top" data-offset="flex-end" data-container="" title="종료된 미션은 참가할 수 없어요 😢"  align="center" value="종료된 미션입니다." style="border-color: lightgrey; background-color:lightgrey; color:black;"></div>');
+				//$('.contentContainer').append(
+				//		'<pre class="content bg-secondary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'
+				//		+ data.content 
+				//		+'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-secondary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-secondary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="종료된 미션입니다"></div></div></div></div>');
+				//$('#missionBtn').removeClass('btn-secondary').addClass('btn-light');
+
+				//$('#msBtn').prop('disabled', true);
+				$('#join_members').append('<h4>' + data.id + '<br><hr>');
+				for (let item of arr) {$('#join_members').append(item+'<br>');}
+				$('#join_members').append('</h4>');
+				
+				// 마우스가 버튼 위에 올라갔을 때
+			    $('#msBtn').on('mouseover', function() {
+			      $(this).tooltip('show');
+			    });
+			    // 마우스가 버튼에서 벗어났을 때
+			    $('#msBtn').on('mouseout', function() {
+			      $(this).tooltip('hide');
+			    });
+				
+				
+				
+			}
+
+			// 미션 기간 진행형일 때
+			else {
+			
+				arr = data.members.split(" ");
+				$('.mainThumbnail').append('<img src="' + data.img + '" alt="썸네일" style="width: 85%; height: 45%; border-radius: 15px;">');
+				$('.subject').append('<h1 >' + data.subject + '</h1>');
+				$('#memberNumText').append('<h4 style="font-size: 16pt;"><span>🔥 <span style="font-weight:bold;">' + arr.length + '</span>명 참여 중 🔥</span></h4>');
+				$('.label.container-fluid').append('<h4><span class="innerLabel badge rounded-pill " style="margin-right: 13px;">' + data.category + '</span><span class="innerLabel badge rounded-pill ">' + data.maxmember + '명</span></h4>');
+				$('.userImg').append('<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg>&nbsp;'+data.id);
+				$('.date').append(new Date(data.start_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}) + ' ~ ' + new Date(data.end_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}));
+				$('.likeName').append('&nbsp;'+data.likes);
+				$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'+ data.content +'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기"></div><div class="modal fade"id="modal2"data-bs-backdrop="static"data-bs-keyboard="false"tabindex="-1"aria-labelledby="staticBackdropLabel"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--<h5 class="modal-title fs-5"id="modal2Label">미션참가모달</h5>--><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><h4 style="text-align: center; font-weight:bold;">미션에 참여하시겠습니까?</h4></div><div class="modal-footer"style="display: flex; justify-content: center;"><button type="button" class="btn btn-primary" style="width: 40%" onclick="missionJoin();">미션참여</button></div></div></div></div>');
+				$('#join_members').append('<h4>' + data.id + '<br><hr>');
+				for (let item of arr) {$('#join_members').append(item+'<br>');}
+				$('#join_members').append('</h4>');
+				
+				
+			}
 		},
 		error: function (err) {
 			console.log(err);
@@ -258,13 +338,24 @@ function missionJoin() {
 	    $('[data-toggle="tooltip"]').tooltip(); 
 	    
 	 	// 마우스가 버튼 위에 올라갔을 때
-	    $('#memListBtn').on('mouseover', function() {
+	     $('#memListBtn').on('mouseover', function() {
 	      $(this).tooltip('show');
 	    });
 	    // 마우스가 버튼에서 벗어났을 때
 	    $('#memListBtn').on('mouseout', function() {
 	      $(this).tooltip('hide');
-	    });
+	    }); 
+	    
+	    /* $('[data-toggle="tooltip"]').mouseover(function(){
+	        $(this).tooltip('hide');
+	      });
+	    
+	    $('[data-toggle="tooltip"]').mouseleave(function(){
+	        $(this).tooltip('hide');
+	      }); */
+	    
+	    
+	 
 	});
 </script>
 
