@@ -1,5 +1,6 @@
 package admin.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,30 +26,42 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "adminMember", method = RequestMethod.GET)
-	public String adminMember(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg, Model model) {
+	public String adminMember(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg, @RequestParam(value = "tag", required = false, defaultValue = "id") String tag, @RequestParam(value = "word", required = false, defaultValue = "") String word, Model model) {
 		model.addAttribute("pg", pg);
+		model.addAttribute("tag", tag);
+		model.addAttribute("word", word);
 		return "admin/adminMember";
 	}
 	
 	@RequestMapping(value = "adminMission", method = RequestMethod.GET)
-	public String adminMission(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg, Model model) {
+	public String adminMission(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg, @RequestParam(value = "tag", required = false, defaultValue = "subject") String tag, @RequestParam(value = "word", required = false, defaultValue = "") String word, Model model) {
 		model.addAttribute("pg", pg);
+		model.addAttribute("tag", tag);
+		model.addAttribute("word", word);
 		return "admin/adminMission";
 	}
 	
 	@RequestMapping(value = "getBoardList", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String , Object> getBoardList(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg) {
-		System.out.println(pg);
-		return adminService.getBoardList(pg);
+	public Map<Object , Object> getBoardList(@RequestParam String pg, @RequestParam("tag") String tag, @RequestParam("word") String word) {
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("pg", pg);
+		map.put("tag", tag);
+		map.put("word", word);
+		return adminService.getBoardList(map);
 		
 	}
 	
 	@RequestMapping(value = "getMemberList", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String , Object> getMemberList(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg) {
-		System.out.println(pg);
-		return adminService.getMemberList(pg);
+	public Map<Object , Object> getMemberList(@RequestParam String pg, @RequestParam("tag") String tag, @RequestParam("word") String word) {
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("pg", pg);
+		map.put("tag", tag);
+		map.put("word", word);
+		return adminService.getMemberList(map);
 		
 		
 	}

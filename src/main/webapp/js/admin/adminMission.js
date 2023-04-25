@@ -2,7 +2,11 @@ $(function(){
   $.ajax({
     type: 'post',
     url: '/OhMyGoal/admin/getBoardList',
-    data: 'pg=' + $('#pg').val(),
+    data: {
+    	pg: $('#pg').val(),
+    	tag: $('#tag').val(),
+    	word: $('#word').val()
+    },
     dataType: 'json',
     success: function(data){
       //console.log(JSON.stringify(data));

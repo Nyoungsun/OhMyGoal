@@ -196,7 +196,6 @@ public class BoardController {
 		map.put("maxmember", maxmember);
 		map.put("img", fileName);
 		map.put("content", content);
-		System.out.println(map);
 		
 		return boardService.upload(map);
 	}
