@@ -146,7 +146,10 @@ public class BoardController {
 	public String qna() {
 		return "board/qna";
 	}
-	
+	@RequestMapping(value = "faq", method = RequestMethod.GET)
+	public String faq() {
+		return "board/faq";
+	}
 	@PostMapping(value="missionJoin")
 	@ResponseBody
 	public void missionJoin(@RequestParam("seq") String seq, @RequestParam("id") String id) {
