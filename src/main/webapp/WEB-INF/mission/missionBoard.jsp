@@ -97,7 +97,7 @@ String seq = request.getParameter("seq");
 	   
 	    <div class="label container-fluid"></div>
 	    
-	    <div id="memberNum" style="border: 2px solid green; display: flex; justify-content: flex-end; margin-top: -8.5%; margin-right:0.8%;" data-toggle="tooltip" data-placement="top" data-offset="100,150" data-container="" title="미션 참여자를 확인해 보세요!" >
+	    <div id="memberNum" style="display: flex; justify-content: flex-end; margin-top: -8.5%; margin-right:0.8%;" data-toggle="tooltip" data-placement="top" data-offset="100,150" data-container="" title="미션 참여자를 확인해 보세요!" >
 	    	<!-- Button trigger modal -->
 			<button type="button" id="memListBtn" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 				<div id="memberNumText" ></div>
