@@ -9,6 +9,7 @@
 
 body {
 	font-family: 'Pretendard-Regular';
+	background: #ffffff;
 }
 
 header {
@@ -24,9 +25,11 @@ header {
 	margin-left: 20px;
 	height: 20px;
 }
+
 #editBtn:hover {
 	cursor: pointer;
 }
+
 /* 
 #editBtn {
 	font-size: 9pt;
@@ -53,13 +56,13 @@ header {
 }
  */
 #profileDiv {
-	height: 400px;
+	height: 450px;
 	background-color: #EEECE2;
 }
 
 #String {
 	display: inline-block;
-	padding-top: 100px;
+	padding-top: 150px;
 }
 
 #profileDiv span {
@@ -80,28 +83,28 @@ header {
 	margin-left: auto;
 	margin-right: auto;
 	width: 65%;
-	height: 100%;
 }
 
 #banner {
+	padding-top: 50px;
 	float: right;
 	width: 500px;
-	height: 350px;
+	height: 400px;
 }
 
 #gradeDiv {
 	position: relative;
 	top: -20px;
-	width: 60%;
+	width: 55%;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 15pt;
 	font-weight: bold;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
 }
 
 #missionDiv {
-	width: 60%;
+	width: 55%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -133,20 +136,19 @@ footer {
 	font-size: 10pt;
 }
 
-#subject {
+.subject {
 	font-weight: bold;
 	font-size: 20pt;
 }
 
-#img {
+.img {
 	text-align: center;
 	vertical-align: middle;
 }
 
 td img {
-	width: 180px;
-	height: 180px;
-	border-radius: 15px;
+	width: 230px;
+	height: 200px;
 }
 
 input[value='미션 보러가기'] {
@@ -155,7 +157,6 @@ input[value='미션 보러가기'] {
 	padding: 10px;
 	border: none;
 	background: #0000ff;
-	cursor: pointer;
 	box-shadow: 0px 3px 5px gray;
 	margin-right: 10px;
 }
@@ -166,6 +167,23 @@ input[value='도망가기'] {
 	padding: 10px;
 	border: none;
 	background: #c54245;
-	cursor: pointer;
 	box-shadow: 0px 3px 5px gray;
+}
+
+input[value='종료된 미션입니다.'] {
+	font-family: 'Pretendard-Regular';
+	color: #fff;
+	padding: 10px;
+	border: none;
+	background: #000000;
+	box-shadow: 0px 3px 5px gray;
+	cursor: default;
+}
+
+
+footer{
+	background: #f9f9f9;
+	margin-top: 100px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }

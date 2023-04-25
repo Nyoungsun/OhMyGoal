@@ -5,7 +5,7 @@ $(function(){
     data: 'pg=' + $('#pg').val(),
     dataType: 'json',
     success: function(data){
-      //console.log(JSON.stringify(data));
+      console.log(JSON.stringify(data));
       $.each(data.boardList, function(index, items){
         var logtime = new Date(items.logtime).toLocaleString();
         $('<tr/>').append($('<td>', {
@@ -14,24 +14,19 @@ $(function(){
         })).append($('<td>', {
           align: 'center',
           text: items.id
-        })).append($('<td>', {
+        })).append($('<td>', {  
           align: 'center',
           text: items.subject
         })).append($('<td>', {
           align: 'center',
           text: items.category
         })).append($('<td>', {
-          align: 'center',  
+          align: 'center',
           text: items.members
         })).append($('<td>', {
           align: 'center',
           text: logtime
-        })).append($('<td>').append($('<a>', {
-          href: '/OhMyGoal/board/boardDel?seq='+items.seq,
-          text: '삭제',
-          class: 'delBtn',
-          css: {'border': '1px solid #0d6efd', 'color': '#0d6efd', 'border-radius': '5px', 'font-size': '16px', 'padding': '6px 12px'}
-        }))).appendTo($('#userListTable'));
+        })).appendTo($('#userListTable'));
       });
       $('#boardPagingDiv').html(data.boardPaging.pagingHTML);
     },

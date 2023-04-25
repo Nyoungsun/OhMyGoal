@@ -17,7 +17,7 @@ $(function(){
         })).append($('<td>', {
           align: 'center',
           text: items.id
-        })).append($('<td>', {
+        })).append($('<td>', {  
           align: 'center',
           text: items.pwd
         })).append($('<td>', {

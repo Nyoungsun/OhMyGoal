@@ -71,4 +71,10 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public void escape(String seq) {
+		memberDAO.escape(seq);
+		
+	}
+
 }
