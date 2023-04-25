@@ -71,9 +71,9 @@
 
 	<!-- 도망가기 누른 회원 member테이블의 boards에서 해당 미션 seq 제거 -->
 	<update id="escape" parameterType="String">
-		UPDATE ohmygoal_member
-		SET boards = REGEXP_REPLACE(boards, '(^|\D)${value}(\D|$)', ' ', 1, 0, 'i')
-		WHERE REGEXP_LIKE(boards, '(^|\D)${value}(\D|$)', 'i')
+		update ohmygoal_member
+		set boards = REGEXP_REPLACE(boards, '(^|\D)${value}(\D|$)', ' ', 1, 0, 'i')
+		where REGEXP_LIKE(boards, '(^|\D)${value}(\D|$)', 'i')
 	</update>
 	
 	<update id="membersTrim"> <!-- 가운데를 제외한 양 옆 공백 제거 -->

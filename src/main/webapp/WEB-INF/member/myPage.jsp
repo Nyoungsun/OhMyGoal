@@ -84,7 +84,7 @@ header {
 						</c:if>
 						<li class="nav-item"><a class="nav-link"
 							href="../board/about">소개</a></li>
-						<li class="nav-item"><a class="nav-link" href="../board/qna">Q&A</a>
+						<li class="nav-item"><a class="nav-link" href="../board/qna">문의하기</a>
 						</li>
 					</ul>
 				</div>
@@ -223,11 +223,19 @@ header {
 				success: function (data) {
 					var i = 0;
 					var today = new Date();
+					var todayMonth = today.getUTCMonth() + 1; 
+					var todayDay = today.getUTCDate();
+					var todayYear = today.getUTCFullYear();
+					var todayDate = todayYear + "-" + todayMonth + "-" + todayDay;
 					$.each(data, function (index, items) {
 						var end_date = new Date(items.end_date);
+						var end_dateMonth = end_date.getUTCMonth() + 1; 
+						var end_dateDay = end_date.getUTCDate() + 1;
+						var end_dateYear = end_date.getUTCFullYear();
+						var end_dateDate = end_dateYear + "-" + end_dateMonth + "-" + end_dateDay;
 						i++;
 						$('<div/>').append($('<div/>', {
-							class: 'missionList shadow p-3 mb-5 bg-body rounded wow bounce'
+							class: todayDate <= end_dateDate ? 'missionList shadow p-3 mb-5 bg-body rounded wow bounce' : 'missionList shadow p-3 mb-5 rounded expire'
 						}).append($('<table/>',{
 							class: 'table table-borderless'
 						}).append($('<tr/>', {
@@ -246,11 +254,11 @@ header {
 							id: 'subject' + i,
 							class: 'subject',
 							text: items.subject
-						}))).append($('<tr/>').append($('<td/>', {
+						}))).append($('<tr/>').append($('<td/>').append($('<div/>', {
 							rowspan: '3',
 							id: 'content' + i,
-							html: items.content
-						}))).append($('<tr/>').append($('<td/>', {
+							class: 'content'
+						})))).append($('<tr/>').append($('<td/>', {
 							colspan:'3',
 							id:'btn' + i,
 							align: 'right'
@@ -261,9 +269,9 @@ header {
 							onclick: "location.href='." + items.url + "?seq=" + items.seq + "'"
 						})).append($('<input>', {
 							type: 'button',
-							id: today < end_date ? 'out' + i : 'expire' + i,
-							value: today < end_date ? '도망가기' : '종료된 미션입니다.',
-							onclick: today < end_date ? 'escape(' + items.seq + ')': null
+							id: todayDate <= end_dateDate ? 'out' + i : 'expire' + i,
+							value: todayDate <= end_dateDate ? '도망가기' : '종료된 미션입니다.',
+							onclick: todayDate <= end_dateDate ? 'escape(' + items.seq + ')': null
 						})))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
 					}) //each
 				},
