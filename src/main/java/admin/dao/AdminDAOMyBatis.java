@@ -36,4 +36,26 @@ public class AdminDAOMyBatis implements AdminDAO{
 		return sqlSession.selectOne("adminSQL.getTotalB");
 	}
 
+	@Override
+	public int getJob() {
+		return sqlSession.selectOne("adminSQL.getJob");
+	}
+
+	@Override
+	public int getLang() {
+		return sqlSession.selectOne("adminSQL.getLang");
+	}
+
+	@Override
+	public int getHealth() {
+		return sqlSession.selectOne("adminSQL.getHealth");
+	}
+
+	@Override
+	public int getEtc() {
+		return sqlSession.selectOne("adminSQL.getEtc");
+	}
+
+	
+
 }

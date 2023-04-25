@@ -15,5 +15,13 @@ public interface AdminDAO {
 	public List<MemberDTO> getMemberList(Map<String, Integer> map);
 
 	public int getTotalB();
+	
+	public int getJob();
+
+	public int getLang();
+
+	public int getHealth();
+
+	public int getEtc();
 
 }

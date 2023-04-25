@@ -29,12 +29,7 @@ $(function(){
         })).append($('<td>', {
           align: 'center',
           text: logtime
-        })).append($('<td>').append($('<a>', {
-          class: 'btn btn-outline-primary',
-          href: '#',
-          role: 'button',
-          text: '삭제'
-        }))).appendTo($('#userListTable'));
+        })).appendTo($('#userListTable'));
       });
       $('#memberPagingDiv').html(data.memberPaging.pagingHTML);
     },

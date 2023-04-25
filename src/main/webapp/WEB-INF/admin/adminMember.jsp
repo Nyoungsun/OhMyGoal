@@ -207,7 +207,6 @@ tbody tr:last-of-type {
             <th class="admin_member_head">랭킹</th>
             <th class="admin_member_head">참가한 미션들</th>
             <th class="admin_member_head">가입날짜</th>
-            <th class="admin_board_head">삭제</th>
           </tr>
         </thead>
         <tbody>

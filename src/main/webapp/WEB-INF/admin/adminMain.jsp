@@ -24,7 +24,7 @@
   margin-top: 50px;
 }
 
-.dashboard-row {
+/* .dashboard-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -70,6 +70,51 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+ */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.dashboard-row {
+  display: flex;
+  gap: 20px;
+}
+
+.dashboard-block {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  text-align: center;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:-350px;
+}
+
+.block-title {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.block-data {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
 
 #recent-mission {
   border: none;
@@ -125,8 +170,9 @@ tbody tr:nth-of-type(even) {
 tbody tr:last-of-type {
   background-color: #e9ecef;
 }
-
-
+#calendar_basic {
+  margin: -450px auto 0; /* 가로 중앙 정렬 및 위로 100px 이동 */
+}
 
 </style>
 
@@ -182,67 +228,27 @@ tbody tr:last-of-type {
 </header>
 <section>
 	<div class="dashboard">
-  		<div class="dashboard-row">
-    		<div class="dashboard-block">
-      			<h2 class="block-title">사용자 수</h2>
-      			<i class="fas fa-smile"></i><p class="block-data">4 </p>
-    		</div>
-    		<div class="dashboard-block">
-	      		<h2 class="block-title">전체 글 수</h2>
-	      		<i class="far fa-list-alt"></i><p class="block-data">16 </p>
-    		</div>
-    		<div class="dashboard-block">
-      			<h2 class="block-title">방문자 수</h2>
-      			<i class="fas fa-users"></i><p class="block-data">10 </p>
-    		</div>
- 		 </div>
-  		<br><br><br>
-  		<p>
-		<div class="dashboard-row2">
-	    	<div class="dashboard-block" id="recent-mission" style="margin-top: 180px;">
-	     		<h2 class="block-title">Recent Mission</h2>
-	      		<select id="dateRangeSelect" class="form-select shadow-none row border-top" style="display: inline-block; margin-right:-1030px;margin-bottom:10px; float: right; width:150px;">
-				   <option>이번 주</option>
-				   <option>이번 달</option>
-				   <option>전체</option>
-				</select>
-
-	      		<input type = "hidden" id ="pg" value ="${pg }">
-				 <div class="container">
-				  <div class="contents">		
-				      <table id="userListTable" class="table table-bordered" border="1">
-				        <thead>
-				          <tr class="admin_boardList">
-				          	<th class="admin_board_head">#</th>
-				            <th class="admin_board_head">아이디</th>
-				            <th class="admin_board_head">제목</th>
-				            <th class="admin_board_head">카테고리</th>
-				            <th class="admin_board_head">참여자</th>
-				            <th class="admin_board_head">등록날짜</th>
-				          </tr>
-				        </thead>
-				        <tbody>
-				          <!-- 동적 처리 -->    
-				        </tbody>
-				        <tfoot>
-				          <tr>
-				            <td colspan="8" class="text-center">OhMyGoal Mission</td>
-				          </tr>
-				        </tfoot>
-				     </table>
-				     &nbsp;&nbsp;
-				      <div class="pagination" id ="boardPagingDiv"  style="margin-top:10px;display: inline-block; margin-left:40px;width:450px; text-align:center;"></div>
-				    </div>
-				</div>
-				</div> 
-				</div>
-	    	</div>
-	 	</div>
-		</p>
+	  <div class="dashboard-row">
+	    <div class="dashboard-block">
+	      <h2 class="block-title">회원 수</h2><br>
+	      <i class="fas fa-smile icon"></i>
+	      <p class="block-data">${dashboard.totalB}</p>
+	    </div>
+	    <div class="dashboard-block">
+	      <h2 class="block-title">전체 글 수</h2><br>
+	      <i class="far fa-list-alt icon"></i>
+	      <p class="block-data">${dashboard.totalA}</p>
+	    </div>
+	  </div>
 	</div>
+		<br><br><br>
+ 		<div style="display:flex; margin-top: -450px;">
+		  <div id="donutchart" style="width: 50%; height: 500px;"></div>
+		  <!-- <div id="chart_div" style="width: 50%; height: 500px;"></div> -->
+		</div>
 
 
-	 
+  		
      
      <!--  <div class="chart_zone" style="margin-top:180px;margin-left:120px;text-align:center;" >
         <div class="chart_box"></div>
@@ -258,42 +264,73 @@ tbody tr:last-of-type {
             <p>ohmygoal.help@gmail.com</p>
 </div> -->
 
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script type="text/javascript">
+ <!-- 도넛 차트 -->
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Mission Category', 'Count per Category'],
+      ['취업',     ${dashboard.job}],
+      ['어학',      ${dashboard.lang}],
+      ['운동',  ${dashboard.health}],
+      ['기타', ${dashboard.etc}]
+    ]);
 
-<script type= "text/javascript" src="../js/admin/adminMain.js"></script>
-    <!-- 구글차트 스크립트 -->
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
+    var options = {
+      title: 'Mission Category',
+      pieHole: 0.4,
+    };
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Month', '게시물수', '댓글수', '회원수'],
-          ['1월', 87, 160, 10],
-          ['2월', 120, 220, 20],
-          ['3월', 200, 400, 30],
-          ['4월', 400, 500, 100]
-        ]);
+    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+    chart.draw(data, options);
+  }
+  
+  /* <!-- 히스토그램 -->
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Dinosaur', 'Length'],
+      ['Acrocanthosaurus (top-spined lizard)', 12.2],
+      ['Albertosaurus (Alberta lizard)', 9.1],
+      ['Allosaurus (other lizard)', 12.2],
+      ['Apatosaurus (deceptive lizard)', 22.9],
+      ['Archaeopteryx (ancient wing)', 0.9],
+      ['Argentinosaurus (Argentina lizard)', 36.6],
+      ['Baryonyx (heavy claws)', 9.1],
+      ['Brachiosaurus (arm lizard)', 30.5],
+      ['Ceratosaurus (horned lizard)', 6.1],
+      ['Coelophysis (hollow form)', 2.7],
+      ['Compsognathus (elegant jaw)', 0.9],
+      ['Deinonychus (terrible claw)', 2.7],
+      ['Diplodocus (double beam)', 27.1],
+      ['Dromicelomimus (emu mimic)', 3.4],
+      ['Gallimimus (fowl mimic)', 5.5],
+      ['Mamenchisaurus (Mamenchi lizard)', 21.0],
+      ['Megalosaurus (big lizard)', 7.9],
+      ['Microvenator (small hunter)', 1.2],
+      ['Ornithomimus (bird mimic)', 4.6],
+      ['Oviraptor (egg robber)', 1.5],
+      ['Plateosaurus (flat lizard)', 7.9],
+      ['Sauronithoides (narrow-clawed lizard)', 2.0],
+      ['Seismosaurus (tremor lizard)', 45.7],
+      ['Spinosaurus (spiny lizard)', 12.2],
+      ['Supersaurus (super lizard)', 30.5],
+      ['Tyrannosaurus (tyrant lizard)', 15.2],
+      ['Ultrasaurus (ultra lizard)', 30.5],
+      ['Velociraptor (swift robber)', 1.8]]);
 
-        var options = {
-          chart: {
-            title: '미션 게시판 및 회원 동향',
-            subtitle: 'mission , member increase/decrease: 2022-2023',
-          }
-        };
+    var options = {
+      title: 'Lengths of dinosaurs, in meters',
+      legend: { position: 'none' },
+    };
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-    </script>
-
-    <!-- 구글 차트 종료! -->
-    
-    <script>
-
-
+    var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  } */
 // 로그아웃
-/ 로그아웃
 $('#logoutBtn').click(function(){
 	$.ajax({
 		type: 'post',
