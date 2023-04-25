@@ -69,7 +69,7 @@ public class AdminController {
 		Map<Object, Object> map2 = new HashMap<Object, Object>();
 		map2.put("pg", "1");
 		map2.put("tag", "id");
-		map2.put("word", "");
+		map2.put("word", "");   
 		
 	    Map<Object, Object> map = adminService.getBoardList(map2);
 	    model.addAttribute("dashboard", map);
