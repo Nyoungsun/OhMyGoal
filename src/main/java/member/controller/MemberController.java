@@ -39,14 +39,9 @@ public class MemberController {
 		return "member/edit";
 	}
 	
-	@GetMapping(value = "findId")
+	@GetMapping(value = "findIdPwd")
 	public String findId() {
-		return "member/findId";
-	}
-	
-	@GetMapping(value = "findPwd")
-	public String findPwd() {
-		return "member/findPwd";
+		return "member/findIdPwd";
 	}
 
 	@PostMapping(value = "getMember")

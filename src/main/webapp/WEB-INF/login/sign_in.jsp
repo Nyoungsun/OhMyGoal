@@ -196,12 +196,9 @@ legend {
 	                src="/OhMyGoal/image/btn_login.gif" alt="로그인" /></a>
 	        <ul style="margin-top:15px">
 	            <li style="list-style-type: none;">
-	            	<a href="member/findId">
-	            		<i id="findId" class="fas fa-check" style="color:#979797; margin-right:5px; font-size:10px"></i>아이디찾기
+	            	<a href="member/findIdPwd">
+	            		<i id="findIdPwd" class="fas fa-check" style="color:#979797; margin-right:5px; font-size:10px"></i>아이디/비밀번호 찾기
 	            	</a>
-	            </li>
-	            <li style="margin-left:10px; list-style-type: none;"><a href="passwd/find_passwd_info.html">
-	            <i class="fas fa-check"  style="color:#979797; margin-right:5px; font-size:10px"></i>비밀번호찾기</a>
 	            </li>
 	            <li style="float:right; list-style-type: none;">
 	                <p class="security">
