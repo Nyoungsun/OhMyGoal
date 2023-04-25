@@ -117,6 +117,9 @@ tbody tr:nth-of-type(even) {
 tbody tr:last-of-type {
   background-color: #e9ecef;
 }
+.delBtn:hover {
+	cursor: pointer;
+}
 </style>
 </head>
 
@@ -221,23 +224,15 @@ tbody tr:last-of-type {
 </div>
 </div> 
 </div>
-<!-- <footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p>
-						<strong>OhMyGoal! 2023</strong>
-					</p>
-					<p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>  
-					<p>OhMyGoal.help@gmail.com</p>
-				</div>
-			</div>
-		</div>
-	</footer>
- -->
-
+<div class="footer">    
+<footer class="footer" style="width:100%; text-align:center;">
+        <div class="footerDiv">&nbsp;&nbsp;
+            <p><strong>OhMyGoal! 2023</strong></p>
+            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+            <p>ohmygoal.help@gmail.com</p>
+        </div>
+</footer>
 </div>
-
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMission.js"></script>
@@ -258,9 +253,11 @@ $(document).ready(function() {
 		});
 	});
 	
-	$('.btn-outline-primary').click(function(){
-		console.log("버튼눌림");
-	});
+	$(document).on('click', '.delBtn', function(){
+		if (!confirm('정말로 삭제를 진행하시겠습니까?')) {
+			event.preventDefault(); // 기본 동작 중지
+		}
+    });
 });
       
 //검색

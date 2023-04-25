@@ -69,6 +69,7 @@ public class BoardDAOMyBatis implements BoardDAO {
 		
 		BoardDTO tmp = sqlSession.selectOne("boardSQL.getBoard", seq);
 		MemberDTO tmp2;
+		System.out.println(tmp.getMaxmember());
 		arr = tmp.getMembers().split(" "); //보드를 참여하던 사람들
 		
 		for (String member : arr) {
@@ -84,6 +85,14 @@ public class BoardDAOMyBatis implements BoardDAO {
 	public String upload(Map<Object, Object> map) {
 		
 		sqlSession.insert("boardSQL.uploadBoard", map);
-		return sqlSession.selectOne("boardSQL.uploadBoardNum");
+		String seq = sqlSession.selectOne("boardSQL.uploadBoardNum");
+		
+		MemberDTO tmp = sqlSession.selectOne("boardSQL.getUser", map.get("id"));
+		if(tmp.getBoards() == null) {map.put("boards", seq);}
+		else {map.put("boards", tmp.getBoards()+" "+seq);}
+		
+		sqlSession.update("boardSQL.missionJoin2", map);
+		
+		return seq;
 	}
 }
