@@ -8,12 +8,12 @@ import member.bean.MemberDTO;
 
 public interface AdminDAO {
 
-	public List<BoardDTO> getBoardList(Map<String, Integer> map);
+	public List<MemberDTO> getMemberList(Map<Object, Object> map);
 
-	public int getTotalA();
+	public List<BoardDTO> getBoardList(Map<Object, Object> map);
 
-	public List<MemberDTO> getMemberList(Map<String, Integer> map);
+	public int getTotalA(Map<Object, Object> map);
 
-	public int getTotalB();
+	public int getTotalB(Map<Object, Object> map);
 
 }
