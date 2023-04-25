@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -158,11 +159,12 @@ public class BoardController {
 		boardService.missionJoin(map);
 	}
 	
-	@PostMapping(value="boardDel")
-	@ResponseBody
-	public void boardDel(@RequestParam("seq") String seq) {
-		System.out.println("정상");
-		//boardService.boardDel(seq);
+	@GetMapping(value="boardDel")
+	public String boardDel(@RequestParam("seq") String seq) {
+		
+		boardService.boardDel(seq);
+		
+		return "/admin/adminMission";
 	}
 	
 	@PostMapping(value="upload", produces = "text/html; charset=UTF-8")
