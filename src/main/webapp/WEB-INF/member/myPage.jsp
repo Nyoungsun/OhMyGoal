@@ -222,7 +222,9 @@ header {
 				async: false,
 				success: function (data) {
 					var i = 0;
+					var today = new Date();
 					$.each(data, function (index, items) {
+						var end_date = new Date(items.end_date);
 						i++;
 						$('<div/>').append($('<div/>', {
 							class: 'missionList shadow p-3 mb-5 bg-body rounded wow bounce'
@@ -247,7 +249,7 @@ header {
 						}))).append($('<tr/>').append($('<td/>', {
 							rowspan: '3',
 							id: 'content' + i,
-							text: items.content
+							html: items.content
 						}))).append($('<tr/>').append($('<td/>', {
 							colspan:'3',
 							id:'btn' + i,
@@ -259,9 +261,9 @@ header {
 							onclick: "location.href='." + items.url + "?seq=" + items.seq + "'"
 						})).append($('<input>', {
 							type: 'button',
-							id: 'out' + i,
-							value: '도망가기',
-							onclick: 'escape(' + items.seq + ')'
+							id: today < end_date ? 'out' + i : 'expire' + i,
+							value: today < end_date ? '도망가기' : '종료된 미션입니다.',
+							onclick: today < end_date ? 'escape(' + items.seq + ')': null
 						})))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
 					}) //each
 				},
