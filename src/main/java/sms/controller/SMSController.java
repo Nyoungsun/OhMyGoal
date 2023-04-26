@@ -34,7 +34,7 @@ public class SMSController {
     final DefaultMessageService messageService;
 
     public SMSController() {
-        this.messageService = NurigoApp.INSTANCE.initialize("NCSG0VZS14BJAQZA", "PB2CRGKCD1JJ7QIDUJ0OHMATYZGCIGQU", "https://api.coolsms.co.kr");
+        this.messageService = NurigoApp.INSTANCE.initialize("NCSIYHFHJYBACUZH", "NNDHTWLZ066U7KX9V7GNIUKMNDAVASGY", "https://api.coolsms.co.kr");
     }
 
     @PostMapping("send-one")
@@ -42,7 +42,7 @@ public class SMSController {
     	int certificationNumber = (int)(Math.random() * (99999 - 10000 + 1)) + 10000;
 		
         Message message = new Message();
-        message.setFrom("01088041143");
+        message.setFrom("01064727555");
         message.setTo(phone);
         message.setText("[OhMyGoal] 아이디찾기 인증번호는 " + certificationNumber + "입니다.");
 
