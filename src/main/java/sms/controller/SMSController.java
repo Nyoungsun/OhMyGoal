@@ -44,7 +44,7 @@ public class SMSController {
         Message message = new Message();
         message.setFrom("01064727555");
         message.setTo(phone);
-        message.setText("[OhMyGoal] 아이디찾기 인증번호는 " + certificationNumber + "입니다.");
+        message.setText("[OhMyGoal] 아이디/비밀번호 찾기 인증번호는 " + certificationNumber + "입니다.");
 
         SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
         System.out.println("certificationNumber=" + certificationNumber + ", " + response);
