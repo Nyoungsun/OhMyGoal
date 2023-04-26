@@ -3185,6 +3185,9 @@ header {
 			                    <li class="nav-item">
 			                        <a class="nav-link" href="./board/about">소개</a>
 			                    </li>
+			                    <li class="nav-item">
+			                        <a class="nav-link" href="./board/qna">문의하기</a>
+			                    </li>
 			                </ul>
 			            </div>
 			

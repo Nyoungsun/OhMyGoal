@@ -259,20 +259,8 @@ $('#msBtn').on('click', function(event) {
 	console.log("참여인원: " + people);
 	
 	console.log("데이터!!!!: " + editorData);
-	*/
-	console.log("썸네일!: " + img);
-	var editorData = CKEDITOR.instances.content.getData(); // 미션 내용
 	
-    /*
-    console.log("제목: " + subject);
-    console.log("카테고리: " + category);
-
-    console.log("시작날짜: " + date1);
-    console.log("종료날짜: " + date2);
-    
-    console.log("참여인원: " + people);
-    
-    console.log("데이터!!!!: " + editorData);
+	console.log("썸네일!: " + img);
 	*/
 
     var is_valid = true; // 유효성 검사 통과 여부
@@ -361,39 +349,41 @@ $('#msBtn').on('click', function(event) {
 <!-- 날짜 달력 js-->
 <script type="text/javascript">
 $(document).ready(function(){
-	// 시작날짜 데이트피커 초기화
-	$("#start_date").datepicker({
-	  format: 'yyyy-mm-dd',
-	  autoclose: true,
-	  todayHighlight: true,
-	  startDate: new Date(),
-	  endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
-	});
-	// 종료날짜 데이트피커 초기화
-	$("#end_date").datepicker({
-	  format: 'yyyy-mm-dd',
-	  autoclose: true,
-	  todayHighlight: true,
-	  startDate: new Date(),
-	  endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
-	  beforeShowDay: function(date) {
-	    var startDate = $('#start_date').datepicker('getDate'); // 시작날짜
-	    if (startDate) {
-	      return date.valueOf() < startDate.valueOf() ? 'disabled' : '';
+	
+	
+	  // 시작날짜 데이트피커 초기화
+	  $("#start_date").datepicker({
+	    format: 'yyyy-mm-dd',
+	    autoclose: true,
+	    todayHighlight: true,
+	    //startDate: new Date(),
+	    //endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
+	  });
+	  // 종료날짜 데이트피커 초기화
+	  $("#end_date").datepicker({
+	    format: 'yyyy-mm-dd',
+	    autoclose: true,
+	    todayHighlight: true,
+	    //startDate: new Date(),
+	    endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
+	    beforeShowDay: function(date) {
+	      var startDate = $('#start_date').datepicker('getDate'); // 시작날짜
+	      if (startDate) {
+	        return date.valueOf() < startDate.valueOf() ? 'disabled' : '';
+	      }
+	      return '';
 	    }
-	    return '';
-	  }
+	  });
+	  // 달력 아이콘 숨김 처리
+	  /* $("#start_date, #end_date").datepicker().on('show', function(e) {
+	    $(this).prev('.input-group-add on').addClass('d-none');
+	  }); */
+	  // 시작날짜 선택 시 종료날짜 최소값 설정
+	  $('#start_date').on('change', function() {
+	    $('#end_date').attr('min', $(this).val());
+	    $('#end_date').datepicker('update');
+	  });
 	});
-	// 달력 아이콘 숨김 처리
-	/* $("#start_date, #end_date").datepicker().on('show', function(e) {
-	  $(this).prev('.input-group-add on').addClass('d-none');
-	}); */
-	// 시작날짜 선택 시 종료날짜 최소값 설정
-	$('#start_date').on('change', function() {
-	  $('#end_date').attr('min', $(this).val());
-	  $('#end_date').datepicker('update');
-	});
-});
  
 </script>
 

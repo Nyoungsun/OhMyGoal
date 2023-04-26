@@ -38,6 +38,11 @@ public class MemberController {
 	public String edit() {
 		return "member/edit";
 	}
+	
+	@GetMapping(value = "findIdPwd")
+	public String findId() {
+		return "member/findIdPwd";
+	}
 
 	@PostMapping(value = "getMember")
 	@ResponseBody
@@ -95,8 +100,11 @@ public class MemberController {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("pwd", pwd);
+		
+		httpSession.invalidate();
 
 		int count = memberService.changePwd(map);
+		
 		return count;
 	}
 
@@ -141,7 +149,7 @@ public class MemberController {
 			return "아마추어😎";
 		} else if (boardSeq.size() > 4 && boardSeq.size() <= 6) {
 			return "세미프로😎";
-		} else if (boardSeq.size() > 10) {
+		} else if (boardSeq.size() >= 10) {
 			return "프로😎";
 		} else {
 			return "스타터😎";

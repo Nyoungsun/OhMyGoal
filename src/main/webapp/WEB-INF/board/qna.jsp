@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QnA💐</title>
+<title>QnA</title>
+
 <link rel="stylesheet" href="../css/board/QnA.css">
 <link rel="shortcut icon" href="../img/icon/check.ico">
 <link
@@ -32,7 +33,7 @@
 <script>
 	new WOW().init(); // wow 활성화
 </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#upBtn').on('click', function(event) {
@@ -139,10 +140,11 @@
     }
     
     </script>
-
+ 
 </head>
 
 <body>
+ 	
 	<form name="myForm" method="post" data-email="sssuperkoreann@gmail.com" target="iframe1" id="formf"
 			action="https://script.google.com/macros/s/AKfycbz-n2LdvDP-TdZ5thK9FZLILqHuujM4jYT-LCCIaE4xWv0NDXME-WFF62Y3rpuGuD-tYg/exec">
 
@@ -202,7 +204,7 @@
 							<br> <br>
 							<h1>궁금한 점이 있으시면 저희에게 <br>문의해 주시기 바랍니다.</h1>
 
-							<a href="#" class="btn btn-primary">24시간이내 답을 드리겠습니다.</a>
+							<a href="http://localhost:8080/OhMyGoal/board/faq" class="btn btn-primary">자주 묻는 질문</a>
 						</div>
 						<div class="col-md-4 col-sm-8">
 							<img src="../img/QnA.png" alt="Mission" class="img-fluid">
@@ -214,7 +216,7 @@
 	<section class="bg_re wow zoomIn" data-wow-duraion="3s">
 		<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box"
 			style="height: auto; width: 50%; max-width: 100%">
-			<h3 style="text-align: center" id="title">👌1:1 문의하기</h3>
+			<h3 style="text-align: center" id="title">1:1 문의하기</h3>
 			<hr
 				style="width: 100%; margin-left: auto; margin-right: auto; height: 3px; border: 0; background: black;">
 			<div class="option_ann1">
@@ -315,5 +317,17 @@ $('#logoutBtn').click(function(){
 $("#formf")[0].reset()
 
 </script>
+<script>
+		window.addEventListener('load', function() {
+			// 아코디언 클릭 이벤트 등록
+			var accordionHeaders = document.querySelectorAll('.accordion h2');
+			for (var i = 0; i < accordionHeaders.length; i++) {
+				accordionHeaders[i].addEventListener('click', function() {
+					// 클릭한 아코디언 활성화
+					this.classList.toggle('active');
+				});
+			}
+		});
+	</script>
 </body>
 </html>

@@ -34,11 +34,28 @@ public class AdminDAOMyBatis implements AdminDAO{
 		return sqlSession.selectOne("adminSQL.getTotalA", map);
 	}
 
-	@Override
 	public int getTotalB(Map<Object, Object> map) {
 		
 		return sqlSession.selectOne("adminSQL.getTotalB", map);
 	}
-	
-	
+
+	@Override
+	public int getJob() {
+		return sqlSession.selectOne("adminSQL.getJob");
+	}
+
+	@Override
+	public int getLang() {
+		return sqlSession.selectOne("adminSQL.getLang");
+	}
+
+	@Override
+	public int getHealth() {
+		return sqlSession.selectOne("adminSQL.getHealth");
+	}
+
+	@Override
+	public int getEtc() {
+		return sqlSession.selectOne("adminSQL.getEtc");
+	}
 }
