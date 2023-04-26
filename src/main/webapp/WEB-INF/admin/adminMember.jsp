@@ -181,12 +181,12 @@ tbody tr:last-of-type {
 	<form>
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
-			  <select name="condition">
+			  <select name="tag" id="condition" style="width: 100px; height: 30px;">
 			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
 			  </select>
-			  <input type="text" id="search-input" placeholder="검색" name="search" size="10">
-			  <button type="button" id="search_onclick_submit">검색</button>
+			  <input type="text" id="search-input" placeholder="검색어 입력" name="word" style="width: 150px; height: 30px; margin: 0px 5px;">
+			  <button type="button" id="search_onclick_submit" style="width: 70px; height: 30px; font-size: 17px;">검색</button>
 			</div>
         </div>
 	</form>
@@ -260,15 +260,22 @@ $(document).ready(function() {
 	
 	$(document).on('click', '.delBtn', function(){
 		if (!confirm('정말로 삭제를 진행하시겠습니까?')) {
-			event.preventDefault(); // 기본 동작 중지
+			event.preventDefault();
 		}
     });
 });
-      
+
 //검색
 $('#search_onclick_submit').click(function () {
-	location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();
+	var searchInput = document.getElementById("search-input").value.trim();
+    if (searchInput === "") {
+        alert("검색할 아이디 혹은 이름을 입력하세요.");
+        event.preventDefault();
+    }
+    else{location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
 });
+
+$('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});
 
 //페이징 처리
 function memberPaging(pg, tag, word){
