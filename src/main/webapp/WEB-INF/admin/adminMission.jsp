@@ -73,6 +73,7 @@ h2 {
   	margin-top: 20px;
   	margin-bottom: 20px;
 }
+
 #userListTable {
   top:30px;
   border-collapse: separate;
@@ -81,16 +82,25 @@ h2 {
   margin-top: 60px;
   text-align: center;
   width:1200px;
+  border-radius: 7px;
+  border: 2px solid #87B5FF;
 }
 
 th,
 td {
   padding: 2.55rem;
   text-align: center;
-  border-top: 1px solid #dee2e6;
-  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #eaf4ff;
+  border-bottom: 1px solid #eaf4ff;
   border-left: none;
   border-right: none;
+}
+
+thead{
+	background-color: #eaf4ff;
+	
+	border-bottom: 3px solid black;
+  	border-collapse: collapse;
 }
 
 th:first-child,
@@ -105,17 +115,17 @@ td:last-child {
 
 th {
   font-weight: bold;
-  background-color: #e9ecef;
-  border-bottom: 2px solid #dee2e6;
+  background-color: #d6ebff;
+  border-bottom: 2px solid #d6ebff;
 }
 
 tbody tr:nth-of-type(even) {
-  background-color: #f8f9fa;
+	background-color: #eaf4ff;
 }
 
 /* 마지막 행 배경 색상 */
 tbody tr:last-of-type {
-  background-color: #e9ecef;
+  
 }
 .delBtn:hover {
 	cursor: pointer;
@@ -138,13 +148,13 @@ tbody tr:last-of-type {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav " style="margin-left: 20px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMain">대시보드</a>
+                        <a class="nav-link" href="../admin/adminMain" >대시보드</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../admin/adminMember">회원관리</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMission">미션관리</a>
+                        <a class="nav-link" href="../admin/adminMission" style=" color:#0000ff;">미션관리</a>
                     </li>
                 </ul>
             </div>
@@ -179,14 +189,15 @@ tbody tr:last-of-type {
       </div><br>
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
-		<div class="list">
-            <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
-			  <select name="tag" id="condition" style="width: 100px; height: 30px;">
-			    <option value="subject" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>제목</option>
-			    <option value="id" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
-			  </select>
-			  <input type="text" id="search-input" placeholder="검색어 입력" name="word" style="width: 150px; height: 30px; margin: 0px 5px;">
-			  <button type="button" id="search_onclick_submit" style="width: 70px; height: 30px; font-size: 17px;">검색</button>
+		
+        <div class="list" style=" display: flex; flex-direction: row; width: 100%;">
+            <div class="sec-option" style="display: flex; flex-direction: row; width:100%;" >
+				  <select class="form-select" name="condition" id="condition" style="width: 9%; margin-left:70%;">
+				    <option value="subject" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>제목</option>
+				    <option value="id" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
+				  </select>
+				  <input type="text" class="form-control me-2" id="search-input" placeholder="제목 검색" name="search" style="width: 15%;">
+				  <button class="btn btn-outline-primary" type="button" id="search_onclick_submit" style="width: 5.5%; opacity:90%;">검색</button>
 			</div>
         </div>
 	</form>
@@ -197,7 +208,7 @@ tbody tr:last-of-type {
 <input type = "hidden" id ="tag" value ="${tag}">
 <input type = "hidden" id ="word" value ="${word}">
  <div class="container">
-  <div class="contents">		
+  <div class="contents" style="margin-top: -1.8%;">		
       <table id="userListTable" class="table table-bordered" border="1">
         <thead>
           <tr class="admin_boardList">
@@ -215,12 +226,12 @@ tbody tr:last-of-type {
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="8" class="text-center">OhMyGoal Mission</td>
+            <td colspan="8" class="text-center" style="border-top: 2px solid lightgrey;">OhMyGoal Mission</td>
           </tr>
         </tfoot>
      </table>
      &nbsp;&nbsp;
-      <div class="pagination" id ="boardPagingDiv"  style="margin-top:10px;display: inline-block; margin-left:360px;width:450px; text-align:center;"></div>
+      <div class="pagination" id ="boardPagingDiv"  style="width:100%; margin-top:10px; margin-bottom: 5%; display: flex; text-align:center;"></div>
     </div>
 </div>
 </div> 
@@ -265,7 +276,7 @@ $(document).ready(function() {
 $('#search_onclick_submit').click(function () {
 	var searchInput = document.getElementById("search-input").value.trim();
     if (searchInput === "") {
-        alert("검색할 아이디 혹은 이름을 입력하세요.");
+        alert("검색할 제목 혹은 아이디를 입력하세요.");
         event.preventDefault();
     }
     else{location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}

@@ -193,7 +193,7 @@ tbody tr:last-of-type {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav " style="margin-left: 20px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMain">대시보드</a>
+                        <a class="nav-link" href="../admin/adminMain" style=" color:#0000ff;">대시보드</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../admin/adminMember">회원관리</a>

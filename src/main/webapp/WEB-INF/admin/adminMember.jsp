@@ -84,16 +84,25 @@ h2 {
   margin-top: 60px;
   text-align: center;
   width:1200px;
+  border-radius: 7px;
+  border: 2px solid #87B5FF;
 }
 
 th,
 td {
   padding: 2.55rem;
   text-align: center;
-  border-top: 1px solid #dee2e6;
-  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #d6ebff;
+  border-bottom: 1px solid #d6ebff;
   border-left: none;
   border-right: none;
+}
+
+thead{
+	background-color: #eaf4ff;
+	
+	border-bottom: 3px solid black;
+  	border-collapse: collapse;
 }
 
 th:first-child,
@@ -108,17 +117,18 @@ td:last-child {
 
 th {
   font-weight: bold;
-  background-color: #e9ecef;
-  border-bottom: 2px solid #dee2e6;
+  
+  background-color: #d6ebff;
+  border-bottom: 2px solid #d6ebff;
 }
 
 tbody tr:nth-of-type(even) {
-  background-color: #f8f9fa;
+  background-color: #eaf4ff;
 }
 
 /* 마지막 행 배경 색상 */
-tbody tr:last-of-type {
-  background-color: #e9ecef;
+ tbody tr:last-of-type {
+  border-top: 2px solid #d6ebff;
 }
 </style>
 </head>
@@ -141,7 +151,7 @@ tbody tr:last-of-type {
                         <a class="nav-link" href="../admin/adminMain">대시보드</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMember">회원관리</a>
+                        <a class="nav-link" href="../admin/adminMember" style=" color:#0000ff;">회원관리</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../admin/adminMission">미션관리</a>
@@ -174,24 +184,23 @@ tbody tr:last-of-type {
 
 <div id = "changeDiv">
 	<div class="member">
-      <div class="member_title">
+      <div class="member_title" >
         <h2><strong>회원 관리</strong></h2><br/><br/>
       </div><br>      
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
 		<div class="list">
-            <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
-			  <select name="tag" id="condition" style="width: 100px; height: 30px;">
+            <div class="sec-option" style="">
+			  <select class="form-select" name="condition" id="condition">
 			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
 			  </select>
-			  <input type="text" id="search-input" placeholder="검색어 입력" name="word" style="width: 150px; height: 30px; margin: 0px 5px;">
-			  <button type="button" id="search_onclick_submit" style="width: 70px; height: 30px; font-size: 17px;">검색</button>
+			  <input type="text" class="form-control me-2" id="search-input" placeholder="아이디 검색" name="search" size="10">
+			  <button class="btn btn-outline-primary" type="button" id="search_onclick_submit" style="width:40%; opacity:90%;">검색</button>
 			</div>
         </div>
 	</form>
 	&nbsp;&nbsp;
-                     
 
 <input type = "hidden" id ="pg" value ="${pg}">
 <input type = "hidden" id ="tag" value ="${tag}">
@@ -200,13 +209,13 @@ tbody tr:last-of-type {
   <div class="contents">		
       <table id="userListTable" class="table table-bordered" border="1">
         <thead>
-          <tr class="admin_boardList">
+          <tr class="admin_boardList" style="">
             <th class="admin_member_head">#</th>
             <th class="admin_member_head">이름</th>
             <th class="admin_member_head">아이디</th>
             <th class="admin_member_head">비밀번호</th>
             <th class="admin_member_head">랭킹</th>
-            <th class="admin_member_head">참가한 미션들</th>
+            <th class="admin_member_head">참가 미션</th>
             <th class="admin_member_head">가입날짜</th>
           </tr>
         </thead>
@@ -215,12 +224,15 @@ tbody tr:last-of-type {
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="8" class="text-center">OhMyGoal Member</td>
+            <td colspan="8" class="text-center" style="border-top: 2px solid lightgrey;">OhMyGoal Member</td>
           </tr>
         </tfoot>
      </table>  
      &nbsp;&nbsp;
-      <div id="memberPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
+      <div class="pagination" id="memberPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
+      
+		
+
     </div>
 </div>
 </div> 
@@ -260,25 +272,69 @@ $(document).ready(function() {
 	
 	$(document).on('click', '.delBtn', function(){
 		if (!confirm('정말로 삭제를 진행하시겠습니까?')) {
-			event.preventDefault();
+			event.preventDefault(); // 기본 동작 중지
 		}
     });
 });
-
+      
 //검색
-$('#search_onclick_submit').click(function () {
-	var searchInput = document.getElementById("search-input").value.trim();
+document.getElementById("search_onclick_submit").addEventListener("click", function() {
+    var searchInput = document.getElementById("search-input").value.trim();
     if (searchInput === "") {
         alert("검색할 아이디 혹은 이름을 입력하세요.");
-        event.preventDefault();
     }
-    else{location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
+    
+    
+    else if ($('.table tr').length == 0){
+    	alert("검색 결과가 없습니다.");   
+    	return;
+    }
+    
+    
+    // 검색 수행
+    else{
+	
+		//location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();
+	  		  	
+		
+		var url = "/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();
+        // 검색 결과가 있는지 확인
+        var resultCount = 0;
+        $('#userListTable tbody tr').each(function() {
+            if ($(this).text().indexOf(searchInput) !== -1) {
+                resultCount++;
+            }
+        });
+        if (resultCount > 0) {
+            location.href = url;
+        } else {
+            alert("검색 결과가 없습니다.");
+        }
+	   
+    }
+	
+
 });
 
-$('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});
+
+$(document).ready(function() {
+	  // 셀렉트 박스 변경 시 이벤트 리스너 등록
+	  $("select[name='condition']").change(function() {
+	    // 선택한 값 가져오기
+	    var selectedValue = $(this).val();
+	    
+	    // 플레이스 홀더 변경
+	    if(selectedValue == "id") {
+	      $("#search-input").attr("placeholder", "아이디 검색");
+	    } else if(selectedValue == "name") {
+	      $("#search-input").attr("placeholder", "이름 검색");
+	    }
+	  });
+	});
 
 //페이징 처리
 function memberPaging(pg, tag, word){
+    
 	location.href="/OhMyGoal/admin/adminMember?pg="+pg+"&tag="+tag+"&word="+word;
 }
 </script>

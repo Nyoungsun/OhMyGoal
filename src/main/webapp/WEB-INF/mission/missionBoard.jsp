@@ -228,7 +228,7 @@ $(document).ready(function() {
 				//$('.date').append('<h4 align="center" style:"font-weight:bold;">종료된 미션입니다.<h4>');
 				$('.date').append(new Date(data.start_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}) + ' ~ ' + new Date(data.end_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'})).css('color', 'grey');
 				$('.likeName').append('&nbsp;'+data.likes);
-				$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" >'+ data.content +'</pre> <div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 "data-toggle="tooltip" align="center" style="border-color:grey;"><input type="submit" id="msBtn"  class="btn1 " data-toggle="tooltip" data-placement="top" data-offset="flex-end" data-container="" title="종료된 미션은 참가할 수 없어요 😢"  align="center" value="종료된 미션입니다." style="border-color: lightgrey; background-color:lightgrey; color:black;"></div>');
+				$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" >'+ data.content +'</pre> <div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 "data-toggle="tooltip" align="center" style="border-color:grey;"><input type="submit" id="msBtn"  class="btn1 " data-toggle="tooltip" data-placement="top" data-offset="flex-end" data-container="" title="종료된 미션은 참가할 수 없어요 😢"  align="center" value="종료된 미션입니다." style="border-color: lightgrey; background-color:lightgrey; color:black;"> <input type="button" id="backBtn" value="👀 다른 미션 보러가기 👀" class="btn1 d-grid gap-2 " class="btn1 " onclick="backPage();"> </div>');
 				//$('.contentContainer').append(
 				//		'<pre class="content bg-secondary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'
 				//		+ data.content 
@@ -338,6 +338,14 @@ function missionJoin() {
 		});
 	}
 }
+ 
+
+function backPage(){
+	  $('#backBtn').click(function(){
+	    window.history.back();
+	  });
+	});
+
 </script>
 
 
