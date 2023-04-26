@@ -43,7 +43,6 @@ header {
 	margin-bottom: 15px;
 	margin-left: 20px;
 }
-
 </style>
 <!--BootStrap-->
 <link rel="stylesheet"
@@ -67,16 +66,20 @@ header {
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 			<div class="container" style="">
-				<a class="OMGlogo" href="../"><img
+				<a class="OMGlogo" href="../"> <img
 					src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
-
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarNav"
 					aria-controls="#navbarNav" aria-expanded="false"
 					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					<div class="navbar-toggler-icon"></div>
 				</button>
-
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav " style="margin-left: 20px;">
+						<li class="nav-item"><a class="nav-link" href="./board/about">소개</a></li>
+						<li class="nav-item"><a class="nav-link" href="./board/qna">문의하기</a></li>
+					</ul>
+				</div>
 				<div class="collapse navbar-collapse justify-content-end"
 					id="navbarNav">
 					<ul class="navbar-nav">
@@ -88,46 +91,59 @@ header {
 		</nav>
 	</header>
 	<div id="wrap">
-	<div class="shadow p-3 mb-5 bg-body rounded find">
-		<h4><strong>아이디 찾기</strong></h4><br><br>
-		<div class="findDiv">
-			<span>이름</span><br> 
-			<input type="text"
-				   id="findName"
-				   class="shadow-none p-3 mb-5 bg-light rounded">
+		<div class="shadow p-3 mb-5 bg-body rounded find">
+			<form name="idFind">
+				<h4>
+					<strong>아이디 찾기</strong>
+				</h4>
+				<br>
+				<br>
+				<div class="findDiv">
+					<div>이름</div>
+					<input type="text" id="findName">
+					<div id="checkFindName"></div>
+				</div>
+				<div class="findDiv">
+					<div>휴대폰 번호</div>
+					<input type="text" id="findPhone" placeholder="'-'(하이픈) 제외"> 
+					<input type="button" id="recieveNumber" value="인증번호 받기">
+					<div id="checkFindPhone"></div>
+					<input type="text" id="certification" placeholder="인증번호를 입력하세요">
+					<div id="checkCertification"></div>
+				</div>
+				<div class="findBtnDiv">
+					<input type="button" id="findIdOk" value="확인">
+					<input type="reset" id="reset" value="다시작성">
+				</div>
+			</form>
 		</div>
-		<div class="findDiv">
-			<span>휴대폰 번호</span><br> 
-			<input type="text"
-				   id="findPhone"
-				   class="shadow-none p-3 mb-5 bg-light rounded "
-				   placeholder="'-'(하이픈) 제외">
+
+		<div class="shadow p-3 mb-5 bg-body rounded find">
+			<form name="pwdFind">
+				<h4>
+					<strong>비밀번호 찾기</strong>
+				</h4>
+				<br>
+				<br>
+				<div class="findDiv">
+					<div>아이디</div>
+					<input type="text" id="findId">
+					<div id="checkFindId"></div>
+				</div>
+				<div class="findDiv">
+					<div>휴대폰 번호</div>
+					<input type="text" id="findPhone2" placeholder="'-'(하이픈) 제외"> 
+					<input type="button" id="recieveNumber2" value="인증번호 받기">
+					<div id="checkFindPhone2"></div>
+					<input type="text" id="certification2" placeholder="인증번호를 입력하세요">
+					<div id="checkCertification2"></div>
+				</div>
+				<div class="findBtnDiv">
+					<input type="button" id="findPwdOk" value="확인"> 
+					<input type="reset" id="reset" value="다시작성">
+				</div>
+			</form>
 		</div>
-		<div class="findBtnDiv">
-			<input type="button" id="findOk" value="확인"> 
-			<input type="reset" id="findOk" value="다시작성">
-		</div>
-	</div>
-	<div class="shadow p-3 mb-5 bg-body rounded find">
-		<h4><strong>비밀번호 찾기</strong></h4><br><br>
-		<div class="findDiv">
-			<span>아이디</span><br> 
-			<input type="text" 
-				   id="findId"
-				   class="shadow-none p-3 mb-5 bg-light rounded">
-		</div>
-		<div class="findDiv">
-			<span>휴대폰 번호</span><br> 
-			<input type="text"
-				   id="findPhone2"
-				   class="shadow-none p-3 mb-5 bg-light rounded"
-				   placeholder="'-'(하이픈) 제외">
-		</div>
-		<div class="findBtnDiv">
-			<input type="button" id="findOk" value="확인">
-			<input type="reset" id="findOk" value="다시작성">
-		</div>
-	</div>
 	</div>
 	<footer>
 		<p>
@@ -136,17 +152,177 @@ header {
 		<p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
 		<p>OhMyGoal.help@gmail.com</p>
 	</footer>
-	<!--BootStrap-->
+
+	<!-- modal -->
+	<jsp:include page='findIdResult.jsp'></jsp:include>
+	<jsp:include page='findPwdResult.jsp'></jsp:include>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 		crossorigin="anonymous">
 		
 	</script>
-	<!--BootStrap-->
-
-	<!--jquery-->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<!--jquery-->
+	<script>
+		//아이디 찾기
+		$('#recieveNumber').click(function() {
+			$('#checkFindPhone').empty();
+
+			if ($('#findPhone').val() == '') {
+				$('#checkFindPhone').text('휴대폰 번호를 입력하세요.');
+				$('#findPhone').focus();
+			} else {
+				$.ajax({
+					type : 'post',
+					url : 'send-one',
+					async : false,
+					data : 'phone=' + $('#findPhone').val(),
+					success : function(data) {
+						$('#checkFindPhone').text('인증번호 전송 완료');
+						$('#findIdOk').click(
+								function() {
+									$('#checkFindName').empty();
+									$('#checkFindPhone').empty();
+									$('#checkCertification').empty();
+									
+									if ($('#findName').val() == '') {
+										$('#checkFindName').text('이름을 입력하세요.');
+										$('#findName').focus();
+									} else if ($('#findPhone').val() == ''
+											&& $('#certification').val() == '') {
+										$('#checkFindPhone').text('휴대폰 인증을 진행해주세요.');
+										$('#findPhone').focus();
+									} else if ($('#findPhone').val() != ''
+											&& $('#certification').val() == '') {
+										$('#checkCertification').text('인증번호를 입력하세요.');
+										$('#certification').focus();
+									} else if ($('#certification').val() != data){
+										$('#checkCertification').text('인증번호가 맞지 않습니다.');
+										$('#certification').focus();
+									} else {
+										$.ajax({
+											type : 'post',
+											url : 'findId',
+											async : false,
+											data: 'name=' + $('#findName').val() +'&phone=' + $('#findPhone').val(),
+											success: function(data) {
+												$('#resultId').text($('#findName').val() + "님의 아이디는 " + data + "입니다.")
+												$('#ModalResultId').modal('show');
+							                },
+							                error: function(err) {
+							                    alert('다시 시도해주세요.');
+							                }
+										});
+									}
+								});
+					},
+					error : function(err) {
+						alert('다시 시도해주세요.');
+					}
+				});
+			}
+		});
+		
+		//비밀번호 찾기
+		$('#recieveNumber2').click(function() {
+			$('#checkFindPhone2').empty();
+
+			if ($('#findPhone2').val() == '') {
+				$('#checkFindPhone2').text('휴대폰 번호를 입력하세요.');
+				$('#findPhone2').focus();
+			} else {
+				$.ajax({
+					type : 'post',
+					url : 'send-one',
+					async : false,
+					data : 'phone=' + $('#findPhone2').val(),
+					success : function(data) {
+						$('#checkFindPhone2').text('인증번호 전송 완료');
+						$('#findPwdOk').click(
+								function() {
+									$('#checkFindId').empty();
+									$('#checkFindPhone2').empty();
+									$('#checkCertification2').empty();
+									
+									if ($('#findId').val() == '') {
+										$('#checkFindName').text('아이디를 입력하세요.');
+										$('#findId').focus();
+									} else if ($('#findPhone2').val() == ''
+											&& $('#certification2').val() == '') {
+										$('#checkFindPhone2').text('휴대폰 인증을 진행해주세요.');
+										$('#findPhone2').focus();
+									} else if ($('#findPhone2').val() != ''
+											&& $('#certification2').val() == '') {
+										$('#checkCertification2').text('인증번호를 입력하세요.');
+										$('#certification2').focus();
+									} else if ($('#certification2').val() != data){
+										$('#checkCertification2').text('인증번호가 맞지 않습니다.');
+										$('#certification2').focus();
+									} else {
+										$.ajax({
+											type : 'post',
+											url : 'findPwd',
+											async : false,
+											data: 'id=' + $('#findId').val(),
+											success: function(data) {
+												if(data == 'false'){
+													$('#resultPwd').text("존재하지 않는 아이디입니다. 다시 시도해주세요.");
+												} else {
+													$('#resultPwd').html($('#findId').val() + "님의 임시 비밀번호는 " + data + "입니다. <br>" + 
+													"로그인 후 반드시 비밀번호를 변경해주세요.")
+												}
+												$('#ModalResultPwd').modal('show');
+							                },
+							                error: function(err) {
+							                    alert('다시 시도해주세요.');
+							                }
+										});
+									}
+								});
+					},
+					error : function(err) {
+						alert('다시 시도해주세요.');
+					}
+				});
+			}
+		});
+		
+		$('#findIdOk').click(
+				function() {
+					$('#checkFindName').empty();
+					$('#checkFindPhone').empty();
+					$('#checkCertification').empty();
+
+					if ($('#findName').val() == '') {
+						$('#checkFindName').text('이름을 입력하세요.');
+						$('#findName').focus();
+					} else if ($('#findPhone').val() == '') {
+						$('#checkFindPhone').text('휴대폰 인증을 진행해주세요.');
+						$('#findPhone').focus();
+					}  else if ($('#certification').val() == '') {
+						$('#checkFindPhone').text('휴대폰 인증을 진행해주세요.');
+						$('#findPhone').focus();
+					}
+				});
+
+		$('#findPwdOk').click(
+				function() {
+					$('#checkFindId').empty();
+					$('#checkFindPhone2').empty();
+					$('#checkCertification2').empty();
+
+					if ($('#findId').val() == '') {
+						$('#checkFindId').text('아이디를 입력하세요.');
+						$('#findId').focus();
+					}  else if ($('#findPhone2').val() == '') {
+						$('#checkFindPhone2').text('휴대폰 인증을 진행해주세요.');
+						$('#findPhone2').focus();
+					}  else if ($('#certification2').val() == '') {
+						$('#checkFindPhone2').text('휴대폰 인증을 진행해주세요.');
+						$('#findPhone2').focus();
+					} 
+				});
+	</script>
 </body>
 </html>

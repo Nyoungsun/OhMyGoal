@@ -26,4 +26,6 @@ public interface MemberDAO {
 
 	public void escape(String seq);
 
+	public String findId(Map<String, String> map);
+
 }
