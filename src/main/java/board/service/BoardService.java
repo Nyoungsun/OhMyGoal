@@ -27,4 +27,6 @@ public interface BoardService {
 	public String upload(Map<Object, Object> map);
 
 	public void end();
+	
+	public MemberDTO sign_info(String id);
 }

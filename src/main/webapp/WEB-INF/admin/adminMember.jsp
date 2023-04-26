@@ -24,7 +24,20 @@
 .wrapper .header {height:90px;}
 .wrapper .contents {padding-bottom:150px;}
 .wrapper .footer {position:absolute; width:100%; height:200px; bottom:0;}
-#currentPaging{
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Pretendard-Regular';
+}
+entPaging{
 	text-align:center;
 	font-size: 15px;
 	font-weight: bold;
@@ -120,10 +133,24 @@ tbody tr:nth-of-type(even) {
 tbody tr:last-of-type {
   background-color: #e9ecef;
 }
+div#grayLayer {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: black;
+	/* filter: alpha(opacity=60); */
+	opacity: 0.60;  /* 0.0 ~ 1.0, 값이 작을수록 더 투명하게 만든다. */
+	z-index: 100;
+}
 </style>
 </head>
 
 <body>
+<div id='grayLayer'></div>
+<jsp:include page='sign_info.jsp' />
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -234,10 +261,7 @@ tbody tr:last-of-type {
         </div>
 </footer>
 </div> -->
-
-
 </div>
-
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMember.js"></script>
@@ -276,6 +300,39 @@ $('#search_onclick_submit').click(function () {
 });
 
 $('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});
+
+$(document).on('click', '.nameBtn', function() {
+	$('#grayLayer').fadeIn(300);
+	$('#signup-wrap').fadeIn(300);
+	
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/sign_info',
+		data: {id: $(this).val()},
+		dataType: 'json',
+		success: function (data) {
+			$("#id").val(data.id);
+			$("#pwd").val(data.pwd);
+			$("#name").val(data.name);
+			$("#email1").val(data.email1);
+			$("#email2").val(data.email2);
+			$("#tel1").val(data.tel1);
+			$("#tel2").val(data.tel2);
+			$("#tel3").val(data.tel3);
+			$("#zipcode").val(data.zipcode);
+			$("#addr1").val(data.addr1);
+			$("#addr2").val(data.addr2);
+		},
+		error: function (err) {
+			console.log(err);
+		}
+	});
+});
+
+$('#grayLayer').click(function(){
+	$(this).fadeOut(300);
+	$('#signup-wrap').fadeOut(300);
+});
 
 //페이징 처리
 function memberPaging(pg, tag, word){

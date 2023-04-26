@@ -74,4 +74,10 @@ public class BoardServiceImpl implements BoardService {
 		
 		boardDAO.end();
 	}
+	
+	@Override
+	public MemberDTO sign_info(String id) {
+		
+		return boardDAO.sign_info(id);
+	}
 }
