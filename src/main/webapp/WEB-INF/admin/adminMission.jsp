@@ -176,17 +176,17 @@ tbody tr:last-of-type {
 	<div class="member">
       <div class="member_title">
         <h2><strong>미션 관리</strong></h2><br/><br/>
-      </div><br>      
+      </div><br>
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
-			  <select name="condition" id="condition">
+			  <select name="tag" id="condition" style="width: 100px; height: 30px;">
 			    <option value="subject" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>제목</option>
-			    <option value="content" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>내용</option>
+			    <option value="id" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			  </select>
-			  <input type="text" id="search-input" placeholder="검색" name="search" size="10">
-			  <button type="button" id="search_onclick_submit">검색</button>
+			  <input type="text" id="search-input" placeholder="검색어 입력" name="word" style="width: 150px; height: 30px; margin: 0px 5px;">
+			  <button type="button" id="search_onclick_submit" style="width: 70px; height: 30px; font-size: 17px;">검색</button>
 			</div>
         </div>
 	</form>
@@ -263,8 +263,15 @@ $(document).ready(function() {
       
 //검색
 $('#search_onclick_submit').click(function () {
-	location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();
+	var searchInput = document.getElementById("search-input").value.trim();
+    if (searchInput === "") {
+        alert("검색할 아이디 혹은 이름을 입력하세요.");
+        event.preventDefault();
+    }
+    else{location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
 });
+
+$('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});
 
 //페이징 처리
 function boardPaging(pg, tag, word){
