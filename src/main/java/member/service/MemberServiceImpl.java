@@ -68,13 +68,33 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void outMembers(String id) {
 		memberDAO.outMembers(id);
-		
+
 	}
 
 	@Override
 	public void escape(String seq) {
 		memberDAO.escape(seq);
-		
+
+	}
+
+	public static String mask(String original) {
+		int length = original.length();
+		if (length <= 3) {
+			return original;
+		} else {
+			StringBuilder masked = new StringBuilder(original);
+			masked.replace(length - 3, length, "***");
+			return masked.toString();
+		}
+	}
+
+	@Override
+	public String findId(Map<String, String> map) {
+		String id = memberDAO.findId(map);
+		String masked = mask(id);
+
+		return masked;
+
 	}
 
 }

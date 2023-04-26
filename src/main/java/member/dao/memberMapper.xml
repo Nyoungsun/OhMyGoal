@@ -28,8 +28,7 @@
 
 	<!-- 비밀번호 체크하기 -->
 	<select id="checkPwd" parameterType="String" resultType="String">
-		select pwd from ohmygoal_member where id=#{value} <!-- 파라미터가 단일 String인 
-			경우 -->
+		select pwd from ohmygoal_member where id=#{value} <!-- 파라미터가 단일 String인 경우 -->
 	</select>
 
 	<!-- 멤버테이블에서 미션목록(boards) 가져오기 -->
@@ -50,7 +49,7 @@
 		order by seq desc
 	</select>
 
-	<!-- 비밀번호 변경 -->
+	<!-- 비밀번호 변경, 비밀번호 찾기에서 임시비밀번호로 변경 -->
 	<update id="changePwd" parameterType="java.util.Map">
 		update ohmygoal_member set
 		pwd=#{pwd} where id=#{id}
@@ -76,11 +75,21 @@
 		where REGEXP_LIKE(boards, '(^|\D)${value}(\D|$)', 'i')
 	</update>
 	
-	<update id="membersTrim"> <!-- 가운데를 제외한 양 옆 공백 제거 -->
+	<!-- 가운데를 제외한 양 옆 공백 제거 -->
+	<update id="membersTrim"> 
 		update ohmygoal_board set members = trim(members)
 	</update>
 
-	<update id="boardsTtrim"> <!-- 가운데를 제외한 양 옆 공백 제거 -->
+	<!-- 가운데를 제외한 양 옆 공백 제거 -->
+	<update id="boardsTrim"> 
 		update ohmygoal_member set boards = trim(boards)
 	</update>
+	
+	<!-- 아이디 찾기 -->
+	<select id="findId" parameterType="java.util.Map" resultType="String">
+		select id from ohmygoal_member where name=#{name} 
+											 and tel1=#{tel1} 
+											 and tel2=#{tel2}
+											 and tel3=#{tel3}
+	</select>
 </mapper>
