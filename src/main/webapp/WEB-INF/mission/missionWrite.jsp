@@ -70,12 +70,33 @@
     </nav>
 </header>
 
+<br> <br>
+		<main style="margin-left: 20%;">
+			<div class="banner">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<img src="../img/logo/logo_no_bg2.png" style="width: 200px;">
+							<br> <br> <br>
+							<h1>
+								당신만의 특별한 미션을<br>지금 만들어 보세요.
+							</h1>
+						</div>
+						<div class="col-md-4 col-sm-8">
+							<img src="../img/makeMission.png" alt="미션만들기" class="" style="margin-top: -8%; width:115%; height:105%; margin-left: -8%;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+
     <form name="missionWrite" id="missionWrite" role="form" method="get">
     
     <!-- 	<input type="text" id="seq" name="seq" value="1" > -->
     
       <div class="shadow-lg p-3 mb-5 bg-body rounded" id="box"
-			style="height: 100%; width: 50%; margin-bottom:30px;" >
+			style="height: 100%; width: 50%; margin-bottom:30px; margin-top: -5%;" >
           <div class="main1 container-fluid" style="margin-top: 3%; ">
               <h2 style="margin-bottom: 3%;">Make your own Mission!</h2>
               

@@ -33,7 +33,7 @@ public class BoardPaging {
 		    
 		    for(int i=startPage; i<=endPage; i++) {
 		        if(i==currentPage)
-		            pagingHTML.append("<li class='page-item active'><a class='page-link' style='border:none; opacity: 90%; background-color: #0000ff;' href='#' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</a></li>");
+		            pagingHTML.append("<li class='page-item active'><a class='page-link' style='border:none; opacity: 90%; background-color: #0000ff;' href='#' style='border:2px solid green; margin:0px;' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</a></li>");
 		        else
 		            pagingHTML.append("<li class='page-item'><a class='page-link' href='#' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</a></li>");
 		    }

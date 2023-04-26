@@ -1440,7 +1440,7 @@ header {
 	.MuiButton-root {
 		color: rgba(0, 0, 0, 0.87);
 		padding: 10px 20px;
-		font-size: 0.875rem;
+		font-size: 0.98rem;
 		min-width: 64px;
 		box-sizing: border-box;
 		transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -1453,7 +1453,9 @@ header {
 
 	.MuiButton-root:hover {
 		text-decoration: none;
-		background-color: rgba(0, 0, 0, 0.04);
+		background-color: rgba(0, 0, 0, 0.03);
+		color:white;
+		
 	}
 
 	.MuiButton-root.Mui-disabled {
@@ -3230,8 +3232,8 @@ header {
 						-->
 						<c:if test="${not empty memName}">
 							<a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss11 MuiButton-containedSecondary"
-								tabindex="0" aria-disabled="false" href="./mission/missionWrite">
-								<span class="MuiButton-label">그룹 미션 만들기</span>
+								tabindex="0" aria-disabled="false" href="./mission/missionWrite" style="border-radius:5px;">
+								<span class="MuiButton-label" >그룹 미션 만들기</span>
 								<span class="MuiTouchRipple-root"></span>
 							</a>
 						</c:if>

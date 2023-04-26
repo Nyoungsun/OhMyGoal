@@ -133,7 +133,7 @@
 						<p>목표 기간 내에 완료할 수 있는 재미있고 도전적인 활동을 제공하는 것이 우리의 목표이며, 
 						일상에서 새로운 도전을 하고 싶거나, 새로운 취미를 찾고 싶은 분들에게 적극 추천합니다.</p>
 						
-						 <a href="/OhMyGoal/" class="btn btn-primary"> 오늘의 미션에 참여하기</a>
+						 <a href="/OhMyGoal/" class="btn btn-primary" style="background-color: #0000ff; border-color: #0000ff;"> 오늘의 미션에 참여하기</a>
 					</div>
 					<div class="col-md-6 col-sm-12">
 						<img src="../img/challenge.png" alt="Mission" class="img-fluid">
@@ -152,7 +152,7 @@
 				<h4>"새로운 도전을 위한 첫 걸음, OMG와 함께 시작해보실래요?"</h4>
 				</p>
 				<p>OMG 서비스를 살펴보고 귀사의 목표 달성을 위헤 미션을 만들어보세요.</p>
-				<a href="/OhMyGoal/mission/missionWrite" class="btn btn-primary">미션 만들기</a>
+				<a href="/OhMyGoal/mission/missionWrite" class="btn btn-primary" style="background-color: #0000ff; border-color: #0000ff;">미션 만들기</a>
 			</div>
 		</div>
 	</section>
@@ -161,7 +161,7 @@
 			<h2>✨ Mission</h2>
 			<h4>매일 새로운 도전과 함께 새로운 경험과 습관을 형성할 수 있는 좋은 방법입니다!</h4>
 			<p>자세한 내용은 미션 페이지에서 확인하실 수 있습니다. 많은 참여 부탁드립니다!</p>
-			<a href="/OhMyGoal/" class="btn btn-primary">미션 보러가기</a>
+			<a href="/OhMyGoal/" class="btn btn-primary" style="background-color: #0000ff; border-color: #0000ff;">미션 보러가기</a>
 		</div>
 	</section>
 	<!-- 	 <div class="shadow-lg p-3 mb-5 bg-body rounded" id="box">

@@ -317,10 +317,24 @@ $(".MuiSvgIcon-root").click(function() {
 });
 
 function missionJoin() {
+	
+	function closeModal() {
+	    var modal = new bootstrap.Modal(document.getElementById('modal2'), {});
+	    modal.hide();
+	  }
+	
+	
+
+	  // 확인 버튼 클릭 시 모달창 닫기
+	  //var result = alert("확인 버튼을 클릭하면 모달창도 닫힙니다.");
+	  //if (result) {
+	  //  closeModal();
+	  //}
+	  
 	console.log(arr);
-	if ('${memId}' === '') {alert("먼저 로그인을 진행해주십쇼")}
-	else if(arr.indexOf('${memId}') !== -1){alert("이미 해당 그룹미션에 참가중입니다.");}
-	else{
+	if ('${memId}' === '') {alert("먼저 로그인을 진행해주세요")}
+	else if(arr.indexOf('${memId}') !== -1){result = alert("이미 참가 중인 미션이에요!");
+	}else{
 		$.ajax({
 			type: 'post',
 			url: '/OhMyGoal/board/missionJoin',
@@ -338,14 +352,15 @@ function missionJoin() {
 		});
 	}
 }
- 
 
-function backPage(){
+
+/*
+ function backPage(){
 	  $('#backBtn').click(function(){
 	    window.history.back();
 	  });
 	});
-
+*/
 </script>
 
 

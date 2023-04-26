@@ -267,12 +267,12 @@ header {
 							id: 'move' + i,
 							value: '미션 보러가기',
 							onclick: "location.href='." + items.url + "?seq=" + items.seq + "'"
-						})).append($('<input>', {
+						}).css('border-radius','5px')).append($('<input>', {
 							type: 'button',
 							id: todayDate <= end_dateDate ? 'out' + i : 'expire' + i,
 							value: todayDate <= end_dateDate ? '도망가기' : '종료된 미션입니다.',
 							onclick: todayDate <= end_dateDate ? 'escape(' + items.seq + ')': null
-						})))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
+						}).css('border-radius','5px')))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
 					}) //each
 				},
 				error: function (err) {

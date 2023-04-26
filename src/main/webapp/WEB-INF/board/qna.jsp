@@ -237,7 +237,7 @@ $(document).ready(function() {
 							</h1>
 
 							<a href="http://localhost:8080/OhMyGoal/board/faq"
-								class="btn btn-primary">자주 묻는 질문</a>
+								class="btn btn-primary" style="border-color: #0000ff; background-color: #0000ff;">자주 묻는 질문</a>
 						</div>
 						<div class="col-md-4 col-sm-8">
 							<img src="../img/QnA.png" alt="Mission" class="img-fluid">
@@ -248,8 +248,8 @@ $(document).ready(function() {
 		</main>
 		<section class="bg_re wow zoomIn" data-wow-duraion="3s">
 			<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box"
-				style="height: auto; width: 50%; max-width: 100%">
-				<h3 style="text-align: center" id="title1">1:1 문의하기</h3>
+				style="height: auto; width: 50%; max-width: 100%; ">
+				<h3 style="text-align: center; font-weight:bold; margin-top: 3%; margin-bottom: 3%;" id="title1" >1:1 문의하기</h3>
 				<hr
 					style="width: 100%; margin-left: auto; margin-right: auto; height: 3px; border: 0; background: black;">
 				<div class="option_ann1">
@@ -324,7 +324,7 @@ $(document).ready(function() {
 				</div>
 
 				<div>
-					<input type="submit" id="upBtn" value="문의 접수">
+					<input type="submit" id="upBtn" value="문의 접수" style="border-radius: 5px; border-color: #0000ff; background-color: #0000ff;">
 				</div>
 			</div>
 		</section>

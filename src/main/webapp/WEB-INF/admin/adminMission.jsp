@@ -184,7 +184,7 @@ tbody tr:last-of-type {
 
 <div id = "changeDiv">
 	<div class="member">
-      <div class="member_title">
+      <div class="member_title" >
         <h2><strong>미션 관리</strong></h2><br/><br/>
       </div><br>
 	<!-- 이름 & 아이디로 서치 -->
@@ -207,8 +207,8 @@ tbody tr:last-of-type {
 <input type = "hidden" id ="pg" value ="${pg}">
 <input type = "hidden" id ="tag" value ="${tag}">
 <input type = "hidden" id ="word" value ="${word}">
- <div class="container">
-  <div class="contents" style="margin-top: -1.8%;">		
+ <div class="container" style="margin-top: -2.5%;">
+  <div class="contents" style="margin-top: -2.5%;">		
       <table id="userListTable" class="table table-bordered" border="1">
         <thead>
           <tr class="admin_boardList">
@@ -231,7 +231,7 @@ tbody tr:last-of-type {
         </tfoot>
      </table>
      &nbsp;&nbsp;
-      <div class="pagination" id ="boardPagingDiv"  style="width:100%; margin-top:10px; margin-bottom: 5%; display: flex; text-align:center;"></div>
+      <div class="pagination" id ="boardPagingDiv"  style="width:100%; margin-top:10px; margin-bottom: 5%; display: flex; text-align:center; border: 2px solid blue;"></div>
     </div>
 </div>
 </div> 
