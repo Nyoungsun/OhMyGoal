@@ -173,11 +173,11 @@ String seq = request.getParameter("seq");
 let arr=[];
 
 $(document).ready(function() {
-	$.ajax({ //처리하고 반드시 해당 자리로 돌아온다.
+	$.ajax({
 		type: 'post',  
 		url: '/OhMyGoal/board/view',
-		data: 'seq=' + <%= seq %>,//서버로 보낼 데이터
-		dataType: 'json', //서버로부터 받은 데이터형, "text", "html", "xml", "json"
+		data: 'seq=' + <%= seq %>,
+		dataType: 'json',
 		success: function (data) {
 			arr = data.members.split(" ");
 			$('.mainThumbnail').append('<img src="' + data.img + '" alt="썸네일" style="width: 85%; height: 45%; border-radius: 15px;">');
@@ -202,7 +202,6 @@ $('#topnav_loginBtn').click(function(){
 	$('#grayLayer').fadeIn(300);
 	$('#login-wrap').fadeIn(300);
 	
-	//$('#overLayer').html('<img src="' + $(this).attr('href') + '" />');
 	return false;
 });
 
@@ -223,6 +222,17 @@ $('#logoutBtn').click(function(){
 		error: function(err){
 			console.log(err);
 		}
+	});
+});
+
+$(".MuiSvgIcon-root").click(function() {
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/like',
+		data: 'seq=' + <%= seq %>,
+		dataType: 'text',
+		success: function (data) {$('span.likeName').html('&nbsp;'+data);},
+		error: function(err){console.log(err);}
 	});
 });
 

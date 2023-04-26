@@ -241,34 +241,28 @@ $('#msBtn').on('click', function(event) {
     $('#thumbNail').empty();
     $('#contentSpan').empty();
     
-            var subject = $('#subject').val(); 							// 미션 제목
-            var category = $('#category option:selected').val(); 		// 카테고리
-            var date1 = $('#start_date').val(); 						// 시작 날짜
-            var date2 = $('#end_date').val(); 							// 종료 날짜
-            var maxmember = $('#maxmember option:selected').val();		// 참여 인원
-            var img = document.getElementById('img');							// thumbnail img
-      		var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
-      		
-      	
-      	  	
-            /*
-            console.log("제목: " + subject);
-            console.log("카테고리: " + category);
-      		
-            console.log("시작날짜: " + date1);
-            console.log("종료날짜: " + date2);
-            
-            console.log("참여인원: " + people);
-            
-            console.log("데이터!!!!: " + editorData);
-       		*/
-       		
-       		console.log("썸네일!: " + img);
-    
-    var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
-
-
- 	
+	var subject = $('#subject').val(); 							// 미션 제목
+	var category = $('#category option:selected').val(); 		// 카테고리
+	var date1 = $('#start_date').val(); 						// 시작 날짜
+	var date2 = $('#end_date').val(); 							// 종료 날짜
+	var maxmember = $('#maxmember option:selected').val();		// 참여 인원
+	var img = document.getElementById('img');					// thumbnail img
+	var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
+	
+	/*
+	console.log("제목: " + subject);
+	console.log("카테고리: " + category);
+	
+	console.log("시작날짜: " + date1);
+	console.log("종료날짜: " + date2);
+	
+	console.log("참여인원: " + people);
+	
+	console.log("데이터!!!!: " + editorData);
+	*/
+	console.log("썸네일!: " + img);
+	var editorData = CKEDITOR.instances.content.getData(); // 미션 내용
+	
     /*
     console.log("제목: " + subject);
     console.log("카테고리: " + category);
@@ -335,9 +329,6 @@ $('#msBtn').on('click', function(event) {
  	
  	// 유효성 검사 통과 시 데이터 전송 / 저장
  	else {
- 		CKEDITOR.replace('content', {language: 'ko'});
- 		var editorData = CKEDITOR.instances.content.getData();
- 		
  		var formData = new FormData();
 	 	formData.append("img", $("input[name=chooseFile]")[0].files[0]);
 	 	formData.append("id", '${memId}');
@@ -363,58 +354,54 @@ $('#msBtn').on('click', function(event) {
 			}
 	 	});
     }    
-});		// click func()
+}); // click func()
  </script>   
  
  
 <!-- 날짜 달력 js-->
-
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	
-	  // 시작날짜 데이트피커 초기화
-	  $("#start_date").datepicker({
-	    format: 'yyyy-mm-dd',
-	    autoclose: true,
-	    todayHighlight: true,
-	    startDate: new Date(),
-	    endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
-	  });
-	  // 종료날짜 데이트피커 초기화
-	  $("#end_date").datepicker({
-	    format: 'yyyy-mm-dd',
-	    autoclose: true,
-	    todayHighlight: true,
-	    startDate: new Date(),
-	    endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
-	    beforeShowDay: function(date) {
-	      var startDate = $('#start_date').datepicker('getDate'); // 시작날짜
-	      if (startDate) {
-	        return date.valueOf() < startDate.valueOf() ? 'disabled' : '';
-	      }
-	      return '';
-	    }
-	  });
-	  // 달력 아이콘 숨김 처리
-	  /* $("#start_date, #end_date").datepicker().on('show', function(e) {
-	    $(this).prev('.input-group-add on').addClass('d-none');
-	  }); */
-	  // 시작날짜 선택 시 종료날짜 최소값 설정
-	  $('#start_date').on('change', function() {
-	    $('#end_date').attr('min', $(this).val());
-	    $('#end_date').datepicker('update');
-	  });
+	// 시작날짜 데이트피커 초기화
+	$("#start_date").datepicker({
+	  format: 'yyyy-mm-dd',
+	  autoclose: true,
+	  todayHighlight: true,
+	  startDate: new Date(),
+	  endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
 	});
+	// 종료날짜 데이트피커 초기화
+	$("#end_date").datepicker({
+	  format: 'yyyy-mm-dd',
+	  autoclose: true,
+	  todayHighlight: true,
+	  startDate: new Date(),
+	  endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
+	  beforeShowDay: function(date) {
+	    var startDate = $('#start_date').datepicker('getDate'); // 시작날짜
+	    if (startDate) {
+	      return date.valueOf() < startDate.valueOf() ? 'disabled' : '';
+	    }
+	    return '';
+	  }
+	});
+	// 달력 아이콘 숨김 처리
+	/* $("#start_date, #end_date").datepicker().on('show', function(e) {
+	  $(this).prev('.input-group-add on').addClass('d-none');
+	}); */
+	// 시작날짜 선택 시 종료날짜 최소값 설정
+	$('#start_date').on('change', function() {
+	  $('#end_date').attr('min', $(this).val());
+	  $('#end_date').datepicker('update');
+	});
+});
  
 </script>
 
 
 <!-- 이미지 업로드 -->
 <script type="text/javascript">
-	
 	function loadPreview(event) {
-	    var img = document.getElementById('img');
+		var img = document.getElementById('img');
 	    var file = event.target.files[0];
 	    
 	    const files = event.currentTarget.files;
@@ -478,27 +465,5 @@ $(document).ready(function(){
 	  console.log(editorData);
 </script>
 
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -57,6 +57,10 @@
 		update ohmygoal_board set views=views+1 where seq=#{seq}
 	</update>
 	
+	<update id="likes" parameterType="String">
+		update ohmygoal_board set likes=likes+1 where seq=#{seq}
+	</update>
+	
 	<!-- 회원가입 -->
 	<insert id="signUp" parameterType="member.bean.MemberDTO">
 		insert into ohmygoal_member values(seq_member.NEXTVAL
@@ -117,4 +121,14 @@
 	<select id="uploadBoardNum" resultType="String">
 		SELECT seq FROM (SELECT * FROM ohmygoal_board ORDER BY seq desc) WHERE ROWNUM = 1
 	</select>
+	
+	<select id="endList" resultType="board.bean.BoardDTO">
+		<![CDATA[
+		SELECT * FROM ohmygoal_board WHERE end_date < sysdate and img != '/OhMyGoal/image/EndingMission.png'
+		]]>
+	</select>
+	
+	<update id="chgEnd" parameterType="board.bean.BoardDTO">
+		update ohmygoal_board set img='/OhMyGoal/image/EndingMission.png' where seq=#{seq}
+	</update>
  </mapper>

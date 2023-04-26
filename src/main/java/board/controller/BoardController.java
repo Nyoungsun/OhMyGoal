@@ -1,6 +1,7 @@
 package board.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.HashMap;
@@ -137,6 +138,13 @@ public class BoardController {
 		System.out.println(seq);
 		return boardService.view(seq);
 	}
+	
+	@PostMapping(value = "like")
+	@ResponseBody
+	public int like(@RequestParam String seq) {
+		
+		return boardService.like(seq);
+	}
 
 	@RequestMapping(value = "about", method = RequestMethod.GET)
 	public String about() {
@@ -198,5 +206,12 @@ public class BoardController {
 		map.put("content", content);
 		
 		return boardService.upload(map);
+	}
+	
+	@PostMapping(value="end")
+	@ResponseBody
+	public void end() {
+		
+		boardService.end();
 	}
 }
