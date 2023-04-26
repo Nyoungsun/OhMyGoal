@@ -17,10 +17,14 @@ public interface BoardDAO {
 	public void sign_up(MemberDTO memberDTO);
 
 	public BoardDTO view(String seq);
-
+	
+	public int like(String seq);
+	
 	public void missionJoin(Map<Object, Object> map);
 	
 	public void boardDel(String seq);
 	
 	public String upload(Map<Object, Object> map);
+
+	public void end();
 }

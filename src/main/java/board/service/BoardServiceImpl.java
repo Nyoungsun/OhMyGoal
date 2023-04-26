@@ -46,6 +46,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
+	public int like(String seq) {
+		
+		return boardDAO.like(seq);
+	}
+	
+	@Override
 	public void missionJoin(Map<Object, Object> map) {
 		
 		boardDAO.missionJoin(map);
@@ -61,5 +67,11 @@ public class BoardServiceImpl implements BoardService {
 	public String upload(Map<Object, Object> map) {
 		
 		return boardDAO.upload(map);
+	}
+	
+	@Override
+	public void end() {
+		
+		boardDAO.end();
 	}
 }

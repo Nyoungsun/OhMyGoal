@@ -241,32 +241,27 @@ $('#msBtn').on('click', function(event) {
     $('#thumbNail').empty();
     $('#contentSpan').empty();
     
-    var subject = $('#subject').val(); 							// 미션 제목
-    var category = $('#category option:selected').val(); 		// 카테고리
-    var date1 = $('#start_date').val(); 						// 시작 날짜
-    var date2 = $('#end_date').val(); 							// 종료 날짜
-    var maxmember = $('#maxmember option:selected').val();		// 참여 인원
-    var img = document.getElementById('img');							// thumbnail img
+	var subject = $('#subject').val(); 							// 미션 제목
+	var category = $('#category option:selected').val(); 		// 카테고리
+	var date1 = $('#start_date').val(); 						// 시작 날짜
+	var date2 = $('#end_date').val(); 							// 종료 날짜
+	var maxmember = $('#maxmember option:selected').val();		// 참여 인원
+	var img = document.getElementById('img');					// thumbnail img
 	var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
-
-
- 	
-    /*
-    console.log("제목: " + subject);
-    console.log("카테고리: " + category);
-
-    console.log("시작날짜: " + date1);
-    console.log("종료날짜: " + date2);
-    
-    console.log("참여인원: " + people);
-    
-    console.log("데이터!!!!: " + editorData);
-	*/
+	
+	/*
+	console.log("제목: " + subject);
+	console.log("카테고리: " + category);
+	
+	console.log("시작날짜: " + date1);
+	console.log("종료날짜: " + date2);
+	
+	console.log("참여인원: " + people);
+	
+	console.log("데이터!!!!: " + editorData);
 	
 	console.log("썸네일!: " + img);
-    
-    var editorData = CKEDITOR.instances.content.getData();		// 미션 내용
-
+	*/
 
     var is_valid = true; // 유효성 검사 통과 여부
     
@@ -322,9 +317,6 @@ $('#msBtn').on('click', function(event) {
  	
  	// 유효성 검사 통과 시 데이터 전송 / 저장
  	else {
- 		CKEDITOR.replace('content', {language: 'ko'});
- 		var editorData = CKEDITOR.instances.content.getData();
- 		
  		var formData = new FormData();
 	 	formData.append("img", $("input[name=chooseFile]")[0].files[0]);
 	 	formData.append("id", '${memId}');
@@ -350,12 +342,11 @@ $('#msBtn').on('click', function(event) {
 			}
 	 	});
     }    
-});		// click func()
+}); // click func()
  </script>   
  
  
 <!-- 날짜 달력 js-->
-
 <script type="text/javascript">
 $(document).ready(function(){
 	
@@ -399,9 +390,8 @@ $(document).ready(function(){
 
 <!-- 이미지 업로드 -->
 <script type="text/javascript">
-	
 	function loadPreview(event) {
-	    var img = document.getElementById('img');
+		var img = document.getElementById('img');
 	    var file = event.target.files[0];
 	    
 	    const files = event.currentTarget.files;
@@ -465,27 +455,5 @@ $(document).ready(function(){
 	  console.log(editorData);
 </script>
 
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

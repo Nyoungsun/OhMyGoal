@@ -21,9 +21,9 @@ public class BoardDAOMyBatis implements BoardDAO {
 	@Override
 	public List<BoardDTO> list(Map<Object, Object> map) {
 		System.out.println(map);
-		List<BoardDTO> list22 = sqlSession.selectList("boardSQL.getUserList", map);
+		List<BoardDTO> list = sqlSession.selectList("boardSQL.getUserList", map);
 		
-		return list22;
+		return list;
 	}
 	
 	@Override
@@ -47,6 +47,13 @@ public class BoardDAOMyBatis implements BoardDAO {
 	public BoardDTO view(String seq) {
 		sqlSession.update("boardSQL.views", seq);
 		return sqlSession.selectOne("boardSQL.getBoard", seq);
+	}
+	
+	@Override
+	public int like(String seq) {
+		sqlSession.update("boardSQL.likes", seq);
+		BoardDTO boardDTO = sqlSession.selectOne("boardSQL.getBoard", seq);
+		return boardDTO.getLikes();
 	}
 	
 	@Override
@@ -94,5 +101,14 @@ public class BoardDAOMyBatis implements BoardDAO {
 		sqlSession.update("boardSQL.missionJoin2", map);
 		
 		return seq;
+	}
+	
+	@Override
+	public void end() {
+		
+		List<BoardDTO> list = sqlSession.selectList("boardSQL.endList");
+		for (BoardDTO boardDTO : list) {
+			sqlSession.update("boardSQL.chgEnd", boardDTO);
+		}
 	}
 }
