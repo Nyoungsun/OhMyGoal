@@ -3217,10 +3217,10 @@ header {
 			<div class="MuiContainer-root MuiContainer-maxWidthLg">
 				<div class="MuiGrid-root MuiGrid-container">
 					<div class="MuiGrid-root jss7 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6">
-						<p>다른 개발자들은 어떤 프로젝트를 만들었을까?</p><img class="jss6"
+						<p>다른 사람들은 어떤 1일 1미션을 하고 있을까?</p><img class="jss6"
 							src="./image/logo.png" alt="logo">
-						<div class="jss8">개발자 토이프로젝트 모아보기 서비스</div>
-						<p class="jss12">선배・동료 개발자들의 토이프로젝트를 한눈에 모아보고, 좋은 프로젝트는 더 많은 사람들과 공유해보세요.</p>
+						<div class="jss8">그룹 1일 1미션 모아보기 서비스</div>
+						<p class="jss12">다양한 사람들의 1일 1미션을 한눈에 모아보고, 마음에 드는 미션들을 많은 사람들과 달성해보세요.</p>
 						<!--
 						<a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss11 MuiButton-containedPrimary"
 							tabindex="0" aria-disabled="false" href="./mission/missionBoard">
