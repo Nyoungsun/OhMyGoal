@@ -44,43 +44,6 @@ header {
 	margin-left: 20px;
 }
 
-div > span {
-	font-size: 12pt;
-}
-
-#wrap {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.find {
-	margin-top: 100px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 30%;
-	height: 410px;
-	display: inline-block;
-}
-
-.findDiv{
-	text-align: center;
-}
-
-#findName, #findId {
-	text-align: center;
-	width: 20%;
-}
-
-#findPhone, #findPhone2 {
-	text-align: center;
-	width: 20%;
-}
-
-.findBtnDiv {
-	text-align: center; 
-}
-
-
 </style>
 <!--BootStrap-->
 <link rel="stylesheet"
@@ -89,6 +52,7 @@ div > span {
 	crossorigin="anonymous">
 <!--BootStrap-->
 
+<link rel="stylesheet" href="../css/member/findIdPwd.css">
 <link rel="stylesheet" href="../css/member/edit.css">
 <link rel="stylesheet" href="../css/member/myPage.css">
 <link rel="stylesheet" href="../css/member/checkPwd.css">
