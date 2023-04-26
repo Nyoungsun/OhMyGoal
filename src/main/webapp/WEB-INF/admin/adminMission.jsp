@@ -271,7 +271,7 @@ $(document).ready(function() {
 		}
     });
 });
-      
+
 //검색
 $('#search_onclick_submit').click(function () {
 	var searchInput = document.getElementById("search-input").value.trim();

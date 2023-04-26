@@ -111,4 +111,12 @@ public class BoardDAOMyBatis implements BoardDAO {
 			sqlSession.update("boardSQL.chgEnd", boardDTO);
 		}
 	}
+	
+	@Override
+	public MemberDTO sign_info(String id) {
+		
+		MemberDTO memberDTO = sqlSession.selectOne("boardSQL.getUser", id);
+		
+		return memberDTO;
+	}
 }

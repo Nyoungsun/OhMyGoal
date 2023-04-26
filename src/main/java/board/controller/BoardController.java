@@ -217,4 +217,11 @@ public class BoardController {
 		
 		boardService.end();
 	}
+	
+	@PostMapping(value="sign_info")
+	@ResponseBody
+	public MemberDTO sign_info(@RequestParam("id") String id) {
+		
+		return boardService.sign_info(id);
+	}
 }

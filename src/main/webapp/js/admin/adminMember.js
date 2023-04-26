@@ -15,10 +15,13 @@ $(function(){
         $('<tr/>').append($('<td>', {
           align: 'center',
           text: items.seq
-        })).append($('<td>', {
+        })).append($('<td>').append($('<button>', {
           align: 'center',
-          text: items.name
-        })).append($('<td>', {
+          text: items.name,
+          value: items.id,
+          class: 'nameBtn',
+          css: {'border': 'none'}
+        }))).append($('<td>', {
           align: 'center',
           text: items.id
         })).append($('<td>', {  
