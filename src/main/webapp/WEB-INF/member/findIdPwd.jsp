@@ -83,8 +83,8 @@ input[type="text"] {
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav " style="margin-left: 20px;">
-						<li class="nav-item"><a class="nav-link" href="./board/about">소개</a></li>
-						<li class="nav-item"><a class="nav-link" href="./board/qna">문의하기</a></li>
+						<li class="nav-item"><a class="nav-link" href="../board/about">소개</a></li>
+						<li class="nav-item"><a class="nav-link" href="../board/qna">문의하기</a></li>
 					</ul>
 				</div>
 				<div class="collapse navbar-collapse justify-content-end"
@@ -105,22 +105,22 @@ input[type="text"] {
 				</h4>
 				<br>
 				<br>
-				<div class="findDiv">
-					<div>이름</div>
-					<input type="text" id="findName">
-					<div id="checkFindName"></div>
+				<div class="findDiv" style="display:flex;" >
+					<div style="margin-left: 33%; margin-right: 2%; margin-top: 2.5%;"><h6>이름</h6></div>
+					<input type="text" id="findName" style="border-radius:5px; width:25%; heigth:10%; margin-right:2%;">
+					<div id="checkFindName" style="margin-top: 2%; color:red;"></div>
 				</div>
 				<div class="findDiv">
 					<div>휴대폰 번호</div>
-					<input type="text" id="findPhone" placeholder="'-'(하이픈) 제외"> 
-					<input type="button" id="recieveNumber" value="인증번호 받기">
-					<div id="checkFindPhone"></div>
-					<input type="text" id="certification" placeholder="인증번호를 입력하세요">
-					<div id="checkCertification"></div>
+					<input type="text" id="findPhone" placeholder="'-'(하이픈) 제외" style="border-radius:5px;"> 
+					<input type="button" id="recieveNumber" value="인증번호 받기" style="border-radius:5px;">
+					<div id="checkFindPhone" style="margin-top: 1%; color:red;"></div>
+					<input type="text" id="certification" placeholder="인증번호를 입력하세요" style="border-radius:5px;">
+					<div id="checkCertification" style="margin-top: 1%; color:red;" ></div>
 				</div>
 				<div class="findBtnDiv">
-					<input type="button" id="findIdOk" value="확인">
-					<input type="reset" id="reset" value="다시작성">
+					<input type="button" id="findIdOk" value="확인" style="border-radius:5px;">
+					<input type="reset" id="reset" value="다시작성" style="border-radius:5px;">
 				</div>
 			</form>
 		</div>
@@ -132,22 +132,22 @@ input[type="text"] {
 				</h4>
 				<br>
 				<br>
-				<div class="findDiv">
-					<div>아이디</div>
-					<input type="text" id="findId">
-					<div id="checkFindId"></div>
+				<div class="findDiv" style="display:flex;">
+					<div style="margin-left: 33%; margin-right: 2%; margin-top: 2.5%;"><h6>아이디</h6></div>
+					<input type="text" id="findId" style="border-radius:5px; width:25%; heigth:10%; margin-right:2%;">
+					<div id="checkFindId" style="margin-top: 2%; color:red;"></div>
 				</div>
-				<div class="findDiv">
-					<div>휴대폰 번호</div>
-					<input type="text" id="findPhone2" placeholder="'-'(하이픈) 제외"> 
-					<input type="button" id="recieveNumber2" value="인증번호 받기">
-					<div id="checkFindPhone2"></div>
-					<input type="text" id="certification2" placeholder="인증번호를 입력하세요">
-					<div id="checkCertification2"></div>
+				<div class="findDiv" >
+					<div ><h6>휴대폰 번호</h6></div>
+					<input type="text" id="findPhone2" placeholder="'-'(하이픈) 제외" style="border-radius:5px;"> 
+					<input type="button" id="recieveNumber2" value="인증번호 받기" style="border-radius:5px;">
+					<div id="checkFindPhone2" style="margin-top: 1%; color:red;"></div>
+					<input type="text" id="certification2" placeholder="인증번호를 입력하세요" style="border-radius:5px;">
+					<div id="checkCertification2" style="margin-top: 1%; color:red;"></div>
 				</div>
 				<div class="findBtnDiv">
-					<input type="button" id="findPwdOk" value="확인"> 
-					<input type="reset" id="reset" value="다시작성">
+					<input type="button" id="findPwdOk" value="확인" style="border-radius:5px;"> 
+					<input type="reset" id="reset" value="다시작성" style="border-radius:5px;">
 				</div>
 			</form>
 		</div>

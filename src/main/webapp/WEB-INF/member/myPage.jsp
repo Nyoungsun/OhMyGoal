@@ -43,6 +43,11 @@ header {
 	margin-bottom: 15px;
 	margin-left: 20px;
 }
+
+input{
+	border-radius: 5px;
+}
+
 </style>
 <!--BootStrap-->
 <link rel="stylesheet"
