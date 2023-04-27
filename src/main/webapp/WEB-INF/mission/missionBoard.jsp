@@ -353,14 +353,9 @@ function missionJoin() {
 	}
 }
 
-
-/*
- function backPage(){
-	  $('#backBtn').click(function(){
-	    window.history.back();
-	  });
-	});
-*/
+function backPage() {
+	  window.history.back();
+	}
 </script>
 
 
