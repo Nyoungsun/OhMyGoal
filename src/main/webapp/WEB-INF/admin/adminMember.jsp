@@ -224,7 +224,7 @@ div#grayLayer {
         <h2><strong>회원 관리</strong></h2><br/><br/>
       </div><br>      
 	<!-- 이름 & 아이디로 서치 -->
-	<form>
+	<form>  
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
 			  <select class="form-select" name="tag" id="condition" >
