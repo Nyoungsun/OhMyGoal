@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="../css/member/withdrawl.css">
-
+ 
 <style type="text/css">
 input{
 	border-radius: 5px;

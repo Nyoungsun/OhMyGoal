@@ -4,7 +4,7 @@
 input{
 	border-radius: 5px;
 }
-</style>	
+</style>	 
 <form id="editForm">
 	<div class="modal fade" tabindex="-1" id="ModalEdit"
 		aria-labelledby="ModalLabel2">

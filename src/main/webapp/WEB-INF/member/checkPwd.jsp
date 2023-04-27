@@ -4,7 +4,7 @@
 input{
 	border-radius: 5px;
 }
-</style>	
+</style>	 
 <div class="modal fade" tabindex="-1" id="ModalCheckPwd">
 	<div class="modal-dialog">
 		<div class="modal-content">

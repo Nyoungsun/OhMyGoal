@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <script src="https://kit.fontawesome.com/35dbfa967d.js" crossorigin="anonymous"></script>
