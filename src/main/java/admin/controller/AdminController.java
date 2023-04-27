@@ -40,7 +40,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "getBoardList", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<Object , Object> getBoardList(@RequestParam String pg, @RequestParam("tag") String tag, @RequestParam("word") String word) {
+	public Map<Object , Object> getBoardList(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg, @RequestParam("tag") String tag, @RequestParam("word") String word) {
 		
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("pg", pg);
@@ -52,7 +52,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "getMemberList", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<Object , Object> getMemberList(@RequestParam String pg, @RequestParam("tag") String tag, @RequestParam("word") String word) {
+	public Map<Object , Object> getMemberList(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg, @RequestParam("tag") String tag, @RequestParam("word") String word) {
 		
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("pg", pg);

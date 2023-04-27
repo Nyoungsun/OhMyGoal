@@ -340,6 +340,13 @@ $('#msBtn').on('click', function(event) {
  	else {
  		var formData = new FormData();
 	 	formData.append("img", $("input[name=chooseFile]")[0].files[0]);
+	 	if ($("input[name=chooseFile]")[0].files[0] != null) {
+	 		console.log("1번들어옴");
+	 		formData.append("img", $("input[name=chooseFile]")[0].files[0]);
+	 	} else {
+	 		console.log("2번들어옴");
+	 		formData.append("img", new Blob(["../img/thumbnail/defaultThumb.png"]), "defaultThumb.png");
+	 	}
 	 	formData.append("id", '${memId}');
 	 	formData.append("subject", $("#subject").val());
 	 	formData.append("category", $("#category").val());
