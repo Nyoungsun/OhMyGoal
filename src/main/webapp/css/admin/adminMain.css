@@ -108,30 +108,23 @@ a {
 
 /* Footer */
 footer {
-  width: 100%;
-  text-align: center;
-  background-color: #f7f7f7;
-  color: #000000;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box; /* 박스 모델 기본값 설정 */
-  position: absolute;
-  bottom: 0;
-  height: 50px; /* footer의 높이를 50px로 설정 */
-  margin-top: -50px; /* footer의 높이와 동일한 음수값으로 margin-top을 설정하여 위와 아래의 글 간격을 동일하게 조정 */
+    background-color: #f7f7f7;
+    color: #000000;
+    padding: 50px 0;
 }
 
 footer p {
-  font-size: 12px;
-  font-weight: 400;
-  margin-bottom: 15px; /* 아래쪽 margin을 5px로 변경 */
-  display: inline-block; /* 가운데 정렬을 위해 block 요소로 설정 */
-  text-align: center; /* 가운데 정렬 설정 */
-  width: 100%; /* 부모 요소의 전체 너비를 차지하도록 설정 */
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
 footer p strong {
-  font-weight: 700;
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
 }
 
 

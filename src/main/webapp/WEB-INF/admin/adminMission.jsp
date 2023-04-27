@@ -16,9 +16,10 @@
 <!-- 구글 차트 Api -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<link rel="stylesheet" href="../css/admin/adminMember.css">
+<link rel="stylesheet" href="../css/admin/adminMission.css">
+<link rel="stylesheet" href="../css/admin/adminMain.css">
 
-<title>AdminMember👅</title>
+<title>AdminMission👅</title>
 <style type="text/css">
 .wrapper {position:relative; min-height:100%;}
 .wrapper .header {height:90px;}
@@ -118,7 +119,7 @@ thead{
   	border-collapse: collapse;
 }
 
-.admin_member_head {
+.admin_board_head {
     text-align: center;
     font-size: 16pt;
   }
@@ -147,6 +148,7 @@ tbody tr:nth-of-type(even) {
 tbody tr:last-of-type {
   border-top: 2px solid #d6ebff;
 }
+
 div#grayLayer {
 	display: none;
 	position: fixed;
@@ -182,10 +184,10 @@ div#grayLayer {
                         <a class="nav-link" href="../admin/adminMain">대시보드</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMember" style=" color:#0000ff;">회원관리</a>
+                        <a class="nav-link" href="../admin/adminMember">회원관리</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMission">미션관리</a>
+                        <a class="nav-link" href="../admin/adminMission" style=" color:#0000ff;">미션관리</a>
                     </li>
                 </ul>
             </div>
@@ -216,17 +218,17 @@ div#grayLayer {
 <div id = "changeDiv">
 	<div class="member">
       <div class="member_title">
-        <h2><strong>회원 관리</strong></h2><br/><br/>
-      </div><br>      
+        <h2><strong>미션 관리</strong></h2><br/><br/>
+      </div><br>
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
 			  <select class="form-select" name="tag" id="condition" >
-			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
-			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
+			    <option value="subject" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>제목</option>
+			    <option value="id" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			  </select>
-			  <input type="text" class="form-control me-2" id="search-input" placeholder="검색어 입력" name="word" size="10"">
+			  <input type="text" class="form-control me-2" id="search-input" placeholder="검색어 입력" name="word" size="15">
 			  <button type="button" class="btn btn-outline-primary" id="search_onclick_submit" style="width:40%; opacity:90%;">검색</button>
 			</div>
         </div>
@@ -240,15 +242,15 @@ div#grayLayer {
  <div class="container">
   <div class="contents">		
       <table id="userListTable" class="table table-bordered" border="1">
-        <thead >
-          <tr class="admin_boardList" >
-            <th class="admin_member_head">#</th>
-            <th class="admin_member_head">이름</th>
-            <th class="admin_member_head">아이디</th>
-            <th class="admin_member_head">비밀번호</th>
-            <th class="admin_member_head">랭킹</th>
-            <th class="admin_member_head">참가 미션</th>
-            <th class="admin_member_head">가입날짜</th>
+        <thead>
+          <tr class="admin_boardList">
+          	<th class="admin_board_head">#</th>
+            <th class="admin_board_head">아이디</th>
+            <th class="admin_board_head">제목</th>
+            <th class="admin_board_head">카테고리</th>
+            <th class="admin_board_head">참가 멤버</th>
+            <th class="admin_board_head">기한</th>
+            <th class="admin_board_head">삭제</th>
           </tr>
         </thead>
         <tbody>
@@ -256,29 +258,26 @@ div#grayLayer {
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="8" class="text-center" style="border-top: 2px solid lightgrey;">OhMyGoal Member</td>
+            <td colspan="8" class="text-center" style="border-top: 2px solid lightgrey;">OhMyGoal Mission</td>
           </tr>
         </tfoot>
-     </table>  
+     </table>
      &nbsp;&nbsp;
-      <div class="pagination" id="memberPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
+      <div class="pagination" id ="boardPagingDiv"  style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
     </div>
 </div>
 </div> 
 </div>
-<!-- 
-<div class="footer">    
-<footer class="footer" style="width:100%; text-align:center">
-        <div class="footerDiv">&nbsp;&nbsp;
-            <p><strong>OhMyGoal! 2023</strong></p>
-            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
-            <p>ohmygoal.help@gmail.com</p>
-        </div>
+<footer class="footer" style="display:flex; justify-content:center;">
+  <div class="footerDiv" >
+    <p style="margin: 0 10px;"><strong>OhMyGoal! 2023</strong></p>
+    <p style="margin: 0 10px;">모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+    <p style="margin: 0 10px;">ohmygoal.help@gmail.com</p>
+  </div>
 </footer>
-</div> -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script type= "text/javascript" src="../js/admin/adminMember.js"></script>
+<script type= "text/javascript" src="../js/admin/adminMission.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	//로그아웃
@@ -298,7 +297,7 @@ $(document).ready(function() {
 	
 	$(document).on('click', '.delBtn', function(){
 		if (!confirm('정말로 삭제를 진행하시겠습니까?')) {
-			event.preventDefault();
+			event.preventDefault(); // 기본 동작 중지
 		}
     });
 });
@@ -347,10 +346,9 @@ $('#grayLayer').click(function(){
 	$(this).fadeOut(300);
 	$('#signup-wrap').fadeOut(300);
 });
-
 //페이징 처리
-function memberPaging(pg, tag, word){
-	location.href="/OhMyGoal/admin/adminMember?pg="+pg+"&tag="+tag+"&word="+word;
+function boardPaging(pg, tag, word){
+	location.href="/OhMyGoal/admin/adminMission?pg="+pg+"&tag="+tag+"&word="+word;
 }
 </script>
 </body>
