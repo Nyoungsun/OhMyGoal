@@ -53,10 +53,6 @@
  	</select>
  	
  	<!-- 항목별 카테고리 총수 -->
- 	<!-- <select id ="getCategory" resultType="int">
- 		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE #{category}
- 	</select> -->
- 	
  	<select id ="getJob" resultType="int">
  		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE 'job'
  	</select>
@@ -71,6 +67,14 @@
  	
  	<select id ="getEtc" resultType="int">
  		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE 'etc'
+ 	</select>
+ 	
+ 	<!-- boards(참여한 미션들)/ 이름 불러오기 -->
+ 	<select id="getRanking" resultType="member.bean.MemberDTO">
+ 		select name, boards from
+		(select rownum rn, tt.* from
+		(select * from (select name, nvl(length(boards), 0) as boards from ohmygoal_member) order by boards desc)tt
+		) WHERE rn BETWEEN 1 AND 3
  	</select>
  </mapper>
  

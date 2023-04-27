@@ -1,6 +1,7 @@
 package admin.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import admin.service.AdminService;
+import member.bean.MemberDTO;
 
 // 관리자 페이지
 @Controller
@@ -19,11 +21,6 @@ import admin.service.AdminService;
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
-	
-	/*
-	 * @RequestMapping(value = "adminMain", method = RequestMethod.GET) public
-	 * String adminMain() { return "admin/adminMain"; }
-	 */
 	
 	@RequestMapping(value = "adminMember", method = RequestMethod.GET)
 	public String adminMember(@RequestParam(value= "pg" , required = false, defaultValue = "1") String pg, @RequestParam(value = "tag", required = false, defaultValue = "id") String tag, @RequestParam(value = "word", required = false, defaultValue = "") String word, Model model) {
@@ -64,6 +61,18 @@ public class AdminController {
 		return adminService.getMemberList(map);
 		
 	}
+	/*
+	@RequestMapping(value = "getRanking", method = RequestMethod.POST)
+	public Map<Object , Object> getRanking(@RequestParam String pg, @RequestParam("tag") String tag, @RequestParam("word") String word) {
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("pg", pg);
+		map.put("tag", tag);
+		map.put("word", word);
+		return adminService.getRanking(map);
+		
+	}
+	*/
 	@RequestMapping("adminMain")
 	public String dashboard(Model model) {
 		Map<Object, Object> map2 = new HashMap<Object, Object>();
@@ -74,6 +83,10 @@ public class AdminController {
 	    Map<Object, Object> map = adminService.getBoardList(map2);
 	    model.addAttribute("dashboard", map);
 	    System.out.println(map);
+	    
+	    List<MemberDTO> rankList = adminService.getRanking();
+	    model.addAttribute("rankList",rankList);
+	    System.out.println(rankList);
 	    return "admin/adminMain";
 	}
 
