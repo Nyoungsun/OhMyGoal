@@ -3225,7 +3225,7 @@ header {
 						<p>다른 사람들은 어떤 1일 1미션을 하고 있을까?</p><img class="jss6"
 							src="./image/logo.png" alt="logo">
 						<div class="jss8">그룹 1일 1미션 모아보기 서비스</div>
-						<p class="jss12">다양한 사람들의 1일 1미션을 한눈에 모아보고, 마음에 드는 미션들을 많은 사람들과 달성해보세요.</p>
+						<p class="jss12">다양한 사람들의 미션을 한눈에 모아보고, 마음에 드는 미션을 많은 사람들과 함께 달성해보세요.</p>
 						<!--
 						<a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss11 MuiButton-containedPrimary"
 							tabindex="0" aria-disabled="false" href="./mission/missionBoard">
