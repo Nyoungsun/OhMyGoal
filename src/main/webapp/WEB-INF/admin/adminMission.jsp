@@ -99,7 +99,7 @@
 <input type = "hidden" id ="word" value ="${word}">
  <div class="container">
   <div class="contents">		
-      <table id="userListTable" class="table table-bordered" border="1" style ="width:110%">
+      <table id="userListTable" class="table table-bordered" border="1" style ="width:100%">
         <thead>
           <tr class="admin_boardList">
           	<th class="admin_board_head">#</th>
