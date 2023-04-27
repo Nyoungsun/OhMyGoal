@@ -23,54 +23,7 @@
 #container-fluid {
   margin-top: 50px;
 }
-
-/* .dashboard-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-}
-
-.dashboard-block {
-  background-color: #ffffff;
-  border: 0.5px solid #dddddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 400px;
-  margin-right: -10px;
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  
-}
-
-.block-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.block-data {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.block-data i {
-  margin-left: 5px;
-}
-
-.dashboard {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
- */
+/*전체 회원/ 전체 미션 수 표시 */
 .dashboard {
   display: flex;
   justify-content: center;
@@ -80,6 +33,7 @@
 
 .dashboard-row {
   display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -90,12 +44,18 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex: 1;
   text-align: center;
-  padding: 25px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top:-350px;
+  margin-left:-600px;
+  margin-right:250px;
+  margin-top:-400px;
+}
+
+.dashboard-block + .dashboard-block {
+  margin-top: 40px;
 }
 
 .block-title {
@@ -115,64 +75,41 @@
 }
 
 
+/*ranking table */
+.medal-table table {
+  border-collapse: collapse;
+  justify-content: center;
+  margin-left: 400px;
+  width: 70%;
+}
 
-#recent-mission {
+.medal-table th, .medal-table td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.medal-table th {
   border: none;
-  position: absolute;
-  top: calc(50% + 50px);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
+  
 }
 
-/*table */
-#userListTable {
-  top:10px;
-  border-collapse: separate;
-  border-spacing: 2px 2px;
-  margin: 0 auto;
-  margin-top: 30px;
-  text-align: center;
-  width:1100px;
+.medal-table td {
+  border: none;
 }
 
-th,
-td {
-  padding: 2.55rem;
-  text-align: center;
-  border-top: 1px solid #dee2e6;
-  border-bottom: 1px solid #dee2e6;
-  border-left: none;
-  border-right: none;
-}
-
-th:first-child,
-td:first-child {
-  border-left: none;
-}
-
-th:last-child,
-td:last-child {
-  border-right: none;
-}
-
-th {
+.medal-table .label {
   font-weight: bold;
-  background-color: #e9ecef;
-  border-bottom: 2px solid #dee2e6;
 }
 
-tbody tr:nth-of-type(even) {
-  background-color: #f8f9fa;
+.medal-table img {
+  max-width: 50px;
+  display: block;
+  margin: 0 auto;
 }
 
-/* 마지막 행 배경 색상 */
-tbody tr:last-of-type {
-  background-color: #e9ecef;
-}
-#calendar_basic {
-  margin: -450px auto 0; /* 가로 중앙 정렬 및 위로 100px 이동 */
-}
+
+
 
 </style>
 
@@ -234,27 +171,58 @@ tbody tr:last-of-type {
 	      <i class="fas fa-smile icon"></i>
 	      <p class="block-data">${dashboard.totalB}</p>
 	    </div>
+	 
 	    <div class="dashboard-block">
 	      <h2 class="block-title">전체 글 수</h2><br>
 	      <i class="far fa-list-alt icon"></i>
 	      <p class="block-data">${dashboard.totalA}</p>
 	    </div>
+	   
 	  </div>
+	  
 	</div>
 		<br><br><br>
- 		<div style="display:flex; margin-top: -450px;">
-		  <div id="donutchart" style="width: 50%; height: 500px;"></div>
-		  <!-- <div id="chart_div" style="width: 50%; height: 500px;"></div> -->
-		</div>
+ 		<div style="display:flex; margin-top: -1000px; margin-left:850px;">
+		  <div id="donutchart" style="width: 100%; height: 550px;"></div>
+		</div><br><br>
 
+	<!-- ranking  -->
 
-  		
-     
-     <!--  <div class="chart_zone" style="margin-top:180px;margin-left:120px;text-align:center;" >
-        <div class="chart_box"></div>
-       <div id="columnchart_material" class="googlechart" style="width: 800px; height: 500px;"></div>
-      </div>
-    </div> -->
+<div class="medal-table">
+<h3 style="text-align: center"><strong>회원 미션 순위</strong></h3><br><br>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>금메달</th>
+        <th>은메달</th>
+        <th>동메달</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label"><strong>메달</strong></td>
+        <td><img src="../img/medal/first.png" alt="금메달"></td>
+        <td><img src="../img/medal/second.png" alt="은메달"></td>
+        <td><img src="../img/medal/third.png" alt="동메달"></td>
+      </tr>
+      <tr>
+        <td class="label"><strong>이름</strong></td>
+        <td>${rankList[0].name}</td>
+        <td>${rankList[1].name}</td>
+        <td>${rankList[2].name}</td>
+      </tr>
+      <%-- <tr>
+        <td class="label"><strong>점수</strong></td>
+        <td>${resultMap.first.boards}</td>
+        <td>${resultMap.second.boards}</td>
+        <td>${resultMap.third.boards}</td>
+      </tr> --%>
+    </tbody>
+  </table>
+</div>
+
+    
     
 </section>   
 <!-- <div class="footer" style="width:100%;text-align:center">  
@@ -287,49 +255,7 @@ tbody tr:last-of-type {
     chart.draw(data, options);
   }
   
-  /* <!-- 히스토그램 -->
-  google.charts.load("current", {packages:["corechart"]});
-  google.charts.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Dinosaur', 'Length'],
-      ['Acrocanthosaurus (top-spined lizard)', 12.2],
-      ['Albertosaurus (Alberta lizard)', 9.1],
-      ['Allosaurus (other lizard)', 12.2],
-      ['Apatosaurus (deceptive lizard)', 22.9],
-      ['Archaeopteryx (ancient wing)', 0.9],
-      ['Argentinosaurus (Argentina lizard)', 36.6],
-      ['Baryonyx (heavy claws)', 9.1],
-      ['Brachiosaurus (arm lizard)', 30.5],
-      ['Ceratosaurus (horned lizard)', 6.1],
-      ['Coelophysis (hollow form)', 2.7],
-      ['Compsognathus (elegant jaw)', 0.9],
-      ['Deinonychus (terrible claw)', 2.7],
-      ['Diplodocus (double beam)', 27.1],
-      ['Dromicelomimus (emu mimic)', 3.4],
-      ['Gallimimus (fowl mimic)', 5.5],
-      ['Mamenchisaurus (Mamenchi lizard)', 21.0],
-      ['Megalosaurus (big lizard)', 7.9],
-      ['Microvenator (small hunter)', 1.2],
-      ['Ornithomimus (bird mimic)', 4.6],
-      ['Oviraptor (egg robber)', 1.5],
-      ['Plateosaurus (flat lizard)', 7.9],
-      ['Sauronithoides (narrow-clawed lizard)', 2.0],
-      ['Seismosaurus (tremor lizard)', 45.7],
-      ['Spinosaurus (spiny lizard)', 12.2],
-      ['Supersaurus (super lizard)', 30.5],
-      ['Tyrannosaurus (tyrant lizard)', 15.2],
-      ['Ultrasaurus (ultra lizard)', 30.5],
-      ['Velociraptor (swift robber)', 1.8]]);
-
-    var options = {
-      title: 'Lengths of dinosaurs, in meters',
-      legend: { position: 'none' },
-    };
-
-    var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
-    chart.draw(data, options);
-  } */
+ 
 // 로그아웃
 $('#logoutBtn').click(function(){
 	$.ajax({
@@ -345,6 +271,10 @@ $('#logoutBtn').click(function(){
 	});
 });
 
+//페이징 처리
+function boardPaging(pg, tag, word){
+	location.href="/OhMyGoal/admin/adminMission?pg="+pg+"&tag="+tag+"&word="+word;
+}
 </script>
 </body>
 </html>
