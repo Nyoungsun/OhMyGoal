@@ -11,6 +11,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import admin.service.AdminService;
 import board.bean.BoardDTO;
 import board.service.BoardService;
 import member.bean.MemberDTO;
@@ -30,6 +32,8 @@ import member.bean.MemberDTO;
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
+	@Autowired
+	private AdminService adminService;
 
 	@PostMapping(value = "list1")
 	@ResponseBody
@@ -155,10 +159,20 @@ public class BoardController {
 	public String qna() {
 		return "board/qna";
 	}
+	
 	@RequestMapping(value = "faq", method = RequestMethod.GET)
 	public String faq() {
 		return "board/faq";
 	}
+	
+	@GetMapping(value = "ranking")
+	public String ranking(Model model) {
+		List<MemberDTO> rankList = adminService.getRanking();
+	    model.addAttribute("rankList",rankList);
+	    
+		return "board/ranking";
+	}
+	
 	@PostMapping(value="missionJoin")
 	@ResponseBody
 	public void missionJoin(@RequestParam("seq") String seq, @RequestParam("id") String id) {

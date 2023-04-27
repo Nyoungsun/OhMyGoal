@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import admin.service.AdminService;
 import board.bean.BoardDTO;
 import member.bean.MemberDTO;
 import member.service.MemberService;
@@ -30,6 +31,7 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	private AdminService adminService;
 
 	@GetMapping(value = "myPage")
 	public String myPage() {
