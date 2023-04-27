@@ -69,6 +69,10 @@
  		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE 'etc'
  	</select>
  	
+ 	<select id ="getHobby" resultType="int">
+ 		SELECT COUNT(*) FROM ohmygoal_board WHERE category LIKE 'hobby'
+ 	</select>
+ 	
  	<!-- boards(참여한 미션들)/ 이름 불러오기 -->
  	<select id="getRanking" resultType="member.bean.MemberDTO">
  		select name, boards from

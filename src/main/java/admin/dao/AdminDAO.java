@@ -24,5 +24,9 @@ public interface AdminDAO {
 
 	public int getEtc();
 	
+	public int getHobby();
+	
 	public List<MemberDTO> getRanking();
+
+	
 }
