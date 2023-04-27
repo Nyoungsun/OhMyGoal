@@ -143,6 +143,11 @@ tbody tr:nth-of-type(even) {
   background-color: #eaf4ff;
 }
 
+#userListTable tbody td:nth-child(6) {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 /* 마지막 행 배경 색상 */
 tbody tr:last-of-type {
   border-top: 2px solid #d6ebff;
@@ -169,7 +174,7 @@ div#grayLayer {
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container" style="">
-            <a class="OMGlogo" href="../admin/adminMain"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+            <a class="OMGlogo" href="/OhMyGoal/"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -238,8 +243,8 @@ div#grayLayer {
 <input type = "hidden" id ="tag" value ="${tag}">
 <input type = "hidden" id ="word" value ="${word}">
  <div class="container">
-  <div class="contents">		
-      <table id="userListTable" class="table table-bordered" border="1">
+  <div class="contents" >		
+      <table id="userListTable" class="table table-bordered" border="1" style ="width:110%">
         <thead >
           <tr class="admin_boardList" >
             <th class="admin_member_head">#</th>

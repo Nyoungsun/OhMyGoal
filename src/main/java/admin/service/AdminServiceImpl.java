@@ -49,6 +49,7 @@ public class AdminServiceImpl implements AdminService {
         int job = adminDAO.getJob();//해당 카테고리의 수
         int lang = adminDAO.getLang();//해당 카테고리의 수  
         int health = adminDAO.getHealth();//해당 카테고리의 수
+        int hobby = adminDAO.getHobby();//해당 카테고리 수
         int etc = adminDAO.getEtc();//해당 카테고리의 수
         
         Map<Object, Object> map2 = new HashMap<Object, Object>();
@@ -59,6 +60,7 @@ public class AdminServiceImpl implements AdminService {
         map2.put("job", job);
         map2.put("lang", lang);
         map2.put("health", health);
+        map2.put("hobby", hobby);
         map2.put("etc", etc);
         return map2;
     }

@@ -251,7 +251,30 @@ td {
   font: 14px bold;
 }
 
+##userListTable tbody td:nth-child(6) {
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100px;
+  max-height: 50px;
+}
 
+#userListTable tbody td:nth-child(6)::-webkit-scrollbar {
+  height: 8px;
+}
+
+#userListTable tbody td:nth-child(6)::-webkit-scrollbar-track {
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+#userListTable tbody td:nth-child(6)::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  border-radius: 10px;
+}
+
+#userListTable tbody td:nth-child(6)::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
 #memberPagingDiv{
   display: flex;
   justify-content: center;

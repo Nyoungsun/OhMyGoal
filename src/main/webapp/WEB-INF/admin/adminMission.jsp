@@ -20,148 +20,6 @@
 <link rel="stylesheet" href="../css/admin/adminMain.css">
 
 <title>AdminMission👅</title>
-<style type="text/css">
-.wrapper {position:relative; min-height:100%;}
-.wrapper .header {height:90px;}
-.wrapper .contents {padding-bottom:150px;}
-.wrapper .footer {position:absolute; width:100%; height:200px; bottom:0;}
-@font-face {
-	font-family: 'Pretendard-Regular';
-	src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-}
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    font-family: 'Pretendard-Regular';
-}
-entPaging{
-	text-align:center;
-	font-size: 15px;
-	font-weight: bold;
-	color:blue;
-	text-decoration:underline;
-	cursor: pointer;
-	margin-right: 10px;
-    margin-left: 10px;
-}
-#paging{
-	text-align:center;
-	font-size: 15px;
-    color: gray;
-	text-decoration:none;
-	cursor: pointer;
-	
-}
-.member {
-    margin-top: 100px;
-}
-
-#userListTable {
-    margin: 0 auto; /* 수평 가운데 정렬 */
-    text-align: center; /* 내용 가운데 정렬 */
-  }
-
-#memberPagingDiv {
-     margin-top: 10px;
-     width: 450px;
-     margin-left: auto;
-     margin-right: auto;
-     text-align: center;
-  }
-  
-body { 
-  font-size: 140%; 
-}
-#changeDiv {
-  position: relative;
-  top: -60px;
-}
-
-h2 {
-  text-align: center;
-  width:150px;
-}
-.text-center{
-	margin-left: 50px;
-  	margin-top: 20px;
-  	margin-bottom: 20px;
-}
-#userListTable {
-  top:30px;
-  border-collapse: separate;
-  border-spacing: 2px 2px;
-  margin: 0 auto;
-  margin-top: 60px;
-  text-align: center;
-  width:1200px;
-  border-radius: 7px;
-  border: 2px solid #87B5FF;
-}
-
-th,
-td {
-  padding: 2.55rem;
-  text-align: center;
-  border-top: 1px solid #d6ebff;
-  border-bottom: 1px solid #d6ebff;
-  border-left: none;
-  border-right: none;
-}
-
-thead{
-	background-color: #b6d0fa;
-	text-align:cetner;
-	border-bottom: 3px solid black;
-  	border-collapse: collapse;
-}
-
-.admin_board_head {
-    text-align: center;
-    font-size: 16pt;
-  }
-
-th:first-child,
-td:first-child {
-  border-left: none;
-}
-
-th:last-child,
-td:last-child {
-  border-right: none;
-}
-
-th {
-  font-weight: bold;
-  background-color: #d6ebff;
-  border-bottom: 2px solid #d6ebff;
-}
-
-tbody tr:nth-of-type(even) {
-  background-color: #eaf4ff;
-}
-
-/* 마지막 행 배경 색상 */
-tbody tr:last-of-type {
-  border-top: 2px solid #d6ebff;
-}
-
-div#grayLayer {
-	display: none;
-	position: fixed;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background: black;
-	/* filter: alpha(opacity=60); */
-	opacity: 0.60;  /* 0.0 ~ 1.0, 값이 작을수록 더 투명하게 만든다. */
-	z-index: 100;
-}
-</style>
 </head>
 
 <body>
@@ -171,7 +29,7 @@ div#grayLayer {
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container" style="">
-            <a class="OMGlogo" href="../admin/adminMain"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+            <a class="OMGlogo" href="/OhMyGoal/"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -214,7 +72,7 @@ div#grayLayer {
         </div>
     </nav>
 </header>
-
+<body>
 <div id = "changeDiv">
 	<div class="member">
       <div class="member_title">
@@ -241,7 +99,7 @@ div#grayLayer {
 <input type = "hidden" id ="word" value ="${word}">
  <div class="container">
   <div class="contents">		
-      <table id="userListTable" class="table table-bordered" border="1">
+      <table id="userListTable" class="table table-bordered" border="1" style ="width:110%">
         <thead>
           <tr class="admin_boardList">
           	<th class="admin_board_head">#</th>
@@ -268,6 +126,7 @@ div#grayLayer {
 </div>
 </div> 
 </div>
+</body>
 <footer class="footer" style="display:flex; justify-content:center;">
   <div class="footerDiv" >
     <p style="margin: 0 10px;"><strong>OhMyGoal! 2023</strong></p>

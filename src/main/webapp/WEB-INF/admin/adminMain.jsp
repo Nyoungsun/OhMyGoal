@@ -122,7 +122,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container" style="">
-            <a class="OMGlogo" href="../admin/adminMain"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+            <a class="OMGlogo" href="/OhMyGoal/"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -170,7 +170,7 @@
 	  <div class="dashboard-row">
 	    <div class="dashboard-block">
 	      <h2 class="block-title">회원 수</h2><br>
-	      <i class="fas fa-smile icon"></i>
+	      <i class="fa fa-user icon"></i>
 	      <p class="block-data">${dashboard.totalB}</p>
 	    </div>
 	 
@@ -184,8 +184,8 @@
 	  
 	</div>
 		<br><br><br>
- 		<div style="display:flex; margin-top: -1000px; margin-left:900px;">
-		  <div id="donutchart" style="width: 100%; height: 550px;"></div>
+ 		<div style="display:flex; margin-top: -1100px; margin-left:900px;">
+		  <div id="donutchart" style="width: 100%; height: 650px;"></div>
 		</div><br><br>
 
 	<!-- ranking  -->
@@ -241,6 +241,7 @@
       ['취업',     ${dashboard.job}],
       ['어학',      ${dashboard.lang}],
       ['운동',  ${dashboard.health}],
+      ['취미', ${dashboard.hobby}],
       ['기타', ${dashboard.etc}]
     ]);
 
