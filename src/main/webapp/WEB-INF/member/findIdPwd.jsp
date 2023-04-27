@@ -43,6 +43,13 @@ header {
 	margin-bottom: 15px;
 	margin-left: 20px;
 }
+
+input[type="button"], 
+input[type="reset"],
+input[type="text"] {
+	border-radius: 5px;
+}
+
 </style>
 <!--BootStrap-->
 <link rel="stylesheet"

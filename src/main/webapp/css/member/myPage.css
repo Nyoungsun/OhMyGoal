@@ -137,6 +137,7 @@ header {
 
 .img img {
 	width: 90%;
+	border-radius: 10px;
 }
 
 .content {
@@ -190,4 +191,10 @@ footer {
 	margin-top: 100px;
 	padding-top: 50px;
 	padding-bottom: 50px;
+}
+
+input[type="button"], 
+input[type="reset"],
+input[type="text"] {
+	border-radius: 5px;
 }

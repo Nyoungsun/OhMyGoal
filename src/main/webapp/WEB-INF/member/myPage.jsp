@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyPage</title>
-<style type="text/css">
+<title>마이페이지</title>
+<style>
 header {
 	width: 100%;
 	position: sticky;
@@ -79,11 +79,11 @@ header {
 					<ul class="navbar-nav " style="margin-left: 20px;">
 						<c:if test="${not empty memName}">
 							<li class="nav-item"><a class="nav-link"
-								href="../mission/missionWrite" style="color: black;">그룹미션
+								href="../mission/missionWrite">그룹미션
 									만들기 </a></li>
 						</c:if>
 						<li class="nav-item"><a class="nav-link"
-							href="../board/about">소개</a></li>
+							href="../board/ranking">명예의 전당</a></li>
 						<li class="nav-item"><a class="nav-link" href="../board/qna">문의하기</a>
 						</li>
 					</ul>
@@ -114,7 +114,7 @@ header {
 	<!-- <header>
 		<a href="/OhMyGoal/"><img id="logo" src="../img/logo/logo2.png"></a>
 		<button type="button" id="editBtn" class="headerBtn">EDIT</button>
-		<button type="button" id="logoutBtn" class="headerBtn">로그아웃</button>
+		<button type="button" id="" class="headerBtn">로그아웃</button>
 	</header> -->
 
 	<div id="profileDiv">
@@ -157,7 +157,7 @@ header {
 
 	<!--jquery-->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<!--jquery-->
+
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 	<script>
