@@ -38,6 +38,7 @@
 <ul>
 <li>Daum PostCode Service</li>
 <li>coolsms</li>
-<li>BootStrap</li>
+<li>Bootstrap</li>
+<li>CKEditor</li>
 </ul>
 
