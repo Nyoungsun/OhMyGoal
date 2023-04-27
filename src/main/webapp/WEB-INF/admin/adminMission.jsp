@@ -16,16 +16,28 @@
 <!-- 구글 차트 Api -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<link rel="stylesheet" href="../css/admin/adminMission.css">
-<link rel="stylesheet" href="../css/admin/adminMain.css">
+<link rel="stylesheet" href="../css/admin/adminMember.css">
 
-<title>AdminMission👅</title>
+<title>AdminMember👅</title>
 <style type="text/css">
 .wrapper {position:relative; min-height:100%;}
 .wrapper .header {height:90px;}
 .wrapper .contents {padding-bottom:150px;}
 .wrapper .footer {position:absolute; width:100%; height:200px; bottom:0;}
-#currentPaging{
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Pretendard-Regular';
+}
+entPaging{
 	text-align:center;
 	font-size: 15px;
 	font-weight: bold;
@@ -47,6 +59,10 @@
     margin-top: 100px;
 }
 
+#userListTable {
+    margin: 0 auto; /* 수평 가운데 정렬 */
+    text-align: center; /* 내용 가운데 정렬 */
+  }
 
 #memberPagingDiv {
      margin-top: 10px;
@@ -73,7 +89,6 @@ h2 {
   	margin-top: 20px;
   	margin-bottom: 20px;
 }
-
 #userListTable {
   top:30px;
   border-collapse: separate;
@@ -90,18 +105,23 @@ th,
 td {
   padding: 2.55rem;
   text-align: center;
-  border-top: 1px solid #eaf4ff;
-  border-bottom: 1px solid #eaf4ff;
+  border-top: 1px solid #d6ebff;
+  border-bottom: 1px solid #d6ebff;
   border-left: none;
   border-right: none;
 }
 
 thead{
-	background-color: #eaf4ff;
-	
+	background-color: #b6d0fa;
+	text-align:cetner;
 	border-bottom: 3px solid black;
   	border-collapse: collapse;
 }
+
+.admin_member_head {
+    text-align: center;
+    font-size: 16pt;
+  }
 
 th:first-child,
 td:first-child {
@@ -120,20 +140,31 @@ th {
 }
 
 tbody tr:nth-of-type(even) {
-	background-color: #eaf4ff;
+  background-color: #eaf4ff;
 }
 
 /* 마지막 행 배경 색상 */
 tbody tr:last-of-type {
-  
+  border-top: 2px solid #d6ebff;
 }
-.delBtn:hover {
-	cursor: pointer;
+div#grayLayer {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: black;
+	/* filter: alpha(opacity=60); */
+	opacity: 0.60;  /* 0.0 ~ 1.0, 값이 작을수록 더 투명하게 만든다. */
+	z-index: 100;
 }
 </style>
 </head>
 
 <body>
+<div id='grayLayer'></div>
+<jsp:include page='sign_info.jsp' />
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -148,13 +179,13 @@ tbody tr:last-of-type {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav " style="margin-left: 20px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMain" >대시보드</a>
+                        <a class="nav-link" href="../admin/adminMain">대시보드</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMember">회원관리</a>
+                        <a class="nav-link" href="../admin/adminMember" style=" color:#0000ff;">회원관리</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMission" style=" color:#0000ff;">미션관리</a>
+                        <a class="nav-link" href="../admin/adminMission">미션관리</a>
                     </li>
                 </ul>
             </div>
@@ -184,20 +215,19 @@ tbody tr:last-of-type {
 
 <div id = "changeDiv">
 	<div class="member">
-      <div class="member_title" >
-        <h2><strong>미션 관리</strong></h2><br/><br/>
-      </div><br>
+      <div class="member_title">
+        <h2><strong>회원 관리</strong></h2><br/><br/>
+      </div><br>      
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
-		
-        <div class="list" style=" display: flex; flex-direction: row; width: 100%;">
-            <div class="sec-option" style="display: flex; flex-direction: row; width:100%;" >
-				  <select class="form-select" name="condition" id="condition" style="width: 9%; margin-left:70%;">
-				    <option value="subject" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>제목</option>
-				    <option value="id" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
-				  </select>
-				  <input type="text" class="form-control me-2" id="search-input" placeholder="제목 검색" name="search" style="width: 15%;">
-				  <button class="btn btn-outline-primary" type="button" id="search_onclick_submit" style="width: 5.5%; opacity:90%;">검색</button>
+		<div class="list">
+            <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
+			  <select class="form-select" name="tag" id="condition" >
+			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
+			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
+			  </select>
+			  <input type="text" class="form-control me-2" id="search-input" placeholder="검색어 입력" name="word" size="10"">
+			  <button type="button" class="btn btn-outline-primary" id="search_onclick_submit" style="width:40%; opacity:90%;">검색</button>
 			</div>
         </div>
 	</form>
@@ -207,18 +237,18 @@ tbody tr:last-of-type {
 <input type = "hidden" id ="pg" value ="${pg}">
 <input type = "hidden" id ="tag" value ="${tag}">
 <input type = "hidden" id ="word" value ="${word}">
- <div class="container" style="margin-top: -2.5%;">
-  <div class="contents" style="margin-top: -2.5%;">		
+ <div class="container">
+  <div class="contents">		
       <table id="userListTable" class="table table-bordered" border="1">
-        <thead>
-          <tr class="admin_boardList">
-          	<th class="admin_board_head">#</th>
-            <th class="admin_board_head">아이디</th>
-            <th class="admin_board_head">제목</th>
-            <th class="admin_board_head">카테고리</th>
-            <th class="admin_board_head">참가멤버</th>
-            <th class="admin_board_head">기한</th>
-            <th class="admin_board_head">삭제</th>
+        <thead >
+          <tr class="admin_boardList" >
+            <th class="admin_member_head">#</th>
+            <th class="admin_member_head">이름</th>
+            <th class="admin_member_head">아이디</th>
+            <th class="admin_member_head">비밀번호</th>
+            <th class="admin_member_head">랭킹</th>
+            <th class="admin_member_head">참가 미션</th>
+            <th class="admin_member_head">가입날짜</th>
           </tr>
         </thead>
         <tbody>
@@ -226,28 +256,29 @@ tbody tr:last-of-type {
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="8" class="text-center" style="border-top: 2px solid lightgrey;">OhMyGoal Mission</td>
+            <td colspan="8" class="text-center" style="border-top: 2px solid lightgrey;">OhMyGoal Member</td>
           </tr>
         </tfoot>
-     </table>
+     </table>  
      &nbsp;&nbsp;
-      <div class="pagination" id ="boardPagingDiv"  style="width:100%; margin-top:10px; margin-bottom: 5%; display: flex; text-align:center; border: 2px solid blue;"></div>
+      <div class="pagination" id="memberPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
     </div>
 </div>
 </div> 
 </div>
+<!-- 
 <div class="footer">    
-<footer class="footer" style="width:100%; text-align:center;">
+<footer class="footer" style="width:100%; text-align:center">
         <div class="footerDiv">&nbsp;&nbsp;
             <p><strong>OhMyGoal! 2023</strong></p>
             <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
             <p>ohmygoal.help@gmail.com</p>
         </div>
 </footer>
-</div>
+</div> -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script type= "text/javascript" src="../js/admin/adminMission.js"></script>
+<script type= "text/javascript" src="../js/admin/adminMember.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	//로그아웃
@@ -267,7 +298,7 @@ $(document).ready(function() {
 	
 	$(document).on('click', '.delBtn', function(){
 		if (!confirm('정말로 삭제를 진행하시겠습니까?')) {
-			event.preventDefault(); // 기본 동작 중지
+			event.preventDefault();
 		}
     });
 });
@@ -276,17 +307,50 @@ $(document).ready(function() {
 $('#search_onclick_submit').click(function () {
 	var searchInput = document.getElementById("search-input").value.trim();
     if (searchInput === "") {
-        alert("검색할 제목 혹은 아이디를 입력하세요.");
+        alert("검색할 아이디 혹은 이름을 입력하세요.");
         event.preventDefault();
     }
-    else{location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
+    else{location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
 });
 
 $('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});
 
+$(document).on('click', '.nameBtn', function() {
+	$('#grayLayer').fadeIn(300);
+	$('#signup-wrap').fadeIn(300);
+	
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/sign_info',
+		data: {id: $(this).val()},
+		dataType: 'json',
+		success: function (data) {
+			$("#id").val(data.id);
+			$("#pwd").val(data.pwd);
+			$("#name").val(data.name);
+			$("#email1").val(data.email1);
+			$("#email2").val(data.email2);
+			$("#tel1").val(data.tel1);
+			$("#tel2").val(data.tel2);
+			$("#tel3").val(data.tel3);
+			$("#zipcode").val(data.zipcode);
+			$("#addr1").val(data.addr1);
+			$("#addr2").val(data.addr2);
+		},
+		error: function (err) {
+			console.log(err);
+		}
+	});
+});
+
+$('#grayLayer').click(function(){
+	$(this).fadeOut(300);
+	$('#signup-wrap').fadeOut(300);
+});
+
 //페이징 처리
-function boardPaging(pg, tag, word){
-	location.href="/OhMyGoal/admin/adminMission?pg="+pg+"&tag="+tag+"&word="+word;
+function memberPaging(pg, tag, word){
+	location.href="/OhMyGoal/admin/adminMember?pg="+pg+"&tag="+tag+"&word="+word;
 }
 </script>
 </body>

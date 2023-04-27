@@ -112,11 +112,16 @@ td {
 }
 
 thead{
-	background-color: #eaf4ff;
-	
+	background-color: #b6d0fa;
+	text-align:cetner;
 	border-bottom: 3px solid black;
   	border-collapse: collapse;
 }
+
+.admin_member_head {
+    text-align: center;
+    font-size: 16pt;
+  }
 
 th:first-child,
 td:first-child {
@@ -130,7 +135,6 @@ td:last-child {
 
 th {
   font-weight: bold;
-  
   background-color: #d6ebff;
   border-bottom: 2px solid #d6ebff;
 }
@@ -140,7 +144,7 @@ tbody tr:nth-of-type(even) {
 }
 
 /* 마지막 행 배경 색상 */
- tbody tr:last-of-type {
+tbody tr:last-of-type {
   border-top: 2px solid #d6ebff;
 }
 div#grayLayer {
@@ -211,23 +215,24 @@ div#grayLayer {
 
 <div id = "changeDiv">
 	<div class="member">
-      <div class="member_title" >
+      <div class="member_title">
         <h2><strong>회원 관리</strong></h2><br/><br/>
       </div><br>      
 	<!-- 이름 & 아이디로 서치 -->
 	<form>
 		<div class="list">
-            <div class="sec-option" style="">
-			  <select class="form-select" name="condition" id="condition">
+            <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
+			  <select class="form-select" name="tag" id="condition" >
 			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
 			  </select>
-			  <input type="text" class="form-control me-2" id="search-input" placeholder="아이디 검색" name="search" size="10">
-			  <button class="btn btn-outline-primary" type="button" id="search_onclick_submit" style="width:40%; opacity:90%;">검색</button>
+			  <input type="text" class="form-control me-2" id="search-input" placeholder="검색어 입력" name="word" size="10"">
+			  <button type="button" class="btn btn-outline-primary" id="search_onclick_submit" style="width:40%; opacity:90%;">검색</button>
 			</div>
         </div>
 	</form>
 	&nbsp;&nbsp;
+                     
 
 <input type = "hidden" id ="pg" value ="${pg}">
 <input type = "hidden" id ="tag" value ="${tag}">
@@ -235,8 +240,8 @@ div#grayLayer {
  <div class="container">
   <div class="contents">		
       <table id="userListTable" class="table table-bordered" border="1">
-        <thead>
-          <tr class="admin_boardList" style="">
+        <thead >
+          <tr class="admin_boardList" >
             <th class="admin_member_head">#</th>
             <th class="admin_member_head">이름</th>
             <th class="admin_member_head">아이디</th>
@@ -257,14 +262,12 @@ div#grayLayer {
      </table>  
      &nbsp;&nbsp;
       <div class="pagination" id="memberPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
-      
-		
-
     </div>
 </div>
 </div> 
 </div>
-<!-- <div class="footer">    
+<!-- 
+<div class="footer">    
 <footer class="footer" style="width:100%; text-align:center">
         <div class="footerDiv">&nbsp;&nbsp;
             <p><strong>OhMyGoal! 2023</strong></p>
@@ -273,7 +276,6 @@ div#grayLayer {
         </div>
 </footer>
 </div> -->
-</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMember.js"></script>
@@ -296,65 +298,22 @@ $(document).ready(function() {
 	
 	$(document).on('click', '.delBtn', function(){
 		if (!confirm('정말로 삭제를 진행하시겠습니까?')) {
-			event.preventDefault(); // 기본 동작 중지
+			event.preventDefault();
 		}
     });
 });
-      
+
 //검색
-document.getElementById("search_onclick_submit").addEventListener("click", function() {
-    var searchInput = document.getElementById("search-input").value.trim();
+$('#search_onclick_submit').click(function () {
+	var searchInput = document.getElementById("search-input").value.trim();
     if (searchInput === "") {
         alert("검색할 아이디 혹은 이름을 입력하세요.");
+        event.preventDefault();
     }
-    
-    
-    else if ($('.table tr').length == 0){
-    	alert("검색 결과가 없습니다.");   
-    	return;
-    }
-    
-    
-    // 검색 수행
-    else{
-	
-		//location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();
-	  		  	
-		
-		var url = "/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();
-        // 검색 결과가 있는지 확인
-        var resultCount = 0;
-        $('#userListTable tbody tr').each(function() {
-            if ($(this).text().indexOf(searchInput) !== -1) {
-                resultCount++;
-            }
-        });
-        if (resultCount > 0) {
-            location.href = url;
-        } else {
-            alert("검색 결과가 없습니다.");
-        }
-	   
-    }
-	
-
+    else{location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
 });
 
-
-$(document).ready(function() {
-	  // 셀렉트 박스 변경 시 이벤트 리스너 등록
-	  $("select[name='condition']").change(function() {
-	    // 선택한 값 가져오기
-	    var selectedValue = $(this).val();
-	    
-	    // 플레이스 홀더 변경
-	    if(selectedValue == "id") {
-	      $("#search-input").attr("placeholder", "아이디 검색");
-	    } else if(selectedValue == "name") {
-	      $("#search-input").attr("placeholder", "이름 검색");
-	    }
-	  });
-	});
+$('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});
 
 $(document).on('click', '.nameBtn', function() {
 	$('#grayLayer').fadeIn(300);
@@ -391,7 +350,6 @@ $('#grayLayer').click(function(){
 
 //페이징 처리
 function memberPaging(pg, tag, word){
-    
 	location.href="/OhMyGoal/admin/adminMember?pg="+pg+"&tag="+tag+"&word="+word;
 }
 </script>
