@@ -224,7 +224,7 @@ div#grayLayer {
         <h2><strong>회원 관리</strong></h2><br/><br/>
       </div><br>      
 	<!-- 이름 & 아이디로 서치 -->
-	<form>
+	<form>  
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
 			  <select class="form-select" name="tag" id="condition" >
@@ -244,7 +244,7 @@ div#grayLayer {
 <input type = "hidden" id ="word" value ="${word}">
  <div class="container">
   <div class="contents" >		
-      <table id="userListTable" class="table table-bordered" border="1" style ="width:110%">
+      <table id="userListTable" class="table table-bordered" border="1" style ="width:100%">
         <thead >
           <tr class="admin_boardList" >
             <th class="admin_member_head">#</th>
