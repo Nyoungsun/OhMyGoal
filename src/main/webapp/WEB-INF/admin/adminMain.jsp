@@ -79,11 +79,13 @@
 .medal-table table {
   border-collapse: collapse;
   justify-content: center;
-  margin-left: 400px;
+  margin-left: 330px;
+  margin-top:10px;
   width: 70%;
 }
 
 .medal-table th, .medal-table td {
+  margin-top:-100px;
   padding: 10px;
   text-align: center;
   vertical-align: middle;
@@ -182,7 +184,7 @@
 	  
 	</div>
 		<br><br><br>
- 		<div style="display:flex; margin-top: -1000px; margin-left:850px;">
+ 		<div style="display:flex; margin-top: -1000px; margin-left:900px;">
 		  <div id="donutchart" style="width: 100%; height: 550px;"></div>
 		</div><br><br>
 
@@ -212,25 +214,21 @@
         <td>${rankList[1].name}</td>
         <td>${rankList[2].name}</td>
       </tr>
-      <%-- <tr>
-        <td class="label"><strong>점수</strong></td>
-        <td>${resultMap.first.boards}</td>
-        <td>${resultMap.second.boards}</td>
-        <td>${resultMap.third.boards}</td>
-      </tr> --%>
+      
     </tbody>
   </table>
 </div>
 
-    
+ <br><br><br><br><br><br>
     
 </section>   
-<!-- <div class="footer" style="width:100%;text-align:center">  
-        &nbsp;&nbsp;&nbsp;&nbsp;
+<footer class="footer" align="center">
+        <div class="footerDiv" style="">
             <p><strong>OhMyGoal! 2023</strong></p>
             <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
             <p>ohmygoal.help@gmail.com</p>
-</div> -->
+        </div>
+</footer>
 
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
  <script type="text/javascript">

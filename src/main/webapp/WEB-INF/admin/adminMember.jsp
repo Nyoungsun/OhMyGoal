@@ -266,16 +266,16 @@ div#grayLayer {
 </div>
 </div> 
 </div>
-<!-- 
-<div class="footer">    
-<footer class="footer" style="width:100%; text-align:center">
-        <div class="footerDiv">&nbsp;&nbsp;
-            <p><strong>OhMyGoal! 2023</strong></p>
-            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
-            <p>ohmygoal.help@gmail.com</p>
-        </div>
+<footer class="footer" style="display:flex; justify-content:center;">
+  <div class="footerDiv" >
+    <p style="margin: 0 10px;"><strong>OhMyGoal! 2023</strong></p>
+    <p style="margin: 0 10px;">모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+    <p style="margin: 0 10px;">ohmygoal.help@gmail.com</p>
+  </div>
 </footer>
-</div> -->
+
+
+
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMember.js"></script>
