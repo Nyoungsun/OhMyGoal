@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <script src="https://kit.fontawesome.com/35dbfa967d.js" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@ font-family: 'Pretendard-Regular';
 #login-wrap {
   display: none;
   position: fixed;
-  top: 45%;
+  top: 35%;
   left: 45%;
   margin-top: -100px;
   margin-left: -150px;
@@ -180,7 +180,7 @@ legend {
 	<div class="login">
 	    <div id="logintitle">
 	        <h2>Member Login</h2>
-	        <span>가입시 입력하신 아이디와 비밀번호로 로그인이 가능합니다.</span>
+	        <span>가입 시 입력하신 아이디와 비밀번호로 로그인이 가능합니다.</span>
 	    </div>
 	    <fieldset>
 	        <legend>회원로그인</legend>

@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	<%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
@@ -9,7 +9,7 @@
 #signup-wrap {
   display: none;
   position: fixed;
-  top: 20%;
+  top: 25%;
   left: 45%;
   margin-top: -100px;
   margin-left: -150px;
@@ -31,7 +31,7 @@
     color: #3c3c3c;
 }
 #logintitle span {
-    font-size: 12px;
+    font-size: 15px;
     line-height: 35px;
     color: #666666;
 }
@@ -94,6 +94,11 @@ fieldset div {
     display: inline-block;
     vertical-align: middle;
 }
+
+
+input{
+	border-radius: 5px;
+}
 </style>
 </head>
 <body>
@@ -106,7 +111,7 @@ fieldset div {
 	        <span>회원가입으로 여러가지 혜택을 누려보세요.</span>
 	    </div>
 	    <fieldset>
-	    	<table border="1" cellpadding="5" cellspacing="0">
+	    	<table border="1px " cellpadding="5" cellspacing="0" >
 				<tr>
 					<th>아이디</th>
 					<td>
