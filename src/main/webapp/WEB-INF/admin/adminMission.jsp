@@ -29,7 +29,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container" style="">
-            <a class="OMGlogo" href="/OhMyGoal/"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+            <a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,12 +121,11 @@
         </tfoot>
      </table>
      &nbsp;&nbsp;
-      <div class="pagination" id ="boardPagingDiv"  style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
+      <div class="pagination" id ="boardPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
     </div>
 </div>
 </div> 
 </div>
-</body>
 <footer class="footer" style="display:flex; justify-content:center;">
   <div class="footerDiv" >
     <p style="margin: 0 10px;"><strong>OhMyGoal! 2023</strong></p>
@@ -168,7 +167,7 @@ $('#search_onclick_submit').click(function () {
         alert("검색할 아이디 혹은 이름을 입력하세요.");
         event.preventDefault();
     }
-    else{location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
+    else{location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
 });
 
 $('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});

@@ -17,7 +17,6 @@ public class MemberPaging {
 	private String word;
 	private StringBuffer pagingHTML;
 	
-	
 	public void makePaginHTML() {
 	    pagingHTML = new StringBuffer(); //생성
 	    

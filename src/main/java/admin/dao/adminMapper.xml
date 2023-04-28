@@ -34,7 +34,7 @@
  		SELECT count(*) FROM (SELECT ROWNUM RN, TT.* FROM (SELECT * FROM ohmygoal_board WHERE
  			CASE #{tag}
  				WHEN 'subject' THEN subject
-		        WHEN 'content' THEN content
+		        WHEN 'id' THEN id
 		        ELSE subject
  	 		END like '%'||#{word}||'%' ORDER BY seq DESC) TT)
 		]]>

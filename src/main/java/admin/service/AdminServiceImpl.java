@@ -37,6 +37,7 @@ public class AdminServiceImpl implements AdminService {
 
         List<BoardDTO> boardList = adminDAO.getBoardList(map);
         int totalA = adminDAO.getTotalA(map);
+        System.out.println("totalA =" + totalA);
         boardPaging.setCurrentPage(Integer.parseInt((String) map.get("pg")));
         boardPaging.setTag((String) map.get("tag"));
         boardPaging.setWord((String) map.get("word"));

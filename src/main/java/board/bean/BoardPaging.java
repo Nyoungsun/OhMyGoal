@@ -1,4 +1,3 @@
-
 package board.bean;
 
 import org.springframework.stereotype.Component;
@@ -27,7 +26,6 @@ public class BoardPaging {
 		int endPage = startPage + pageBlock - 1;
 		if(endPage > totalP) endPage = totalP;
 		
-		
 		 if(startPage != 1)
 		        pagingHTML.append("<li id='paging' class='page-item'><a class='page-link' href='#' onclick='boardPaging(" + (startPage-1) + ",\"" + tag + "\",\"" + word + "\")'> << </a></li>");
 		    
@@ -43,7 +41,12 @@ public class BoardPaging {
 	    
 	    pagingHTML.insert(0, "<ul class='pagination'>");
 	    pagingHTML.append("</ul>");
-		
-		
+	    System.out.println("*****" + pagingHTML);
+	    System.out.println(startPage);
+	    System.out.println(endPage);
+	    System.out.println(currentPage);
+	    System.out.println(totalP);
+	    System.out.println(totalA);
+	    System.out.println(pageSize);
 	}
 }
