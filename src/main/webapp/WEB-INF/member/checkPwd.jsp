@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<style type="text/css">
+input{
+	border-radius: 5px;
+}
+</style>	 
 <div class="modal fade" tabindex="-1" id="ModalCheckPwd">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -13,8 +17,8 @@
 				<input type="password" id="editCheckPwd" placeholder="비밀번호">
 				<div class="checkDiv" id="editCheckPwdDiv"></div>
 				<div id="btnDiv">
-					<input type="button" id="okBtn" value="확인">
-					<input type="reset" id="cancelBtn" data-bs-dismiss="modal" value="취소">
+					<input type="button" id="okBtn" value="확인" style="border-radius: 5px;">
+					<input type="reset" id="cancelBtn" data-bs-dismiss="modal" value="취소" style="border-radius: 5px;">
 				</div>
 			</div>
 		</div>

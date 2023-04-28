@@ -58,4 +58,23 @@ public class AdminDAOMyBatis implements AdminDAO{
 	public int getEtc() {
 		return sqlSession.selectOne("adminSQL.getEtc");
 	}
+	
+	@Override
+	public int getHobby() {
+		return sqlSession.selectOne("adminSQL.getHobby");
+	}
+
+	@Override
+	public List<MemberDTO> getRanking() {
+		return sqlSession.selectList("adminSQL.getRanking");
+	}
+
+	
+
+	
+
+
+	
+
+	
 }

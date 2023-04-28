@@ -1,6 +1,7 @@
 package sms.controller;
 
 import net.nurigo.sdk.NurigoApp;
+
 import net.nurigo.sdk.message.exception.NurigoMessageNotReceivedException;
 import net.nurigo.sdk.message.model.Balance;
 import net.nurigo.sdk.message.model.Message;
@@ -14,6 +15,8 @@ import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
@@ -25,26 +28,27 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+@RequestMapping("member")
 @RestController
 public class SMSController {
     final DefaultMessageService messageService;
 
     public SMSController() {
-        // 반드시 계정 내 등록된 유효한 API 키, API Secret Key를 입력해주셔야 합니다!
-        this.messageService = NurigoApp.INSTANCE.initialize("NCSG0VZS14BJAQZA", "PB2CRGKCD1JJ7QIDUJ0OHMATYZGCIGQU", "https://api.coolsms.co.kr");
+        this.messageService = NurigoApp.INSTANCE.initialize("NCSIYHFHJYBACUZH", "NNDHTWLZ066U7KX9V7GNIUKMNDAVASGY", "https://api.coolsms.co.kr");
     }
 
-    @PostMapping("/send-one")
-    public SingleMessageSentResponse sendOne() {
+    @PostMapping("send-one")
+    public int sendOne(@RequestParam("phone") String phone) {
+    	int certificationNumber = (int)(Math.random() * (99999 - 10000 + 1)) + 10000;
+		
         Message message = new Message();
-        // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
-        message.setFrom("01088041143");
-        message.setTo("01064727555");
-        message.setText("[OhMyGoal] 아이디찾기 인증번호입니다.");
+        message.setFrom("01064727555");
+        message.setTo(phone);
+        message.setText("[OhMyGoal] 아이디/비밀번호 찾기 인증번호는 " + certificationNumber + "입니다.");
 
         SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
-        System.out.println(response);
+        System.out.println("certificationNumber=" + certificationNumber + ", " + response);
 
-        return response;
-    }
+        return certificationNumber;
+    } 
 }

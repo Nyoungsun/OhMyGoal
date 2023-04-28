@@ -27,17 +27,22 @@ public class BoardPaging {
 		int endPage = startPage + pageBlock - 1;
 		if(endPage > totalP) endPage = totalP;
 		
-		if(startPage != 1)
-			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (startPage-1) + ",\"" + tag + "\",\"" + word + "\")'> ◀ PREV </span>");
-		for(int i=startPage; i<=endPage; i++) {   
-			if(i==currentPage)
-				pagingHTML.append("<span id='currentPaging' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</span>");
-			else
-				pagingHTML.append("<span id='paging' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</span>");
-		}
 		
-		if(endPage < totalP)
-			pagingHTML.append("<span id='paging' onclick='boardPaging(" + (endPage+1) + ",\"" + tag + "\",\"" + word + "\")'> NEXT ▶ </span>");
+		 if(startPage != 1)
+		        pagingHTML.append("<li id='paging' class='page-item'><a class='page-link' href='#' onclick='boardPaging(" + (startPage-1) + ",\"" + tag + "\",\"" + word + "\")'> << </a></li>");
+		    
+		    for(int i=startPage; i<=endPage; i++) {
+		        if(i==currentPage)
+		            pagingHTML.append("<li class='page-item active'><a class='page-link' style='border:none; opacity: 90%; background-color: #0000ff;' href='#' style='border:2px solid green; margin:0px;' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</a></li>");
+		        else
+		            pagingHTML.append("<li class='page-item'><a class='page-link' href='#' onclick='boardPaging(" + i + ",\"" + tag + "\",\"" + word + "\")'>" + i + "</a></li>");
+		    }
+		    
+	    if(endPage < totalP)
+	        pagingHTML.append("<li class='page-item'><a class='page-link' href='#' onclick='boardPaging(" + (endPage+1) + ",\"" + tag + "\",\"" + word + "\")'> >> </a></li>");
+	    
+	    pagingHTML.insert(0, "<ul class='pagination'>");
+	    pagingHTML.append("</ul>");
 		
 		
 	}

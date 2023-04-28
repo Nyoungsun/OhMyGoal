@@ -20,7 +20,7 @@ $(function(){
           text: items.name,
           value: items.id,
           class: 'nameBtn',
-          css: {'border': 'none'}
+          css: {'border': 'none', 'background-color':'transparent'}
         }))).append($('<td>', {
           align: 'center',
           text: items.id

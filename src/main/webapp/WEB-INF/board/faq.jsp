@@ -42,6 +42,7 @@
 	border: 1px solid #ddd;
 	background-color: #f1f1f1;
 	margin: 10px 0;
+	border-radius:5pt;
 }
 
 .accordion h2 {
@@ -49,12 +50,15 @@
 	margin: 0;
 	font-size: 18px;
 	cursor: pointer;
+	
 }
 
 .accordion p {
 	padding: 10px;
 	margin: 0;
 	display: none;
+	
+	
 }
 
 .accordion h2.active+p {
@@ -200,18 +204,6 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
-					<div class="collapse navbar-collapse" id="navbarNav">
-						<ul class="navbar-nav " style="margin-left: 20px;">
-							<c:if test="${not empty memName}">
-								<li class="nav-item"><a class="nav-link"
-									href="../mission/missionWrite" style="color: black;">그룹미션
-										만들기 </a></li>
-							</c:if>
-							<li class="nav-item"><a class="nav-link"
-								href="../board/about">소개</a></li>
-						</ul>
-					</div>
-
 					<div class="collapse navbar-collapse justify-content-end"
 						id="navbarNav">
 						<ul class="navbar-nav">
@@ -246,7 +238,7 @@
 								자주 묻는 질문입니다. <br> 편리하게 질문을 찾아보세요. 
 							</h1>
 
-							<a href="http://localhost:8080/OhMyGoal/board/qna" class="btn btn-primary">1:1 문의하기</a>
+							<a href="http://localhost:8080/OhMyGoal/board/qna" class="btn btn-primary" style="border-radius: 5px; border-color: #0000ff; background-color: #0000ff;">1:1 문의하기</a>
 						</div>
 						<div class="col-md-4 col-sm-8">
 							<img src="../img/faq.png" alt="Mission" class="img-fluid">
@@ -257,8 +249,8 @@
 		</main>
 		<section class="bg_ye wow rollIn" data-wow-duraion="5s">
 			<div class="shadow-lg p-3 mb-5 bg-body rounded" id="box"
-				style="height: auto; width: 50%; max-width: 100%">
-				<h3 style="text-align: center" id="title">자주 묻는 질문</h3>
+				style="height: auto; width: 50%; max-width: 100%; ">
+				<h3 style="text-align: center; font-weight:bold; margin-top: 2%; margin-bottom: 2%;" id="title">자주 묻는 질문</h3>
 				<hr
 					style="width: 100%; margin-left: auto; margin-right: auto; height: 3px; border: 0; background: black;">
 				<div class="option_ann1">
@@ -298,6 +290,7 @@
 					</div>
 					
 				</div>
+				</div>
 		</section>
 	</form>
 	<iframe id="iframe1" name="iframe1" style="display: none"></iframe>
@@ -311,6 +304,37 @@
 	<script type="text/javascript"
 		src="http://code.jQuery.com/jquery-3.6.4.min.js"></script>
 	<script type="text/javascript">
+	/*
+		$(document).ready(function() {
+		    $('.accordion').click(function() {
+		        var $content = $(this).children('p');
+		        if ($content.is(':hidden')) {
+		            $content.slideDown();
+		            $(this).siblings().children('p').slideUp();
+		        } else {
+		            $content.slideUp();
+		        }
+		    });
+		});
+*/
+		const accordions = document.querySelectorAll('.accordion');
+		
+		accordions.forEach((accordion) => {
+		  const accordionTitle = accordion.querySelector('h2');
+		  const accordionContent = accordion.querySelector('p');
+		
+		  accordionTitle.addEventListener('click', () => {
+		    if (accordionContent.style.display === 'block') {
+		      accordionContent.style.display = 'none';
+		    } else {
+		      accordions.forEach((a) => {
+		        a.querySelector('p').style.display = 'none';
+		      });
+		      accordionContent.style.display = 'block';
+		    }
+		  });
+		});
+	
         $('#logoutBtn').click(function () {
           $.ajax({
             type: 'post',

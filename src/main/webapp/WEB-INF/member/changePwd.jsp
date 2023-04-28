@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<style type="text/css">
+input{ 
+	border-radius: 5px;
+}
+</style>	
 <link rel="stylesheet" href="../css/member/changePwd.css">
 <form id="changePwdForm">
 	<div class="modal fade" tabindex="-1" id="ModalchangePwd"
@@ -9,7 +14,7 @@
 				<div class="modal-header">
 					<h1 class="modal-title fs-5">비밀번호 변경</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						faria-label="Close"></button>
+						faria-label="Close" style="border-radius: 5px;"></button>
 				</div>
 				<div class="modal-body">
 					<table>
@@ -24,8 +29,8 @@
 						</tr>
 						<tr>
 							<td id="btn"><input type="button" id="changePwdsave"
-								value="저장"> <input type="button" id="changePwdcancel"
-								data-bs-dismiss="modal" value="뒤로"></td>
+								value="저장" style="border-radius: 5px;"> <input type="button" id="changePwdcancel"
+								data-bs-dismiss="modal" value="뒤로" style="border-radius: 5px;"></td>
 						</tr>
 					</table>
 				</div>

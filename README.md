@@ -1,4 +1,5 @@
 <h1>🌍OhMyGoal! - 1일 1미션 사이트</h1>
+* 학습용 프로젝트입니다.
 <h2>Team👪</h2>
 <table>
   <tbody>
@@ -30,11 +31,14 @@
 <li>HTML</li>
 <li>CSS</li>
 <li>JavaScript</li>
-<li>JQuery</li>
+<li>jQuery</li>
 </ul>
 
 <h4>Open API(plugin, source)💻</h4>
 <ul>
 <li>Daum PostCode Service</li>
+<li>coolsms</li>
+<li>Bootstrap</li>
+<li>CKEditor4</li>
 </ul>
 

@@ -135,6 +135,11 @@ header {
 	width: 25%;
 }
 
+.img img {
+	width: 90%;
+	border-radius: 10px;
+}
+
 .content {
 	width: 20%;
 	height: 20%;
@@ -186,4 +191,12 @@ footer {
 	margin-top: 100px;
 	padding-top: 50px;
 	padding-bottom: 50px;
+	position: absolute;
+	width: 100%;
+}
+
+input[type="button"], 
+input[type="reset"],
+input[type="text"] {
+	border-radius: 5px;
 }

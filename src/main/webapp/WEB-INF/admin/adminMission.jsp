@@ -20,115 +20,16 @@
 <link rel="stylesheet" href="../css/admin/adminMain.css">
 
 <title>AdminMission👅</title>
-<style type="text/css">
-.wrapper {position:relative; min-height:100%;}
-.wrapper .header {height:90px;}
-.wrapper .contents {padding-bottom:150px;}
-.wrapper .footer {position:absolute; width:100%; height:200px; bottom:0;}
-#currentPaging{
-	text-align:center;
-	font-size: 15px;
-	font-weight: bold;
-	color:blue;
-	text-decoration:underline;
-	cursor: pointer;
-	margin-right: 10px;
-    margin-left: 10px;
-}
-#paging{
-	text-align:center;
-	font-size: 15px;
-    color: gray;
-	text-decoration:none;
-	cursor: pointer;
-	
-}
-.member {
-    margin-top: 100px;
-}
-
-
-#memberPagingDiv {
-     margin-top: 10px;
-     width: 450px;
-     margin-left: auto;
-     margin-right: auto;
-     text-align: center;
-  }
-  
-body { 
-  font-size: 140%; 
-}
-#changeDiv {
-  position: relative;
-  top: -60px;
-}
-
-h2 {
-  text-align: center;
-  width:150px;
-}
-.text-center{
-	margin-left: 50px;
-  	margin-top: 20px;
-  	margin-bottom: 20px;
-}
-#userListTable {
-  top:30px;
-  border-collapse: separate;
-  border-spacing: 2px 2px;
-  margin: 0 auto;
-  margin-top: 60px;
-  text-align: center;
-  width:1200px;
-}
-
-th,
-td {
-  padding: 2.55rem;
-  text-align: center;
-  border-top: 1px solid #dee2e6;
-  border-bottom: 1px solid #dee2e6;
-  border-left: none;
-  border-right: none;
-}
-
-th:first-child,
-td:first-child {
-  border-left: none;
-}
-
-th:last-child,
-td:last-child {
-  border-right: none;
-}
-
-th {
-  font-weight: bold;
-  background-color: #e9ecef;
-  border-bottom: 2px solid #dee2e6;
-}
-
-tbody tr:nth-of-type(even) {
-  background-color: #f8f9fa;
-}
-
-/* 마지막 행 배경 색상 */
-tbody tr:last-of-type {
-  background-color: #e9ecef;
-}
-.delBtn:hover {
-	cursor: pointer;
-}
-</style>
 </head>
 
 <body>
+<div id='grayLayer'></div>
+<jsp:include page='sign_info.jsp' />
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container" style="">
-            <a class="OMGlogo" href="../admin/adminMain"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+            <a class="OMGlogo" href="/OhMyGoal/"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -144,7 +45,7 @@ tbody tr:last-of-type {
                         <a class="nav-link" href="../admin/adminMember">회원관리</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMission">미션관리</a>
+                        <a class="nav-link" href="../admin/adminMission" style=" color:#0000ff;">미션관리</a>
                     </li>
                 </ul>
             </div>
@@ -171,7 +72,7 @@ tbody tr:last-of-type {
         </div>
     </nav>
 </header>
-
+<body>
 <div id = "changeDiv">
 	<div class="member">
       <div class="member_title">
@@ -181,12 +82,12 @@ tbody tr:last-of-type {
 	<form>
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
-			  <select name="tag" id="condition" style="width: 100px; height: 30px;">
+			  <select class="form-select" name="tag" id="condition" >
 			    <option value="subject" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>제목</option>
 			    <option value="id" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			  </select>
-			  <input type="text" id="search-input" placeholder="검색어 입력" name="word" style="width: 150px; height: 30px; margin: 0px 5px;">
-			  <button type="button" id="search_onclick_submit" style="width: 70px; height: 30px; font-size: 17px;">검색</button>
+			  <input type="text" class="form-control me-2" id="search-input" placeholder="검색어 입력" name="word" size="15">
+			  <button type="button" class="btn btn-outline-primary" id="search_onclick_submit" style="width:40%; opacity:90%;">검색</button>
 			</div>
         </div>
 	</form>
@@ -197,15 +98,15 @@ tbody tr:last-of-type {
 <input type = "hidden" id ="tag" value ="${tag}">
 <input type = "hidden" id ="word" value ="${word}">
  <div class="container">
-  <div class="contents">		
-      <table id="userListTable" class="table table-bordered" border="1">
+  <div class="contents">		  
+      <table id="userListTable" class="table table-bordered" border="1" style ="width:100%">
         <thead>
           <tr class="admin_boardList">
           	<th class="admin_board_head">#</th>
             <th class="admin_board_head">아이디</th>
             <th class="admin_board_head">제목</th>
             <th class="admin_board_head">카테고리</th>
-            <th class="admin_board_head">참가멤버</th>
+            <th class="admin_board_head">참가 멤버</th>
             <th class="admin_board_head">기한</th>
             <th class="admin_board_head">삭제</th>
           </tr>
@@ -215,25 +116,24 @@ tbody tr:last-of-type {
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="8" class="text-center">OhMyGoal Mission</td>
+            <td colspan="8" class="text-center" style="border-top: 2px solid lightgrey;">OhMyGoal Mission</td>
           </tr>
         </tfoot>
      </table>
      &nbsp;&nbsp;
-      <div class="pagination" id ="boardPagingDiv"  style="margin-top:10px;display: inline-block; margin-left:360px;width:450px; text-align:center;"></div>
+      <div class="pagination" id ="boardPagingDiv"  style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
     </div>
 </div>
 </div> 
 </div>
-<div class="footer">    
-<footer class="footer" style="width:100%; text-align:center;">
-        <div class="footerDiv">&nbsp;&nbsp;
-            <p><strong>OhMyGoal! 2023</strong></p>
-            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
-            <p>ohmygoal.help@gmail.com</p>
-        </div>
+</body>
+<footer class="footer" style="display:flex; justify-content:center;">
+  <div class="footerDiv" >
+    <p style="margin: 0 10px;"><strong>OhMyGoal! 2023</strong></p>
+    <p style="margin: 0 10px;">모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+    <p style="margin: 0 10px;">ohmygoal.help@gmail.com</p>
+  </div>
 </footer>
-</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMission.js"></script>
@@ -268,11 +168,43 @@ $('#search_onclick_submit').click(function () {
         alert("검색할 아이디 혹은 이름을 입력하세요.");
         event.preventDefault();
     }
-    else{location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
+    else{location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
 });
 
 $('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});
 
+$(document).on('click', '.nameBtn', function() {
+	$('#grayLayer').fadeIn(300);
+	$('#signup-wrap').fadeIn(300);
+	
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/sign_info',
+		data: {id: $(this).val()},
+		dataType: 'json',
+		success: function (data) {
+			$("#id").val(data.id);
+			$("#pwd").val(data.pwd);
+			$("#name").val(data.name);
+			$("#email1").val(data.email1);
+			$("#email2").val(data.email2);
+			$("#tel1").val(data.tel1);
+			$("#tel2").val(data.tel2);
+			$("#tel3").val(data.tel3);
+			$("#zipcode").val(data.zipcode);
+			$("#addr1").val(data.addr1);
+			$("#addr2").val(data.addr2);
+		},
+		error: function (err) {
+			console.log(err);
+		}
+	});
+});
+
+$('#grayLayer').click(function(){
+	$(this).fadeOut(300);
+	$('#signup-wrap').fadeOut(300);
+});
 //페이징 처리
 function boardPaging(pg, tag, word){
 	location.href="/OhMyGoal/admin/adminMission?pg="+pg+"&tag="+tag+"&word="+word;

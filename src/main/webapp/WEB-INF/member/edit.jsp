@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<style type="text/css">
+input{
+	border-radius: 5px;
+}
+</style>	 
 <form id="editForm">
 	<div class="modal fade" tabindex="-1" id="ModalEdit"
 		aria-labelledby="ModalLabel2">
@@ -9,7 +13,7 @@
 				<div class="modal-header">
 					<h1 class="modal-title fs-5">개인정보수정</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						faria-label="Close"></button>
+						faria-label="Close" style="border-radius: 5px;"></button>
 				</div>
 				<div class="modal-body">
 					<table>
@@ -22,7 +26,7 @@
 						<tr>
 							<td>
 								<div class="spacing">비밀번호</div> <input type="button"
-								id="changePwd" value="비밀번호 변경">
+								id="changePwd" value="비밀번호 변경" style="border-radius: 5px;">
 							</td>
 						</tr>
 						<tr>
@@ -59,16 +63,16 @@
 									주소 <span class="essential"> *</span>
 								</div> <input type="text" name="zipcode" id="zipcode"
 								placeholder="우편번호" size="5" readonly> <input
-								type="button" value="검색" id="search"> <input type="text"
+								type="button" value="검색" id="search" style="border-radius: 5px;"> <input type="text"
 								name="addr1" id="addr1" placeholder="주소" readonly> <input
 								type="text" name="addr2" id="addr2" placeholder="상세주소">
 								<div class="checkDiv" id="checkAddr"></div>
 							</td>
 						</tr>
 						<tr>
-							<td id="btn"><input type="button" id="save" value="저장">
+							<td id="btn"><input type="button" id="save" value="저장" style="border-radius: 5px;">
 								<input type="button" id="cancel" data-bs-dismiss="modal"
-								value="취소"></td>
+								value="취소" style="border-radius: 5px;"></td>
 						</tr>
 						<tr>
 							<td id="withdrawl">회원탈퇴</td>

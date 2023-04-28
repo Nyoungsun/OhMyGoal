@@ -97,17 +97,31 @@ h2 {
   margin-top: 60px;
   text-align: center;
   width:1200px;
+  border-radius: 7px;
+  border: 2px solid #87B5FF;
 }
 
 th,
 td {
   padding: 2.55rem;
   text-align: center;
-  border-top: 1px solid #dee2e6;
-  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #d6ebff;
+  border-bottom: 1px solid #d6ebff;
   border-left: none;
   border-right: none;
 }
+
+thead{
+	background-color: #b6d0fa;
+	text-align:cetner;
+	border-bottom: 3px solid black;
+  	border-collapse: collapse;
+}
+
+.admin_member_head {
+    text-align: center;
+    font-size: 16pt;
+  }
 
 th:first-child,
 td:first-child {
@@ -121,17 +135,22 @@ td:last-child {
 
 th {
   font-weight: bold;
-  background-color: #e9ecef;
-  border-bottom: 2px solid #dee2e6;
+  background-color: #d6ebff;
+  border-bottom: 2px solid #d6ebff;
 }
 
 tbody tr:nth-of-type(even) {
-  background-color: #f8f9fa;
+  background-color: #eaf4ff;
+}
+
+#userListTable tbody td:nth-child(6) {
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 /* 마지막 행 배경 색상 */
 tbody tr:last-of-type {
-  background-color: #e9ecef;
+  border-top: 2px solid #d6ebff;
 }
 div#grayLayer {
 	display: none;
@@ -155,7 +174,7 @@ div#grayLayer {
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container" style="">
-            <a class="OMGlogo" href="../admin/adminMain"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+            <a class="OMGlogo" href="/OhMyGoal/"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -168,7 +187,7 @@ div#grayLayer {
                         <a class="nav-link" href="../admin/adminMain">대시보드</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/adminMember">회원관리</a>
+                        <a class="nav-link" href="../admin/adminMember" style=" color:#0000ff;">회원관리</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../admin/adminMission">미션관리</a>
@@ -205,15 +224,15 @@ div#grayLayer {
         <h2><strong>회원 관리</strong></h2><br/><br/>
       </div><br>      
 	<!-- 이름 & 아이디로 서치 -->
-	<form>
+	<form>  
 		<div class="list">
             <div class="sec-option" style="display:flex;align-items:center;justify-content:center">
-			  <select name="tag" id="condition" style="width: 100px; height: 30px;">
+			  <select class="form-select" name="tag" id="condition" >
 			    <option value="id" <%= "id".equals(request.getParameter("condition")) ? "selected" : "" %>>아이디</option>
 			    <option value="name" <%= "name".equals(request.getParameter("condition")) ? "selected" : "" %>>이름</option>
 			  </select>
-			  <input type="text" id="search-input" placeholder="검색어 입력" name="word" style="width: 150px; height: 30px; margin: 0px 5px;">
-			  <button type="button" id="search_onclick_submit" style="width: 70px; height: 30px; font-size: 17px;">검색</button>
+			  <input type="text" class="form-control me-2" id="search-input" placeholder="검색어 입력" name="word" size="10"">
+			  <button type="button" class="btn btn-outline-primary" id="search_onclick_submit" style="width:40%; opacity:90%;">검색</button>
 			</div>
         </div>
 	</form>
@@ -224,16 +243,16 @@ div#grayLayer {
 <input type = "hidden" id ="tag" value ="${tag}">
 <input type = "hidden" id ="word" value ="${word}">
  <div class="container">
-  <div class="contents">		
-      <table id="userListTable" class="table table-bordered" border="1">
-        <thead>
-          <tr class="admin_boardList">
+  <div class="contents" >		
+      <table id="userListTable" class="table table-bordered" border="1" style ="width:100%">
+        <thead >
+          <tr class="admin_boardList" >
             <th class="admin_member_head">#</th>
             <th class="admin_member_head">이름</th>
             <th class="admin_member_head">아이디</th>
             <th class="admin_member_head">비밀번호</th>
             <th class="admin_member_head">랭킹</th>
-            <th class="admin_member_head">참가한 미션들</th>
+            <th class="admin_member_head">참가 미션</th>
             <th class="admin_member_head">가입날짜</th>
           </tr>
         </thead>
@@ -242,26 +261,26 @@ div#grayLayer {
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="8" class="text-center">OhMyGoal Member</td>
+            <td colspan="8" class="text-center" style="border-top: 2px solid lightgrey;">OhMyGoal Member</td>
           </tr>
         </tfoot>
      </table>  
      &nbsp;&nbsp;
-      <div id="memberPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
+      <div class="pagination" id="memberPagingDiv" style="margin-top:10px;margin-left:20px; width:100%; text-align:center;"></div>
     </div>
 </div>
 </div> 
 </div>
-<!-- <div class="footer">    
-<footer class="footer" style="width:100%; text-align:center">
-        <div class="footerDiv">&nbsp;&nbsp;
-            <p><strong>OhMyGoal! 2023</strong></p>
-            <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
-            <p>ohmygoal.help@gmail.com</p>
-        </div>
+<footer class="footer" style="display:flex; justify-content:center;">
+  <div class="footerDiv" >
+    <p style="margin: 0 10px;"><strong>OhMyGoal! 2023</strong></p>
+    <p style="margin: 0 10px;">모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
+    <p style="margin: 0 10px;">ohmygoal.help@gmail.com</p>
+  </div>
 </footer>
-</div> -->
-</div>
+
+
+
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type= "text/javascript" src="../js/admin/adminMember.js"></script>

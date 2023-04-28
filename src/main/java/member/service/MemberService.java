@@ -25,4 +25,6 @@ public interface MemberService {
 	public void outMembers(String id);
 
 	public void escape(String seq);
+
+	public String findId(Map<String, String> map);
 }

@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyPage</title>
-<style type="text/css">
+<title>마이페이지</title>
+<style>
 header {
 	width: 100%;
 	position: sticky;
@@ -43,6 +43,11 @@ header {
 	margin-bottom: 15px;
 	margin-left: 20px;
 }
+
+input{
+	border-radius: 5px; 
+}
+
 </style>
 <!--BootStrap-->
 <link rel="stylesheet"
@@ -79,11 +84,11 @@ header {
 					<ul class="navbar-nav " style="margin-left: 20px;">
 						<c:if test="${not empty memName}">
 							<li class="nav-item"><a class="nav-link"
-								href="../mission/missionWrite" style="color: black;">그룹미션
+								href="../mission/missionWrite">그룹미션
 									만들기 </a></li>
 						</c:if>
 						<li class="nav-item"><a class="nav-link"
-							href="../board/about">소개</a></li>
+							href="../board/ranking">명예의 전당</a></li>
 						<li class="nav-item"><a class="nav-link" href="../board/qna">문의하기</a>
 						</li>
 					</ul>
@@ -114,7 +119,7 @@ header {
 	<!-- <header>
 		<a href="/OhMyGoal/"><img id="logo" src="../img/logo/logo2.png"></a>
 		<button type="button" id="editBtn" class="headerBtn">EDIT</button>
-		<button type="button" id="logoutBtn" class="headerBtn">로그아웃</button>
+		<button type="button" id="" class="headerBtn">로그아웃</button>
 	</header> -->
 
 	<div id="profileDiv">
@@ -157,7 +162,7 @@ header {
 
 	<!--jquery-->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<!--jquery-->
+
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 	<script>
@@ -223,19 +228,11 @@ header {
 				success: function (data) {
 					var i = 0;
 					var today = new Date();
-					var todayMonth = today.getUTCMonth() + 1; 
-					var todayDay = today.getUTCDate();
-					var todayYear = today.getUTCFullYear();
-					var todayDate = todayYear + "-" + todayMonth + "-" + todayDay;
 					$.each(data, function (index, items) {
-						var end_date = new Date(items.end_date);
-						var end_dateMonth = end_date.getUTCMonth() + 1; 
-						var end_dateDay = end_date.getUTCDate() + 1;
-						var end_dateYear = end_date.getUTCFullYear();
-						var end_dateDate = end_dateYear + "-" + end_dateMonth + "-" + end_dateDay;
+						var end_date = new Date(items.end_date).setHours(23);
 						i++;
 						$('<div/>').append($('<div/>', {
-							class: todayDate <= end_dateDate ? 'missionList shadow p-3 mb-5 bg-body rounded wow bounce' : 'missionList shadow p-3 mb-5 rounded expire'
+							class: today <= end_date ? 'missionList shadow p-3 mb-5 bg-body rounded wow bounce' : 'missionList shadow p-3 mb-5 rounded expire'
 						}).append($('<table/>',{
 							class: 'table table-borderless'
 						}).append($('<tr/>', {
@@ -267,12 +264,12 @@ header {
 							id: 'move' + i,
 							value: '미션 보러가기',
 							onclick: "location.href='." + items.url + "?seq=" + items.seq + "'"
-						})).append($('<input>', {
+						}).css('border-radius','5px')).append($('<input>', {
 							type: 'button',
-							id: todayDate <= end_dateDate ? 'out' + i : 'expire' + i,
-							value: todayDate <= end_dateDate ? '도망가기' : '종료된 미션입니다.',
-							onclick: todayDate <= end_dateDate ? 'escape(' + items.seq + ')': null
-						})))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
+							id: today <= end_date ? 'out' + i : 'expire' + i,
+							value: today <= end_date ? '도망가기' : '종료된 미션입니다.',
+							onclick: today <= end_date ? 'escape(' + items.seq + ')': null
+						}).css('border-radius','5px')))))).appendTo($('#missionDiv')).trigger('create'); //.trigger('create'); - css 적용하기위해
 					}) //each
 				},
 				error: function (err) {

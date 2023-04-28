@@ -23,4 +23,10 @@ public interface AdminDAO {
 	public int getHealth();
 
 	public int getEtc();
+	
+	public int getHobby();
+	
+	public List<MemberDTO> getRanking();
+
+	
 }

@@ -1440,7 +1440,7 @@ header {
 	.MuiButton-root {
 		color: rgba(0, 0, 0, 0.87);
 		padding: 10px 20px;
-		font-size: 0.875rem;
+		font-size: 0.98rem;
 		min-width: 64px;
 		box-sizing: border-box;
 		transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -1453,7 +1453,9 @@ header {
 
 	.MuiButton-root:hover {
 		text-decoration: none;
-		background-color: rgba(0, 0, 0, 0.04);
+		background-color: rgba(0, 0, 0, 0.03);
+		color:white;
+		
 	}
 
 	.MuiButton-root.Mui-disabled {
@@ -3186,6 +3188,9 @@ header {
 			                        <a class="nav-link" href="./board/about">소개</a>
 			                    </li>
 			                    <li class="nav-item">
+			                        <a class="nav-link" href="./board/ranking">명예의 전당</a>
+			                    </li>
+			                    <li class="nav-item">
 			                        <a class="nav-link" href="./board/qna">문의하기</a>
 			                    </li>
 			                </ul>
@@ -3217,10 +3222,10 @@ header {
 			<div class="MuiContainer-root MuiContainer-maxWidthLg">
 				<div class="MuiGrid-root MuiGrid-container">
 					<div class="MuiGrid-root jss7 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6">
-						<p>다른 개발자들은 어떤 프로젝트를 만들었을까?</p><img class="jss6"
+						<p>다른 사람들은 어떤 1일 1미션을 하고 있을까?</p><img class="jss6"
 							src="./image/logo.png" alt="logo">
-						<div class="jss8">개발자 토이프로젝트 모아보기 서비스</div>
-						<p class="jss12">선배・동료 개발자들의 토이프로젝트를 한눈에 모아보고, 좋은 프로젝트는 더 많은 사람들과 공유해보세요.</p>
+						<div class="jss8">그룹 1일 1미션 모아보기 서비스</div>
+						<p class="jss12">다양한 사람들의 미션을 한눈에 모아보고, 마음에 드는 미션을 많은 사람들과 함께 달성해보세요.</p>
 						<!--
 						<a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss11 MuiButton-containedPrimary"
 							tabindex="0" aria-disabled="false" href="./mission/missionBoard">
@@ -3230,8 +3235,8 @@ header {
 						-->
 						<c:if test="${not empty memName}">
 							<a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss11 MuiButton-containedSecondary"
-								tabindex="0" aria-disabled="false" href="./mission/missionWrite">
-								<span class="MuiButton-label">그룹 미션 만들기</span>
+								tabindex="0" aria-disabled="false" href="./mission/missionWrite" style="border-radius:5px;">
+								<span class="MuiButton-label" >그룹 미션 만들기</span>
 								<span class="MuiTouchRipple-root"></span>
 							</a>
 						</c:if>

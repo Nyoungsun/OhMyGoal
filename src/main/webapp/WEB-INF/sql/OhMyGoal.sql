@@ -16,11 +16,6 @@ end_date date,
 logtime date
 );
 
-drop table ohmygoal_board;
-drop table ohmygoal_member;
-drop SEQUENCE seq_board;
-drop SEQUENCE seq_member;
-
 create SEQUENCE seq_board 
     MINVALUE 1  
     MAXVALUE 9999999999999999999999999999
@@ -29,13 +24,6 @@ create SEQUENCE seq_board
     NOCACHE 
     NOORDER
     NOCYCLE ;
-    
-INSERT INTO ohmygoal_board (seq, url, img, subject, content, mark, id, members, maxmember, likes, views, start_date, end_date, logtime)
-VALUES (seq_board.NEXTVAL, 'https://www.google.com/', './image/2.jpg', 'test subjec2t', 'Example Content3', 'React2', 'keras2', '1 2 3 4 5', 0, 0, 0, sysdate, sysdate, sysdate);
-
-commit;
-
-select * from ohmygoal_board;
 
 create table ohmygoal_member(
 seq NUMBER NOT NULL,
@@ -64,4 +52,8 @@ create SEQUENCE seq_member
     NOORDER
     NOCYCLE ;
 
-select * from ohmygoal_member;
+drop table ohmygoal_board;
+drop table ohmygoal_member;
+
+drop SEQUENCE seq_board;
+drop SEQUENCE seq_member;
