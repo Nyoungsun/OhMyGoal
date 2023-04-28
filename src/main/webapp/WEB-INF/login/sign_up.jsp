@@ -35,16 +35,15 @@
     line-height: 35px;
     color: #666666;
 }
-.memberloginbox-popup .login {
-    margin: 0 auto;
+#signup-wrap .login {
     padding: 40px 0;
     color: #2e2e2e;
     width: 500px;
 }
-.memberloginbox-popup .login fieldset {
+#signup-wrap .login fieldset {
     position: relative;
     width: 380px;
-    margin: 0 auto;
+    margin-left: 40px;
 }
 img, fieldset {
     border: none;
