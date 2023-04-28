@@ -111,7 +111,7 @@ input[type="text"] {
 					<div id="checkFindName" style="margin-top: 2%; color:red;"></div>
 				</div>
 				<div class="findDiv">
-					<div>휴대폰 번호</div>
+					<div>핸드폰 번호</div>
 					<input type="text" id="findPhone" placeholder="'-'(하이픈) 제외" style="border-radius:5px;"> 
 					<input type="button" id="recieveNumber" value="인증번호 받기" style="border-radius:5px;">
 					<div id="checkFindPhone" style="margin-top: 1%; color:red;"></div>
@@ -138,7 +138,7 @@ input[type="text"] {
 					<div id="checkFindId" style="margin-top: 2%; color:red;"></div>
 				</div>
 				<div class="findDiv" >
-					<div ><h6>휴대폰 번호</h6></div>
+					<div ><h6>핸드폰 번호</h6></div>
 					<input type="text" id="findPhone2" placeholder="'-'(하이픈) 제외" style="border-radius:5px;"> 
 					<input type="button" id="recieveNumber2" value="인증번호 받기" style="border-radius:5px;">
 					<div id="checkFindPhone2" style="margin-top: 1%; color:red;"></div>
@@ -175,9 +175,10 @@ input[type="text"] {
 		//아이디 찾기
 		$('#recieveNumber').click(function() {
 			$('#checkFindPhone').empty();
-
-			if ($('#findPhone').val() == '') {
-				$('#checkFindPhone').text('휴대폰 번호를 입력하세요.');
+			var phoneRegex = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
+			 
+			if ($('#findPhone').val() == '' || !phoneRegex.test($('#findPhone').val())) {
+				$('#checkFindPhone').text('올바른 핸드폰 번호를 입력하세요.');
 				$('#findPhone').focus();
 			} else {
 				$.ajax({
@@ -198,7 +199,7 @@ input[type="text"] {
 										$('#findName').focus();
 									} else if ($('#findPhone').val() == ''
 											&& $('#certification').val() == '') {
-										$('#checkFindPhone').text('휴대폰 인증을 진행해주세요.');
+										$('#checkFindPhone').text('핸드폰 인증을 진행해주세요.');
 										$('#findPhone').focus();
 									} else if ($('#findPhone').val() != ''
 											&& $('#certification').val() == '') {
@@ -235,9 +236,9 @@ input[type="text"] {
 		$('#recieveNumber2').click(function() {
 			$('#checkFindPhone2').empty();
 
-			if ($('#findPhone2').val() == '') {
-				$('#checkFindPhone2').text('휴대폰 번호를 입력하세요.');
-				$('#findPhone2').focus();
+			if ($('#findPhone').val() == '' || !phoneRegex.test($('#findPhone').val())) {
+				$('#checkFindPhone').text('올바른 핸드폰 번호를 입력하세요.');
+				$('#findPhone').focus();
 			} else {
 				$.ajax({
 					type : 'post',
@@ -257,7 +258,7 @@ input[type="text"] {
 										$('#findId').focus();
 									} else if ($('#findPhone2').val() == ''
 											&& $('#certification2').val() == '') {
-										$('#checkFindPhone2').text('휴대폰 인증을 진행해주세요.');
+										$('#checkFindPhone2').text('핸드폰 인증을 진행해주세요.');
 										$('#findPhone2').focus();
 									} else if ($('#findPhone2').val() != ''
 											&& $('#certification2').val() == '') {
@@ -305,10 +306,10 @@ input[type="text"] {
 						$('#checkFindName').text('이름을 입력하세요.');
 						$('#findName').focus();
 					} else if ($('#findPhone').val() == '') {
-						$('#checkFindPhone').text('휴대폰 인증을 진행해주세요.');
+						$('#checkFindPhone').text('핸드폰 인증을 진행해주세요.');
 						$('#findPhone').focus();
 					}  else if ($('#certification').val() == '') {
-						$('#checkFindPhone').text('휴대폰 인증을 진행해주세요.');
+						$('#checkFindPhone').text('핸드폰 인증을 진행해주세요.');
 						$('#findPhone').focus();
 					}
 				});
@@ -323,10 +324,10 @@ input[type="text"] {
 						$('#checkFindId').text('아이디를 입력하세요.');
 						$('#findId').focus();
 					}  else if ($('#findPhone2').val() == '') {
-						$('#checkFindPhone2').text('휴대폰 인증을 진행해주세요.');
+						$('#checkFindPhone2').text('핸드폰 인증을 진행해주세요.');
 						$('#findPhone2').focus();
 					}  else if ($('#certification2').val() == '') {
-						$('#checkFindPhone2').text('휴대폰 인증을 진행해주세요.');
+						$('#checkFindPhone2').text('핸드폰 인증을 진행해주세요.');
 						$('#findPhone2').focus();
 					} 
 				});
