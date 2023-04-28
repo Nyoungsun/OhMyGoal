@@ -84,20 +84,20 @@ String seq = request.getParameter("seq");
 </header>
 
 <div class="shadow-lg p-3 mb-5 bg-body rounded" id="box" style="height: 100%; width: 50%;">
-    <div class="mainThumbnail" align="center" >
+    <div class="mainThumbnail" align="center" style="width:70%; height: 60%; align:center; display: block; margin: 0 auto; border-radius: 5px;" >
         <!-- <img src="../img/thumbnail/thumb1.jpg" alt="썸네일" style="width: 85%; height: 45%; border-radius: 15px;"> -->
     </div>
     
     
     <div id="topConent">
-	    <div class="subject" style=" margin-bottom: 2%;">
+	    <div class="subject" style=" margin-bottom: 6.5%; width:100%;">
 	    	<!-- <h1 >갓생! 미라클 모닝 ☀️</h1> -->
 	    </div>
 	    
 	   
 	    <div class="label container-fluid"></div>
 	    
-	    <div id="memberNum" style="display: flex; justify-content: flex-end; margin-top: -6%; margin-right:0.8%;" >
+	    <div id="memberNum" style="display: flex; justify-content: flex-end; margin-top: -6.8%; margin-right:0.8%;" >
 	    	<!-- Button trigger modal -->
 			<button type="button" id="memListBtn" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-toggle="tooltip" data-placement="top" data-offset="100,150" data-container="" title="미션 참여자를 확인해 보세요!">
 				<div id="memberNumText" ></div>
@@ -108,7 +108,7 @@ String seq = request.getParameter("seq");
 			  <div class="modal-dialog modal-dialog-scrollable">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <h1 class="modal-title fs-5" id="staticBackdropLabel">현재 참여자 🏃</h1>
+			        <h1 class="modal-title fs-5" id="staticBackdropLabel">🏃 미션 참여자 🏃</h1>
 			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      </div>
 			      <div class="modal-body" id="join_members"></div>	
@@ -128,7 +128,7 @@ String seq = request.getParameter("seq");
 
     <!--  <div class="userInfo" style="">
         <div class="userInfo2" style="display: flex;"> -->
-            <div class="userInfo3" style=" margin-top: 4% ;margin-bottom: 2%; margin-left:0.8%;">
+            <div class="userInfo3" style=" margin-top: 6% ;margin-bottom: 2%; margin-left:0.8%;">
                 <a href="#" target="_blank" rel="noreferrer">
                     <span class="userInfo4" style="white-space: nowrap;">
                         <span class="userImg" ></span>
@@ -137,7 +137,7 @@ String seq = request.getParameter("seq");
 
             </div>
             &nbsp;
-            <div class="dateDiv" style=" display: flex; justify-content: center; margin-top: -7%; margin-right:0.8%;  width:100%;">
+            <div class="dateDiv" style=" display: flex; justify-content: center; margin-top: -7.7%; margin-right:0.8%;  width:100%;">
                 <span class="date" style=" font-weight: bold;"></span>
             </div>
             &nbsp;
@@ -152,7 +152,7 @@ String seq = request.getParameter("seq");
         </div> -->
     
 
-	    <div class="contentContainer"></div>
+	    <div class="contentContainer" style="margin-top: 8%; margin-left: 1.5%; margin-right: 1.5%;"></div>
 	</div>
 
 </div>
@@ -190,6 +190,11 @@ $(document).ready(function() {
 	*/
 	
 	var today = new Date();
+	var nextDate = new Date(today);
+	nextDate.setDate(today.getDate() - 1);
+	nextDate.setHours(0, 0, 0, 0);
+	
+	//console.log("nextday: "+ nextDate);
 	
 	/*
 	console.log(today);
@@ -210,13 +215,15 @@ $(document).ready(function() {
 			var end_date =  new Date(data.end_date)
 			
 			console.log('end date: ' + end_date);
+			
+			console.log("nextday: "+ nextDate);
 		
 			//var end_date = new Date('2023년 4월 10일');
 			
 			//console.log("max member: " + data.maxmember);
 			
 			// 미션 기간 지났을 때
-			if(end_date < today) {
+			if(end_date < nextDate) {
 				
 				console.log('끝나는 날짜가 현재 날짜보다 빠릅니다.');
 			    
@@ -231,7 +238,7 @@ $(document).ready(function() {
 				$('.date').append(new Date(data.start_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}) + ' ~ ' + new Date(data.end_date).toLocaleDateString('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'})).css('color', 'grey');
 				$('.likeName').append('&nbsp;'+data.likes);
 				$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10 style="white-space: pre-line;" >'+ data.content +'</pre> <div id="missionBtn" class="btn1 d-grid gap-2 " data-toggle="tooltip" align="center" style="border-color:grey;"><input type="submit" id="msBtn"  class="btn1 " data-toggle="tooltip" data-placement="top" data-offset="flex-end" data-container="" title="종료된 미션은 참가할 수 없어요 😢"  align="center" value="종료된 미션입니다." style="border-color: lightgrey; background-color:lightgrey; color:black;"> <input type="button" id="backBtn" value="👀 다른 미션 보러가기 👀" class="btn1 d-grid gap-2 " onclick="gotoPage();"> </div>');
-				$('#join_members').append('<h4>' + data.id + '<br><hr>');
+				$('#join_members').append('<h4>🤖 '+ data.id + '<br><hr>');
 				for (let item of arr) {$('#join_members').append(item+'<br>');}
 				$('#join_members').append('</h4>');
 				
@@ -264,7 +271,7 @@ $(document).ready(function() {
 				
 				// 미션 최대 인원 다 찼을 때 참여 안됨
 				if(arr.length >= data.maxmember){
-					$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'+ data.content +'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기"></div><div class="modal fade"id="modal2"data-bs-backdrop="static"data-bs-keyboard="false"tabindex="-1"aria-labelledby="staticBackdropLabel"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--<h5 class="modal-title fs-5"id="modal2Label">미션참가모달</h5>--><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><h4 style="text-align: center; font-weight:bold;">미션 참여인원이 다 찼어요!</h4></div><div class="modal-footer"style="display: flex; justify-content: center;"><button type="button" class="btn btn-primary" style="width: 40%" onclick="gotoMain();">다른 미션 보러가기</button></div></div></div></div>');
+					$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'+ data.content +'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기"></div><div class="modal fade"id="modal2"data-bs-backdrop="static"data-bs-keyboard="false"tabindex="-1"aria-labelledby="staticBackdropLabel"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--<h5 class="modal-title fs-5"id="modal2Label">미션참가모달</h5>--><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><h4 style="text-align: center; font-weight:bold;">미션 참여인원이 다 찼어요!</h4></div><div class="modal-footer"style="display: flex; justify-content: center;"><button type="button" class="btn btn-primary" style="width: 40%" onclick="gotoPage();">다른 미션 보러가기</button></div></div></div></div>');
 				}
 				
 				else{
@@ -272,8 +279,8 @@ $(document).ready(function() {
 				}
 				
 				//$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'+ data.content +'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기"></div><div class="modal fade"id="modal2"data-bs-backdrop="static"data-bs-keyboard="false"tabindex="-1"aria-labelledby="staticBackdropLabel"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--<h5 class="modal-title fs-5"id="modal2Label">미션참가모달</h5>--><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><h4 style="text-align: center; font-weight:bold;">미션에 참여하시겠습니까?</h4></div><div class="modal-footer"style="display: flex; justify-content: center;"><button type="button" class="btn btn-primary" style="width: 40%" onclick="missionJoin();">미션참여</button></div></div></div></div>');
-				$('#join_members').append('<h4>' + data.id + '<br><hr>');
-				for (let item of arr) {$('#join_members').append(item+'<br>');}
+				$('#join_members').append('<h4>🤖 ' + data.id + '<br><hr>');
+				for (let item of arr) {$('#join_members').append('ㆍ'+ item+'<br>');}
 				$('#join_members').append('</h4>');
 			
 			
@@ -363,7 +370,7 @@ function missionJoin() {
 }
 
 	
-function gotoMain(){
+function gotoPage(){
 	location.href = '/OhMyGoal/';
 }
 </script>

@@ -22,6 +22,18 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           rel="stylesheet">
+          
+   <style>
+   
+	   #start_date {
+	    	background-image: none !important;
+	    }
+	    	
+	  #start_date::after {
+	    display: none !important;
+	  }
+	</style>
+          
 
 </head>
 
@@ -116,6 +128,7 @@
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="category" name="category">
                 <option value="" disabled selected hidden>카테고리를 선택하세요</option>
                 <option value="job">취업</option>
+                <option value="hobby">취미</option>
                 <option value="lang">어학</option>
                 <option value="health">운동</option>
                 <option value="etc">기타</option>
@@ -162,6 +175,16 @@
                   <option value="8">8</option>
                   <option value="9">9</option>
                   <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">8</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
               </select>
               <span id="peopleSpan" style="margin-left: 0px; margin-top:0px;"></span>
           </div>
@@ -382,17 +405,24 @@ $(document).ready(function(){
 	  // 시작날짜 데이트피커 초기화
 	  $("#start_date").datepicker({
 	    format: 'yyyy-mm-dd',
+	    todayBtn: 'linked',
+	    //clearBtn: true,
 	    autoclose: true,
 	    todayHighlight: true,
-	    //startDate: new Date(),
-	    //endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
+	    showButtonPanel: true,
+	    startDate: new Date(),
+	    endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
 	  });
+	  
 	  // 종료날짜 데이트피커 초기화
 	  $("#end_date").datepicker({
 	    format: 'yyyy-mm-dd',
+	    todayBtn: 'linked',
+	    //clearBtn: true,
 	    autoclose: true,
 	    todayHighlight: true,
-	    //startDate: new Date(),
+	    showButtonPanel: true,
+	   	startDate: new Date(),
 	    endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // 1년 후까지 선택 가능하도록 설정
 	    beforeShowDay: function(date) {
 	      var startDate = $('#start_date').datepicker('getDate'); // 시작날짜

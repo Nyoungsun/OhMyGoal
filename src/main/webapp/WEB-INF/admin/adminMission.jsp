@@ -165,7 +165,7 @@ $(document).ready(function() {
 $('#search_onclick_submit').click(function () {
 	var searchInput = document.getElementById("search-input").value.trim();
     if (searchInput === "") {
-        alert("검색할 아이디 혹은 이름을 입력하세요.");
+        alert("검색할 제목 혹은 아이디를 입력하세요.");
         event.preventDefault();
     }
     else{location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
