@@ -41,12 +41,5 @@ public class BoardPaging {
 	    
 	    pagingHTML.insert(0, "<ul class='pagination'>");
 	    pagingHTML.append("</ul>");
-	    System.out.println("*****" + pagingHTML);
-	    System.out.println(startPage);
-	    System.out.println(endPage);
-	    System.out.println(currentPage);
-	    System.out.println(totalP);
-	    System.out.println(totalA);
-	    System.out.println(pageSize);
 	}
 }
