@@ -40,5 +40,6 @@
 <li>coolsms</li>
 <li>Bootstrap</li>
 <li>CKEditor4</li>
+<li>Google Charts</li>
 </ul>
 
