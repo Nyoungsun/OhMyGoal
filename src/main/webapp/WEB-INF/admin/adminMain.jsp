@@ -44,23 +44,23 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex: 1;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-left:-600px;
   margin-right:250px;
-  margin-top:-400px;
+  margin-top:-280px;
 }
 
 .dashboard-block + .dashboard-block {
-  margin-top: 40px;
+  margin-top: -30px;
 }
 
 .block-title {
   font-size: 30px;
-  margin-top: 0;
+  margin-top: 15px;
 }
 
 .icon {
@@ -79,13 +79,13 @@
 .medal-table table {
   border-collapse: collapse;
   justify-content: center;
-  margin-left: 330px;
-  margin-top:10px;
+  margin-left: 300px;
+  margin-top:2px;
   width: 70%;
 }
 
 .medal-table th, .medal-table td {
-  margin-top:-100px;
+  margin-top:-200px;
   padding: 10px;
   text-align: center;
   vertical-align: middle;
@@ -184,7 +184,7 @@
 	  
 	</div>
 		<br><br><br>
- 		<div style="display:flex; margin-top: -1100px; margin-left:900px;">
+ 		<div style="display:flex; margin-top: -1000px; margin-left:900px;">
 		  <div id="donutchart" style="width: 100%; height: 650px;"></div>
 		</div><br><br>
 
@@ -222,7 +222,7 @@
  <br><br><br><br><br><br>
     
 </section>   
-<footer class="footer" align="center">
+ <footer class="footer" align="center">
         <div class="footerDiv" style="">
             <p><strong>OhMyGoal! 2023</strong></p>
             <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>

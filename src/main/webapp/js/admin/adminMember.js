@@ -29,9 +29,6 @@ $(function(){
           text: items.pwd
         })).append($('<td>', {
           align: 'center',
-          text: items.grade
-        })).append($('<td>', {
-          align: 'center',
           text: items.boards
         })).append($('<td>', {
           align: 'center',

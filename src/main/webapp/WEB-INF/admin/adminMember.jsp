@@ -251,7 +251,6 @@ div#grayLayer {
             <th class="admin_member_head">이름</th>
             <th class="admin_member_head">아이디</th>
             <th class="admin_member_head">비밀번호</th>
-            <th class="admin_member_head">랭킹</th>
             <th class="admin_member_head">참가 미션</th>
             <th class="admin_member_head">가입날짜</th>
           </tr>
