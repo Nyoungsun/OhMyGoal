@@ -3893,7 +3893,7 @@ $('#menuBar3').click(function() {
  });
 
 $(window).scroll(function() {
-    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+	if($(window).scrollTop() >= $(document).height() - $(window).height() && $(document).height() !== $(window).height()) {
     	$.ajax({
     		type: 'post',
     		url: '/OhMyGoal/board/list2',
