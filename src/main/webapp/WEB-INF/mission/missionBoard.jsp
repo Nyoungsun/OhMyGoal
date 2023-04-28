@@ -97,7 +97,7 @@ String seq = request.getParameter("seq");
 	   
 	    <div class="label container-fluid"></div>
 	    
-	    <div id="memberNum" style="display: flex; justify-content: flex-end; margin-top: -6.8%; margin-right:0.8%;" >
+	    <div id="memberNum" style="display: flex; justify-content: flex-end; margin-top: -6.8%; margin-right:0.8%; " >
 	    	<!-- Button trigger modal -->
 			<button type="button" id="memListBtn" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-toggle="tooltip" data-placement="top" data-offset="100,150" data-container="" title="미션 참여자를 확인해 보세요!">
 				<div id="memberNumText" ></div>
@@ -128,7 +128,7 @@ String seq = request.getParameter("seq");
 
     <!--  <div class="userInfo" style="">
         <div class="userInfo2" style="display: flex;"> -->
-            <div class="userInfo3" style=" margin-top: 6% ;margin-bottom: 2%; margin-left:0.8%;">
+            <div class="userInfo3" style=" margin-top: 6% ;margin-bottom: 2%; margin-left:3%;">
                 <a href="#" target="_blank" rel="noreferrer">
                     <span class="userInfo4" style="white-space: nowrap;">
                         <span class="userImg" ></span>
@@ -138,10 +138,10 @@ String seq = request.getParameter("seq");
             </div>
             &nbsp;
             <div class="dateDiv" style=" display: flex; justify-content: center; margin-top: -7.7%; margin-right:0.8%;  width:100%;">
-                <span class="date" style=" font-weight: bold;"></span>
+                <span class="date" style=" font-weight: bold; font-size: 16pt;"></span>
             </div>
             &nbsp;
-            <div class="likeDiv" style="display: flex; justify-content: end; margin-top: -6%; margin-right:0.8%; ">
+            <div class="likeDiv" style="display: flex; justify-content: end; margin-top: -6%; margin-right:3.8%; ">
                 <svg class="MuiSvgIcon-root MuiSvgIcon-colorDisabled MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 24 24" aria-hidden="true" title="프로젝트 응원하기" style="border: 1.5px solid palevioletred; border-radius: 100px; padding: 4px; cursor: pointer; height:30px; width:30px; margin-top:-3px;">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
                 </svg>
@@ -152,7 +152,7 @@ String seq = request.getParameter("seq");
         </div> -->
     
 
-	    <div class="contentContainer" style="margin-top: 8%; margin-left: 1.5%; margin-right: 1.5%;"></div>
+	    <div class="contentContainer" style="margin-top: 8%; margin-left: 1.5%; margin-right: 3%;"></div>
 	</div>
 
 </div>
@@ -187,7 +187,7 @@ $(document).ready(function() {
 	var currentDate = today.toLocaleDateString();
 
 	console.log(currentDate); // 예시: "2023-04-25"
-	*/
+	*/ 
 	
 	var today = new Date();
 	var nextDate = new Date(today);
@@ -279,7 +279,7 @@ $(document).ready(function() {
 				}
 				
 				//$('.contentContainer').append('<pre class="content bg-primary p-2 text-dark bg-opacity-10" style="white-space: pre-line;">'+ data.content +'</pre><div id="missionBtn" class="btn1 d-grid gap-2 " class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center"><input type="submit" id="msBtn"  class="btn1 btn-primary " data-bs-toggle="modal" data-bs-target="#modal2" align="center" value="그룹미션 참여하기"></div><div class="modal fade"id="modal2"data-bs-backdrop="static"data-bs-keyboard="false"tabindex="-1"aria-labelledby="staticBackdropLabel"aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--<h5 class="modal-title fs-5"id="modal2Label">미션참가모달</h5>--><button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"></button></div><div class="modal-body"><h4 style="text-align: center; font-weight:bold;">미션에 참여하시겠습니까?</h4></div><div class="modal-footer"style="display: flex; justify-content: center;"><button type="button" class="btn btn-primary" style="width: 40%" onclick="missionJoin();">미션참여</button></div></div></div></div>');
-				$('#join_members').append('<h4>🤖 ' + data.id + '<br><hr>');
+				$('#join_members').append('<h4>🧙 ' + data.id + '<br><hr>');
 				for (let item of arr) {$('#join_members').append('ㆍ'+ item+'<br>');}
 				$('#join_members').append('</h4>');
 			
