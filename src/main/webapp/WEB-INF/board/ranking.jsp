@@ -182,9 +182,9 @@ canvas {
 					<td><img src="../img/medal/third.png" alt="동메달"></td>
 				</tr>
 				<tr>
-					<td>${rankList[0].name}</td>
-					<td>${rankList[1].name}</td>
-					<td>${rankList[2].name}</td>
+					<td>${rankList[0].id}</td>
+					<td>${rankList[1].id}</td>
+					<td>${rankList[2].id}</td>
 				</tr>
 				<tr>
 					<td colspan="3" style="font-size: 10pt;">* 순위는 참여 중인 미션 개수 기준입니다.</td>

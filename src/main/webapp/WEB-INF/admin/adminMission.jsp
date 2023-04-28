@@ -107,7 +107,7 @@
             <th class="admin_board_head">제목</th>
             <th class="admin_board_head">카테고리</th>
             <th class="admin_board_head">참가 멤버</th>
-            <th class="admin_board_head">기한</th>
+            <th class="admin_board_head">작성일자</th>
             <th class="admin_board_head">삭제</th>
           </tr>
         </thead>
