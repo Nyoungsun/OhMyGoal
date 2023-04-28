@@ -33,7 +33,7 @@ font-family: 'Pretendard-Regular';
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 1500;
 }
-.memberloginbox-popup .login fieldset li {
+#login-wrap fieldset li {
     font: 0.75em 'Nanum Gothic',Verdana,Dotum,AppleGothic,sans-serif;
     font-family: 'Montserrat','Nanum Gothic',sans-serif;
     color: #353535;
@@ -62,13 +62,13 @@ font-family: 'Pretendard-Regular';
     line-height: 35px;
     color: #666666;
 }
-.memberloginbox-popup .login {
+#login-wrap .login {
     margin: 0 auto;
     padding: 40px 0;
     color: #2e2e2e;
     width: 500px;
 }
-.memberloginbox-popup .login fieldset {
+#login-wrap fieldset {
     position: relative;
     width: 380px;
     margin: 0 auto;
