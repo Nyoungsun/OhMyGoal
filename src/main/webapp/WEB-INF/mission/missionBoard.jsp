@@ -187,7 +187,7 @@ $(document).ready(function() {
 	var currentDate = today.toLocaleDateString();
 
 	console.log(currentDate); // 예시: "2023-04-25"
-	*/
+	*/ 
 	
 	var today = new Date();
 	var nextDate = new Date(today);
