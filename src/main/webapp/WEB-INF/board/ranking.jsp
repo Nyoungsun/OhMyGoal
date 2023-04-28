@@ -182,9 +182,9 @@ canvas {
 					<td><img src="../img/medal/third.png" alt="동메달"></td>
 				</tr>
 				<tr>
-					<td>${rankList[0].name}</td>
-					<td>${rankList[1].name}</td>
-					<td>${rankList[2].name}</td>
+					<td>${rankList[0].id}</td>
+					<td>${rankList[1].id}</td>
+					<td>${rankList[2].id}</td>
 				</tr>
 			</tbody>
 		</table>

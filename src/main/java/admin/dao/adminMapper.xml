@@ -75,9 +75,9 @@
  	
  	<!-- boards(참여한 미션들)/ 이름 불러오기 -->
  	<select id="getRanking" resultType="member.bean.MemberDTO">
- 		select name, boards from
+ 		select id, boards from
 		(select rownum rn, tt.* from
-		(select * from (select name, nvl(length(boards), 0) as boards from ohmygoal_member) order by boards desc)tt
+		(select * from (select id, nvl(length(boards), 0) as boards from ohmygoal_member) order by boards desc)tt
 		) WHERE rn BETWEEN 1 AND 3
  	</select>
  </mapper>

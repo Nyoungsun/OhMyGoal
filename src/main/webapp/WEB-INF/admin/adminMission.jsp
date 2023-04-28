@@ -107,7 +107,7 @@
             <th class="admin_board_head">제목</th>
             <th class="admin_board_head">카테고리</th>
             <th class="admin_board_head">참가 멤버</th>
-            <th class="admin_board_head">기한</th>
+            <th class="admin_board_head">작성일자</th>
             <th class="admin_board_head">삭제</th>
           </tr>
         </thead>
@@ -168,7 +168,7 @@ $('#search_onclick_submit').click(function () {
         alert("검색할 제목 혹은 아이디를 입력하세요.");
         event.preventDefault();
     }
-    else{location.href="/OhMyGoal/admin/adminMember?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
+    else{location.href="/OhMyGoal/admin/adminMission?pg="+$('#pg').val()+"&tag="+$('#condition').val()+"&word="+$('#search-input').val();}
 });
 
 $('#search-input').keydown(function (event) {if (event.keyCode == 13) {$('#search_onclick_submit').click();}});
