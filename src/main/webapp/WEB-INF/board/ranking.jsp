@@ -136,7 +136,7 @@ canvas {
 								href="../mission/missionWrite">그룹미션 만들기 </a></li>
 						</c:if>
 						<li class="nav-item"><a class="nav-link" href="qna">문의하기</a>
-							</li>
+						</li>
 					</ul>
 				</div>
 
@@ -186,6 +186,9 @@ canvas {
 					<td>${rankList[1].name}</td>
 					<td>${rankList[2].name}</td>
 				</tr>
+				<tr>
+					<td colspan="3" style="font-size: 10pt;">* 순위는 참여 중인 미션 개수 기준입니다.</td>
+				</tr> 
 			</tbody>
 		</table>
 	</div>
@@ -202,6 +205,7 @@ canvas {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 		crossorigin="anonymous">
+		
 	</script>
 	<script>
 		$(function() {
@@ -211,10 +215,10 @@ canvas {
 					$('#stopButton').trigger("click");
 				}, 6000);
 			}
-			
+
 			reAction();
 		});
-		
+
 		$('#logoutBtn').click(function() {
 			$.ajax({
 				type : 'post',
@@ -228,8 +232,8 @@ canvas {
 				}
 			});
 		});
-		
-		$('#topnav_loginBtn').click(function () {
+
+		$('#topnav_loginBtn').click(function() {
 			location.href = '/OhMyGoal/';
 		});
 	</script>

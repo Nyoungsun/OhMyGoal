@@ -30,31 +30,6 @@ header {
 	cursor: pointer;
 }
 
-/* 
-#editBtn {
-	font-size: 9pt;
-	float: right;
-	margin-top: 9px;
-	margin-right: 20px;
-	background: #0000FF;
-	color: #ffffff;
-	padding: 5px;
-	border: 1px solid blue;
-	box-shadow: 0px 3px 5px gray;
-}
-
-#logoutBtn {
-	font-size: 9pt;
-	float: right;
-	margin-top: 9px;
-	margin-right: 20px;
-	color: #ffffff;
-	padding: 5px;
-	box-shadow: 0px 3px 5px gray;
-	border: 1px solid black;
-	background: #000000;
-}
- */
 #profileDiv {
 	height: 450px;
 	background-color: #EEECE2;
@@ -95,7 +70,7 @@ header {
 #gradeDiv {
 	position: relative;
 	top: -20px;
-	width: 55%;
+	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 15pt;
@@ -104,7 +79,7 @@ header {
 }
 
 #missionDiv {
-	width: 55%;
+	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -115,37 +90,29 @@ header {
 	height: 35px;
 }
 
-#carousel {
-	margin-top: 20px;
-}
-
 .checkDiv {
 	color: #ff0000;
 	font-size: 10pt;
 }
 
+.seq {
+	width: 1%;
+}
+
 .subject {
 	font-weight: bold;
-	font-size: 20pt;
+	font-size: 15pt;
 }
 
 .img {
-	text-align: center;
-	vertical-align: middle;
-	width: 25%;
+	width: 230px;
+	height: 210px;
 }
 
 .img img {
-	width: 90%;
-	border-radius: 10px;
-}
-
-.content {
-	width: 20%;
-	height: 20%;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+	width: 100%;
+	height: 100%;
+	border-radius : 10px;
 }
 
 input[value='미션 보러가기'] {
@@ -195,8 +162,6 @@ footer {
 	width: 100%;
 }
 
-input[type="button"], 
-input[type="reset"],
-input[type="text"] {
+input[type="button"], input[type="reset"], input[type="text"] {
 	border-radius: 5px;
 }

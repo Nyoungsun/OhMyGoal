@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://kit.fontawesome.com/35dbfa967d.js" crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>로그인</title>
 <style type="text/css">
 @font-face {
 	font-family: 'Pretendard-Regular';
