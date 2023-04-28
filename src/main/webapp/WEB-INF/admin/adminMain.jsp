@@ -122,7 +122,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container" style="">
-            <a class="OMGlogo" href="/OhMyGoal/"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
+            <a class="OMGlogo" href="../"><img src="../img/logo/logo_no_bg2.png" alt="OhMyGoal!"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">

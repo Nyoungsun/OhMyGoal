@@ -124,7 +124,7 @@
 	
 	<select id="endList" resultType="board.bean.BoardDTO">
 		<![CDATA[
-		SELECT * FROM ohmygoal_board WHERE end_date < sysdate and img != '/OhMyGoal/image/EndingMission.png'
+		SELECT * FROM ohmygoal_board WHERE end_date < (SYSDATE - INTERVAL '1' DAY) and img != '/OhMyGoal/image/EndingMission.png'
 		]]>
 	</select>
 	
