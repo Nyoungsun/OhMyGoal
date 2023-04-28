@@ -182,7 +182,7 @@
                   <option value="15">15</option>
                   <option value="16">16</option>
                   <option value="17">17</option>
-                  <option value="18">8</option>
+                  <option value="18">18</option>
                   <option value="19">19</option>
                   <option value="20">20</option>
               </select>
@@ -274,6 +274,21 @@
 <!-- 유효성 검사 -->
 
 <script type="text/javascript">
+
+$('#logoutBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: '/OhMyGoal/board/logout',
+		success: function(){
+			alert("로그아웃이 완료되었습니다.");
+			location.href = '/OhMyGoal/';
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
 $('#msBtn').on('click', function(event) {
 	event.preventDefault(); 		// submit 버튼의 기본 동작인 form 전송을 막음
     

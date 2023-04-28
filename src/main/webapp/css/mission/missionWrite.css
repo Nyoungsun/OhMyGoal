@@ -307,7 +307,8 @@ span{
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid #888;
-  width: 100; /* 모달 컨텐츠 너비 */
+  width: 100%; /* 모달 컨텐츠 너비 */
+  height: 70%;
   max-width: 500px; /* 모달 컨텐츠 최대 너비 */
 }
 
