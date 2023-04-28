@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>회원 정보</title>
 <style type="text/css">
 #signup-wrap {
   display: none;

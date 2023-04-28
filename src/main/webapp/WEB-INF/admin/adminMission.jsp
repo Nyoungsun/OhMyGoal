@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="../css/admin/adminMission.css">
 <link rel="stylesheet" href="../css/admin/adminMain.css">
 
-<title>AdminMission👅</title>
+<title>미션관리</title>
 </head>
 
 <body>

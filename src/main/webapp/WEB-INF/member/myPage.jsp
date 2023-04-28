@@ -239,7 +239,7 @@ input{
 						}).append($('<th/>', {
 							rowspan: '3',
 							id: 'seq' + i,
-							scope: 'row',
+							class: 'seq',
 							text: items.seq
 						})).append($('<td/>', {
 							rowspan: '3',
@@ -251,11 +251,7 @@ input{
 							id: 'subject' + i,
 							class: 'subject',
 							text: items.subject
-						}))).append($('<tr/>').append($('<td/>').append($('<div/>', {
-							rowspan: '3',
-							id: 'content' + i,
-							class: 'content'
-						})))).append($('<tr/>').append($('<td/>', {
+						}))).append($('<tr/>').append($('<td/>'))).append($('<tr/>').append($('<td/>', {
 							colspan:'3',
 							id:'btn' + i,
 							align: 'right'

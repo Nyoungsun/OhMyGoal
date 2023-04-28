@@ -34,7 +34,13 @@ public class MemberDAOMyBatis implements MemberDAO{
 
 	@Override
 	public String getBoards(String id) {
-		return sqlSession.selectOne("memberSQL.getBoards", id);
+		String boards =  sqlSession.selectOne("memberSQL.getBoards", id);
+		
+		if(boards == null) {
+			return "0";
+		} else {
+			return boards;
+		}
 	}
 
 	@Override
@@ -56,7 +62,6 @@ public class MemberDAOMyBatis implements MemberDAO{
 	public void outMembers(String id) {
 		sqlSession.update("memberSQL.outMembers", id);
 		sqlSession.update("memberSQL.membersTrim");
-		
 	}
 
 	@Override

@@ -144,14 +144,15 @@ public class MemberController {
 
 		String boards = memberService.getBoards(id); // 멤버테이블에 boards 가져오기
 		List<String> boardSeq = Arrays.asList(boards.split(" ")); // split해서 list에 넣기
-
+		System.out.println("미션 개수 = " + boardSeq.size());
+		
 		if (boardSeq.size() == 1) {
 			return "스타터😎";
 		} else if (boardSeq.size() > 1 && boardSeq.size() <= 2) {
 			return "비기너😎";
 		} else if (boardSeq.size() > 2 && boardSeq.size() <= 4) {
 			return "아마추어😎";
-		} else if (boardSeq.size() > 4 && boardSeq.size() <= 6) {
+		} else if (boardSeq.size() > 4 && boardSeq.size() < 10) {
 			return "세미프로😎";
 		} else if (boardSeq.size() >= 10) {
 			return "프로😎";

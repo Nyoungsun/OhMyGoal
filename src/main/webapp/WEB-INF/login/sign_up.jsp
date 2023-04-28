@@ -4,7 +4,7 @@
 <html> 
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>회원가입</title>
 <style type="text/css">
 #signup-wrap {
   display: none;
@@ -297,7 +297,7 @@ $('#writeBtn').click(function(){ //checkWrite() 함수를 jQuery형식으로 구현
 		$('#repwd').focus();
 	}
 	else if($('#checkBtn').val() != '인증완료 되었습니다.'){
-		$('#codeDiv').text('이메일 인증을 진행해주십쇼.');
+		$('#codeDiv').text('이메일 인증을 진행해주세요.');
 		$('#codeDiv').css({'color': 'red', 'font-size': '8pt'});
 		$('#code').focus();
 	}

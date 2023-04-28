@@ -18,7 +18,7 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <link rel="stylesheet" href="../css/admin/adminMain.css">
-<title>AdminPage👅</title>
+<title>관리자 페이지</title>
 <style type="text/css">
 #container-fluid {
   margin-top: 50px;
