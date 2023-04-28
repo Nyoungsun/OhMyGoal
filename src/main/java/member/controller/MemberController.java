@@ -156,7 +156,7 @@ public class MemberController {
 		} else if (boardSeq.size() >= 10) {
 			return "프로😎";
 		} else {
-			return "스타터😎";
+			return "프로😎";
 		}
 	}
 
