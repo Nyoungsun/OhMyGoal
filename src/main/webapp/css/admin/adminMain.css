@@ -94,10 +94,12 @@ header {
 body {
     font-weight: 400;
 	font-size: 140%; 
-	line-height: 1.6;
+	line-height: 1.4;
 	color: #333;
 	background-color: #FFFFFF;
 	margin: 0;
+	margin-bottom:0px;
+	height:80%
 }
 
 a {
@@ -235,9 +237,14 @@ div#grayLayer {
 
 /* Footer */
 footer {
+	position:relative;  
     background-color: #f7f7f7;
     color: #000000;
     padding: 50px 0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin-bottom:0px;
 }
 
 footer p {
