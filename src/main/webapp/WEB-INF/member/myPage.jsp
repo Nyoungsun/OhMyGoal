@@ -229,7 +229,8 @@ input{
 					var i = 0;
 					var today = new Date();
 					$.each(data, function (index, items) {
-						var end_date = new Date(items.end_date).setHours(23);
+						var end_date = new Date(items.end_date).setHours(24);
+						console.log(end_date);
 						i++;
 						$('<div/>').append($('<div/>', {
 							class: today <= end_date ? 'missionList shadow p-3 mb-5 bg-body rounded wow bounce' : 'missionList shadow p-3 mb-5 rounded expire'
