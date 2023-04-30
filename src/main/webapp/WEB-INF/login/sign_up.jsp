@@ -210,7 +210,7 @@ input{
 <script type="text/javascript">
 $('#id').focusout(function(){ //중복 아이디 체크
 	if($('#id').val() == ''){
-		$('#idDiv').text('먼저 아이디를 입력');
+		$('#idDiv').text('먼저 아이디를 입력하세요.');
 		$('#idDiv').css('color', 'red');
 		
 	}else{
@@ -281,12 +281,12 @@ $('#writeBtn').click(function(){ //checkWrite() 함수를 jQuery형식으로 구현
 	$('#codeDiv').empty();
 	
 	if($('#id').val() == ''){
-		$('#idDiv').text('아이디 입력');
+		$('#idDiv').text('아이디를 입력하세요.');
 		$('#idDiv').css('color', 'red');
 		$('#id').focus();
 	}
 	else if($('#pwd').val() == ''){
-		$('#pwdDiv').text('비밀번호 입력');
+		$('#pwdDiv').text('비밀번호를 입력하세요.');
 		$('#pwdDiv').css('color', 'red');
 		$('#pwd').focus();
 	}

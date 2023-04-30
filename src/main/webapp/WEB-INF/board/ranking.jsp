@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>명예의 전당</title>
+<link rel="shortcut icon" href="../img/icon/check.ico">
 <!--BootStrap-->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"

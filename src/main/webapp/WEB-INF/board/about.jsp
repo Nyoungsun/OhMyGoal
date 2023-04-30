@@ -27,6 +27,7 @@
 	new WOW().init(); // wow 활성화
 </script>
 <script type="text/javascript">
+	
 </script>
 </head>
 
@@ -148,7 +149,7 @@
 							오늘의 미션에 참여하기</a>
 					</div>
 					<div class="col-md-6 col-sm-12">
-						<img src="../img/challenge.png" alt="Mission" class="img-fluid">
+						<img src="../image/challenge.png" alt="Mission" class="img-fluid">
 					</div>
 				</div>
 			</div>
@@ -209,24 +210,23 @@
 	<script type="text/javascript"
 		src="http://code.jQuery.com/jquery-3.6.4.min.js"></script>
 	<script type="text/javascript">
-$('#logoutBtn').click(function(){
-	$.ajax({
-		type: 'post',
-		url: '/OhMyGoal/board/logout',
-		success: function(){
-			alert("로그아웃이 완료되었습니다.");
+		$('#logoutBtn').click(function() {
+			$.ajax({
+				type : 'post',
+				url : '/OhMyGoal/board/logout',
+				success : function() {
+					alert("로그아웃이 완료되었습니다.");
+					location.href = '/OhMyGoal/';
+				},
+				error : function(err) {
+					console.log(err);
+				}
+			});
+		});
+
+		$('#topnav_loginBtn').click(function() {
 			location.href = '/OhMyGoal/';
-		},
-		error: function(err){
-			console.log(err);
-		}
-	});
-});
-
-$('#topnav_loginBtn').click(function () {
-	location.href = '/OhMyGoal/';
-});
-
-</script>
+		});
+	</script>
 </body>
 </html>
