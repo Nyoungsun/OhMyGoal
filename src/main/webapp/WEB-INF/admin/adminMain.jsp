@@ -28,7 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 5vh;
 }
 
 .dashboard-row {
@@ -38,21 +38,26 @@
 }
 
 .dashboard-block {
+  position:relative;
   background-color: #ffffff;
   border: 1px solid #dddddd;
-  border-radius: 4px;
+  border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex: 1;
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
   justify-content: center;
   align-items: center;
-  margin-left:-600px;
-  margin-right:250px;
-  margin-top:-280px;
+  margin-right: -770px;
+  margin-left: 250px;
+  margin-top: -700px;
+  max-width:550px;
+  max-height: 200px; /* 최대 높이 설정 */
+  height: auto;
 }
+
 
 .dashboard-block + .dashboard-block {
   margin-top: -30px;
@@ -79,13 +84,16 @@
 .medal-table table {
   border-collapse: collapse;
   justify-content: center;
-  margin-left: 300px;
-  margin-top:2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -100px;
+  margin-bottom:0px;
   width: 70%;
 }
 
+
 .medal-table th, .medal-table td {
-  margin-top:-200px;
+  margin-top:50px;
   padding: 10px;
   text-align: center;
   vertical-align: middle;
@@ -109,8 +117,6 @@
   display: block;
   margin: 0 auto;
 }
-
-
 
 
 </style>
@@ -166,6 +172,10 @@
     </nav>
 </header>
 <section>
+	<div style="display:flex; margin-top: 50px; margin-right:250px;">
+		  <div id="donutchart" style="width: 70%; height: 700px;"></div>
+	</div><br><br>
+		
 	<div class="dashboard">
 	  <div class="dashboard-row">
 	    <div class="dashboard-block">
@@ -183,19 +193,17 @@
 	  </div>
 	  
 	</div>
-		<br><br><br>
- 		<div style="display:flex; margin-top: -1000px; margin-left:900px;">
-		  <div id="donutchart" style="width: 100%; height: 650px;"></div>
-		</div><br><br>
+		<br>
+ 		
 
-	<!-- ranking  -->
-
-<div class="medal-table">
-<h3 style="text-align: center"><strong>회원 미션 순위</strong></h3><br><br>
+<!-- ranking  -->
+<div class="medal-table" style="margin-bottom:70px;">
   <table>
     <thead>
       <tr>
-        <th></th>
+        <th colspan="4">회원 미션 순위</th>
+       </tr>
+       <th></th>
         <th>금메달</th>
         <th>은메달</th>
         <th>동메달</th>
@@ -219,11 +227,11 @@
   </table>
 </div>
 
- <br><br><br><br><br><br>
+ <br><br>
     
 </section>   
  <footer class="footer" align="center">
-        <div class="footerDiv" style="">
+        <div class="footerDiv" style="margin-bottom:0px;">
             <p><strong>OhMyGoal! 2023</strong></p>
             <p>모든 컨텐츠의 저작권은 OhMyGoal에게 있습니다.</p>
             <p>ohmygoal.help@gmail.com</p>
