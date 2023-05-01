@@ -172,11 +172,11 @@ input[type="text"] {
 	</script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
+	var phoneRegex = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
+	
 		//아이디 찾기
 		$('#recieveNumber').click(function() {
 			$('#checkFindPhone').empty();
-			var phoneRegex = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
-			 
 			if ($('#findPhone').val() == '' || !phoneRegex.test($('#findPhone').val())) {
 				$('#checkFindPhone').text('올바른 핸드폰 번호를 입력하세요.');
 				$('#findPhone').focus();
@@ -236,9 +236,9 @@ input[type="text"] {
 		$('#recieveNumber2').click(function() {
 			$('#checkFindPhone2').empty();
 
-			if ($('#findPhone').val() == '' || !phoneRegex.test($('#findPhone').val())) {
-				$('#checkFindPhone').text('올바른 핸드폰 번호를 입력하세요.');
-				$('#findPhone').focus();
+			if ($('#findPhone2').val() == '' || !phoneRegex.test($('#findPhone2').val())) {
+				$('#checkFindPhone2').text('올바른 핸드폰 번호를 입력하세요.');
+				$('#findPhone2').focus();
 			} else {
 				$.ajax({
 					type : 'post',
