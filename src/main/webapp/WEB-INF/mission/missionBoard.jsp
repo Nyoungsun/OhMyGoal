@@ -191,7 +191,7 @@ $(document).ready(function() {
 	
 	var today = new Date();
 	var nextDate = new Date(today);
-	nextDate.setDate(today.getDate() - 1);
+	nextDate.setDate(today.getDate() + 1);
 	nextDate.setHours(0, 0, 0, 0);
 	
 	//console.log("nextday: "+ nextDate);
