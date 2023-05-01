@@ -92,7 +92,7 @@
 								궁금한 점이 있으시면 저희에게 <br>문의해 주시기 바랍니다.
 							</h1>
 
-							<a href="http://localhost:8080/OhMyGoal/board/faq"
+							<a href="/OhMyGoal/board/faq"
 								class="btn btn-primary"
 								style="border-color: #0000ff; background-color: #0000ff;">자주
 								묻는 질문</a>
