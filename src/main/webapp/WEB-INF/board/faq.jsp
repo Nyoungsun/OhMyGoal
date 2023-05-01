@@ -238,7 +238,7 @@
 								자주 묻는 질문입니다. <br> 편리하게 질문을 찾아보세요. 
 							</h1>
 
-							<a href="http://localhost:8080/OhMyGoal/board/qna" class="btn btn-primary" style="border-radius: 5px; border-color: #0000ff; background-color: #0000ff;">1:1 문의하기</a>
+							<a href="/OhMyGoal/board/qna" class="btn btn-primary" style="border-radius: 5px; border-color: #0000ff; background-color: #0000ff;">1:1 문의하기</a>
 						</div>
 						<div class="col-md-4 col-sm-8">
 							<img src="../img/faq.png" alt="Mission" class="img-fluid">
