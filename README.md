@@ -37,7 +37,7 @@
 <li>jQuery</li>
 </ul>
 
-<h4>Open API(plugin, source)💻</h4>
+<h4>OpenAPI(plugin, source)💻</h4>
 <ul>
 <li>Daum PostCode Service</li>
 <li>coolsms</li>
