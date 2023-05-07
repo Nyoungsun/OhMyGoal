@@ -32,6 +32,15 @@
 <h4>기획💻</h4>
 <ul>
 <li>Figma</li>
+
+<h4>FrontEnd💻</h4>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>jQuery</li>
+</ul>
+
 </ul>
 <h4>BackEnd💻</h4>
 <ul>
@@ -41,13 +50,6 @@
 <li>Oracle Cloud</li>
 </ul>
 
-<h4>FrontEnd💻</h4>
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>jQuery</li>
-</ul>
 
 <h4>OpenAPI(plugin, source)💻</h4>
 <ul>
