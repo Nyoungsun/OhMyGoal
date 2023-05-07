@@ -90,15 +90,15 @@ infinite scroll: 스크롤의 위치를 인식하여 특정 범위를 벗어나�
 소개 페이지를 읽고 어떤 사이트인지 또는 어떻게 이용하면 좋을지에 대해 알 수 있게끔, 또 바로 미션에 참가할 수 있도록 구성 <br>
 * Bootstrap과 JavaScript 오픈 소스 활용
 
-<h4>4.명예의전당 - youngsun</h4>
-<img width="80%" src="https://user-images.githubusercontent.com/121652746/236685236-ea447747-0c09-4d35-8b3f-b7463c5b0ca0.gif"/>
-* Tistory flower 활용
-
-<h4>5.문의하기(QnA), FAQ - sunghwan</h4>
+<h4>4.문의하기(QnA), FAQ - sunghwan</h4>
 <img width="80%" src="https://user-images.githubusercontent.com/121652746/236685490-6d96c32f-b1c0-4f5c-a456-f4e8c9be9bba.gif"/>
 <img width="80%" src="https://user-images.githubusercontent.com/121652746/236685786-5805d665-39c4-4855-8a4a-631f30a13514.gif"/>
-QnA: Google Apps Mail, Gooogle sheet를 이용하여 사용자의 문의사항을 관리자 메일로 전송되게끔 구현 <br>
+QnA: Google Apps Mail, Google sheet를 이용하여 사용자의 문의사항을 관리자 메일로 전송되게끔 구현 <br>
 FAQ: 사이트 이용에 관한 자주묻는 질문과 답변
+
+<h4>5.명예의전당 - youngsun</h4>
+<img width="80%" src="https://user-images.githubusercontent.com/121652746/236685236-ea447747-0c09-4d35-8b3f-b7463c5b0ca0.gif"/>
+* Tistory flower 활용
 
 <h4>6.마이페이지 - youngsun</h4>
 <img width="80%" src="https://user-images.githubusercontent.com/121652746/236685983-c96bd549-5e11-4930-b805-7d6f5408bd97.gif"/>
