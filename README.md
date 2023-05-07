@@ -48,3 +48,9 @@
 <li>Tistory flower</li>
 </ul>
 
+<h2>소개📄</h2>
+<h4>1. 메인페이지</h4>
+<img width="80%" src="https://user-images.githubusercontent.com/121652746/236657081-4e1b6696-ebde-4618-b229-06b1fb8d7a03.gif"/>
+
+<h4>2. 메인페이지</h4>
+<img width="80%" src="https://user-images.githubusercontent.com/121652746/236657081-4e1b6696-ebde-4618-b229-06b1fb8d7a03.gif"/>
