@@ -91,7 +91,7 @@
 <h4>3.아이디/비밀번호 찾기 - youngsun</h4>
 <img width="80%" src="https://user-images.githubusercontent.com/121652746/236684648-a2ec80c3-76c7-4b86-85b6-591ef6e33820.png"/>
 아이디/비밀번호 찾기시 SMS 인증을 통하여 본인임을 인증하도록 함 <br>
-인증번호는 java의 random 함수를 이용하여 6자리의 숫자를 생성하여 전송함
+인증번호는 java의 random 함수를 이용하여 6자리의 숫자를 생성하여 전송함  <br>
 * coolSMS API 활용 <br>
 
 <h4>3.소개 - sunghwan</h4>
