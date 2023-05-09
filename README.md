@@ -48,6 +48,7 @@
 <li>JDBC</li>
 <li>MyBatis</li>
 <li>Oracle Cloud</li>
+<li>Apache Tomcat(localhost에서 진행)</li>
 </ul>
 
 <h4>OpenAPI(plugin, source)💻</h4>
@@ -59,6 +60,11 @@
 <li>Google Charts</li>
 <li>Google Apps Mail</li>
 <li>Tistory flower</li>
+</ul>
+
+<h4>버전 관리💻</h4>
+<ul>
+<li>Github</li>
 </ul>
 
 <h2>소개📄</h2>
