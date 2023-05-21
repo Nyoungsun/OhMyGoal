@@ -1,5 +1,6 @@
 <h1>🌍OhMyGoal! - 1일 1미션 사이트</h1>
 * 학습용 프로젝트입니다.
+
 <h2>Team👪</h2>
 <table>
   <tbody>
