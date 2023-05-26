@@ -77,6 +77,10 @@
 &nbsp;→ 마이페이지에서 개인정보수정을 눌렀을 시 나타나는 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) 비밀번호 확인 모달 창 (2) 개인정보수정 모달 창 (3) 비밀번호 변경 모달 창 (4) 회원탈퇴 모달 창
 
+<h4>DB</h4>
+<img width="80%" src="https://github.com/Nyoungsun/OhMyGoal/assets/121652746/1f8430b5-8455-4086-b266-e819d70aec34"/>
+
+
 <h4>1.메인페이지 - geonryul</h4>
 <img width="80%" src="https://user-images.githubusercontent.com/121652746/236657081-4e1b6696-ebde-4618-b229-06b1fb8d7a03.gif"/>
 1)게시물<br>
