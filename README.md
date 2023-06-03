@@ -18,7 +18,7 @@
   </tbody>
 </table>
 <ul>
-<li>youngsun: 마이페이지, 명예의 전당, 아이디/비밀번호 찾기, 개인정보수정(비밀번호 확인, 비밀번호 변경), 회원탈퇴, Git, Oracle Cloud</li> <br>
+<li>youngsun: 마이페이지, 명예의 전당, 아이디/비밀번호 찾기, 개인정보수정(비밀번호 확인, 비밀번호 변경), 회원탈퇴, Git, Oracle Cloud DB</li> <br>
 <li>geonryul: 메인페이지, 로그인/회원가입</li> <br>
 <li>hyunju: 미션 만들기, 미션 글</li> <br>
 <li>sunghwan: 사이트 소개, 문의하기(QnA, FAQ)</li> <br>
