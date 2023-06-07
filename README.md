@@ -48,7 +48,7 @@
 <li>Spring</li>
 <li>JDBC</li>
 <li>MyBatis</li>
-<li>Oracle Cloud</li>
+<li>Oracle Cloud DB</li>
 <li>Apache Tomcat(localhost에서 진행)</li>
 </ul>
 
