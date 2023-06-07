@@ -49,7 +49,7 @@
 <li>JDBC</li>
 <li>MyBatis</li>
 <li>Oracle Cloud DB</li>
-<li>Apache Tomcat(localhost에서 진행)</li>
+<li>Apache Tomcat</li>
 </ul>
 
 <h4>OpenAPI(plugin, source)💻</h4>
